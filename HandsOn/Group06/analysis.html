@@ -122,6 +122,7 @@
             <a href="#overview">Overview</a>
             <a href="#licensing">Licensing Analysis</a>
             <a href="#dictionary">Interactive Data Dictionary</a>
+            <a href="#naming">Resource Naming Strategy</a>
         </nav>
     </header>
 
@@ -849,6 +850,55 @@
                 </table>
             </div>
         </div>
+    </section>
+
+    <section id="naming">
+        <p class="eyebrow">04 · Resource Naming</p>
+        <h2>Resource Naming Strategy</h2>
+            <div>
+                <p>To ensure consistency, interoperability, and alignment with Linked Data best practices, the <em>LA 311 Fieldnotes</em> knowledge graph follows a well-defined resource naming strategy. It uses a custom domain (not the Protégé default), separate paths for classes, properties, and each kind of individual, and property URIs that are entirely independent of class URIs.</p>
+
+                <h3>Base Namespace</h3>
+                <p>All resources are minted under a dedicated, persistent base namespace controlled by Group 06, distinct from the default Protégé namespace (<code style="font-family: var(--mono); font-size: .82rem;">http://www.semanticweb.org/…</code>):</p>
+                <p><code style="font-family: var(--mono); font-size: .9rem; background: var(--wash); padding: 4px 8px; border-radius: 4px; color: var(--teal-dark);">https://group06.org/la311/</code></p>
+                <p>Four distinct sub-paths are derived from this base, one per resource category:</p>
+
+                <h3>1 · Classes</h3>
+                <p>Path: <code style="font-family: var(--mono); font-size: .85rem; background: var(--wash); padding: 2px 6px; border-radius: 3px;">https://group06.org/la311/ontology/class/</code></p>
+                <p>Named in <strong>UpperCamelCase</strong>, e.g.:</p>
+                <ul class="plain-list">
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/class/ServiceRequest</code></li>
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/class/Department</code></li>
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/class/Neighborhood</code></li>
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/class/Location</code></li>
+                </ul>
+
+                <h3>2 · Properties</h3>
+                <p>Path: <code style="font-family: var(--mono); font-size: .85rem; background: var(--wash); padding: 2px 6px; border-radius: 3px;">https://group06.org/la311/ontology/property/</code></p>
+                <p>Named in <strong>lowerCamelCase</strong>, independent of class names, e.g.:</p>
+                <ul class="plain-list">
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/property/assignedTo</code> <span style="color: var(--muted);">(object)</span></li>
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/property/locatedAt</code> <span style="color: var(--muted);">(object)</span></li>
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/property/hasStatus</code> <span style="color: var(--muted);">(object)</span></li>
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/property/srNumber</code> <span style="color: var(--muted);">(datatype)</span></li>
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/property/createdDate</code> <span style="color: var(--muted);">(datatype)</span></li>
+                    <li><code style="font-family: var(--mono); font-size: .85rem;">…/ontology/property/requestType</code> <span style="color: var(--muted);">(datatype)</span></li>
+                </ul>
+
+                <h3>3 · Individuals</h3>
+                <p>Each class of individual has its own dedicated sub-path under <code style="font-family: var(--mono); font-size: .85rem;">…/resource/</code>, keyed by a natural identifier from the source data:</p>
+                <ul class="plain-list">
+                    <li><strong>Service Requests</strong> → <code style="font-family: var(--mono); font-size: .82rem;">…/resource/service-request/{SRNumber}</code><br>
+                        <span style="color: var(--muted); font-size: .82rem;">e.g. …/resource/service-request/1-5167495871</span></li>
+                    <li><strong>Departments</strong> → <code style="font-family: var(--mono); font-size: .82rem;">…/resource/department/{DeptCode}</code><br>
+                        <span style="color: var(--muted); font-size: .82rem;">e.g. …/resource/department/LASAN</span></li>
+                    <li><strong>Neighborhoods</strong> → <code style="font-family: var(--mono); font-size: .82rem;">…/resource/neighborhood/{NCName}</code><br>
+                        <span style="color: var(--muted); font-size: .82rem;">e.g. …/resource/neighborhood/boyle-heights</span></li>
+                    <li><strong>Locations</strong> → <code style="font-family: var(--mono); font-size: .82rem;">…/resource/location/{ZipCode}</code><br>
+                        <span style="color: var(--muted); font-size: .82rem;">e.g. …/resource/location/90012</span></li>
+                </ul>
+            </div>
+            
     </section>
 
     <script>
