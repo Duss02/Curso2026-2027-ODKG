@@ -11,7 +11,7 @@
 
 **Every URI in the RDF files:**
 
-- [ ] Is "readable" and has some meaning (e.g., it is not an auto-increased integer) to fix district and parking names
+- [x] Is "readable" and has some meaning (e.g., it is not an auto-increased integer) to fix district and parking names
 - [x] Is not encoded as a string
 - [x] Does not contain a double slash (i.e., “//”)
 
@@ -29,4 +29,4 @@
 
 ## Comments on the self-assessment
 _(If required)_
-for most proprieties we did not use a label as the name was readable
+  for most proprieties we did not use a label as the name was readable
