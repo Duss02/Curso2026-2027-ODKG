@@ -18,7 +18,8 @@
 **Every individual in the RDF files:**
 
 - [ ] Has a label with the name of the individual
-- [ ] Has a type
+    (to fix: Add rdfs:label triples for every individual.)
+- [ ] Has a type (i dont know i think not, ditricts and observetions are typed but individuals no?) 
 
 **Every value in the RDF files:**
 
