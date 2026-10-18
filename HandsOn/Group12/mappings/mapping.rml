@@ -203,17 +203,17 @@ map:om_028 rml:reference "Clase" ;
 	rr:datatype xsd:string ;
 	rr:termType rr:Literal .
 
-map:om_029 rml:reference "Nº Plazas Ofertadas" ;
+map:om_029 rml:reference "Plazas" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:nonNegativeInteger ;
 	rr:termType rr:Literal .
 
-map:om_030 rml:reference "Nº Plazas Ocupadas" ;
+map:om_030 rml:reference "Ocupadas" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:nonNegativeInteger ;
 	rr:termType rr:Literal .
 
-map:om_031 rml:reference "Nº Plazas Libres" ;
+map:om_031 rml:reference "Libres" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:nonNegativeInteger ;
 	rr:termType rr:Literal .
@@ -503,33 +503,33 @@ map:s_007 rdf:type rr:SubjectMap ;
 	rr:template "https://w3id.org/active-madrid/resource/SportsClass/CLOSED_{Centro deportivo}_{Clase}_{Año}_{Mes}" .
 
 map:source_000 rml:referenceFormulation ql:CSV ;
-	rml:source "sports_centers_info_updated.csv" ;
+	rml:source "sports_centers_info-updated.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_001 rml:referenceFormulation ql:CSV ;
-	rml:source "sports_centers_info_updated.csv" ;
+	rml:source "sports_centers_info-updated.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_002 rml:referenceFormulation ql:CSV ;
-	rml:source "sports_centers_info_updated.csv" ;
+	rml:source "sports_centers_info-updated.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_003 rml:referenceFormulation ql:CSV ;
-	rml:source "open_classes_updated.csv" ;
+	rml:source "open_classes-updated.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_004 rml:referenceFormulation ql:CSV ;
-	rml:source "closed_classes_updated.csv" ;
+	rml:source "closed_classes-updated.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_005 rml:referenceFormulation ql:CSV ;
-	rml:source "open_classes_updated.csv" ;
+	rml:source "open_classes-updated.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_006 rml:referenceFormulation ql:CSV ;
-	rml:source "open_classes_updated.csv" ;
+	rml:source "open_classes-updated.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_007 rml:referenceFormulation ql:CSV ;
-	rml:source "closed_classes_updated.csv" ;
+	rml:source "closed_classes-updated.csv" ;
 	rdf:type rml:LogicalSource .

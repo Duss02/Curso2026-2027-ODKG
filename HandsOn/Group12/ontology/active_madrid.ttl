@@ -145,4 +145,3 @@ am:SportsFacility a owl:Class ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty schema1:telephone ],
         schema1:SportsActivityLocation .
-
