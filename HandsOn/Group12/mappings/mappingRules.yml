@@ -13,7 +13,7 @@ prefixes:
 mappings:
   triplesmapSportsFacility:
     sources:
-      - [sports_centers_info_updated.csv~csv]
+      - [sports_centers_info-updated.csv~csv]
     s: res:SportsFacility/$(PK)
     po:
       - [a, am:SportsFacility]
@@ -27,7 +27,7 @@ mappings:
 
   triplesmapPostalAddress:
     sources:
-      - [sports_centers_info_updated.csv~csv]
+      - [sports_centers_info-updated.csv~csv]
     s: res:PostalAddress/$(PK)
     po:
       - [a, schema:PostalAddress]
@@ -36,7 +36,7 @@ mappings:
   
   triplesmapDistrict:
     sources:
-      - [sports_centers_info_updated.csv~csv]
+      - [sports_centers_info-updated.csv~csv]
     s: res:District/$(DISTRITO)
     po:
       - [a, am:District]
@@ -44,8 +44,8 @@ mappings:
 
   triplesmapSportActivity:
     sources:
-      - [open_classes_updated.csv~csv]
-      - [closed_classes_updated.csv~csv]
+      - [open_classes-updated.csv~csv]
+      - [closed_classes-updated.csv~csv]
     s: res:SportActivity/$(Actividad)
     po:
       - [a, am:SportActivity]
@@ -53,7 +53,7 @@ mappings:
       
   triplesmapTimeIntervals:
     sources:
-      - [open_classes_updated.csv~csv]
+      - [open_classes-updated.csv~csv]
     s: res:TimeInterval/$(Hora inicial)-$(Hora final)
     po:
       - [a, time:Interval]
@@ -62,7 +62,7 @@ mappings:
       
   triplesmapOpenClasses:
     sources:
-      - [open_classes_updated.csv~csv]
+      - [open_classes-updated.csv~csv]
     s: res:SportsClass/OPEN_$(Centro deportivo)_$(Fecha)_$(Hora inicial)_$(Actividad)
     po:
       - [a, am:SportsClass]
@@ -84,14 +84,14 @@ mappings:
 
   triplesmapClosedClasses:
     sources:
-      - [closed_classes_updated.csv~csv]
+      - [closed_classes-updated.csv~csv]
     s: res:SportsClass/CLOSED_$(Centro deportivo)_$(Clase)_$(Año)_$(Mes)
     po:
       - [a, am:SportsClass]
       - [schema:name, $(Clase), xsd:string]
-      - [am:offeredPlaces, $(Nº Plazas Ofertadas), xsd:nonNegativeInteger]
-      - [am:occupiedPlaces, $(Nº Plazas Ocupadas), xsd:nonNegativeInteger]
-      - [am:availablePlaces, $(Nº Plazas Libres), xsd:nonNegativeInteger]
+      - [am:offeredPlaces, $(Plazas), xsd:nonNegativeInteger]
+      - [am:occupiedPlaces, $(Ocupadas), xsd:nonNegativeInteger]
+      - [am:availablePlaces, $(Libres), xsd:nonNegativeInteger]
       - [am:hasActivity, res:SportActivity/$(Actividad)~iri]
       - p: am:takesPlaceAt
         o:
