@@ -4517,5 +4517,1423 @@
     "newColumnName": "WIKIDATA_ARTIST_URI",
     "columnInsertIndex": 9,
     "description": "Crea la colonna WIKIDATA_ARTIST_URI allindice {1} basato sulla colonna {2} utilizzando lespressione grel:if(cell.recon.match != null, \"https://www.wikidata.org/entity/\" + cell.recon.match.id, \"\")"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "RIIS (JACOB)",
+                "l": "RIIS (JACOB)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "RIIS (JACOB)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q49550280",
+      "name": "Riis Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Riis Park (Q49550280) per le celle contenenti \"RIIS (JACOB)\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "HUMBOLDT (ALEXANDER VON)",
+                "l": "HUMBOLDT (ALEXANDER VON)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "HUMBOLDT (ALEXANDER VON)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5940360",
+      "name": "Humboldt Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Humboldt Park (Q5940360) per le celle contenenti \"HUMBOLDT (ALEXANDER VON)\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "HUMBOLDT (ALEXANDER VON)",
+                "l": "HUMBOLDT (ALEXANDER VON)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "HUMBOLDT (ALEXANDER VON)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5940360",
+      "name": "Humboldt Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Humboldt Park (Q5940360) per le celle contenenti \"HUMBOLDT (ALEXANDER VON)\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "HUMBOLDT (ALEXANDER VON)",
+                "l": "HUMBOLDT (ALEXANDER VON)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "HUMBOLDT (ALEXANDER VON)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5940360",
+      "name": "Humboldt Park",
+      "types": [
+        "Q22698",
+        "Q22746",
+        "Q20204912",
+        "Q338112",
+        "Q17350442"
+      ],
+      "score": 51
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Humboldt Park (Q5940360) per le celle contenenti \"HUMBOLDT (ALEXANDER VON)\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "RUTHERFORD SAYRE",
+                "l": "RUTHERFORD SAYRE"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "RUTHERFORD SAYRE",
+    "judgment": "matched",
+    "match": {
+      "id": "Q49555101",
+      "name": "Rutherford-Sayre Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Rutherford-Sayre Park (Q49555101) per le celle contenenti \"RUTHERFORD SAYRE\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "BURNHAM (DANIEL)",
+                "l": "BURNHAM (DANIEL)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "BURNHAM (DANIEL)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q34910076",
+      "name": "Burnham Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Burnham Park (Q34910076) per le celle contenenti \"BURNHAM (DANIEL)\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "FULLER (MELVILLE)",
+                "l": "FULLER (MELVILLE)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "FULLER (MELVILLE)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q49492374",
+      "name": "Fuller Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Fuller Park (Q49492374) per le celle contenenti \"FULLER (MELVILLE)\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "CALUMET",
+                "l": "CALUMET"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "CALUMET",
+    "judgment": "matched",
+    "match": {
+      "id": "Q2934413",
+      "name": "Calumet Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Calumet Park (Q2934413) per le celle contenenti \"CALUMET\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "NORTHERLY ISLAND",
+                "l": "NORTHERLY ISLAND"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "NORTHERLY ISLAND",
+    "judgment": "matched",
+    "match": {
+      "id": "Q49533163",
+      "name": "Northerly Island Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Northerly Island Park (Q49533163) per le celle contenenti \"NORTHERLY ISLAND\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "INDEPENDENCE",
+                "l": "INDEPENDENCE"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "INDEPENDENCE",
+    "judgment": "matched",
+    "match": {
+      "id": "Q34891097",
+      "name": "Independence Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Independence Park (Q34891097) per le celle contenenti \"INDEPENDENCE\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Carrie Fischer",
+                "l": "Carrie Fischer"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "clearData": true,
+    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Martha Crandall",
+                "l": "Martha Crandall"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "clearData": true,
+    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Carl Brioschi",
+                "l": "Carl Brioschi"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "clearData": true,
+    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Walter Arnold",
+                "l": "Walter Arnold"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "clearData": true,
+    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Josh Holland",
+                "l": "Josh Holland"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "clearData": true,
+    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Moses Ezekiel",
+                "l": "Moses Ezekiel"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q5",
+        "name": "human"
+      },
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type Q5"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Moses Ezekiel",
+                "l": "Moses Ezekiel"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Moses Ezekiel",
+    "judgment": "matched",
+    "match": {
+      "id": "Q328580",
+      "name": "Moses Jacob Ezekiel",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Moses Jacob Ezekiel (Q328580) per le celle contenenti \"Moses Ezekiel\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Richard Hunt",
+                "l": "Richard Hunt"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q5",
+        "name": "human"
+      },
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type Q5"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Richard Hunt",
+                "l": "Richard Hunt"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Richard Hunt",
+    "judgment": "matched",
+    "match": {
+      "id": "Q7326615",
+      "name": "Richard Hunt",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Richard Hunt (Q7326615) per le celle contenenti \"Richard Hunt\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "George Segal",
+                "l": "George Segal"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q5",
+        "name": "human"
+      },
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type Q5"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "George Segal",
+                "l": "George Segal"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "George Segal",
+    "judgment": "matched",
+    "match": {
+      "id": "Q703624",
+      "name": "George Segal",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento George Segal (Q703624) per le celle contenenti \"George Segal\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Kasimir Chodzinski",
+                "l": "Kasimir Chodzinski"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q5",
+        "name": "human"
+      },
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type Q5"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Kasimir Chodzinski",
+                "l": "Kasimir Chodzinski"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Kasimir Chodzinski",
+    "judgment": "matched",
+    "match": {
+      "id": "Q16037670",
+      "name": "Kazimierz Chodziński",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Kazimierz Chodziński (Q16037670) per le celle contenenti \"Kasimir Chodzinski\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "OWNER_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q163740",
+        "name": "nonprofit organization"
+      },
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column OWNER_NAME to type Q163740"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "OWNER_NAME",
+          "expression": "value",
+          "columnName": "OWNER_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Chicago Park District",
+                "l": "Chicago Park District"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "OWNER_NAME",
+    "similarValue": "Chicago Park District",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5095758",
+      "name": "Chicago Recording Company",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Chicago Recording Company (Q5095758) per le celle contenenti \"Chicago Park District\" nella colonna OWNER_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Adler & Sullivan",
+                "l": "Adler & Sullivan"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q5",
+        "name": "human"
+      },
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type Q5"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Adler & Sullivan",
+                "l": "Adler & Sullivan"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Adler & Sullivan",
+    "judgment": "matched",
+    "match": {
+      "id": "Q4683278",
+      "name": "Adler & Sullivan",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Adler & Sullivan (Q4683278) per le celle contenenti \"Adler & Sullivan\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Chicago Public Art Group",
+                "l": "Chicago Public Art Group"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q5",
+        "name": "human"
+      },
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type Q5"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Chicago Public Art Group",
+                "l": "Chicago Public Art Group"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Chicago Public Art Group",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5095758",
+      "name": "Chicago Recording Company",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Chicago Recording Company (Q5095758) per le celle contenenti \"Chicago Public Art Group\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "US Army Corps of Engineers",
+                "l": "US Army Corps of Engineers"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type null"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "US Army Corps of Engineers",
+                "l": "US Army Corps of Engineers"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "US Army Corps of Engineers",
+    "judgment": "matched",
+    "match": {
+      "id": "Q1049334",
+      "name": "United States Army Corps of Engineers",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento United States Army Corps of Engineers (Q1049334) per le celle contenenti \"US Army Corps of Engineers\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Rookwood Potteries",
+                "l": "Rookwood Potteries"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type null"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Rookwood Potteries",
+                "l": "Rookwood Potteries"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Rookwood Potteries",
+    "judgment": "matched",
+    "match": {
+      "id": "Q7366233",
+      "name": "Rookwood Pottery Company",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Rookwood Pottery Company (Q7366233) per le celle contenenti \"Rookwood Potteries\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Chicago Mosaic School",
+                "l": "Chicago Mosaic School"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://wikidata.reconci.link/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "autoMatch": true,
+      "batchSize": 10,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column ARTIST_NAME to type null"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ARTIST_NAME",
+          "expression": "value",
+          "columnName": "ARTIST_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Chicago Mosaic School",
+                "l": "Chicago Mosaic School"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Chicago Mosaic School",
+    "judgment": "matched",
+    "match": {
+      "id": "Q19864405",
+      "name": "Chicago Mosaic School",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Chicago Mosaic School (Q19864405) per le celle contenenti \"Chicago Mosaic School\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "OWNER_NAME",
+    "clearData": true,
+    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna OWNER_NAME"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "WIKIDATA_ARTIST_URI",
+    "description": "Rimuovi la colonna WIKIDATA_ARTIST_URI"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "WIKIDATA_PARK_URI",
+    "description": "Rimuovi la colonna WIKIDATA_PARK_URI"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "PARK_NAME",
+    "expression": "grel:if(cell.recon.match != null, \"http://www.wikidata.org/entity/\" + cell.recon.match.id, \"\")",
+    "onError": "set-to-blank",
+    "newColumnName": "WIKIDATA_PARK_URI",
+    "columnInsertIndex": 2,
+    "description": "Crea la colonna WIKIDATA_PARK_URI allindice {1} basato sulla colonna {2} utilizzando lespressione grel:if(cell.recon.match != null, \"http://www.wikidata.org/entity/\" + cell.recon.match.id, \"\")"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ARTIST_NAME",
+    "expression": "grel:if(cell.recon.match != null, \"http://www.wikidata.org/entity/\" + cell.recon.match.id, \"\")",
+    "onError": "set-to-blank",
+    "newColumnName": "WIKIDATA_ARTIST_URI",
+    "columnInsertIndex": 9,
+    "description": "Crea la colonna WIKIDATA_ARTIST_URI allindice {1} basato sulla colonna {2} utilizzando lespressione grel:if(cell.recon.match != null, \"http://www.wikidata.org/entity/\" + cell.recon.match.id, \"\")"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "clearData": true,
+    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-discard-judgments",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "clearData": true,
+    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna ARTIST_NAME"
   }
 ]
