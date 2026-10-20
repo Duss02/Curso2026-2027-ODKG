@@ -5405,45 +5405,22 @@
     "description": "Abbina all'elemento Kazimierz Chodziński (Q16037670) per le celle contenenti \"Kasimir Chodzinski\" nella colonna ARTIST_NAME"
   },
   {
-    "op": "core/recon",
-    "engineConfig": {
-      "facets": [],
-      "mode": "row-based"
-    },
-    "columnName": "OWNER_NAME",
-    "config": {
-      "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
-      "identifierSpace": "http://www.wikidata.org/entity/",
-      "schemaSpace": "http://www.wikidata.org/prop/direct/",
-      "type": {
-        "id": "Q163740",
-        "name": "nonprofit organization"
-      },
-      "autoMatch": true,
-      "batchSize": 10,
-      "columnDetails": [],
-      "limit": 0
-    },
-    "description": "Reconcile cells in column OWNER_NAME to type Q163740"
-  },
-  {
     "op": "core/recon-judge-similar-cells",
     "engineConfig": {
       "facets": [
         {
           "type": "list",
-          "name": "OWNER_NAME",
+          "name": "PARK_NAME",
           "expression": "value",
-          "columnName": "OWNER_NAME",
+          "columnName": "PARK_NAME",
           "invert": false,
           "omitBlank": false,
           "omitError": false,
           "selection": [
             {
               "v": {
-                "v": "Chicago Park District",
-                "l": "Chicago Park District"
+                "v": "BURNHAM (DANIEL)",
+                "l": "BURNHAM (DANIEL)"
               }
             }
           ],
@@ -5453,19 +5430,1329 @@
       ],
       "mode": "row-based"
     },
-    "columnName": "OWNER_NAME",
-    "similarValue": "Chicago Park District",
+    "columnName": "PARK_NAME",
+    "similarValue": "BURNHAM (DANIEL)",
     "judgment": "matched",
     "match": {
-      "id": "Q5095758",
-      "name": "Chicago Recording Company",
+      "id": "Q1062693",
+      "name": "Burnham Park",
       "types": [
         ""
       ],
       "score": 100
     },
     "shareNewTopics": false,
-    "description": "Abbina all'elemento Chicago Recording Company (Q5095758) per le celle contenenti \"Chicago Park District\" nella colonna OWNER_NAME"
+    "description": "Abbina all'elemento Burnham Park (Q1062693) per le celle contenenti \"BURNHAM (DANIEL)\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "FULLER (MELVILLE)",
+                "l": "FULLER (MELVILLE)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "FULLER (MELVILLE)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q85762271",
+      "name": "Fuller Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Fuller Park (Q85762271) per le celle contenenti \"FULLER (MELVILLE)\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "NORTHERLY ISLAND",
+                "l": "NORTHERLY ISLAND"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "NORTHERLY ISLAND",
+    "judgment": "matched",
+    "match": {
+      "id": "Q49533165",
+      "name": "Northerly Island Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Northerly Island Park (Q49533165) per le celle contenenti \"NORTHERLY ISLAND\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "INDEPENDENCE",
+                "l": "INDEPENDENCE"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "INDEPENDENCE",
+    "judgment": "matched",
+    "match": {
+      "id": "Q18749019",
+      "name": "Independence Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Independence Park (Q18749019) per le celle contenenti \"INDEPENDENCE\" nella colonna PARK_NAME"
+  },
+  {
+    "op": "core/recon-clear-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Ernest Wong",
+    "description": "Cancella i dati di riconciliazione per le celle contenenti \"Ernest Wong\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-clear-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Fred Arroyo",
+    "description": "Cancella i dati di riconciliazione per le celle contenenti \"Fred Arroyo\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-clear-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Lawrence E. Taylor",
+    "description": "Cancella i dati di riconciliazione per le celle contenenti \"Lawrence E. Taylor\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-clear-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "A.C. Goddard",
+    "description": "Cancella i dati di riconciliazione per le celle contenenti \"A.C. Goddard\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-clear-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Jeff Littleton",
+    "description": "Cancella i dati di riconciliazione per le celle contenenti \"Jeff Littleton\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Edward C. Potter",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5342313",
+      "name": "Edward Clark Potter",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Edward Clark Potter (Q5342313) per le celle contenenti \"Edward C. Potter\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Julie Rotblatt-Amrany",
+    "judgment": "matched",
+    "match": {
+      "id": "Q6308495",
+      "name": "Julie Rotblatt-Amrany",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Julie Rotblatt-Amrany (Q6308495) per le celle contenenti \"Julie Rotblatt-Amrany\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Frederick Cleveland Hibbard",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5498025",
+      "name": "Frederick Hibbard",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Frederick Hibbard (Q5498025) per le celle contenenti \"Frederick Cleveland Hibbard\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Sigvald Asbjørnsen",
+    "judgment": "matched",
+    "match": {
+      "id": "Q7513340",
+      "name": "Sigvald Asbjørnsen",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Sigvald Asbjørnsen (Q7513340) per le celle contenenti \"Sigvald Asbjørnsen\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "William Ordway Partridge",
+    "judgment": "matched",
+    "match": {
+      "id": "Q8016365",
+      "name": "William Ordway Partridge",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento William Ordway Partridge (Q8016365) per le celle contenenti \"William Ordway Partridge\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Richard W. Bock",
+    "judgment": "matched",
+    "match": {
+      "id": "Q7324233",
+      "name": "Richard Bock",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Richard Bock (Q7324233) per le celle contenenti \"Richard W. Bock\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "William Grant Stevenson",
+    "judgment": "matched",
+    "match": {
+      "id": "Q8010116",
+      "name": "William Grant Stevenson",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento William Grant Stevenson (Q8010116) per le celle contenenti \"William Grant Stevenson\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Lorado Taft",
+    "judgment": "matched",
+    "match": {
+      "id": "Q1869845",
+      "name": "Lorado Taft",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Lorado Taft (Q1869845) per le celle contenenti \"Lorado Taft\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Dale Chihuly",
+    "judgment": "matched",
+    "match": {
+      "id": "Q613380",
+      "name": "Dale Chihuly",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Dale Chihuly (Q613380) per le celle contenenti \"Dale Chihuly\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Magdalena Abakanowicz",
+    "judgment": "matched",
+    "match": {
+      "id": "Q158080",
+      "name": "Magdalena Abakanowicz",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Magdalena Abakanowicz (Q158080) per le celle contenenti \"Magdalena Abakanowicz\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Bradford L. Gilbert",
+    "judgment": "matched",
+    "match": {
+      "id": "Q4954679",
+      "name": "Bradford Gilbert",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Bradford Gilbert (Q4954679) per le celle contenenti \"Bradford L. Gilbert\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Marcel Francois Loyau",
+    "judgment": "matched",
+    "match": {
+      "id": "Q3289165",
+      "name": "Marcel Loyau",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Marcel Loyau (Q3289165) per le celle contenenti \"Marcel Francois Loyau\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Leonard Crunelle",
+    "judgment": "matched",
+    "match": {
+      "id": "Q6525204",
+      "name": "Leonard Crunelle",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Leonard Crunelle (Q6525204) per le celle contenenti \"Leonard Crunelle\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Isamu Noguchi",
+    "judgment": "matched",
+    "match": {
+      "id": "Q442628",
+      "name": "Isamu Noguchi",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Isamu Noguchi (Q442628) per le celle contenenti \"Isamu Noguchi\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Augustus Saint-Gaudens",
+    "judgment": "matched",
+    "match": {
+      "id": "Q770625",
+      "name": "Augustus Saint-Gaudens",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Augustus Saint-Gaudens (Q770625) per le celle contenenti \"Augustus Saint-Gaudens\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Stephan Balkenhol",
+    "judgment": "matched",
+    "match": {
+      "id": "Q517388",
+      "name": "Stephan Balkenhol",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Stephan Balkenhol (Q517388) per le celle contenenti \"Stephan Balkenhol\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Hector Guimard",
+    "judgment": "matched",
+    "match": {
+      "id": "Q316422",
+      "name": "Hector Guimard",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Hector Guimard (Q316422) per le celle contenenti \"Hector Guimard\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Dame Elisabeth Frink",
+    "judgment": "matched",
+    "match": {
+      "id": "Q2575649",
+      "name": "Elisabeth Frink",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Elisabeth Frink (Q2575649) per le celle contenenti \"Dame Elisabeth Frink\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Milton Horn",
+    "judgment": "matched",
+    "match": {
+      "id": "Q12060535",
+      "name": "Milton Horn",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Milton Horn (Q12060535) per le celle contenenti \"Milton Horn\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Gabriel Ponzanelli",
+    "judgment": "matched",
+    "match": {
+      "id": "Q106353983",
+      "name": "Gabriel Ponzanelli",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Gabriel Ponzanelli (Q106353983) per le celle contenenti \"Gabriel Ponzanelli\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Maurice Harron",
+    "judgment": "matched",
+    "match": {
+      "id": "Q6793177",
+      "name": "Maurice Harron",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Maurice Harron (Q6793177) per le celle contenenti \"Maurice Harron\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "John David Brcin",
+    "judgment": "matched",
+    "match": {
+      "id": "Q50317274",
+      "name": "John David Brcin",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento John David Brcin (Q50317274) per le celle contenenti \"John David Brcin\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Felix Gorling",
+    "judgment": "matched",
+    "match": {
+      "id": "Q97309725",
+      "name": "Felix Görling",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Felix Görling (Q97309725) per le celle contenenti \"Felix Gorling\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Franz Engelsman",
+    "judgment": "matched",
+    "match": {
+      "id": "Q98932545",
+      "name": "Franz Engelsman",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Franz Engelsman (Q98932545) per le celle contenenti \"Franz Engelsman\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Tina Allen",
+    "judgment": "matched",
+    "match": {
+      "id": "Q22341349",
+      "name": "Tina Allen",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Tina Allen (Q22341349) per le celle contenenti \"Tina Allen\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Gutzon Borglum",
+    "judgment": "matched",
+    "match": {
+      "id": "Q336432",
+      "name": "Gutzon Borglum",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Gutzon Borglum (Q336432) per le celle contenenti \"Gutzon Borglum\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Johannes Gelert",
+    "judgment": "matched",
+    "match": {
+      "id": "Q3429031",
+      "name": "Johannes Gelert",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Johannes Gelert (Q3429031) per le celle contenenti \"Johannes Gelert\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Boris Gilbertson",
+    "judgment": "matched",
+    "match": {
+      "id": "Q38713461",
+      "name": "Boris Gilbertson",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Boris Gilbertson (Q38713461) per le celle contenenti \"Boris Gilbertson\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Ellsworth Kelly",
+    "judgment": "matched",
+    "match": {
+      "id": "Q544899",
+      "name": "Ellsworth Kelly",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Ellsworth Kelly (Q544899) per le celle contenenti \"Ellsworth Kelly\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Richard Henry Park",
+    "judgment": "matched",
+    "match": {
+      "id": "Q7326405",
+      "name": "Richard Henry Park",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Richard Henry Park (Q7326405) per le celle contenenti \"Richard Henry Park\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Louis T. Rebisso",
+    "judgment": "matched",
+    "match": {
+      "id": "Q6688039",
+      "name": "Louis Rebisso",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Louis Rebisso (Q6688039) per le celle contenenti \"Louis T. Rebisso\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Cyrus Edwin Dallin",
+    "judgment": "matched",
+    "match": {
+      "id": "Q1148931",
+      "name": "Cyrus Edwin Dallin",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Cyrus Edwin Dallin (Q1148931) per le celle contenenti \"Cyrus Edwin Dallin\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Lucy Slivinski",
+    "judgment": "matched",
+    "match": {
+      "id": "Q111726544",
+      "name": "Lucy Slivinski",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Lucy Slivinski (Q111726544) per le celle contenenti \"Lucy Slivinski\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Frithiof Kjellberg",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5911955",
+      "name": "Frithiof Kjellberg",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Frithiof Kjellberg (Q5911955) per le celle contenenti \"Frithiof Kjellberg\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Cosmo Campoli",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5174247",
+      "name": "Cosmo Campoli",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Cosmo Campoli (Q5174247) per le celle contenenti \"Cosmo Campoli\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Bronislaw Koniuszy",
+    "judgment": "matched",
+    "match": {
+      "id": "Q9179773",
+      "name": "Bronisław Koniuszy",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Bronisław Koniuszy (Q9179773) per le celle contenenti \"Bronislaw Koniuszy\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "John David Mooney",
+    "judgment": "matched",
+    "match": {
+      "id": "Q20711014",
+      "name": "John David Mooney",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento John David Mooney (Q20711014) per le celle contenenti \"John David Mooney\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Vito Acconci",
+    "judgment": "matched",
+    "match": {
+      "id": "Q433471",
+      "name": "Vito Acconci",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Vito Acconci (Q433471) per le celle contenenti \"Vito Acconci\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Jerzy Kenar",
+    "judgment": "matched",
+    "match": {
+      "id": "Q6185415",
+      "name": "Jerzy Kenar",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Jerzy Kenar (Q6185415) per le celle contenenti \"Jerzy Kenar\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Charles Keck",
+    "judgment": "matched",
+    "match": {
+      "id": "Q12060973",
+      "name": "Charles Keck",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Charles Keck (Q12060973) per le celle contenenti \"Charles Keck\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Sheila Klein",
+    "judgment": "matched",
+    "match": {
+      "id": "Q16730916",
+      "name": "Sheila Klein",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Sheila Klein (Q16730916) per le celle contenenti \"Sheila Klein\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Ausbra Ford",
+    "judgment": "matched",
+    "match": {
+      "id": "Q100250071",
+      "name": "Ausbra Ford",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Ausbra Ford (Q100250071) per le celle contenenti \"Ausbra Ford\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Edward McCartan",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5344384",
+      "name": "Edward McCartan",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Edward McCartan (Q5344384) per le celle contenenti \"Edward McCartan\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Veryl Goodnight",
+    "judgment": "matched",
+    "match": {
+      "id": "Q7923103",
+      "name": "Veryl Goodnight",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Veryl Goodnight (Q7923103) per le celle contenenti \"Veryl Goodnight\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Debra Hand",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5248474",
+      "name": "Debra Hand",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Debra Hand (Q5248474) per le celle contenenti \"Debra Hand\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "William Edouard Scott",
+    "judgment": "matched",
+    "match": {
+      "id": "Q8008412",
+      "name": "William Edouard Scott",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento William Edouard Scott (Q8008412) per le celle contenenti \"William Edouard Scott\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Ginny Sykes",
+    "judgment": "matched",
+    "match": {
+      "id": "Q106318426",
+      "name": "Ginny Sykes",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Ginny Sykes (Q106318426) per le celle contenenti \"Ginny Sykes\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "John Warner Norton",
+    "judgment": "matched",
+    "match": {
+      "id": "Q2198813",
+      "name": "John Warner Norton",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento John Warner Norton (Q2198813) per le celle contenenti \"John Warner Norton\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Max Sansing",
+    "judgment": "matched",
+    "match": {
+      "id": "Q136724094",
+      "name": "Max Sansing",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Max Sansing (Q136724094) per le celle contenenti \"Max Sansing\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Tim Portlock",
+    "judgment": "matched",
+    "match": {
+      "id": "Q106585298",
+      "name": "Tim Portlock",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Tim Portlock (Q106585298) per le celle contenenti \"Tim Portlock\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Beatriz Santiago Muñoz",
+    "judgment": "matched",
+    "match": {
+      "id": "Q23772451",
+      "name": "Beatriz Santiago Muñoz",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Beatriz Santiago Muñoz (Q23772451) per le celle contenenti \"Beatriz Santiago Muñoz\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Ellen Lanyon",
+    "judgment": "matched",
+    "match": {
+      "id": "Q13560692",
+      "name": "Ellen Lanyon",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Ellen Lanyon (Q13560692) per le celle contenenti \"Ellen Lanyon\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Margot McMahon",
+    "judgment": "matched",
+    "match": {
+      "id": "Q126314635",
+      "name": "Margot McMahon",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Margot McMahon (Q126314635) per le celle contenenti \"Margot McMahon\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Paul Fjelde",
+    "judgment": "matched",
+    "match": {
+      "id": "Q15485201",
+      "name": "Paul Fjelde",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Paul Fjelde (Q15485201) per le celle contenenti \"Paul Fjelde\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "James Edwin McBurney",
+    "judgment": "matched",
+    "match": {
+      "id": "Q52150455",
+      "name": "James Edwin Mcburney",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento James Edwin Mcburney (Q52150455) per le celle contenenti \"James Edwin McBurney\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Lameck Bonjisi",
+    "judgment": "matched",
+    "match": {
+      "id": "Q6481675",
+      "name": "Lameck Bonjisi",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Lameck Bonjisi (Q6481675) per le celle contenenti \"Lameck Bonjisi\" nella colonna ARTIST_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ARTIST_NAME",
+    "similarValue": "Keith Haring",
+    "judgment": "matched",
+    "match": {
+      "id": "Q485635",
+      "name": "Keith Haring",
+      "types": [
+        "Q5"
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Abbina all'elemento Keith Haring (Q485635) per le celle contenenti \"Keith Haring\" nella colonna ARTIST_NAME"
   },
   {
     "op": "core/recon",
@@ -5473,8 +6760,8 @@
       "facets": [
         {
           "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
+          "name": "ARTIST_NAME: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
           "columnName": "ARTIST_NAME",
           "invert": false,
           "omitBlank": false,
@@ -5482,8 +6769,14 @@
           "selection": [
             {
               "v": {
-                "v": "Adler & Sullivan",
-                "l": "Adler & Sullivan"
+                "v": "none",
+                "l": "none"
+              }
+            },
+            {
+              "v": {
+                "v": "(unreconciled)",
+                "l": "(unreconciled)"
               }
             }
           ],
@@ -5500,40 +6793,20 @@
       "identifierSpace": "http://www.wikidata.org/entity/",
       "schemaSpace": "http://www.wikidata.org/prop/direct/",
       "type": {
-        "id": "Q5",
-        "name": "human"
+        "id": "Q43229",
+        "name": "organization"
       },
-      "autoMatch": true,
+      "autoMatch": false,
       "batchSize": 10,
       "columnDetails": [],
       "limit": 0
     },
-    "description": "Reconcile cells in column ARTIST_NAME to type Q5"
+    "description": "Reconcile cells in column ARTIST_NAME to type Q43229"
   },
   {
     "op": "core/recon-judge-similar-cells",
     "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "Adler & Sullivan",
-                "l": "Adler & Sullivan"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
+      "facets": [],
       "mode": "row-based"
     },
     "columnName": "ARTIST_NAME",
@@ -5551,151 +6824,29 @@
     "description": "Abbina all'elemento Adler & Sullivan (Q4683278) per le celle contenenti \"Adler & Sullivan\" nella colonna ARTIST_NAME"
   },
   {
-    "op": "core/recon",
-    "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "Chicago Public Art Group",
-                "l": "Chicago Public Art Group"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
-      "mode": "row-based"
-    },
-    "columnName": "ARTIST_NAME",
-    "config": {
-      "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
-      "identifierSpace": "http://www.wikidata.org/entity/",
-      "schemaSpace": "http://www.wikidata.org/prop/direct/",
-      "type": {
-        "id": "Q5",
-        "name": "human"
-      },
-      "autoMatch": true,
-      "batchSize": 10,
-      "columnDetails": [],
-      "limit": 0
-    },
-    "description": "Reconcile cells in column ARTIST_NAME to type Q5"
-  },
-  {
     "op": "core/recon-judge-similar-cells",
     "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "Chicago Public Art Group",
-                "l": "Chicago Public Art Group"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
+      "facets": [],
       "mode": "row-based"
     },
     "columnName": "ARTIST_NAME",
     "similarValue": "Chicago Public Art Group",
     "judgment": "matched",
     "match": {
-      "id": "Q5095758",
-      "name": "Chicago Recording Company",
+      "id": "Q15429754",
+      "name": "Chicago Public Art Group",
       "types": [
         ""
       ],
       "score": 100
     },
     "shareNewTopics": false,
-    "description": "Abbina all'elemento Chicago Recording Company (Q5095758) per le celle contenenti \"Chicago Public Art Group\" nella colonna ARTIST_NAME"
-  },
-  {
-    "op": "core/recon",
-    "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "US Army Corps of Engineers",
-                "l": "US Army Corps of Engineers"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
-      "mode": "row-based"
-    },
-    "columnName": "ARTIST_NAME",
-    "config": {
-      "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
-      "identifierSpace": "http://www.wikidata.org/entity/",
-      "schemaSpace": "http://www.wikidata.org/prop/direct/",
-      "autoMatch": true,
-      "batchSize": 10,
-      "columnDetails": [],
-      "limit": 0
-    },
-    "description": "Reconcile cells in column ARTIST_NAME to type null"
+    "description": "Abbina all'elemento Chicago Public Art Group (Q15429754) per le celle contenenti \"Chicago Public Art Group\" nella colonna ARTIST_NAME"
   },
   {
     "op": "core/recon-judge-similar-cells",
     "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "US Army Corps of Engineers",
-                "l": "US Army Corps of Engineers"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
+      "facets": [],
       "mode": "row-based"
     },
     "columnName": "ARTIST_NAME",
@@ -5713,68 +6864,9 @@
     "description": "Abbina all'elemento United States Army Corps of Engineers (Q1049334) per le celle contenenti \"US Army Corps of Engineers\" nella colonna ARTIST_NAME"
   },
   {
-    "op": "core/recon",
-    "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "Rookwood Potteries",
-                "l": "Rookwood Potteries"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
-      "mode": "row-based"
-    },
-    "columnName": "ARTIST_NAME",
-    "config": {
-      "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
-      "identifierSpace": "http://www.wikidata.org/entity/",
-      "schemaSpace": "http://www.wikidata.org/prop/direct/",
-      "autoMatch": true,
-      "batchSize": 10,
-      "columnDetails": [],
-      "limit": 0
-    },
-    "description": "Reconcile cells in column ARTIST_NAME to type null"
-  },
-  {
     "op": "core/recon-judge-similar-cells",
     "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "Rookwood Potteries",
-                "l": "Rookwood Potteries"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
+      "facets": [],
       "mode": "row-based"
     },
     "columnName": "ARTIST_NAME",
@@ -5792,68 +6884,9 @@
     "description": "Abbina all'elemento Rookwood Pottery Company (Q7366233) per le celle contenenti \"Rookwood Potteries\" nella colonna ARTIST_NAME"
   },
   {
-    "op": "core/recon",
-    "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "Chicago Mosaic School",
-                "l": "Chicago Mosaic School"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
-      "mode": "row-based"
-    },
-    "columnName": "ARTIST_NAME",
-    "config": {
-      "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
-      "identifierSpace": "http://www.wikidata.org/entity/",
-      "schemaSpace": "http://www.wikidata.org/prop/direct/",
-      "autoMatch": true,
-      "batchSize": 10,
-      "columnDetails": [],
-      "limit": 0
-    },
-    "description": "Reconcile cells in column ARTIST_NAME to type null"
-  },
-  {
     "op": "core/recon-judge-similar-cells",
     "engineConfig": {
-      "facets": [
-        {
-          "type": "list",
-          "name": "ARTIST_NAME",
-          "expression": "value",
-          "columnName": "ARTIST_NAME",
-          "invert": false,
-          "omitBlank": false,
-          "omitError": false,
-          "selection": [
-            {
-              "v": {
-                "v": "Chicago Mosaic School",
-                "l": "Chicago Mosaic School"
-              }
-            }
-          ],
-          "selectBlank": false,
-          "selectError": false
-        }
-      ],
+      "facets": [],
       "mode": "row-based"
     },
     "columnName": "ARTIST_NAME",
@@ -5869,16 +6902,6 @@
     },
     "shareNewTopics": false,
     "description": "Abbina all'elemento Chicago Mosaic School (Q19864405) per le celle contenenti \"Chicago Mosaic School\" nella colonna ARTIST_NAME"
-  },
-  {
-    "op": "core/recon-discard-judgments",
-    "engineConfig": {
-      "facets": [],
-      "mode": "row-based"
-    },
-    "columnName": "OWNER_NAME",
-    "clearData": true,
-    "description": "Scarta i giudizi di riconciliazione e cancella i dati di riconciliazione per le celle nella colonna OWNER_NAME"
   },
   {
     "op": "core/column-removal",
