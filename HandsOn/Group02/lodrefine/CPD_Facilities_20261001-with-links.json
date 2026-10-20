@@ -10082,6 +10082,700 @@
     "description": "Clear recon data for cells containing \"WENTWORTH (JOHN) GARDENS\" in column PARK_NAME"
   },
   {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "4",
+                "l": "4"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "FULLER (MELVILLE)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q85762271",
+      "name": "Fuller Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Match item Fuller Park (Q85762271) for cells containing \"FULLER (MELVILLE)\" in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "23",
+                "l": "23"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "MCKINLEY (WILLIAM)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q49523792",
+      "name": "McKinley Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Match item McKinley Park (Q49523792) for cells containing \"MCKINLEY (WILLIAM)\" in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "27",
+                "l": "27"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "BURNHAM (DANIEL)",
+    "judgment": "matched",
+    "match": {
+      "id": "Q1062693",
+      "name": "Burnham Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Match item Burnham Park (Q1062693) for cells containing \"BURNHAM (DANIEL)\" in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "34",
+                "l": "34"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "NORTHERLY ISLAND",
+    "judgment": "matched",
+    "match": {
+      "id": "Q49533165",
+      "name": "Northerly Island Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Match item Northerly Island Park (Q49533165) for cells containing \"NORTHERLY ISLAND\" in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "83",
+                "l": "83"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "similarValue": "INDEPENDENCE",
+    "judgment": "matched",
+    "match": {
+      "id": "Q18749019",
+      "name": "Independence Park",
+      "types": [
+        ""
+      ],
+      "score": 100
+    },
+    "shareNewTopics": false,
+    "description": "Match item Independence Park (Q18749019) for cells containing \"INDEPENDENCE\" in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NAME",
+          "expression": "value",
+          "columnName": "PARK_NAME",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "KUCINSKI-MURPHY (VICKI, ROSEBETH)",
+                "l": "KUCINSKI-MURPHY (VICKI, ROSEBETH)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q49537059",
+      "name": "Kucinski-Murphy Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Kucinski-Murphy Park (Q49537059) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "22",
+                "l": "22"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q3094313",
+      "name": "Gage Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Gage Park (Q3094313) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "48",
+                "l": "48"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q49510098",
+      "name": "Kennedy Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Kennedy Park (Q49510098) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "103",
+                "l": "103"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q34921665",
+      "name": "Chase Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Chase Park (Q34921665) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "213",
+                "l": "213"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q34886246",
+      "name": "Harrison Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Harrison Park (Q34886246) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "270",
+                "l": "270"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q49478963",
+      "name": "Cole Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Cole Park (Q49478963) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "274",
+                "l": "274"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q49515716",
+      "name": "Legion Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Legion Park (Q49515716) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "334",
+                "l": "334"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q49510874",
+      "name": "King Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item King Park (Q49510874) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "451",
+                "l": "451"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q141600444",
+      "name": "Sun Yat-Sen Park (Chicago)",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Sun Yat-Sen Park (Chicago) (Q141600444) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "481",
+                "l": "481"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q3388707",
+      "name": "Ping Tom Memorial Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Ping Tom Memorial Park (Q3388707) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "494",
+                "l": "494"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q5662686",
+      "name": "Harold Washington Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Harold Washington Park (Q5662686) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "1001",
+                "l": "1001"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q33332850",
+      "name": "Rainbow Park Beach",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Rainbow Park Beach (Q33332850) to cells in column PARK_NAME"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "PARK_NO",
+          "expression": "value",
+          "columnName": "PARK_NO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "1020",
+                "l": "1020"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "PARK_NAME",
+    "match": {
+      "id": "Q34807767",
+      "name": "Anderson Park",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Match specific item Anderson Park (Q34807767) to cells in column PARK_NAME"
+  },
+  {
     "op": "core/column-addition",
     "engineConfig": {
       "facets": [],
