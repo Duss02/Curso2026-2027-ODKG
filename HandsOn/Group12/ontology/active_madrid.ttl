@@ -32,8 +32,13 @@ am:hasActivity a owl:ObjectProperty ;
 
 am:locatedInDistrict a owl:ObjectProperty ;
     rdfs:label "located in district" ;
-    rdfs:domain am:SportsFacility ;
+    rdfs:domain am:Neighborhood ;
     rdfs:range am:District .
+
+am:locatedInNeighborhood a owl:ObjectProperty ;
+    rdfs:label "located in neighborhood" ;
+    rdfs:domain schema1:PostalAddress ;
+    rdfs:range am:Neighborhood .
 
 am:takesPlaceAt a owl:ObjectProperty ;
     rdfs:label "takes place at" ;
@@ -90,6 +95,12 @@ time:hasTime a owl:ObjectProperty ;
 
 am:District a owl:Class ;
     rdfs:label "District" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema1:name ] .
+
+am:Neighborhood a owl:Class ;
+    rdfs:label "Neighborhood" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty schema1:name ] .

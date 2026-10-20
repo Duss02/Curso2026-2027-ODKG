@@ -19,11 +19,11 @@ mappings:
       - [a, am:SportsFacility]
       - [schema:name, $(NOMBRE), xsd:string]
       - [schema:address, res:PostalAddress/$(PK)~iri]
-      - [am:locatedInDistrict, res:District/$(DISTRITO)~iri]
       - [geo:lat, $(LATITUD), xsd:decimal]
       - [geo:long, $(LONGITUD), xsd:decimal]
       - [schema:telephone, $(TELEFONO), xsd:string]
       - [schema:email, $(EMAIL), xsd:string]
+      - [schema:url, $(CONTENT-URL), xsd:anyURI]
 
   triplesmapPostalAddress:
     sources:
@@ -33,7 +33,17 @@ mappings:
       - [a, schema:PostalAddress]
       - [schema:streetAddress, "$(CLASE-VIAL) $(NOMBRE-VIA), $(NUM)", xsd:string]
       - [schema:postalCode, $(CODIGO-POSTAL), xsd:string]
-  
+      - [am:locatedInNeighborhood, res:Neighborhood/$(BARRIO)~iri]
+
+  triplesmapNeighborhood:
+    sources:
+      - [sports_centers_info-updated.csv~csv]
+    s: res:Neighborhood/$(BARRIO)
+    po:
+      - [a, am:Neighborhood]
+      - [schema:name, $(BARRIO), xsd:string]
+      - [am:locatedInDistrict, res:District/$(DISTRITO)~iri]
+
   triplesmapDistrict:
     sources:
       - [sports_centers_info-updated.csv~csv]
