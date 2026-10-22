@@ -1,0 +1,228 @@
+# =====================================================================
+# SafeRoute Madrid - queries to verify the links
+#
+# Links created by the mapping (saferoute-with-links.rml):
+#   ns:District     owl:sameAs  <wikidata>   (same_as_wikidata_district)
+#   ns:AccidentType owl:sameAs  <wikidata>   (same_as_wikidata_type_accident)
+#   ns:VehicleType  owl:sameAs  <wikidata>   (same_as_wikidata_vehicle)
+#   ns:PersonType   owl:sameAs  <wikidata>   (same_as_wikidata_type_person)
+# =====================================================================
+
+PREFIX ns:   <https://w3id.org/saferoutemadrid/ontology#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wdt:  <http://www.wikidata.org/prop/direct/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+
+# ---------------------------------------------------------------------
+# 1. Overview.
+# ---------------------------------------------------------------------
+SELECT ?class
+       (COUNT(DISTINCT ?s) AS ?linkedResources)
+       (COUNT(DISTINCT ?o) AS ?distinctWikidataEntities)
+       (COUNT(*)           AS ?totalLinks)
+WHERE {
+  VALUES ?class { ns:District ns:AccidentType ns:VehicleType ns:PersonType }
+  ?s a ?class ;
+     owl:sameAs ?o .
+}
+GROUP BY ?class
+ORDER BY ?class
+
+
+# ---------------------------------------------------------------------
+# 2. Coverage.
+# ---------------------------------------------------------------------
+SELECT ?class
+       (COUNT(DISTINCT ?s)      AS ?total)
+       (COUNT(DISTINCT ?linked) AS ?linked)
+       (ROUND(10000 * COUNT(DISTINCT ?linked) / COUNT(DISTINCT ?s)) / 100 AS ?percentLinked)
+WHERE {
+  VALUES ?class { ns:District ns:AccidentType ns:VehicleType ns:PersonType }
+  ?s a ?class .
+  OPTIONAL {
+    ?s owl:sameAs ?o .
+    BIND(?s AS ?linked)
+  }
+}
+GROUP BY ?class
+ORDER BY ?class
+
+
+# ---------------------------------------------------------------------
+# 3. Link targets by host.
+# ---------------------------------------------------------------------
+SELECT ?host (COUNT(*) AS ?links)
+WHERE {
+  ?s owl:sameAs ?o .
+  FILTER(isIRI(?o))
+  BIND(REPLACE(STR(?o), "^(https?://[^/]+)/.*$", "$1") AS ?host)
+}
+GROUP BY ?host
+ORDER BY DESC(?links)
+
+
+# ---------------------------------------------------------------------
+# 4. Total number of owl:sameAs triples in the dataset.
+# ---------------------------------------------------------------------
+SELECT (COUNT(*) AS ?sameAsTriples)
+WHERE { ?s owl:sameAs ?o }
+
+
+# ---------------------------------------------------------------------
+# 5. Districts and their Wikidata link.
+# ---------------------------------------------------------------------
+SELECT ?district ?code ?label ?wikidata
+WHERE {
+  ?district a ns:District ;
+            ns:districtCode ?code ;
+            rdfs:label ?label ;
+            owl:sameAs ?wikidata .
+}
+ORDER BY ?code
+
+
+# ---------------------------------------------------------------------
+# 6. Accident types and their Wikidata link.
+# ---------------------------------------------------------------------
+SELECT ?accidentType ?label ?wikidata
+WHERE {
+  ?accidentType a ns:AccidentType ;
+                skos:prefLabel ?label ;
+                owl:sameAs ?wikidata .
+}
+ORDER BY ?label
+
+
+# ---------------------------------------------------------------------
+# 7. Vehicle types and their Wikidata link.
+# ---------------------------------------------------------------------
+SELECT ?vehicleType ?label ?wikidata
+WHERE {
+  ?vehicleType a ns:VehicleType ;
+               skos:prefLabel ?label ;
+               owl:sameAs ?wikidata .
+}
+ORDER BY ?label
+
+
+# ---------------------------------------------------------------------
+# 8. Person types and their Wikidata link.
+# ---------------------------------------------------------------------
+SELECT ?personType ?label ?wikidata
+WHERE {
+  ?personType a ns:PersonType ;
+              skos:prefLabel ?label ;
+              owl:sameAs ?wikidata .
+}
+ORDER BY ?label
+
+
+# ---------------------------------------------------------------------
+# 9. Resources that SHOULD be linked but are not.
+# ---------------------------------------------------------------------
+SELECT ?class ?resource ?label
+WHERE {
+  VALUES ?class { ns:District ns:AccidentType ns:VehicleType ns:PersonType }
+  ?resource a ?class ;
+            rdfs:label ?label .
+  FILTER NOT EXISTS { ?resource owl:sameAs ?any }
+}
+ORDER BY ?class ?label
+
+
+# ---------------------------------------------------------------------
+# 10. Malformed links.
+# ---------------------------------------------------------------------
+SELECT ?s ?o
+WHERE {
+  ?s owl:sameAs ?o .
+  FILTER( !isIRI(?o) ||
+          !REGEX(STR(?o), "^https://www\\.wikidata\\.org/entity/Q[0-9]+$") )
+}
+
+
+# ---------------------------------------------------------------------
+# 11. Literal objects (e.g. an unconverted CSV string instead of an IRI).
+# ---------------------------------------------------------------------
+ASK { ?s owl:sameAs ?o . FILTER(isLiteral(?o)) }
+
+
+# ---------------------------------------------------------------------
+# 12. Resources with more than one owl:sameAs target (possible conflict
+#     in the reconciliation).
+# ---------------------------------------------------------------------
+SELECT ?s (COUNT(DISTINCT ?o) AS ?targets) (GROUP_CONCAT(STR(?o); separator=" | ") AS ?links)
+WHERE { ?s owl:sameAs ?o }
+GROUP BY ?s
+HAVING (COUNT(DISTINCT ?o) > 1)
+
+
+# ---------------------------------------------------------------------
+# 13. Several local resources linked to the same Wikidata entity
+#     (many-to-one).
+# ---------------------------------------------------------------------
+SELECT ?wikidata
+       (COUNT(DISTINCT ?s) AS ?localResources)
+       (GROUP_CONCAT(DISTINCT ?label; separator=" | ") AS ?labels)
+WHERE {
+  ?s owl:sameAs ?wikidata ;
+     rdfs:label ?label .
+}
+GROUP BY ?wikidata
+HAVING (COUNT(DISTINCT ?s) > 1)
+ORDER BY DESC(?localResources)
+
+
+# ---------------------------------------------------------------------
+# 14. End-to-end test of the district link.
+# ---------------------------------------------------------------------
+SELECT ?wikidata ?districtName (COUNT(DISTINCT ?accident) AS ?accidents)
+WHERE {
+  ?accident a ns:TrafficAccident ;
+            ns:occursAt ?location .
+  ?location ns:locatedIn ?district .
+  ?district ns:districtName ?districtName ;
+            owl:sameAs ?wikidata .
+}
+GROUP BY ?wikidata ?districtName
+ORDER BY DESC(?accidents)
+
+
+# ---------------------------------------------------------------------
+# 15. End-to-end test of the person-type, vehicle-type and accident-type
+#     links.
+# ---------------------------------------------------------------------
+SELECT ?personTypeWd ?vehicleTypeWd (COUNT(DISTINCT ?person) AS ?people)
+WHERE {
+  ?accident ns:involvesVehicle ?vehicle .
+  ?vehicle  ns:hasVehicleType  ?vehicleType ;
+            ns:involvesPerson  ?person .
+  ?person   ns:hasPersonType   ?personType .
+  ?vehicleType owl:sameAs ?vehicleTypeWd .
+  ?personType  owl:sameAs ?personTypeWd .
+}
+GROUP BY ?personTypeWd ?vehicleTypeWd
+ORDER BY DESC(?people)
+LIMIT 25
+
+
+# ---------------------------------------------------------------------
+# 16. FEDERATED check against Wikidata (requires internet access and an
+#     engine supporting SERVICE).
+# ---------------------------------------------------------------------
+SELECT ?class ?localLabel ?wikidata ?wdLabel ?instanceOf
+WHERE {
+  VALUES ?class { ns:District ns:AccidentType ns:VehicleType ns:PersonType }
+  ?s a ?class ;
+     rdfs:label ?localLabel ;
+     owl:sameAs ?wikidata .
+  BIND(IRI(REPLACE(STR(?wikidata), "^https://", "http://")) AS ?wdIri)
+  SERVICE <https://query.wikidata.org/sparql> {
+    ?wdIri rdfs:label ?wdLabel .
+    FILTER(LANG(?wdLabel) = "en")
+  }
+}
+ORDER BY ?class ?localLabel
