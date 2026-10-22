@@ -83,8 +83,6 @@ la311:longitude a owl:DatatypeProperty ;
 
 la311:name a owl:DatatypeProperty ;
     rdfs:label "name" ;
-    rdfs:domain la311:Organization,
-        la311:Service ;
     rdfs:range xsd:string .
 
 la311:nc a owl:DatatypeProperty ;
