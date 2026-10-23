@@ -16447,8 +16447,8 @@
     ns1:stationCategory 5 .
 
 <https://example.org/db-delays/resource/Station/8000963> a ns1:Station ;
-    rdfs:label "Bietigheim-Bissingen station" ;
-    owl:sameAs <https://wikidata.org/entity/Q440067> ;
+    rdfs:label "Bietigheim (Baden)" ;
+    owl:sameAs <https://wikidata.org/entity/Q116155655> ;
     ns1:evaNumber "8000963" ;
     ns1:inCity <https://example.org/db-delays/resource/City/Baden-W%C3%BCrttemberg/Bietigheim> ;
     ns1:latitude 48.910587 ;
