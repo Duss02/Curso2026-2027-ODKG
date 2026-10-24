@@ -31,9 +31,9 @@ and turned into `owl:sameAs` triples by the mappings `mappings/*-with-links.rml`
 - **Plaza de España (28079004).** The official page gives "Sol / MONCLOA-ARAVACA",
   but Sol belongs to the Centro district, so we only kept the district
   (Moncloa-Aravaca).
-- **San Andrés and Ambroz.** In the sports facilities dataset, six rows has the neighbourhood 
-  "SAN ANDRES" w(the old name of Villaverde Alto, Casco Histórico de Villaverde, code 171, wd:Q390435) 
-  and 3 with “AMBROZ” (wd:Q11905294). The row keeps the Wikidata link in the CSV, 
+- **San Andrés and Ambroz.** In the sports facilities dataset, six rows have a
+  neighbourhood without a code: three "SAN ANDRES" (the old name of Villaverde Alto, Casco Histórico de Villaverde,
+  code 171, wd:Q390435) and three with “AMBROZ” (wd:Q11905294). The row keeps the Wikidata link in the CSV, 
   but no neighbourhood resource is generated for it because it has no code (same as in Hands-on 4).
 - **Pollutants.** Some pollutants were matched manually because the automatic
   match was not right: PM2.5 → wd:Q48035814, PM10 → wd:Q1056863 and
