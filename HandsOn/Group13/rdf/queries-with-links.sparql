@@ -1,13 +1,4 @@
-# =====================================================================
-# Group 13 - Queries to verify the links (aparcamientos-with-links.ttl)
-# Links: each mp:District is linked to its Wikidata entity via owl:sameAs
-# (values come from the "same_as_wikidata_distrito" column, reconciled
-#  in OpenRefine against Wikidata).
-# =====================================================================
-
-# ---------------------------------------------------------------------
-# Q1. List every district together with its Wikidata link
-# ---------------------------------------------------------------------
+#1 each district and the wikidata
 PREFIX mp:   <http://parking.linkeddata.upm.es/ontology/>
 PREFIX prop: <http://parking.linkeddata.upm.es/property/>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
@@ -19,10 +10,7 @@ WHERE {
             owl:sameAs ?wikidata .
 }
 ORDER BY ?name
-
-# ---------------------------------------------------------------------
-# Q2. Link coverage: total districts vs. districts with a link
-# ---------------------------------------------------------------------
+#2 check if all istric are linked
 PREFIX mp:  <http://parking.linkeddata.upm.es/ontology/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
@@ -32,10 +20,7 @@ WHERE {
   ?district a mp:District .
   OPTIONAL { ?district owl:sameAs ?wd . BIND(?district AS ?linked) }
 }
-
-# ---------------------------------------------------------------------
-# Q3. Districts WITHOUT a link (expected: no results)
-# ---------------------------------------------------------------------
+#3 another check if a district with no link exist
 PREFIX mp:   <http://parking.linkeddata.upm.es/ontology/>
 PREFIX prop: <http://parking.linkeddata.upm.es/property/>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
@@ -47,10 +32,8 @@ WHERE {
   FILTER NOT EXISTS { ?district owl:sameAs ?any }
 }
 
-# ---------------------------------------------------------------------
-# Q4. Districts linked to MORE than one external entity
-#     (ambiguous reconciliation; expected: no results)
-# ---------------------------------------------------------------------
+
+#4 Districts linked to MORE than one  entity
 PREFIX mp:  <http://parking.linkeddata.upm.es/ontology/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
@@ -62,10 +45,8 @@ WHERE {
 GROUP BY ?district
 HAVING (COUNT(DISTINCT ?wd) > 1)
 
-# ---------------------------------------------------------------------
-# Q5. The same Wikidata entity used for several districts
-#     (wrong reconciliation; expected: no results)
-# ---------------------------------------------------------------------
+#5 The same Wikidata entity used for several districts
+
 PREFIX mp:  <http://parking.linkeddata.upm.es/ontology/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
@@ -77,10 +58,7 @@ WHERE {
 GROUP BY ?wd
 HAVING (COUNT(DISTINCT ?district) > 1)
 
-# ---------------------------------------------------------------------
-# Q6. Malformed links: not an IRI or not a Wikidata entity IRI
-#     (expected: no results)
-# ---------------------------------------------------------------------
+#6 Malformed links: not an IRI or not a Wikidata entity IRI
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT ?s ?link
@@ -90,10 +68,8 @@ WHERE {
            !STRSTARTS(STR(?link), "http://www.wikidata.org/entity/Q") )
 }
 
-# ---------------------------------------------------------------------
-# Q7. Follow the links: each parking facility with its district
-#     and the district's Wikidata entity
-# ---------------------------------------------------------------------
+
+#7 each parking facility with its district and the district's Wikidata entity
 PREFIX mp:   <http://parking.linkeddata.upm.es/ontology/>
 PREFIX prop: <http://parking.linkeddata.upm.es/property/>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
@@ -108,9 +84,7 @@ WHERE {
 }
 ORDER BY ?districtName ?parkingName
 
-# ---------------------------------------------------------------------
-# Q8. Number of parking facilities per linked district
-# ---------------------------------------------------------------------
+#8 Number of parking facilities per linked district
 PREFIX mp:   <http://parking.linkeddata.upm.es/ontology/>
 PREFIX prop: <http://parking.linkeddata.upm.es/property/>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
@@ -124,50 +98,4 @@ WHERE {
 }
 GROUP BY ?districtName ?wikidata
 ORDER BY DESC(?numParkings)
-
-# =====================================================================
-# Queries from the previous hands-on (queries.sparql)
-# =====================================================================
-
-# ---------------------------------------------------------------------
-# Q9. Count Parking
-# ---------------------------------------------------------------------
-PREFIX mp: <http://parking.linkeddata.upm.es/ontology/>
-
-SELECT (COUNT(?parking) AS ?totalParkings)
-WHERE {
-  ?parking a mp:ParkingFacility .
-}
-
-# ---------------------------------------------------------------------
-# Q10. Count districts
-# ---------------------------------------------------------------------
-PREFIX mp: <http://parking.linkeddata.upm.es/ontology/>
-
-SELECT (COUNT(?district) AS ?totalDistricts)
-WHERE {
-  ?district a mp:District .
-}
-
-# ---------------------------------------------------------------------
-# Q11. Number of observations
-# ---------------------------------------------------------------------
-PREFIX mp: <http://parking.linkeddata.upm.es/ontology/>
-
-SELECT (COUNT(?obs) AS ?totalObservations)
-WHERE {
-  ?obs a mp:OccupancyObservation .
-}
-
-# ---------------------------------------------------------------------
-# Q12. Names of 10 parking facilities
-# ---------------------------------------------------------------------
-PREFIX mp: <http://parking.linkeddata.upm.es/ontology/>
-PREFIX prop: <http://parking.linkeddata.upm.es/property/>
-
-SELECT ?parking ?name
-WHERE {
-  ?parking a mp:ParkingFacility ;
-           prop:parkingName ?name .
-}
-LIMIT 10
+#querys from the previus file still work so i wont repaste them here
