@@ -2,6 +2,7 @@
 @prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/active-madrid/resource/SportsFacility/10051058> a am:SportsFacility ;
@@ -37,7 +38,7 @@
     schema1:name "Centro Deportivo Municipal Raúl González" ;
     schema1:telephone "917953792" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c2de79262ef5d010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191257> ;
+    owl:sameAs wd:Q63191257 ;
     geo1:lat 40.346220026067044 ;
     geo1:long -3.684337728806363 .
 
@@ -107,10 +108,10 @@
 <https://w3id.org/active-madrid/resource/SportsFacility/121729> a am:SportsFacility ;
     schema1:address <https://w3id.org/active-madrid/resource/PostalAddress/121729> ;
     schema1:email "idmmsamaranch@madrid.es" ;
-    schema1:name "Polideportivo Municipal Marqués de Samaranch" ;
+    schema1:name "Centro Deportivo Municipal Marqués de Samaranch" ;
     schema1:telephone "914220344" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=6b00e8ae8d81c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q30540859> ;
+    owl:sameAs wd:Q30540859 ;
     geo1:lat 40.40761501410649 ;
     geo1:long -3.7173807221939192 .
 
@@ -129,7 +130,7 @@
     schema1:name "Centro Deportivo Municipal Félix Rubio" ;
     schema1:telephone "913180435" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=330d79262ef5d010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191223> ;
+    owl:sameAs wd:Q63191223 ;
     geo1:lat 40.357429678675295 ;
     geo1:long -3.691528804696943 .
 
@@ -229,7 +230,7 @@
     schema1:name "Centro Deportivo Municipal Francisco Fernández Ochoa" ;
     schema1:telephone "915883623 / 915883731" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=aea1249dbda24110VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191262> ;
+    owl:sameAs wd:Q63191262 ;
     geo1:lat 40.36581776978113 ;
     geo1:long -3.740893980533789 .
 
@@ -248,7 +249,7 @@
     schema1:name "Centro Deportivo Municipal La Almudena" ;
     schema1:telephone "915882355 / 915133745" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ff13318c05b24110VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191226> ;
+    owl:sameAs wd:Q63191226 ;
     geo1:lat 40.42060649869604 ;
     geo1:long -3.6324237307227616 .
 
@@ -258,7 +259,7 @@
     schema1:name "Centro Deportivo Municipal Antonio Díaz Miguel" ;
     schema1:telephone "913145437" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c90342b9fda34110VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191265> ;
+    owl:sameAs wd:Q63191265 ;
     geo1:lat 40.471254265861454 ;
     geo1:long -3.6953256978963807 .
 
@@ -268,7 +269,7 @@
     schema1:name "Centro Deportivo Municipal Concepción" ;
     schema1:telephone "914039020 / 914039021 / 914058719" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f5bc79262ef5d010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191273> ;
+    owl:sameAs wd:Q63191273 ;
     geo1:lat 40.43725652047252 ;
     geo1:long -3.6484498132292025 .
 
@@ -287,7 +288,7 @@
     schema1:name "Centro Deportivo Municipal La Elipa" ;
     schema1:telephone "914303511" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f6b842be9971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191248> ;
+    owl:sameAs wd:Q63191248 ;
     geo1:lat 40.41433123768487 ;
     geo1:long -3.6559498758522833 .
 
@@ -297,7 +298,7 @@
     schema1:name "Centro Deportivo Municipal Palomeras" ;
     schema1:telephone "917774901" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ee5e79262ef5d010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191260> ;
+    owl:sameAs wd:Q63191260 ;
     geo1:lat 40.38260362230282 ;
     geo1:long -3.6337151808372496 .
 
@@ -307,7 +308,7 @@
     schema1:name "Centro Deportivo Municipal Entrevías" ;
     schema1:telephone "917854214" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1e57b0c40971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191249> ;
+    owl:sameAs wd:Q63191249 ;
     geo1:lat 40.378413212706285 ;
     geo1:long -3.674532317137481 .
 
@@ -341,10 +342,10 @@
 <https://w3id.org/active-madrid/resource/SportsFacility/4680> a am:SportsFacility ;
     schema1:address <https://w3id.org/active-madrid/resource/PostalAddress/4680> ;
     schema1:email "idmhortaleza@madrid.es" ;
-    schema1:name "Polideportivo de Hortaleza" ;
+    schema1:name "Centro Deportivo Municipal Hortaleza" ;
     schema1:telephone "913818260" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=705d79262ef5d010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q110749268> ;
+    owl:sameAs wd:Q110749268 ;
     geo1:lat 40.4787279264401 ;
     geo1:long -3.6527183525553006 .
 
@@ -399,7 +400,7 @@
     schema1:name "Centro Deportivo Municipal Cerro Almodóvar" ;
     schema1:telephone "913314047" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=8e96b0c40971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191254> ;
+    owl:sameAs wd:Q63191254 ;
     geo1:lat 40.38168820146643 ;
     geo1:long -3.602327770076511 .
 
@@ -409,7 +410,7 @@
     schema1:name "Centro Deportivo Municipal Margot Moles" ;
     schema1:telephone "917769874" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=4d6f79262ef5d010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191268> ;
+    owl:sameAs wd:Q63191268 ;
     geo1:lat 40.40914061858403 ;
     geo1:long -3.603264732850392 .
 
@@ -419,7 +420,7 @@
     schema1:name "Centro Deportivo Municipal San Blas" ;
     schema1:telephone "913209818" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=424b42be9971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191258> ;
+    owl:sameAs wd:Q63191258 ;
     geo1:lat 40.428933838154435 ;
     geo1:long -3.615229739080561 .
 
@@ -465,7 +466,7 @@
     schema1:name "Centro Deportivo Municipal La Fundi" ;
     schema1:telephone "914305871 / Taquilla915288879" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=9b26b0c40971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191213> ;
+    owl:sameAs wd:Q63191213 ;
     geo1:lat 40.39437715885103 ;
     geo1:long -3.691341060146108 .
 
@@ -484,7 +485,7 @@
     schema1:name "Centro Deportivo Municipal Aluche" ;
     schema1:telephone "917062868" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=4506b0c40971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191263> ;
+    owl:sameAs wd:Q63191263 ;
     geo1:lat 40.382720517194784 ;
     geo1:long -3.773653600881568 .
 
@@ -494,7 +495,7 @@
     schema1:name "Centro Deportivo Municipal La Chopera" ;
     schema1:telephone "914201154" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a09842be9971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q135957017> ;
+    owl:sameAs wd:Q135957017 ;
     geo1:lat 40.412290927416464 ;
     geo1:long -3.686209227175977 .
 
@@ -504,7 +505,7 @@
     schema1:name "Centro Deportivo Municipal Gallur" ;
     schema1:telephone "915089401 / 915251059" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=d92d79262ef5d010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191274> ;
+    owl:sameAs wd:Q63191274 ;
     geo1:lat 40.398474762124025 ;
     geo1:long -3.735371180736436 .
 
@@ -514,7 +515,7 @@
     schema1:name "Centro Deportivo Municipal Vicente del Bosque" ;
     schema1:telephone "917767502" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=e156b0c40971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191252> ;
+    owl:sameAs wd:Q63191252 ;
     geo1:lat 40.4789135943213 ;
     geo1:long -3.693540659747283 .
 
@@ -533,7 +534,7 @@
     schema1:name "Centro Deportivo Municipal Pradillo" ;
     schema1:telephone "914137105" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=2cae79262ef5d010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191256> ;
+    owl:sameAs wd:Q63191256 ;
     geo1:lat 40.44910622626739 ;
     geo1:long -3.671618277009419 .
 
@@ -623,7 +624,7 @@
     schema1:name "Centro Deportivo Municipal Pueblo Nuevo" ;
     schema1:telephone "913770251" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a5fa42be9971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191253> ;
+    owl:sameAs wd:Q63191253 ;
     geo1:lat 40.43003240158625 ;
     geo1:long -3.638536354805483 .
 
@@ -651,7 +652,7 @@
     schema1:name "Centro Deportivo Municipal Peñuelas" ;
     schema1:telephone "Taquilla:915883465 / Oficina:917791205" ;
     schema1:url "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=6c5a42be9971c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
-    owl:sameAs <https://wikidata.org/entity/Q63191214> ;
+    owl:sameAs wd:Q63191214 ;
     geo1:lat 40.39865532340664 ;
     geo1:long -3.704959759845779 .
 
@@ -761,253 +762,253 @@
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Acacias> a am:Neighborhood ;
     schema1:name "Acacias" ;
-    owl:sameAs <https://wikidata.org/entity/Q3319190> ;
+    owl:sameAs wd:Q3319190 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Arganzuela> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Almenara> a am:Neighborhood ;
     schema1:name "Almenara" ;
-    owl:sameAs <https://wikidata.org/entity/Q2265427> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Tetu%C3%A1n> .
+    owl:sameAs wd:Q2265427 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Tetuan> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Ambroz> a am:Neighborhood ;
     schema1:name "Ambroz" ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Vic%C3%A1lvaro> .
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Vicalvaro> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Ap%C3%B3stol%20Santiago> a am:Neighborhood ;
-    schema1:name "Apóstol Santiago" ;
-    owl:sameAs <https://wikidata.org/entity/Q11906303> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Apostol%20Santiago> a am:Neighborhood ;
+    schema1:name "Apostol Santiago" ;
+    owl:sameAs wd:Q11906303 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Hortaleza> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Arapiles> a am:Neighborhood ;
     schema1:name "Arapiles" ;
-    owl:sameAs <https://wikidata.org/entity/Q10856744> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Chamber%C3%AD> .
+    owl:sameAs wd:Q10856744 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Chamberi> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Aravaca> a am:Neighborhood ;
     schema1:name "Aravaca" ;
-    owl:sameAs <https://wikidata.org/entity/Q3314682> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moncloa-Aravaca> .
+    owl:sameAs wd:Q3314682 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moncloa-aravaca> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Bellas%20Vistas> a am:Neighborhood ;
     schema1:name "Bellas Vistas" ;
-    owl:sameAs <https://wikidata.org/entity/Q11908929> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Tetu%C3%A1n> .
+    owl:sameAs wd:Q11908929 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Tetuan> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Buenavista> a am:Neighborhood ;
     schema1:name "Buenavista" ;
-    owl:sameAs <https://wikidata.org/entity/Q953929> ;
+    owl:sameAs wd:Q953929 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Carabanchel> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Canillas> a am:Neighborhood ;
     schema1:name "Canillas" ;
-    owl:sameAs <https://wikidata.org/entity/Q9694341> ;
+    owl:sameAs wd:Q9694341 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Hortaleza> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Casco%20Hist%C3%B3rico%20de%20Vallecas> a am:Neighborhood ;
-    schema1:name "Casco Histórico de Vallecas" ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villa%20de%20Vallecas> .
+<https://w3id.org/active-madrid/resource/Neighborhood/Casco%20H.Vallecas> a am:Neighborhood ;
+    schema1:name "Casco H.Vallecas" ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villa%20De%20Vallecas> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Casco%20Hist%C3%B3rico%20de%20Vic%C3%A1lvaro> a am:Neighborhood ;
-    schema1:name "Casco Histórico de Vicálvaro" ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Vic%C3%A1lvaro> .
+<https://w3id.org/active-madrid/resource/Neighborhood/Casco%20H.Vicalvaro> a am:Neighborhood ;
+    schema1:name "Casco H.Vicalvaro" ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Vicalvaro> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Castillejos> a am:Neighborhood ;
     schema1:name "Castillejos" ;
-    owl:sameAs <https://wikidata.org/entity/Q11913212> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Tetu%C3%A1n> .
+    owl:sameAs wd:Q11913212 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Tetuan> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Ciudad%20Jard%C3%ADn> a am:Neighborhood ;
-    schema1:name "Ciudad Jardín" ;
-    owl:sameAs <https://wikidata.org/entity/Q3773744> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Chamart%C3%ADn> .
+<https://w3id.org/active-madrid/resource/Neighborhood/Ciudad%20Jardin> a am:Neighborhood ;
+    schema1:name "Ciudad Jardin" ;
+    owl:sameAs wd:Q3773744 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Chamartin> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Ciudad%20Universitaria> a am:Neighborhood ;
     schema1:name "Ciudad Universitaria" ;
-    owl:sameAs <https://wikidata.org/entity/Q3319235> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moncloa-Aravaca> .
+    owl:sameAs wd:Q3319235 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moncloa-aravaca> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Concepci%C3%B3n> a am:Neighborhood ;
-    schema1:name "Concepción" ;
-    owl:sameAs <https://wikidata.org/entity/Q11915156> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Concepcion> a am:Neighborhood ;
+    schema1:name "Concepcion" ;
+    owl:sameAs wd:Q11915156 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Ciudad%20Lineal> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Cortes> a am:Neighborhood ;
     schema1:name "Cortes" ;
-    owl:sameAs <https://wikidata.org/entity/Q2535637> ;
+    owl:sameAs wd:Q2535637 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Centro> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Delicias> a am:Neighborhood ;
     schema1:name "Delicias" ;
-    owl:sameAs <https://wikidata.org/entity/Q3773736> ;
+    owl:sameAs wd:Q3773736 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Arganzuela> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/El%20Pilar> a am:Neighborhood ;
     schema1:name "El Pilar" ;
-    owl:sameAs <https://wikidata.org/entity/Q3773964> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-El%20Pardo> .
+    owl:sameAs wd:Q3773964 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-el%20Pardo> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Ensanche%20de%20Vallecas> a am:Neighborhood ;
-    schema1:name "Ensanche de Vallecas" ;
-    owl:sameAs <https://wikidata.org/entity/Q3847485> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villa%20de%20Vallecas> .
+<https://w3id.org/active-madrid/resource/Neighborhood/Ensanche%20De%20Vallecas> a am:Neighborhood ;
+    schema1:name "Ensanche De Vallecas" ;
+    owl:sameAs wd:Q3847485 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villa%20De%20Vallecas> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Fuente%20del%20Berro> a am:Neighborhood ;
-    schema1:name "Fuente del Berro" ;
-    owl:sameAs <https://wikidata.org/entity/Q3814564> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Fuente%20Del%20Berro> a am:Neighborhood ;
+    schema1:name "Fuente Del Berro" ;
+    owl:sameAs wd:Q3814564 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Salamanca> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Goya> a am:Neighborhood ;
     schema1:name "Goya" ;
-    owl:sameAs <https://wikidata.org/entity/Q3814578> ;
+    owl:sameAs wd:Q3814578 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Salamanca> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Hell%C3%ADn> a am:Neighborhood ;
-    schema1:name "Hellín" ;
-    owl:sameAs <https://wikidata.org/entity/Q10294546> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/San%20Blas-Canillejas> .
+<https://w3id.org/active-madrid/resource/Neighborhood/Guindalera> a am:Neighborhood ;
+    schema1:name "Guindalera" ;
+    owl:sameAs wd:Q3814559 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Salamanca> .
+
+<https://w3id.org/active-madrid/resource/Neighborhood/Hellin> a am:Neighborhood ;
+    schema1:name "Hellin" ;
+    owl:sameAs wd:Q10294546 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/San%20Blas-canillejas> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Imperial> a am:Neighborhood ;
     schema1:name "Imperial" ;
-    owl:sameAs <https://wikidata.org/entity/Q3773740> ;
+    owl:sameAs wd:Q3773740 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Arganzuela> .
-
-<https://w3id.org/active-madrid/resource/Neighborhood/La%20Guindalera> a am:Neighborhood ;
-    schema1:name "La Guindalera" ;
-    owl:sameAs <https://wikidata.org/entity/Q3814559> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Salamanca> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/La%20Paz> a am:Neighborhood ;
     schema1:name "La Paz" ;
-    owl:sameAs <https://wikidata.org/entity/Q5869740> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-El%20Pardo> .
+    owl:sameAs wd:Q5869740 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-el%20Pardo> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Legazpi> a am:Neighborhood ;
     schema1:name "Legazpi" ;
-    owl:sameAs <https://wikidata.org/entity/Q3773990> ;
+    owl:sameAs wd:Q3773990 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Arganzuela> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Los%20C%C3%A1rmenes> a am:Neighborhood ;
-    schema1:name "Los Cármenes" ;
-    owl:sameAs <https://wikidata.org/entity/Q10319792> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Los%20Carmenes> a am:Neighborhood ;
+    schema1:name "Los Carmenes" ;
+    owl:sameAs wd:Q10319792 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Latina> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Lucero> a am:Neighborhood ;
     schema1:name "Lucero" ;
-    owl:sameAs <https://wikidata.org/entity/Q31162> ;
+    owl:sameAs wd:Q31162 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Latina> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Media%20Legua> a am:Neighborhood ;
     schema1:name "Media Legua" ;
-    owl:sameAs <https://wikidata.org/entity/Q9031035> ;
+    owl:sameAs wd:Q9031035 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moratalaz> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Mirasierra> a am:Neighborhood ;
     schema1:name "Mirasierra" ;
-    owl:sameAs <https://wikidata.org/entity/Q31134> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-El%20Pardo> .
+    owl:sameAs wd:Q31134 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-el%20Pardo> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Moscard%C3%B3> a am:Neighborhood ;
-    schema1:name "Moscardó" ;
-    owl:sameAs <https://wikidata.org/entity/Q11937679> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Moscardo> a am:Neighborhood ;
+    schema1:name "Moscardo" ;
+    owl:sameAs wd:Q11937679 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Usera> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Nueva%20Espa%C3%B1a> a am:Neighborhood ;
     schema1:name "Nueva España" ;
-    owl:sameAs <https://wikidata.org/entity/Q10338128> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Chamart%C3%ADn> .
+    owl:sameAs wd:Q10338128 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Chamartin> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Orcasur> a am:Neighborhood ;
     schema1:name "Orcasur" ;
-    owl:sameAs <https://wikidata.org/entity/Q10341270> ;
+    owl:sameAs wd:Q10341270 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Usera> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Palacio> a am:Neighborhood ;
     schema1:name "Palacio" ;
-    owl:sameAs <https://wikidata.org/entity/Q2136510> ;
+    owl:sameAs wd:Q2136510 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Centro> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Palomas> a am:Neighborhood ;
     schema1:name "Palomas" ;
-    owl:sameAs <https://wikidata.org/entity/Q390460> ;
+    owl:sameAs wd:Q390460 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Hortaleza> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Palomeras%20Sureste> a am:Neighborhood ;
     schema1:name "Palomeras Sureste" ;
-    owl:sameAs <https://wikidata.org/entity/Q10343901> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Puente%20de%20Vallecas> .
+    owl:sameAs wd:Q10343901 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Puente%20De%20Vallecas> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Palos%20de%20la%20Frontera> a am:Neighborhood ;
-    schema1:name "Palos de la Frontera" ;
-    owl:sameAs <https://wikidata.org/entity/Q521009> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Palos%20De%20La%20Frontera> a am:Neighborhood ;
+    schema1:name "Palos De La Frontera" ;
+    owl:sameAs wd:Q521009 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Arganzuela> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Pavones> a am:Neighborhood ;
     schema1:name "Pavones" ;
-    owl:sameAs <https://wikidata.org/entity/Q71760> ;
+    owl:sameAs wd:Q71760 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moratalaz> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Pe%C3%B1agrande> a am:Neighborhood ;
-    schema1:name "Peñagrande" ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-El%20Pardo> .
+<https://w3id.org/active-madrid/resource/Neighborhood/Pe%C3%B1a%20Grande> a am:Neighborhood ;
+    schema1:name "Peña Grande" ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-el%20Pardo> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Rejas> a am:Neighborhood ;
     schema1:name "Rejas" ;
-    owl:sameAs <https://wikidata.org/entity/Q10359029> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/San%20Blas-Canillejas> .
+    owl:sameAs wd:Q10359029 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/San%20Blas-canillejas> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/San%20Ferm%C3%ADn> a am:Neighborhood ;
-    schema1:name "San Fermín" ;
-    owl:sameAs <https://wikidata.org/entity/Q71758> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/San%20Andres> a am:Neighborhood ;
+    schema1:name "San Andres" ;
+    owl:sameAs wd:Q390435 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villaverde> .
+
+<https://w3id.org/active-madrid/resource/Neighborhood/San%20Fermin> a am:Neighborhood ;
+    schema1:name "San Fermin" ;
+    owl:sameAs wd:Q71758 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Usera> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/San%20Isidro> a am:Neighborhood ;
     schema1:name "San Isidro" ;
-    owl:sameAs <https://wikidata.org/entity/Q3813733> ;
+    owl:sameAs wd:Q3813733 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Carabanchel> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/San%20Juan%20Bautista> a am:Neighborhood ;
     schema1:name "San Juan Bautista" ;
-    owl:sameAs <https://wikidata.org/entity/Q165609> ;
+    owl:sameAs wd:Q165609 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Ciudad%20Lineal> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Santa%20Eugenia> a am:Neighborhood ;
     schema1:name "Santa Eugenia" ;
-    owl:sameAs <https://wikidata.org/entity/Q390463> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villa%20de%20Vallecas> .
+    owl:sameAs wd:Q390463 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villa%20De%20Vallecas> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Tim%C3%B3n> a am:Neighborhood ;
-    schema1:name "Timón" ;
-    owl:sameAs <https://wikidata.org/entity/Q10382570> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Timon> a am:Neighborhood ;
+    schema1:name "Timon" ;
+    owl:sameAs wd:Q10382570 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Barajas> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Valverde> a am:Neighborhood ;
     schema1:name "Valverde" ;
-    owl:sameAs <https://wikidata.org/entity/Q31132> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-El%20Pardo> .
-
-<https://w3id.org/active-madrid/resource/Neighborhood/Villaverde%20Alto%2C%20Casco%20Hist%C3%B3rico%20de%20Villaverde> a am:Neighborhood ;
-    schema1:name "Villaverde Alto, Casco Histórico de Villaverde" ;
-    owl:sameAs <https://wikidata.org/entity/Q390435> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villaverde> .
+    owl:sameAs wd:Q31132 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Fuencarral-el%20Pardo> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Vista%20Alegre> a am:Neighborhood ;
     schema1:name "Vista Alegre" ;
-    owl:sameAs <https://wikidata.org/entity/Q3813741> ;
+    owl:sameAs wd:Q3813741 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Carabanchel> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Zof%C3%ADo> a am:Neighborhood ;
-    schema1:name "Zofío" ;
-    owl:sameAs <https://wikidata.org/entity/Q71751> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Zofio> a am:Neighborhood ;
+    schema1:name "Zofio" ;
+    owl:sameAs wd:Q71751 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Usera> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/10051058> a schema1:PostalAddress ;
     schema1:postalCode "28004" ;
-    schema1:streetAddress "Calle calle de Barceló, 6" ;
+    schema1:streetAddress "Calle Barcelo, 6" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Justicia> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/10183549> a schema1:PostalAddress ;
     schema1:postalCode "28006" ;
-    schema1:streetAddress "Calle calle de Alcántara, 26" ;
+    schema1:streetAddress "Calle Alcantara, 26" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Goya> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/104235> a schema1:PostalAddress ;
@@ -1018,12 +1019,12 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/106242> a schema1:PostalAddress ;
     schema1:postalCode "28021" ;
     schema1:streetAddress "Calle Benimamet, 137" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/San%20Crist%C3%B3bal> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/San%20Cristobal> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/10630252> a schema1:PostalAddress ;
     schema1:postalCode "28035" ;
-    schema1:streetAddress "Avenida Avenida de Monforte de Lemos, 184" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Pe%C3%B1agrande> .
+    schema1:streetAddress "Avenida Monforte De Lemos, 184" ;
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Pe%C3%B1a%20Grande> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/10663007> a schema1:PostalAddress ;
     schema1:postalCode "28003" ;
@@ -1038,7 +1039,7 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/11580683> a schema1:PostalAddress ;
     schema1:postalCode "28051" ;
     schema1:streetAddress "Calle Jose Gutierrez Maroto, 34" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Ensanche%20de%20Vallecas> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Ensanche%20De%20Vallecas> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/11820127> a schema1:PostalAddress ;
     schema1:postalCode "28005" ;
@@ -1047,13 +1048,13 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/12022187> a schema1:PostalAddress ;
     schema1:postalCode "28003" ;
-    schema1:streetAddress "Calle calle de Cea Bermúdez, 3" ;
+    schema1:streetAddress "Calle Cea Bermudez, 3" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Arapiles> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/120275> a schema1:PostalAddress ;
     schema1:postalCode "28032" ;
     schema1:streetAddress "Calle Ladera De Los Almendros, 2" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casco%20Hist%C3%B3rico%20de%20Vic%C3%A1lvaro> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casco%20H.Vicalvaro> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/121729> a schema1:PostalAddress ;
     schema1:postalCode "28005" ;
@@ -1063,7 +1064,7 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/12346116> a schema1:PostalAddress ;
     schema1:postalCode "28042" ;
     schema1:streetAddress "Calle Mistral, 4" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Tim%C3%B3n> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Timon> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/124194> a schema1:PostalAddress ;
     schema1:postalCode "28041" ;
@@ -1072,18 +1073,18 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/12453713> a schema1:PostalAddress ;
     schema1:postalCode "28039" ;
-    schema1:streetAddress "Paseo paseo de la Dirección, 125" ;
+    schema1:streetAddress "Paseo Direccion, 125" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Berruguete> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/12724992> a schema1:PostalAddress ;
     schema1:postalCode "28020" ;
-    schema1:streetAddress "Calle calle de Bravo Murillo, 107" ;
+    schema1:streetAddress "Calle Bravo Murillo, 107" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Bellas%20Vistas> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/134059> a schema1:PostalAddress ;
     schema1:postalCode "28007" ;
     schema1:streetAddress "Plaza Daoíz Y Velarde, 5" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Pac%C3%ADfico> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Pacifico> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/140197> a schema1:PostalAddress ;
     schema1:postalCode "28041" ;
@@ -1093,12 +1094,12 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/28525> a schema1:PostalAddress ;
     schema1:postalCode "28011" ;
     schema1:streetAddress "Camino Principe, 2" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20de%20Campo> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20De%20Campo> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4538574> a schema1:PostalAddress ;
     schema1:postalCode "28044" ;
-    schema1:streetAddress "Avenida avenida de los Poblados, 72" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Las%20%C3%81guilas> .
+    schema1:streetAddress "Avenida Poblados, 72" ;
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Las%20Aguilas> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4617960> a schema1:PostalAddress ;
     schema1:postalCode "28047" ;
@@ -1117,7 +1118,7 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4622991> a schema1:PostalAddress ;
     schema1:postalCode "28022" ;
-    schema1:streetAddress "Avenida avenida de Niza, 8" ;
+    schema1:streetAddress "Avenida Niza, 8" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Rosas> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4623547> a schema1:PostalAddress ;
@@ -1128,7 +1129,7 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/4623697> a schema1:PostalAddress ;
     schema1:postalCode "28028" ;
     schema1:streetAddress "Calle Elvira, 36" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Fuente%20del%20Berro> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Fuente%20Del%20Berro> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4623700> a schema1:PostalAddress ;
     schema1:postalCode "28017" ;
@@ -1142,8 +1143,8 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4672> a schema1:PostalAddress ;
     schema1:postalCode "28027" ;
-    schema1:streetAddress "Calle calle de José del Hierro, 5" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Concepci%C3%B3n> .
+    schema1:streetAddress "Calle Jose Del Hierro, 5" ;
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Concepcion> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4673> a schema1:PostalAddress ;
     schema1:postalCode "28030" ;
@@ -1152,7 +1153,7 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4674> a schema1:PostalAddress ;
     schema1:postalCode "28030" ;
-    schema1:streetAddress "Calle calle del Alcalde Garrido Juaristi, 17" ;
+    schema1:streetAddress "Calle Alcalde Garrido Juaristi, 17" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Media%20Legua> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4675> a schema1:PostalAddress ;
@@ -1163,11 +1164,11 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/4676> a schema1:PostalAddress ;
     schema1:postalCode "28053" ;
     schema1:streetAddress "Ronda Sur, 4" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Entrev%C3%ADas> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Entrevias> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4677> a schema1:PostalAddress ;
     schema1:postalCode "28018" ;
-    schema1:streetAddress "Calle calle del Arroyo del Olivar, 51" ;
+    schema1:streetAddress "Calle Arroyo Del Olivar, 51" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Palomeras%20Bajas> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4678> a schema1:PostalAddress ;
@@ -1183,7 +1184,7 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/4680> a schema1:PostalAddress ;
     schema1:postalCode "28033" ;
     schema1:streetAddress "Carretera Estacion De Hortaleza, 11" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Ap%C3%B3stol%20Santiago> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Apostol%20Santiago> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4681> a schema1:PostalAddress ;
     schema1:postalCode "28043" ;
@@ -1192,13 +1193,13 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4684> a schema1:PostalAddress ;
     schema1:postalCode "28020" ;
-    schema1:streetAddress "Calle calle de Bravo Murillo, 376" ;
+    schema1:streetAddress "Calle Bravo Murillo, 376" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Castillejos> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4684794> a schema1:PostalAddress ;
     schema1:postalCode "28042" ;
     schema1:streetAddress "Calle Brezos, 6" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Alameda%20de%20Osuna> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Alameda%20De%20Osuna> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4685> a schema1:PostalAddress ;
     schema1:postalCode "28039" ;
@@ -1208,7 +1209,7 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/4686> a schema1:PostalAddress ;
     schema1:postalCode "28021" ;
     schema1:streetAddress "Plaza Pinazo, 9" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/San%20Crist%C3%B3bal> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/San%20Cristobal> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4687> a schema1:PostalAddress ;
     schema1:postalCode "28031" ;
@@ -1223,7 +1224,7 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/4689> a schema1:PostalAddress ;
     schema1:postalCode "28037" ;
     schema1:streetAddress "Avenida Hellin, 47" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Hell%C3%ADn> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Hellin> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4690> a schema1:PostalAddress ;
     schema1:postalCode "28041" ;
@@ -1233,17 +1234,17 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/4691> a schema1:PostalAddress ;
     schema1:postalCode "28026" ;
     schema1:streetAddress "Calle Andres Arteaga, 5" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Moscard%C3%B3> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Moscardo> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4692> a schema1:PostalAddress ;
     schema1:postalCode "28041" ;
     schema1:streetAddress "Calle San Mario, 18" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/San%20Ferm%C3%ADn> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/San%20Fermin> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4693> a schema1:PostalAddress ;
     schema1:postalCode "28026" ;
-    schema1:streetAddress "Avenida Avenida de Rafaela Ybarra, 52" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Zof%C3%ADo> .
+    schema1:streetAddress "Avenida Rafaela Ybarra, 52" ;
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Zofio> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4694> a schema1:PostalAddress ;
     schema1:postalCode "28045" ;
@@ -1257,58 +1258,58 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4696> a schema1:PostalAddress ;
     schema1:postalCode "28044" ;
-    schema1:streetAddress "Avenida Avenida de las Águilas, 14" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Las%20%C3%81guilas> .
+    schema1:streetAddress "Avenida De Las Aguilas, 14" ;
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Las%20Aguilas> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4697> a schema1:PostalAddress ;
     schema1:postalCode "28009" ;
-    schema1:streetAddress "Paseo calle del Duque de Fernán Núñez, 3" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Jer%C3%B3nimos> .
+    schema1:streetAddress "Paseo Fernan Nuñez, 3" ;
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Los%20Jeronimos> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4698> a schema1:PostalAddress ;
     schema1:postalCode "28047" ;
     schema1:streetAddress "Calle Gallur, 2" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Los%20C%C3%A1rmenes> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Los%20Carmenes> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4699> a schema1:PostalAddress ;
     schema1:postalCode "28029" ;
-    schema1:streetAddress "Avenida Avenida de Monforte de Lemos, 13" ;
+    schema1:streetAddress "Avenida Monforte De Lemos, 13" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/La%20Paz> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4700> a schema1:PostalAddress ;
     schema1:postalCode "28016" ;
-    schema1:streetAddress "Avenida avenida de Pío XII, 2" ;
+    schema1:streetAddress "Avenida Pio Xii, 2" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Nueva%20Espa%C3%B1a> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4701> a schema1:PostalAddress ;
     schema1:postalCode "28002" ;
-    schema1:streetAddress "Calle calle de Pradillo, 33" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Ciudad%20Jard%C3%ADn> .
+    schema1:streetAddress "Calle Pradillo, 33" ;
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Ciudad%20Jardin> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4701827> a schema1:PostalAddress ;
     schema1:postalCode "28031" ;
     schema1:streetAddress "Calle Fuentidueña, 6" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casco%20Hist%C3%B3rico%20de%20Vallecas> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casco%20H.Vallecas> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4702> a schema1:PostalAddress ;
     schema1:postalCode "28035" ;
-    schema1:streetAddress "Calle calle de Antonio Machado, 12" ;
+    schema1:streetAddress "Calle Antonio Machado, 12" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Valdezarza> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4703> a schema1:PostalAddress ;
     schema1:postalCode "28039" ;
-    schema1:streetAddress "Avenida avenida del Santo Ángel de la Guarda, 6" ;
+    schema1:streetAddress "Avenida Santo Angel De La Guarda, 6" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Valdezarza> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4704> a schema1:PostalAddress ;
     schema1:postalCode "28008" ;
     schema1:streetAddress "Calle Santa Pola, 22" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20de%20Campo> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20De%20Campo> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4705> a schema1:PostalAddress ;
     schema1:postalCode "28011" ;
     schema1:streetAddress "Paseo Puerta Del Angel, 7" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20de%20Campo> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20De%20Campo> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4706> a schema1:PostalAddress ;
     schema1:postalCode "28034" ;
@@ -1317,18 +1318,18 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4707> a schema1:PostalAddress ;
     schema1:postalCode "28029" ;
-    schema1:streetAddress "Avenida Avenida de Monforte de Lemos, 38" ;
+    schema1:streetAddress "Avenida Monforte De Lemos, 38" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/El%20Pilar> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4718> a schema1:PostalAddress ;
     schema1:postalCode "28039" ;
-    schema1:streetAddress "Calle calle de la Hierbabuena, 2" ;
+    schema1:streetAddress "Calle Hierbabuena, 2" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Berruguete> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4719> a schema1:PostalAddress ;
     schema1:postalCode "28021" ;
     schema1:streetAddress "Paseo Plata Y Castañar, 7" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Villaverde%20Alto%2C%20Casco%20Hist%C3%B3rico%20de%20Villaverde> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/San%20Andres> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4720> a schema1:PostalAddress ;
     schema1:postalCode "28017" ;
@@ -1338,12 +1339,12 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/4722> a schema1:PostalAddress ;
     schema1:postalCode "28008" ;
     schema1:streetAddress "Calle Senda Del Rey, 8" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20de%20Campo> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20De%20Campo> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4726> a schema1:PostalAddress ;
     schema1:postalCode "28007" ;
     schema1:streetAddress "Calle Alberche, 21" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Pac%C3%ADfico> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Pacifico> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4727> a schema1:PostalAddress ;
     schema1:postalCode "28005" ;
@@ -1353,21 +1354,21 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/4728> a schema1:PostalAddress ;
     schema1:postalCode "28009" ;
     schema1:streetAddress "Paseo Colombia, 2" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Jer%C3%B3nimos> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Los%20Jeronimos> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/4834> a schema1:PostalAddress ;
     schema1:postalCode "28011" ;
     schema1:streetAddress "Paseo Embarcadero, 8" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20de%20Campo> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Casa%20De%20Campo> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/49338> a schema1:PostalAddress ;
     schema1:postalCode "28053" ;
     schema1:streetAddress "Calle Reguera De Tomateros, 39" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Entrev%C3%ADas> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Entrevias> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/50257984> a schema1:PostalAddress ;
     schema1:postalCode "28014" ;
-    schema1:streetAddress "Calle calle de Fúcar, 8" ;
+    schema1:streetAddress "Calle Fucar, 8" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Cortes> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/50264232> a schema1:PostalAddress ;
@@ -1378,7 +1379,7 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/51661> a schema1:PostalAddress ;
     schema1:postalCode "28028" ;
     schema1:streetAddress "Calle Pilar De Zaragoza, 93" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/La%20Guindalera> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Guindalera> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/6208448> a schema1:PostalAddress ;
     schema1:postalCode "28045" ;
@@ -1387,18 +1388,18 @@
 
 <https://w3id.org/active-madrid/resource/PostalAddress/6486044> a schema1:PostalAddress ;
     schema1:postalCode "28004" ;
-    schema1:streetAddress "Calle calle de la Farmacia, 13" ;
+    schema1:streetAddress "Calle Farmacia, 13" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Justicia> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/7411340> a schema1:PostalAddress ;
     schema1:postalCode "28003" ;
-    schema1:streetAddress "Avenida avenida de Filipinas, 7" ;
+    schema1:streetAddress "Avenida Filipinas, 7" ;
     am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Vallehermoso> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/78960> a schema1:PostalAddress ;
     schema1:postalCode "28045" ;
     schema1:streetAddress "Calle Palos De La Frontera, 40" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Palos%20de%20la%20Frontera> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Palos%20De%20La%20Frontera> .
 
 <https://w3id.org/active-madrid/resource/PostalAddress/84661> a schema1:PostalAddress ;
     schema1:postalCode "28011" ;
@@ -1408,164 +1409,164 @@
 <https://w3id.org/active-madrid/resource/PostalAddress/99578> a schema1:PostalAddress ;
     schema1:postalCode "28042" ;
     schema1:streetAddress "Avenida Logroño, 70" ;
-    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Alameda%20de%20Osuna> .
+    am:locatedInNeighborhood <https://w3id.org/active-madrid/resource/Neighborhood/Alameda%20De%20Osuna> .
 
 <https://w3id.org/active-madrid/resource/District/Barajas> a am:District ;
     schema1:name "Barajas" ;
-    owl:sameAs <https://wikidata.org/entity/Q807230> .
+    owl:sameAs wd:Q807230 .
 
-<https://w3id.org/active-madrid/resource/District/Chamart%C3%ADn> a am:District ;
-    schema1:name "Chamartín" ;
-    owl:sameAs <https://wikidata.org/entity/Q1766348> .
+<https://w3id.org/active-madrid/resource/District/Chamartin> a am:District ;
+    schema1:name "Chamartin" ;
+    owl:sameAs wd:Q1766348 .
 
-<https://w3id.org/active-madrid/resource/District/Chamber%C3%AD> a am:District ;
-    schema1:name "Chamberí" ;
-    owl:sameAs <https://wikidata.org/entity/Q1763370> .
+<https://w3id.org/active-madrid/resource/District/Chamberi> a am:District ;
+    schema1:name "Chamberi" ;
+    owl:sameAs wd:Q1763370 .
 
 <https://w3id.org/active-madrid/resource/District/Moratalaz> a am:District ;
     schema1:name "Moratalaz" ;
-    owl:sameAs <https://wikidata.org/entity/Q2076109> .
+    owl:sameAs wd:Q2076109 .
 
 <https://w3id.org/active-madrid/resource/District/Retiro> a am:District ;
     schema1:name "Retiro" ;
-    owl:sameAs <https://wikidata.org/entity/Q2002296> .
+    owl:sameAs wd:Q2002296 .
 
-<https://w3id.org/active-madrid/resource/District/Vic%C3%A1lvaro> a am:District ;
-    schema1:name "Vicálvaro" ;
-    owl:sameAs <https://wikidata.org/entity/Q589403> .
+<https://w3id.org/active-madrid/resource/District/Vicalvaro> a am:District ;
+    schema1:name "Vicalvaro" ;
+    owl:sameAs wd:Q589403 .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Alameda%20de%20Osuna> a am:Neighborhood ;
-    schema1:name "Alameda de Osuna" ;
-    owl:sameAs <https://wikidata.org/entity/Q760737> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Alameda%20De%20Osuna> a am:Neighborhood ;
+    schema1:name "Alameda De Osuna" ;
+    owl:sameAs wd:Q760737 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Barajas> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Berruguete> a am:Neighborhood ;
     schema1:name "Berruguete" ;
-    owl:sameAs <https://wikidata.org/entity/Q11909208> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Tetu%C3%A1n> .
+    owl:sameAs wd:Q11909208 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Tetuan> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Entrev%C3%ADas> a am:Neighborhood ;
-    schema1:name "Entrevías" ;
-    owl:sameAs <https://wikidata.org/entity/Q71756> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Puente%20de%20Vallecas> .
-
-<https://w3id.org/active-madrid/resource/Neighborhood/Jer%C3%B3nimos> a am:Neighborhood ;
-    schema1:name "Jerónimos" ;
-    owl:sameAs <https://wikidata.org/entity/Q10306766> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Retiro> .
+<https://w3id.org/active-madrid/resource/Neighborhood/Entrevias> a am:Neighborhood ;
+    schema1:name "Entrevias" ;
+    owl:sameAs wd:Q71756 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Puente%20De%20Vallecas> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Justicia> a am:Neighborhood ;
     schema1:name "Justicia" ;
-    owl:sameAs <https://wikidata.org/entity/Q1992319> ;
+    owl:sameAs wd:Q1992319 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Centro> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Las%20%C3%81guilas> a am:Neighborhood ;
-    schema1:name "Las Águilas" ;
-    owl:sameAs <https://wikidata.org/entity/Q5971372> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Las%20Aguilas> a am:Neighborhood ;
+    schema1:name "Las Aguilas" ;
+    owl:sameAs wd:Q5971372 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Latina> .
+
+<https://w3id.org/active-madrid/resource/Neighborhood/Los%20Jeronimos> a am:Neighborhood ;
+    schema1:name "Los Jeronimos" ;
+    owl:sameAs wd:Q10306766 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Retiro> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Los%20Rosales> a am:Neighborhood ;
     schema1:name "Los Rosales" ;
-    owl:sameAs <https://wikidata.org/entity/Q10319807> ;
+    owl:sameAs wd:Q10319807 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villaverde> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Pac%C3%ADfico> a am:Neighborhood ;
-    schema1:name "Pacífico" ;
-    owl:sameAs <https://wikidata.org/entity/Q3773753> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/Pacifico> a am:Neighborhood ;
+    schema1:name "Pacifico" ;
+    owl:sameAs wd:Q3773753 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Retiro> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Palomeras%20Bajas> a am:Neighborhood ;
     schema1:name "Palomeras Bajas" ;
-    owl:sameAs <https://wikidata.org/entity/Q10343902> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Puente%20de%20Vallecas> .
+    owl:sameAs wd:Q10343902 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Puente%20De%20Vallecas> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Pueblo%20Nuevo> a am:Neighborhood ;
     schema1:name "Pueblo Nuevo" ;
-    owl:sameAs <https://wikidata.org/entity/Q71753> ;
+    owl:sameAs wd:Q71753 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Ciudad%20Lineal> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Rosas> a am:Neighborhood ;
     schema1:name "Rosas" ;
-    owl:sameAs <https://wikidata.org/entity/Q18880469> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/San%20Blas-Canillejas> .
+    owl:sameAs wd:Q18880469 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/San%20Blas-canillejas> .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/San%20Crist%C3%B3bal> a am:Neighborhood ;
-    schema1:name "San Cristóbal" ;
-    owl:sameAs <https://wikidata.org/entity/Q390457> ;
+<https://w3id.org/active-madrid/resource/Neighborhood/San%20Cristobal> a am:Neighborhood ;
+    schema1:name "San Cristobal" ;
+    owl:sameAs wd:Q390457 ;
     am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Villaverde> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Valdezarza> a am:Neighborhood ;
     schema1:name "Valdezarza" ;
-    owl:sameAs <https://wikidata.org/entity/Q10388728> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moncloa-Aravaca> .
+    owl:sameAs wd:Q10388728 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moncloa-aravaca> .
 
 <https://w3id.org/active-madrid/resource/Neighborhood/Vallehermoso> a am:Neighborhood ;
     schema1:name "Vallehermoso" ;
-    owl:sameAs <https://wikidata.org/entity/Q6122685> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Chamber%C3%AD> .
+    owl:sameAs wd:Q6122685 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Chamberi> .
 
 <https://w3id.org/active-madrid/resource/District/Carabanchel> a am:District ;
     schema1:name "Carabanchel" ;
-    owl:sameAs <https://wikidata.org/entity/Q1001991> .
+    owl:sameAs wd:Q1001991 .
 
 <https://w3id.org/active-madrid/resource/District/Centro> a am:District ;
     schema1:name "Centro" ;
-    owl:sameAs <https://wikidata.org/entity/Q1763376> .
+    owl:sameAs wd:Q1763376 .
 
 <https://w3id.org/active-madrid/resource/District/Ciudad%20Lineal> a am:District ;
     schema1:name "Ciudad Lineal" ;
-    owl:sameAs <https://wikidata.org/entity/Q1763694> .
+    owl:sameAs wd:Q1763694 .
 
 <https://w3id.org/active-madrid/resource/District/Hortaleza> a am:District ;
     schema1:name "Hortaleza" ;
-    owl:sameAs <https://wikidata.org/entity/Q1928529> .
+    owl:sameAs wd:Q1928529 .
 
 <https://w3id.org/active-madrid/resource/District/Latina> a am:District ;
     schema1:name "Latina" ;
-    owl:sameAs <https://wikidata.org/entity/Q794954> .
+    owl:sameAs wd:Q794954 .
 
-<https://w3id.org/active-madrid/resource/District/Puente%20de%20Vallecas> a am:District ;
-    schema1:name "Puente de Vallecas" ;
-    owl:sameAs <https://wikidata.org/entity/Q2003054> .
+<https://w3id.org/active-madrid/resource/District/Puente%20De%20Vallecas> a am:District ;
+    schema1:name "Puente De Vallecas" ;
+    owl:sameAs wd:Q2003054 .
 
 <https://w3id.org/active-madrid/resource/District/Salamanca> a am:District ;
     schema1:name "Salamanca" ;
-    owl:sameAs <https://wikidata.org/entity/Q1773521> .
+    owl:sameAs wd:Q1773521 .
 
-<https://w3id.org/active-madrid/resource/District/San%20Blas-Canillejas> a am:District ;
-    schema1:name "San Blas-Canillejas" ;
-    owl:sameAs <https://wikidata.org/entity/Q2001937> .
+<https://w3id.org/active-madrid/resource/District/San%20Blas-canillejas> a am:District ;
+    schema1:name "San Blas-canillejas" ;
+    owl:sameAs wd:Q2001937 .
 
-<https://w3id.org/active-madrid/resource/District/Villa%20de%20Vallecas> a am:District ;
-    schema1:name "Villa de Vallecas" ;
-    owl:sameAs <https://wikidata.org/entity/Q1947988> .
+<https://w3id.org/active-madrid/resource/District/Villa%20De%20Vallecas> a am:District ;
+    schema1:name "Villa De Vallecas" ;
+    owl:sameAs wd:Q1947988 .
 
 <https://w3id.org/active-madrid/resource/District/Villaverde> a am:District ;
     schema1:name "Villaverde" ;
-    owl:sameAs <https://wikidata.org/entity/Q919536> .
+    owl:sameAs wd:Q919536 .
 
-<https://w3id.org/active-madrid/resource/District/Moncloa-Aravaca> a am:District ;
-    schema1:name "Moncloa-Aravaca" ;
-    owl:sameAs <https://wikidata.org/entity/Q2017682> .
+<https://w3id.org/active-madrid/resource/District/Moncloa-aravaca> a am:District ;
+    schema1:name "Moncloa-aravaca" ;
+    owl:sameAs wd:Q2017682 .
 
-<https://w3id.org/active-madrid/resource/District/Tetu%C3%A1n> a am:District ;
-    schema1:name "Tetuán" ;
-    owl:sameAs <https://wikidata.org/entity/Q1773540> .
+<https://w3id.org/active-madrid/resource/District/Tetuan> a am:District ;
+    schema1:name "Tetuan" ;
+    owl:sameAs wd:Q1773540 .
 
 <https://w3id.org/active-madrid/resource/District/Usera> a am:District ;
     schema1:name "Usera" ;
-    owl:sameAs <https://wikidata.org/entity/Q953368> .
+    owl:sameAs wd:Q953368 .
 
 <https://w3id.org/active-madrid/resource/District/Arganzuela> a am:District ;
     schema1:name "Arganzuela" ;
-    owl:sameAs <https://wikidata.org/entity/Q2000929> .
+    owl:sameAs wd:Q2000929 .
 
-<https://w3id.org/active-madrid/resource/District/Fuencarral-El%20Pardo> a am:District ;
-    schema1:name "Fuencarral-El Pardo" ;
-    owl:sameAs <https://wikidata.org/entity/Q656196> .
+<https://w3id.org/active-madrid/resource/District/Fuencarral-el%20Pardo> a am:District ;
+    schema1:name "Fuencarral-el Pardo" ;
+    owl:sameAs wd:Q656196 .
 
-<https://w3id.org/active-madrid/resource/Neighborhood/Casa%20de%20Campo> a am:Neighborhood ;
-    schema1:name "Casa de Campo" ;
-    owl:sameAs <https://wikidata.org/entity/Q16302441> ;
-    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moncloa-Aravaca> .
+<https://w3id.org/active-madrid/resource/Neighborhood/Casa%20De%20Campo> a am:Neighborhood ;
+    schema1:name "Casa De Campo" ;
+    owl:sameAs wd:Q16302441 ;
+    am:locatedInDistrict <https://w3id.org/active-madrid/resource/District/Moncloa-aravaca> .
 
