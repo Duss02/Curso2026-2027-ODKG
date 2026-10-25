@@ -1,0 +1,87 @@
+# Run each query separately against rdf/madridnoise-with-links.ttl.
+
+# L1. Districts and neighbourhoods linked to Wikidata, out of the total.
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX mn:  <https://madridnoise.linkeddata.es/ontology#>
+
+SELECT ?class (COUNT(DISTINCT ?s) AS ?total) (COUNT(DISTINCT ?linked) AS ?linkedToWikidata)
+WHERE {
+  VALUES ?class { mn:District mn:Neighbourhood }
+  ?s a ?class .
+  OPTIONAL { ?s owl:sameAs ?linked . FILTER (STRSTARTS(STR(?linked), "http://www.wikidata.org/entity/Q")) }
+}
+GROUP BY ?class
+
+# L2. Links whose target is not a Wikidata entity IRI (Q followed by digits). Expected: 0.
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT (COUNT(*) AS ?badTargets)
+WHERE {
+  ?s owl:sameAs ?o .
+  FILTER (!REGEX(STR(?o), "^http://www\\.wikidata\\.org/entity/Q[0-9]+$"))
+}
+
+# L3. owl:sameAs used on resources that are not districts or neighbourhoods. Expected: 0.
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX mn:  <https://madridnoise.linkeddata.es/ontology#>
+
+SELECT (COUNT(*) AS ?unexpectedLinks)
+WHERE {
+  ?s owl:sameAs ?o .
+  FILTER NOT EXISTS { ?s a mn:District }
+  FILTER NOT EXISTS { ?s a mn:Neighbourhood }
+}
+
+# L4. Local resources with more than one Wikidata link. Expected: 0 rows.
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?s (COUNT(DISTINCT ?o) AS ?links)
+WHERE { ?s owl:sameAs ?o }
+GROUP BY ?s
+HAVING (COUNT(DISTINCT ?o) > 1)
+
+# L5. Wikidata entities linked from more than one local resource. Expected: 0 rows.
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?entity (COUNT(DISTINCT ?s) AS ?localResources)
+WHERE { ?s owl:sameAs ?entity }
+GROUP BY ?entity
+HAVING (COUNT(DISTINCT ?s) > 1)
+
+# L6. Neighbourhoods without a Wikidata link.
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mn:   <https://madridnoise.linkeddata.es/ontology#>
+
+SELECT ?neighbourhood ?label
+WHERE {
+  ?neighbourhood a mn:Neighbourhood ; rdfs:label ?label .
+  FILTER NOT EXISTS { ?neighbourhood owl:sameAs ?any }
+}
+ORDER BY ?label
+
+# L7. Terraces per district with the Wikidata entity of the district.
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mn:   <https://madridnoise.linkeddata.es/ontology#>
+
+SELECT ?label ?wikidata (COUNT(?terrace) AS ?terraces)
+WHERE {
+  ?terrace mn:hasDistrict ?district .
+  ?district rdfs:label ?label .
+  OPTIONAL { ?district owl:sameAs ?wikidata }
+}
+GROUP BY ?label ?wikidata
+ORDER BY DESC(?terraces)
+
+# L8. Terraces reachable from a Wikidata neighbourhood entity (first 20).
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mn:   <https://madridnoise.linkeddata.es/ontology#>
+
+SELECT ?terrace ?neighbourhoodLabel ?wikidata
+WHERE {
+  ?terrace mn:hasNeighbourhood ?neighbourhood .
+  ?neighbourhood rdfs:label ?neighbourhoodLabel ; owl:sameAs ?wikidata .
+}
+LIMIT 20
