@@ -4,6 +4,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
 
 la311: a owl:Ontology ;
     mod:createdWith <https://chowlk.linkeddata.es/> .
@@ -42,10 +43,9 @@ la311:cd a owl:DatatypeProperty ;
     rdfs:domain la311:AdministrativeRegion ;
     rdfs:range xsd:integer .
 
-la311:cdMember a owl:DatatypeProperty ;
+la311:cdMember a owl:ObjectProperty ;
     rdfs:label "cd member" ;
-    rdfs:domain la311:AdministrativeRegion ;
-    rdfs:range xsd:string .
+    rdfs:domain la311:AdministrativeRegion .
 
 la311:closedDate a owl:DatatypeProperty ;
     rdfs:label "closed date" ;
@@ -90,10 +90,9 @@ la311:nc a owl:DatatypeProperty ;
     rdfs:domain la311:AdministrativeRegion ;
     rdfs:range xsd:integer .
 
-la311:ncName a owl:DatatypeProperty ;
+la311:ncName a owl:ObjectProperty ;
     rdfs:label "nc name" ;
-    rdfs:domain la311:AdministrativeRegion ;
-    rdfs:range xsd:string .
+    rdfs:domain la311:AdministrativeRegion .
 
 la311:policePrecinct a owl:DatatypeProperty ;
     rdfs:label "police precinct" ;
@@ -171,7 +170,8 @@ la311:Agent a owl:Class ;
     rdfs:label "Agent" .
 
 la311:AdministrativeRegion a owl:Class ;
-    rdfs:label "Administrative Region" .
+    rdfs:label "Administrative Region" ;
+    rdfs:subClassOf schema:AdministrativeArea .
 
 la311:Location a owl:Class ;
     rdfs:label "Location" .
