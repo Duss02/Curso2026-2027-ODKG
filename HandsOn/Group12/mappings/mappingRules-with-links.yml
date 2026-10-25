@@ -35,7 +35,7 @@ mappings:
       - [schema:streetAddress, "$(CLASE-VIAL) $(NOMBRE-VIA), $(NUM)", xsd:string]
       - [schema:postalCode, $(CODIGO-POSTAL), xsd:string]
       - [am:locatedInNeighborhood, res:Neighborhood/$(BARRIO)~iri]
-      - [owl:sameAs, $(same_as_wikidata_nombre-via)~iri]
+
   
   triplesmapNeighborhood:
     sources:
