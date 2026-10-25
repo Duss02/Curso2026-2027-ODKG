@@ -3,10 +3,11 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix geo: <http://www.opengis.net/ont/geosparql#>.
 @prefix la311: <http://linkeddata.la311.com/ontology#>.
-@base <http://linkeddata.la311.com/mapping#>.
 @prefix schema: <http://schema.org/>.
+@base <http://linkeddata.la311.com/mapping#>.
 
 
 #################################################################
@@ -15,7 +16,7 @@
 
 <#ServiceRequestMap> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "csv/MyLA311_2025-updated-truncated.csv" ;
+    rml:source "csv/MyLA311_2025-updated-truncated-with-links.csv" ;
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
@@ -161,7 +162,7 @@
 
 <#AnonymousPersonMap> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "csv/MyLA311_2025-updated-truncated.csv" ;
+    rml:source "csv/MyLA311_2025-updated-truncated-with-links.csv" ;
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
@@ -186,7 +187,7 @@
 
 <#OrganizationOwnerMap> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "csv/MyLA311_2025-updated-truncated.csv" ;
+    rml:source "csv/MyLA311_2025-updated-truncated-with-links.csv" ;
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
@@ -220,7 +221,7 @@
 
 <#OrganizationReporterMap> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "csv/MyLA311_2025-updated-truncated.csv" ;
+    rml:source "csv/MyLA311_2025-updated-truncated-with-links.csv" ;
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
@@ -254,7 +255,7 @@
 
 <#ServiceMap> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "csv/MyLA311_2025-updated-truncated.csv" ;
+    rml:source "csv/MyLA311_2025-updated-truncated-with-links.csv" ;
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
@@ -288,7 +289,7 @@
 
 <#LocationMap> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "csv/MyLA311_2025-updated-truncated.csv" ;
+    rml:source "csv/MyLA311_2025-updated-truncated-with-links.csv" ;
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
@@ -411,7 +412,7 @@
 
 <#AdministrativeRegionMap> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "csv/MyLA311_2025-updated-truncated.csv" ;
+    rml:source "csv/MyLA311_2025-updated-truncated-with-links.csv" ;
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
@@ -421,7 +422,16 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate rdfs:label, schema:name;
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rr:template "{NCName} (CD {CD})";
+      rr:termType rr:Literal;
+      rr:datatype xsd:string
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:name;
     rr:objectMap [
       rr:template "{NCName} (CD {CD})";
       rr:termType rr:Literal;
@@ -440,6 +450,14 @@
 
   rr:predicateObjectMap [
     rr:predicate la311:ncName;
+    rr:objectMap [
+      rml:reference "NCName_Wikidata";
+      rr:termType rr:IRI
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate owl:sameAs;
     rr:objectMap [
       rml:reference "NCName_Wikidata";
       rr:termType rr:IRI
@@ -484,7 +502,7 @@
   rr:predicateObjectMap [
     rr:predicate schema:containedInPlace;
     rr:objectMap [
-      rr:constant <http://www.wikidata.org/entity/Q65>
+      rr:constant <http://www.wikidata.org/entity/Q65>;
+      rr:termType rr:IRI
     ]
-
   ].

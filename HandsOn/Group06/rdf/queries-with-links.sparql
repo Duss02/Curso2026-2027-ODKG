@@ -1,6 +1,7 @@
 #Updates after linking the data: 
 # -Q6 was modified as cd and ncName were reconciled against wikidata concepts (they were previously literals).
 # -Added Q11 to verify the data linking with containedIn property from schema.org vocabulary pointing to the city of Los Angeles from Wikidata.
+# -Added Q12 to verify owl:sameAs external links to Wikidata for Neighborhood Councils.
 
 PREFIX la311: <http://linkeddata.la311.com/ontology#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -158,5 +159,18 @@ WHERE {
   ?region la311:cd ?cd ; 
           rdfs:label ?regionLabel ;
           schema:containedInPlace ?cityWikidataLink .
+}
+LIMIT 10
+
+
+# Q12. Verify owl:sameAs external links to Wikidata
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?region ?regionLabel ?wikidataEntity
+WHERE {
+  ?region a <http://linkeddata.la311.com/ontology#AdministrativeRegion> ;
+          rdfs:label ?regionLabel ;
+          owl:sameAs ?wikidataEntity .
 }
 LIMIT 10
