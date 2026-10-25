@@ -19,22 +19,19 @@ ORDER BY DESC(?total)
 SELECT ?facilityName ?streetAddress ?postalCode ?neighborhoodName ?districtName ?lat ?long
 WHERE {
     ?facility a am:SportsFacility ;
-            schema:name ?facilityName ;
-            schema:address ?address ;
-            geo:lat ?lat ;
-            geo:long ?long .
-    
+              schema:name ?facilityName ;
+              schema:address ?address .
+    OPTIONAL { ?facility geo:lat ?lat ; geo:long ?long . }
+
     ?address schema:streetAddress ?streetAddress ;
-            schema:postalCode ?postalCode ;
-            am:locatedInNeighborhood ?neighborhood .
-            
-    ?neighborhood a am:Neighborhood ;
-            schema:name ?neighborhoodName ;
-            am:locatedInDistrict ?district .
-            
-    ?district a am:District ;
-            schema:name ?districtName .
+             am:locatedInNeighborhood ?neighborhood .
+    OPTIONAL { ?address schema:postalCode ?postalCode . }
+
+    ?neighborhood schema:name ?neighborhoodName ;
+                  am:locatedInDistrict ?district .
+    ?district schema:name ?districtName .
 }
+ORDER BY ?districtName ?neighborhoodName ?facilityName
 LIMIT 20
 
 # Query 3: Sports classes with available places and assigned activity
@@ -54,15 +51,15 @@ LIMIT 20
 
 # Query 4: Open class schedules linked to time intervals
 
-SELECT ?className ?startTime ?endTime
+SELECT DISTINCT ?className ?startTime ?endTime
 WHERE {
     ?sportsClass a am:SportsClass ;
-                schema:name ?className ;
-                time:hasTime ?interval .
-    ?interval a time:Interval ;
-            time:hasBeginning ?startTime ;
-            time:hasEnd ?endTime .
+                 schema:name ?className ;
+                 time:hasTime ?interval .
+    ?interval time:hasBeginning ?startTime ;
+              time:hasEnd ?endTime .
 }
+ORDER BY ?startTime
 LIMIT 20
 
 # Query 5: Integrity check / Detection of classes without sports center link
@@ -81,89 +78,100 @@ LIMIT 10
 
 SELECT ?facilityName ?streetAddress ?postalCode ?phone ?email ?lat ?long
 WHERE {
-    <https://w3id.org/active-madrid/resource/SportsFacility/4696> a am:SportsFacility ;
-                            schema:name ?facilityName ;
-                            schema:address ?address ;
-                            schema:telephone ?phone ;
-                            schema:email ?email ;
-                            geo:lat ?lat ;
-                            geo:long ?long .
-    ?address schema:streetAddress ?streetAddress ;
-            schema:postalCode ?postalCode .
+    BIND (<https://w3id.org/active-madrid/resource/SportsFacility/4696> AS ?facility)
+    ?facility a am:SportsFacility ;
+              schema:name ?facilityName ;
+              schema:address ?address .
+    ?address schema:streetAddress ?streetAddress .
+    OPTIONAL { ?address schema:postalCode ?postalCode . }
+    OPTIONAL { ?facility schema:telephone ?phone . }
+    OPTIONAL { ?facility schema:email ?email . }
+    OPTIONAL { ?facility geo:lat ?lat ; geo:long ?long . }
 }
+
 
 # Query 7: Search activities and classes taught at the Barajas sports center (PK 99578)
 
-SELECT ?className ?activityName ?startTime ?endTime ?offered ?occupied ?available
+SELECT DISTINCT ?className ?activityName ?startTime ?endTime ?offered ?occupied ?available
 WHERE {
     ?sportsClass a am:SportsClass ;
-                schema:name ?className ;
-                am:takesPlaceAt <https://w3id.org/active-madrid/resource/SportsFacility/99578> ;
-                am:hasActivity ?activity ;
-                time:hasTime ?interval ;
-                am:offeredPlaces ?offered ;
-                am:occupiedPlaces ?occupied ;
-                am:availablePlaces ?available .
+                 schema:name ?className ;
+                 am:takesPlaceAt <https://w3id.org/active-madrid/resource/SportsFacility/99578> ;
+                 am:hasActivity ?activity ;
+                 am:offeredPlaces ?offered ;
+                 am:occupiedPlaces ?occupied ;
+                 am:availablePlaces ?available .
     ?activity schema:name ?activityName .
-    ?interval time:hasBeginning ?startTime ;
-                time:hasEnd ?endTime .
+    OPTIONAL {
+        ?sportsClass time:hasTime ?interval .
+        ?interval time:hasBeginning ?startTime ;
+                  time:hasEnd ?endTime .
+    }
 }
+ORDER BY ?activityName ?startTime
 LIMIT 20
 
 # Query 8: Locate classes where the "Acondicionamiento Cardiovascular" activity is taught
 
-SELECT ?activityName ?className ?startTime ?endTime ?availablePlaces ?facilityName
+SELECT DISTINCT ?activityName ?className ?startTime ?endTime ?availablePlaces ?facilityName
 WHERE {
+    ?activity a am:SportActivity ;
+              schema:name ?activityName .
+    FILTER (CONTAINS(LCASE(STR(?activityName)), "cardiovascular"))
+
     ?sportsClass a am:SportsClass ;
-                schema:name ?className ;
-                am:availablePlaces ?availablePlaces ;
-                time:hasTime ?interval ;
-                am:hasActivity ?activity .
-    ?activity schema:name ?activityName .
-    FILTER (CONTAINS(LCASE(?activityName), "cardiovascular"))
+                 schema:name ?className ;
+                 am:hasActivity ?activity ;
+                 am:availablePlaces ?availablePlaces .
+    OPTIONAL {
+        ?sportsClass time:hasTime ?interval .
+        ?interval time:hasBeginning ?startTime ;
+                  time:hasEnd ?endTime .
+    }
     OPTIONAL {
         ?sportsClass am:takesPlaceAt ?facility .
         ?facility schema:name ?facilityName .
     }
-    ?interval time:hasBeginning ?startTime ;
-                time:hasEnd ?endTime .
 }
 LIMIT 20
 
-# Query 9: Classes with availability of places (availability > 0) and occupancy details
+# Query 9: Occupancy rate per activity.
 
-SELECT ?className ?activityName ?availablePlaces ?offeredPlaces ?occupiedPlaces
+SELECT ?activityName
+       (COUNT(DISTINCT ?sportsClass) AS ?numClasses)
+       (SUM(?offered) AS ?totalOffered)
+       (SUM(?occupied) AS ?totalOccupied)
+       (ROUND(100 * SUM(?occupied) / SUM(?offered)) AS ?occupancyPct)
 WHERE {
     ?sportsClass a am:SportsClass ;
-                schema:name ?className ;
-                am:hasActivity ?activity ;
-                am:availablePlaces ?availablePlaces ;
-                am:offeredPlaces ?offeredPlaces ;
-                am:occupiedPlaces ?occupiedPlaces .
+                 am:hasActivity ?activity ;
+                 am:offeredPlaces ?offered ;
+                 am:occupiedPlaces ?occupied .
     ?activity schema:name ?activityName .
-    FILTER (?availablePlaces > 0)
 }
-ORDER BY DESC(?availablePlaces)
+GROUP BY ?activityName
+HAVING (SUM(?offered) > 0)
+ORDER BY DESC(?occupancyPct)
 LIMIT 20
 
 # Query 10: Classes that have 100% full capacity (free places = 0)
 
-SELECT ?className ?activityName ?offeredPlaces ?occupiedPlaces
+SELECT DISTINCT ?className ?activityName ?offeredPlaces ?occupiedPlaces
 WHERE {
     ?sportsClass a am:SportsClass ;
-                schema:name ?className ;
-                am:hasActivity ?activity ;
-                am:availablePlaces "0"^^xsd:nonNegativeInteger ;
-                am:offeredPlaces ?offeredPlaces ;
-                am:occupiedPlaces ?occupiedPlaces .
+                 schema:name ?className ;
+                 am:hasActivity ?activity ;
+                 am:availablePlaces ?availablePlaces ;
+                 am:offeredPlaces ?offeredPlaces ;
+                 am:occupiedPlaces ?occupiedPlaces .
     ?activity schema:name ?activityName .
-    FILTER (?offeredPlaces > 0)
+    FILTER (?availablePlaces = 0 && ?offeredPlaces > 0)
 }
 LIMIT 20
 
 # Query 11: Classes that start in the afternoon (from 15:00:00)
 
-SELECT ?className ?startTime ?endTime
+SELECT DISTINCT?className ?startTime ?endTime
 WHERE {
     ?sportsClass a am:SportsClass ;
                 schema:name ?className ;
@@ -176,16 +184,24 @@ LIMIT 20
 
 # Query 12: Distribution of sports facilities per neighborhood and district
 
-SELECT ?districtName ?neighborhoodName (COUNT(?facility) AS ?numFacilities)
+SELECT ?districtName ?neighborhoodName (COUNT(DISTINCT ?facility) AS ?numFacilities)
 WHERE {
     ?facility a am:SportsFacility ;
               schema:address ?address .
     ?address am:locatedInNeighborhood ?neighborhood .
-    ?neighborhood a am:Neighborhood ;
-                  schema:name ?neighborhoodName ;
+    ?neighborhood schema:name ?neighborhoodName ;
                   am:locatedInDistrict ?district .
-    ?district a am:District ;
-              schema:name ?districtName .
+    ?district schema:name ?districtName .
 }
 GROUP BY ?districtName ?neighborhoodName
 ORDER BY ?districtName DESC(?numFacilities)
+
+# Query 13: Number of classes and places by class type (open vs. closed)
+
+SELECT ?classType (COUNT(DISTINCT ?sportsClass) AS ?numClasses) (SUM(?offered) AS ?totalOffered)
+WHERE {
+    ?sportsClass a am:SportsClass ;
+                 am:offeredPlaces ?offered .
+    BIND (IF(CONTAINS(STR(?sportsClass), "/SportsClass/OPEN_"), "open", "closed") AS ?classType)
+}
+GROUP BY ?classType

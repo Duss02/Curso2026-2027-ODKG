@@ -24,8 +24,8 @@
 
 # Sport activities
 
-<https://w3id.org/active-madrid/resource/SportActivity/Acondicionamiento%20cardiovascular> a am:SportActivity ;
-    schema:name "Acondicionamiento cardiovascular" .
+<https://w3id.org/active-madrid/resource/SportActivity/Acondicionamiento%20Cardiovascular> a am:SportActivity ;
+    schema:name "Acondicionamiento Cardiovascular" .
 
 <https://w3id.org/active-madrid/resource/SportActivity/Nataci%C3%B3n> a am:SportActivity ;
     schema:name "Natación" .
@@ -74,20 +74,20 @@
 
 # Sports classes
 
-<https://w3id.org/active-madrid/resource/SportsClass/OPEN_Aluche_2025-09-01_16%3A00%3A00_Acondicionamiento%20cardiovascular> a am:SportsClass ;
-    schema:name "Acondicionamiento cardiovascular - lunes de 16:00:00 a 17:00:00" ;
-    am:takesPlaceAt <https://w3id.org/active-madrid/resource/SportsFacility/4696> ;
-    am:hasActivity <https://w3id.org/active-madrid/resource/SportActivity/Acondicionamiento%20cardiovascular> ;
-    time:hasTime <https://w3id.org/active-madrid/resource/TimeInterval/16%3A00%3A00-17%3A00%3A00> ;
-    am:offeredPlaces "10"^^xsd:nonNegativeInteger ;
-    am:occupiedPlaces "9"^^xsd:nonNegativeInteger ;
-    am:availablePlaces "1"^^xsd:nonNegativeInteger .
+<https://w3id.org/active-madrid/resource/SportsClass/OPEN_Centro%20Deportivo%20Municipal%20Aluche_2025-11-01_09%3A00%3A00_Uso%20Libre%20Patinaje> a am:SportsClass ;
+    schema1:name "Uso Libre Patinaje - sábado de 09:00:00 a 10:00:00" ;
+    time:hasTime <https://w3id.org/active-madrid/resource/TimeInterval/09%3A00%3A00-10%3A00%3A00> ;
+    am:availablePlaces "19"^^xsd:nonNegativeInteger ;
+    am:hasActivity <https://w3id.org/active-madrid/resource/SportActivity/Uso%20Libre%20Patinaje> ;
+    am:occupiedPlaces "1"^^xsd:nonNegativeInteger ;
+    am:offeredPlaces "20"^^xsd:nonNegativeInteger ;
+    am:takesPlaceAt <https://w3id.org/active-madrid/resource/SportsFacility/4696> .
 
-<https://w3id.org/active-madrid/resource/SportsClass/CLOSED_Barajas_Nataci%C3%B3n%20Adultos_2025_9> a am:SportsClass ;
-    schema:name "Natación Adultos N-1 Mj 11:00-12:00" ;
-    am:takesPlaceAt <https://w3id.org/active-madrid/resource/SportsFacility/99578> ;
-    am:hasActivity <https://w3id.org/active-madrid/resource/SportActivity/Nataci%C3%B3n> ;
-    time:hasTime <https://w3id.org/active-madrid/resource/TimeInterval/11%3A00%3A00-12%3A00%3A00> ;
-    am:offeredPlaces "25"^^xsd:nonNegativeInteger ;
-    am:occupiedPlaces "25"^^xsd:nonNegativeInteger ;
-    am:availablePlaces "0"^^xsd:nonNegativeInteger .
+<https://w3id.org/active-madrid/resource/SportsClass/CLOSED_Centro%20Deportivo%20Municipal%20Aluche_Acondicionamiento%20Cardiovascular%20N2%20Mj%2016%3A00-17%3A00_2026_6> a am:SportsClass ;
+    schema1:name "Acondicionamiento Cardiovascular N2 Mj 16:00-17:00" ;
+    time:hasTime <https://w3id.org/active-madrid/resource/TimeInterval/16%3A00%3A00-17%3A00%3A00> ;
+    am:availablePlaces "0"^^xsd:nonNegativeInteger ;
+    am:hasActivity <https://w3id.org/active-madrid/resource/SportActivity/Acondicionamiento%20Cardiovascular> ;
+    am:occupiedPlaces "4"^^xsd:nonNegativeInteger ;
+    am:offeredPlaces "4"^^xsd:nonNegativeInteger ;
+    am:takesPlaceAt <https://w3id.org/active-madrid/resource/SportsFacility/4696> .

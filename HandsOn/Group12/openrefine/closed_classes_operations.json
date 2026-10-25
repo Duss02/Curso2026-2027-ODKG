@@ -282,5 +282,31 @@
     "op": "core/column-move-right",
     "columnName": "Hora final",
     "description": "Move column Hora final to the right"
+  },
+    {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Hora inicial",
+    "expression": "grel:with(value.trim(), v, if(v.length() == 4, \"0\" + v, v) + \":00\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna Hora inicial usando la expresión grel:with(value.trim(), v, if(v.length() == 4, \"0\" + v, v) + \":00\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Hora final",
+    "expression": "grel:with(value.trim(), v, if(v.length() == 4, \"0\" + v, v) + \":00\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna Hora final usando la expresión grel:with(value.trim(), v, if(v.length() == 4, \"0\" + v, v) + \":00\")"
   }
 ]
