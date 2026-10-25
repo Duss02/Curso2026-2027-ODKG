@@ -150,13 +150,15 @@ GROUP BY ?name ?item
 ORDER BY DESC(?trees)
 LIMIT 5
 
-# Q12. Climate shelters hosted by a facility, and the distinct facilities that host them (links to Wikidata through the facilities).
-# Expected: 235 shelters, 213 facilities.
+# Q12. Climate shelters hosted by a facility linked to Wikidata, and the distinct facilities and Wikidata items involved.
+# Expected: 235 shelters, 213 facilities, 213 Wikidata items.
 PREFIX hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#>
-SELECT (COUNT(DISTINCT ?shelter) AS ?shelters) (COUNT(DISTINCT ?facility) AS ?facilities)
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT (COUNT(DISTINCT ?shelter) AS ?shelters) (COUNT(DISTINCT ?facility) AS ?facilities) (COUNT(DISTINCT ?item) AS ?items)
 WHERE {
   ?shelter a hr:ClimateShelter ;
            hr:isHostedBy ?facility .
+  ?facility owl:sameAs ?item .
 }
 
 # Q13. Facilities that do not have exactly one owl:sameAs link to Wikidata.
@@ -171,21 +173,27 @@ WHERE {
 GROUP BY ?facility
 HAVING (COUNT(DISTINCT ?item) != 1)
 
-# Q14. Climate shelters with more than one hosting facility.
+# Q14. Climate shelters hosted by more than one Wikidata item.
 # Expected: no rows.
 PREFIX hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#>
-SELECT ?shelter (COUNT(DISTINCT ?facility) AS ?facilities)
-WHERE { ?shelter hr:isHostedBy ?facility }
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?shelter (COUNT(DISTINCT ?item) AS ?items)
+WHERE {
+  ?shelter hr:isHostedBy ?facility .
+  ?facility owl:sameAs ?item .
+}
 GROUP BY ?shelter
-HAVING (COUNT(DISTINCT ?facility) > 1)
+HAVING (COUNT(DISTINCT ?item) > 1)
 
-# Q15. Climate shelters hosted by a facility, by shelter category (ties ordered by category name).
+# Q15. Climate shelters hosted by a facility linked to Wikidata, by shelter category (ties ordered by category name).
 # Expected: Library 48, CivicCentre 42, Park 40, Market 23, Other 22, SwimmingPool 22, Museum 12, SportsCentre 9, WaterPlayArea 8, HealthCentre 5, School 4 (235 in total).
 PREFIX hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 SELECT ?category (COUNT(DISTINCT ?shelter) AS ?shelters)
 WHERE {
   ?shelter hr:hasShelterCategory ?category ;
            hr:isHostedBy ?facility .
+  ?facility owl:sameAs ?item .
 }
 GROUP BY ?category
 ORDER BY DESC(?shelters) ?category
