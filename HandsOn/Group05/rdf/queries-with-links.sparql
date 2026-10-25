@@ -1,13 +1,16 @@
 # SPARQL queries to verify the links in rdf/rvvcca-datos-horarios-valencia-2016-2021-curt-cas-with-links.ttl
 # Each query is independent and has its own PREFIX declarations; run them one by one.
 
-# Q1. Number of owl:sameAs links
+# Q1. Number of owl:sameAs links from resources of the ontology classes
 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX aq:  <https://w3id.org/valencia-airquality/ontology/airquality#>
 
 SELECT (COUNT(*) AS ?totalLinks)
 WHERE {
-  ?s owl:sameAs ?o .
+  ?s a ?type ;
+     owl:sameAs ?o .
+  FILTER (?type IN (aq:City, aq:MonitoringStation, aq:ObservableProperty))
 }
 
 #------------------------------------------------------------------
@@ -15,11 +18,13 @@ WHERE {
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX aq:  <https://w3id.org/valencia-airquality/ontology/airquality#>
 
 SELECT ?type ?targetDataset (COUNT(DISTINCT ?s) AS ?linkedResources)
 WHERE {
   ?s owl:sameAs ?o ;
      rdf:type ?type .
+  FILTER (?type IN (aq:City, aq:MonitoringStation, aq:ObservableProperty))
   BIND (IF(STRSTARTS(STR(?o), "http://www.wikidata.org/entity/"), "Wikidata",
         IF(STRSTARTS(STR(?o), "https://rvvcca.pica.gva.es/"), "RVVCCA (GVA)", "Other")) AS ?targetDataset)
 }
@@ -130,10 +135,13 @@ WHERE {
 # Q9. Links whose object is not an IRI
 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX aq:  <https://w3id.org/valencia-airquality/ontology/airquality#>
 
 SELECT (COUNT(*) AS ?linksNotIRI)
 WHERE {
-  ?s owl:sameAs ?o .
+  ?s a ?type ;
+     owl:sameAs ?o .
+  FILTER (?type IN (aq:City, aq:MonitoringStation, aq:ObservableProperty))
   FILTER (!isIRI(?o))
 }
 
@@ -141,11 +149,16 @@ WHERE {
 # Q10. External entities linked from more than one resource
 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX aq:  <https://w3id.org/valencia-airquality/ontology/airquality#>
 
 SELECT (COUNT(*) AS ?duplicatedTargets)
 WHERE {
   SELECT ?o
-  WHERE { ?s owl:sameAs ?o . }
+  WHERE {
+    ?s a ?type ;
+       owl:sameAs ?o .
+    FILTER (?type IN (aq:City, aq:MonitoringStation, aq:ObservableProperty))
+  }
   GROUP BY ?o
   HAVING (COUNT(DISTINCT ?s) > 1)
 }
