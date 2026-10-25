@@ -1,0 +1,568 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "fecha",
+    "expression": "grel:if(isBlank(value), value, value.split('/').get(2) + '-' + value.split('/').get(1) + '-' + value.split('/').get(0))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column fecha using expression grel:if(isBlank(value), value, value.split('/').get(2) + '-' + value.split('/').get(1) + '-' + value.split('/').get(0))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "hora",
+    "expression": "grel:if(isBlank(value), value, if(value.length() == 7, '0' + value, value))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column hora using expression grel:if(isBlank(value), value, if(value.length() == 7, '0' + value, value))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "distrito",
+    "expression": "grel:value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column distrito using expression grel:value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tipo_accidente",
+    "expression": "grel:value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column tipo_accidente using expression grel:value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "estado_meteorológico",
+    "expression": "grel:if(isBlank(value), \"se desconoce\", value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column estado_meteorológico using expression grel:if(isBlank(value), \"se desconoce\", value)"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "estado_meteorológico",
+    "expression": "grel:value",
+    "edits": [
+      {
+        "from": [
+          "se desconoce"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Se desconoce"
+      }
+    ],
+    "description": "Mass edit cells in column estado_meteorológico"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "coordenada_x_utm",
+    "expression": "grel:if(isBlank(value), null, toNumber(replace(value.toString(), \",\", \".\")))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column coordenada_x_utm using expression grel:if(isBlank(value), null, toNumber(replace(value.toString(), \",\", \".\")))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "coordenada_y_utm",
+    "expression": "grel:if(isBlank(value), null, toNumber(replace(value.toString(), \",\", \".\")))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column coordenada_y_utm using expression grel:if(isBlank(value), null, toNumber(replace(value.toString(), \",\", \".\")))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "coordenada_x_utm",
+    "expression": "grel:if(isBlank(value), null, if(value == 0, null, value))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column coordenada_x_utm using expression grel:if(isBlank(value), null, if(value == 0, null, value))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "coordenada_y_utm",
+    "expression": "grel:if(isBlank(value), null, if(value == 0, null, value))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column coordenada_y_utm using expression grel:if(isBlank(value), null, if(value == 0, null, value))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "num_expediente",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "accidente_grupo",
+    "columnInsertIndex": 1,
+    "description": "Create column accidente_grupo at index 1 based on column num_expediente using expression grel:value"
+  },
+  {
+    "op": "core/blank-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "accidente_grupo",
+    "description": "Blank down cells in column accidente_grupo"
+  },
+  {
+    "op": "core/column-move-first",
+    "columnName": "accidente_grupo",
+    "description": "Move column accidente_grupo to the beginning"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "baseColumnName": "num_expediente",
+    "expression": "grel:value + \"-P\" + (row.index - row.record.fromRowIndex + 1).toString()",
+    "onError": "set-to-blank",
+    "newColumnName": "ID_persona",
+    "columnInsertIndex": 2,
+    "description": "Create column ID_persona at index 2 based on column num_expediente using expression grel:value + \"-P\" + (row.index - row.record.fromRowIndex + 1).toString()"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "baseColumnName": "tipo_persona",
+    "expression": "grel:with(filter(slice(row.record.cells.get(\"tipo_persona\").value, 0, row.index - row.record.fromRowIndex + 1), v, v == \"Conductor\").length(), n, if(n == 0, \"\", cells.get(\"num_expediente\").value + \"-V\" + n.toString()))",
+    "onError": "set-to-blank",
+    "newColumnName": "ID_vehiculo",
+    "columnInsertIndex": 13,
+    "description": "Create column ID_vehiculo at index 13 based on column tipo_persona using expression grel:with(filter(slice(row.record.cells.get(\"tipo_persona\").value, 0, row.index - row.record.fromRowIndex + 1), v, v == \"Conductor\").length(), n, if(n == 0, \"\", cells.get(\"num_expediente\").value + \"-V\" + n.toString()))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "positiva_alcohol",
+    "expression": "grel:if(isBlank(value), \"Desconocido\", if(value.toString().trim().toUppercase() == \"S\", true, if(value.toString().trim().toUppercase() == \"N\", false, value)))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column positiva_alcohol using expression grel:if(isBlank(value), \"Desconocido\", if(value.toString().trim().toUppercase() == \"S\", true, if(value.toString().trim().toUppercase() == \"N\", false, value)))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "positiva_droga",
+    "expression": "grel:if(isBlank(value), \"Desconocido\", if(value.toString().trim() == \"1\", true, value))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column positiva_droga using expression grel:if(isBlank(value), \"Desconocido\", if(value.toString().trim() == \"1\", true, value))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "cod_lesividad",
+    "expression": "grel:if(isBlank(value), \"Desconocido\", value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column cod_lesividad using expression grel:if(isBlank(value), \"Desconocido\", value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lesividad",
+    "expression": "grel:if(isBlank(value), \"Desconocido\", value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column lesividad using expression grel:if(isBlank(value), \"Desconocido\", value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tipo_vehiculo",
+    "expression": "grel:if(isBlank(value), \"Desconocido\", value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column tipo_vehiculo using expression grel:if(isBlank(value), \"Desconocido\", value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "estado_meteorológico",
+    "expression": "grel:if(value.toString().trim() == \"Se desconoce\", \"Desconocido\", value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column estado_meteorológico using expression grel:if(value.toString().trim() == \"Se desconoce\", \"Desconocido\", value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tipo_accidente",
+    "expression": "grel:if(isBlank(value), \"Desconocido\", value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column tipo_accidente using expression grel:if(isBlank(value), \"Desconocido\", value)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "accidente_grupo",
+    "description": "Remove column accidente_grupo"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "ID_vehiculo",
+    "description": "Move column ID_vehiculo to the left"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "ID_persona",
+    "description": "Move column ID_persona to the right"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "coordenada_x_utm",
+    "expression": "grel:if(or(isBlank(cells.get(\"coordenada_x_utm\").value), isBlank(cells.get(\"coordenada_y_utm\").value)), null, with(cells.get(\"coordenada_y_utm\").value / 6364902.166113, p, with((cells.get(\"coordenada_x_utm\").value - 500000) / 6364902.166113, q, with(p - (0.000837732168164144 * sin(2 * p) * cosh(2 * q) + 0.0000000590586962608 * sin(4 * p) * cosh(4 * q) + 0.000000000167348890499 * sin(6 * p) * cosh(6 * q) + 0.000000000000216773781 * sin(8 * p) * cosh(8 * q)), p2, with(q - (0.000837732168164144 * cos(2 * p) * sinh(2 * q) + 0.0000000590586962608 * cos(4 * p) * sinh(4 * q) + 0.000000000167348890499 * cos(6 * p) * sinh(6 * q) + 0.000000000000216773781 * cos(8 * p) * sinh(8 * q)), q2, degrees(radians(3) + atan(sinh(q2) / cos(p2))))))))",
+    "onError": "set-to-blank",
+    "newColumnName": "longitud",
+    "columnInsertIndex": 18,
+    "description": "Create column longitud at index 18 based on column coordenada_x_utm using expression grel:if(or(isBlank(cells.get(\"coordenada_x_utm\").value), isBlank(cells.get(\"coordenada_y_utm\").value)), null, with(cells.get(\"coordenada_y_utm\").value / 6364902.166113, p, with((cells.get(\"coordenada_x_utm\").value - 500000) / 6364902.166113, q, with(p - (0.000837732168164144 * sin(2 * p) * cosh(2 * q) + 0.0000000590586962608 * sin(4 * p) * cosh(4 * q) + 0.000000000167348890499 * sin(6 * p) * cosh(6 * q) + 0.000000000000216773781 * sin(8 * p) * cosh(8 * q)), p2, with(q - (0.000837732168164144 * cos(2 * p) * sinh(2 * q) + 0.0000000590586962608 * cos(4 * p) * sinh(4 * q) + 0.000000000167348890499 * cos(6 * p) * sinh(6 * q) + 0.000000000000216773781 * cos(8 * p) * sinh(8 * q)), q2, degrees(radians(3) + atan(sinh(q2) / cos(p2))))))))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "coordenada_x_utm",
+    "expression": "grel:if(or(isBlank(cells.get(\"coordenada_x_utm\").value), isBlank(cells.get(\"coordenada_y_utm\").value)), null, with(cells.get(\"coordenada_y_utm\").value / 6364902.166113, p, with((cells.get(\"coordenada_x_utm\").value - 500000) / 6364902.166113, q, with(p - (0.000837732168164144 * sin(2 * p) * cosh(2 * q) + 0.0000000590586962608 * sin(4 * p) * cosh(4 * q) + 0.000000000167348890499 * sin(6 * p) * cosh(6 * q) + 0.000000000000216773781 * sin(8 * p) * cosh(8 * q)), p2, with(q - (0.000837732168164144 * cos(2 * p) * sinh(2 * q) + 0.0000000590586962608 * cos(4 * p) * sinh(4 * q) + 0.000000000167348890499 * cos(6 * p) * sinh(6 * q) + 0.000000000000216773781 * cos(8 * p) * sinh(8 * q)), q2, with(asin(sin(p2) / cosh(q2)), c, degrees(c + 0.00335655148559669 * sin(2 * c) + 0.00000657187314845887 * sin(4 * c) + 0.0000000176465642645 * sin(6 * c) + 0.0000000000540048219 * sin(8 * c))))))))",
+    "onError": "set-to-blank",
+    "newColumnName": "latitud",
+    "columnInsertIndex": 18,
+    "description": "Create column latitud at index 18 based on column coordenada_x_utm using expression grel:if(or(isBlank(cells.get(\"coordenada_x_utm\").value), isBlank(cells.get(\"coordenada_y_utm\").value)), null, with(cells.get(\"coordenada_y_utm\").value / 6364902.166113, p, with((cells.get(\"coordenada_x_utm\").value - 500000) / 6364902.166113, q, with(p - (0.000837732168164144 * sin(2 * p) * cosh(2 * q) + 0.0000000590586962608 * sin(4 * p) * cosh(4 * q) + 0.000000000167348890499 * sin(6 * p) * cosh(6 * q) + 0.000000000000216773781 * sin(8 * p) * cosh(8 * q)), p2, with(q - (0.000837732168164144 * cos(2 * p) * sinh(2 * q) + 0.0000000590586962608 * cos(4 * p) * sinh(4 * q) + 0.000000000167348890499 * cos(6 * p) * sinh(6 * q) + 0.000000000000216773781 * cos(8 * p) * sinh(8 * q)), q2, with(asin(sin(p2) / cosh(q2)), c, degrees(c + 0.00335655148559669 * sin(2 * c) + 0.00000657187314845887 * sin(4 * c) + 0.0000000176465642645 * sin(6 * c) + 0.0000000000540048219 * sin(8 * c))))))))"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "longitud",
+    "description": "Move column longitud to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "latitud",
+    "description": "Move column latitud to the right"
+  },
+  {
+    "op": "core/column-move-right",
+    "columnName": "latitud",
+    "description": "Move column latitud to the right"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "longitud",
+    "expression": "grel:if(isBlank(value), null, round(value * 1000000) / 1000000.0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column longitud using expression grel:if(isBlank(value), null, round(value * 1000000) / 1000000.0)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "latitud",
+    "expression": "grel:if(isBlank(value), null, round(value * 1000000) / 1000000.0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column latitud using expression grel:if(isBlank(value), null, round(value * 1000000) / 1000000.0)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "estado_meteorológico",
+    "expression": "grel:if(value == \"Desconocido\", null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column estado_meteorológico using expression grel:if(value == \"Desconocido\", null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tipo_vehiculo",
+    "expression": "grel:if(or(value == \"Desconocido\", value == \"Sin especificar\"), null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column tipo_vehiculo using expression grel:if(or(value == \"Desconocido\", value == \"Sin especificar\"), null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tipo_persona",
+    "expression": "grel:if(value == \"Peatón (atropello sc)\", \"Peatón\", value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column tipo_persona using expression grel:if(value == \"Peatón (atropello sc)\", \"Peatón\", value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "rango_edad",
+    "expression": "grel:if(value == \"Desconocido\", null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column rango_edad using expression grel:if(value == \"Desconocido\", null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "sexo",
+    "expression": "grel:if(value == \"Desconocido\", null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column sexo using expression grel:if(value == \"Desconocido\", null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "cod_lesividad",
+    "expression": "grel:if(value == \"Desconocido\", null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column cod_lesividad using expression grel:if(value == \"Desconocido\", null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lesividad",
+    "expression": "grel:if(value == \"Desconocido\", null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column lesividad using expression grel:if(value == \"Desconocido\", null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "positiva_droga",
+    "expression": "grel:if(value == \"Desconocido\", false, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column positiva_droga using expression grel:if(value == \"Desconocido\", false, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "localizacion",
+          "columnName": "localizacion",
+          "query": "",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "localizacion",
+    "expression": "grel:if(value == \".\", null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column localizacion using expression grel:if(value == \".\", null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tipo_accidente",
+    "expression": "grel:if ( value == \"Desconocido\", null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column tipo_accidente using expression grel:if ( value == \"Desconocido\", null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "positiva_alcohol",
+    "expression": "grel:if(value.toString().toLowercase().contains(\"desconocido\"), null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column positiva_alcohol using expression grel:if(value.toString().toLowercase().contains(\"desconocido\"), null, value)"
+  }
+]
