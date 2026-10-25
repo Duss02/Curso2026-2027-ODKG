@@ -117,48 +117,51 @@ GROUP BY ?stationName ?stationLink
 ORDER BY DESC(?avgNO2)
 
 #------------------------------------------------------------------
-# Quality checks (each of them must return 0)
+# Quality checks. Instead of counts (which some SPARQL tools show as an empty row when the
+# count is 0), they list every resource with the result of the check, so a correct dataset
+# shows "OK" in all the rows.
 
-# Q8. Monitoring stations without a link
+# Q8. Every monitoring station and whether it has an owl:sameAs link
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX aq:  <https://w3id.org/valencia-airquality/ontology/airquality#>
 
-SELECT (COUNT(?station) AS ?stationsWithoutLink)
+SELECT ?station ?stationName (IF(BOUND(?link), "OK: linked", "ERROR: no link") AS ?check)
 WHERE {
-  ?station rdf:type aq:MonitoringStation .
-  FILTER NOT EXISTS { ?station owl:sameAs ?link }
+  ?station rdf:type aq:MonitoringStation ;
+           aq:stationName ?stationName .
+  OPTIONAL { ?station owl:sameAs ?link }
 }
+ORDER BY ?stationName
 
 #------------------------------------------------------------------
-# Q9. Links whose object is not an IRI
+# Q9. Every owl:sameAs link and whether its object is an IRI
 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX aq:  <https://w3id.org/valencia-airquality/ontology/airquality#>
 
-SELECT (COUNT(*) AS ?linksNotIRI)
+SELECT ?type ?s ?o (IF(isIRI(?o), "OK: IRI", "ERROR: not an IRI") AS ?check)
 WHERE {
   ?s a ?type ;
      owl:sameAs ?o .
   FILTER (?type IN (aq:City, aq:MonitoringStation, aq:ObservableProperty))
-  FILTER (!isIRI(?o))
 }
+ORDER BY ?type ?s
 
 #------------------------------------------------------------------
-# Q10. External entities linked from more than one resource
+# Q10. Every external entity and the number of resources linked to it
+#      (each one should be linked from exactly one resource)
 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX aq:  <https://w3id.org/valencia-airquality/ontology/airquality#>
 
-SELECT (COUNT(*) AS ?duplicatedTargets)
+SELECT ?o (COUNT(DISTINCT ?s) AS ?linkedFrom)
+       (IF(COUNT(DISTINCT ?s) = 1, "OK: unique", "ERROR: duplicated") AS ?check)
 WHERE {
-  SELECT ?o
-  WHERE {
-    ?s a ?type ;
-       owl:sameAs ?o .
-    FILTER (?type IN (aq:City, aq:MonitoringStation, aq:ObservableProperty))
-  }
-  GROUP BY ?o
-  HAVING (COUNT(DISTINCT ?s) > 1)
+  ?s a ?type ;
+     owl:sameAs ?o .
+  FILTER (?type IN (aq:City, aq:MonitoringStation, aq:ObservableProperty))
 }
+GROUP BY ?o
+ORDER BY DESC(?linkedFrom) ?o
