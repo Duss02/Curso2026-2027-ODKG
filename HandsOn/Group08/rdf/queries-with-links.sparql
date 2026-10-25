@@ -1,9 +1,9 @@
 # Queries to verify the links to Wikidata in the RDF data of Group 08 (rdf/*-with-links.ttl).
-# The file holds 11 independent queries. All of them can be run on the union of the Turtle files with:
+# The file holds 15 independent queries. All of them can be run on the union of the Turtle files with:
 #   python scripts/run_queries.py rdf/queries-with-links.sparql "rdf/*-with-links.ttl"
 # With another SPARQL tool, load the Turtle files into one graph and run one query at a time.
 # The queries use only the local data. The expected result of each query is computed from the CSV files in csv/.
-# Links: owl:sameAs from neighbourhoods, districts and tree species; skos:broadMatch from cultivars and genus-only names.
+# Links: owl:sameAs from neighbourhoods, districts tree species and the facilities that host the climate shelters; skos:broadMatch from cultivars and genus-only names.
 
 # Q1. Neighbourhoods and districts linked to a Wikidata item with owl:sameAs.
 # Expected: District 10, Neighbourhood 73.
@@ -149,3 +149,64 @@ WHERE {
 GROUP BY ?name ?item
 ORDER BY DESC(?trees)
 LIMIT 5
+
+# Q12. Climate shelters whose host facility is linked to a Wikidata item with owl:sameAs.
+# Expected: 235 shelters, 213 facilities, 213 Wikidata items.
+PREFIX hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT (COUNT(DISTINCT ?shelter) AS ?shelters) (COUNT(DISTINCT ?facility) AS ?facilities) (COUNT(DISTINCT ?item) AS ?items)
+WHERE {
+  ?shelter a hr:ClimateShelter ;
+           hr:isHostedBy ?facility .
+  ?facility a hr:Facility ;
+            owl:sameAs ?item .
+  FILTER STRSTARTS(STR(?item), "http://www.wikidata.org/entity/Q")
+}
+
+# Q13. Climate shelters that are libraries, with their address and the Wikidata item of the library.
+# Expected: 48 rows.
+PREFIX hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?name ?address ?item
+WHERE {
+  ?shelter a hr:ClimateShelter ;
+           rdfs:label ?name ;
+           hr:streetAddress ?address ;
+           hr:hasShelterCategory <https://w3id.org/barcelona-heat-relief/resource/ShelterCategory/Library> ;
+           hr:isHostedBy ?facility .
+  ?facility owl:sameAs ?item .
+}
+ORDER BY ?name
+
+# Q14. Climate shelters linked to Wikidata through their facility, per category.
+# Expected: Library 48, Civic centre 42, Park 40, Market 23, Other 22, Swimming pool 22, Museum 12, Sports centre 9,
+# Water play area 8, Health centre 5, School 4.
+PREFIX hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?category (COUNT(DISTINCT ?shelter) AS ?shelters)
+WHERE {
+  ?shelter a hr:ClimateShelter ;
+           hr:hasShelterCategory/rdfs:label ?category ;
+           hr:isHostedBy ?facility .
+  ?facility owl:sameAs ?item .
+}
+GROUP BY ?category
+ORDER BY DESC(?shelters) ?category
+
+# Q15. Facilities that host more than one climate shelter, with their Wikidata item.
+# Expected: 13 facilities; the first is Centre Esportiu Municipal Can Dragó with 4 shelters.
+PREFIX hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?name ?item (COUNT(DISTINCT ?shelter) AS ?shelters)
+WHERE {
+  ?shelter a hr:ClimateShelter ;
+           hr:isHostedBy ?facility .
+  ?facility rdfs:label ?name ;
+            owl:sameAs ?item .
+}
+GROUP BY ?name ?item
+HAVING (COUNT(DISTINCT ?shelter) > 1)
+ORDER BY DESC(?shelters) ?name
