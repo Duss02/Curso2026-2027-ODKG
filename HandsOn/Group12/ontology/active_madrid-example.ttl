@@ -27,8 +27,8 @@
 <https://w3id.org/active-madrid/resource/SportActivity/Acondicionamiento%20Cardiovascular> a am:SportActivity ;
     schema:name "Acondicionamiento Cardiovascular" .
 
-<https://w3id.org/active-madrid/resource/SportActivity/Nataci%C3%B3n> a am:SportActivity ;
-    schema:name "Natación" .
+<https://w3id.org/active-madrid/resource/SportActivity/Uso%20Libre%20Patinaje> a am:SportActivity ;
+    schema:name "Uso Libre Patinaje" .
 
 # Postal addresses
 
@@ -68,14 +68,14 @@
     time:hasBeginning "16:00:00"^^xsd:time ;
     time:hasEnd "17:00:00"^^xsd:time .
 
-<https://w3id.org/active-madrid/resource/TimeInterval/11%3A00%3A00-12%3A00%3A00> a time:Interval ;
-    time:hasBeginning "11:00:00"^^xsd:time ;
-    time:hasEnd "12:00:00"^^xsd:time .
+<https://w3id.org/active-madrid/resource/TimeInterval/09%3A00%3A00-10%3A00%3A00> a time:Interval ;
+    time:hasBeginning "09:00:00"^^xsd:time ;
+    time:hasEnd "10:00:00"^^xsd:time .
 
 # Sports classes
 
 <https://w3id.org/active-madrid/resource/SportsClass/OPEN_Centro%20Deportivo%20Municipal%20Aluche_2025-11-01_09%3A00%3A00_Uso%20Libre%20Patinaje> a am:SportsClass ;
-    schema1:name "Uso Libre Patinaje - sábado de 09:00:00 a 10:00:00" ;
+    schema:name "Uso Libre Patinaje - sábado de 09:00:00 a 10:00:00" ;
     time:hasTime <https://w3id.org/active-madrid/resource/TimeInterval/09%3A00%3A00-10%3A00%3A00> ;
     am:availablePlaces "19"^^xsd:nonNegativeInteger ;
     am:hasActivity <https://w3id.org/active-madrid/resource/SportActivity/Uso%20Libre%20Patinaje> ;
@@ -84,7 +84,7 @@
     am:takesPlaceAt <https://w3id.org/active-madrid/resource/SportsFacility/4696> .
 
 <https://w3id.org/active-madrid/resource/SportsClass/CLOSED_Centro%20Deportivo%20Municipal%20Aluche_Acondicionamiento%20Cardiovascular%20N2%20Mj%2016%3A00-17%3A00_2026_6> a am:SportsClass ;
-    schema1:name "Acondicionamiento Cardiovascular N2 Mj 16:00-17:00" ;
+    schema:name "Acondicionamiento Cardiovascular N2 Mj 16:00-17:00" ;
     time:hasTime <https://w3id.org/active-madrid/resource/TimeInterval/16%3A00%3A00-17%3A00%3A00> ;
     am:availablePlaces "0"^^xsd:nonNegativeInteger ;
     am:hasActivity <https://w3id.org/active-madrid/resource/SportActivity/Acondicionamiento%20Cardiovascular> ;
