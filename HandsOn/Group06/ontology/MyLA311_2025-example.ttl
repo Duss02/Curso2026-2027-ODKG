@@ -52,14 +52,14 @@
 <http://linkeddata.la311.com/resource/Organization/LASAN> rdf:type owl:NamedIndividual ,
                                                                    :Organization ;
                                                           rdfs:label "LASAN" ;
-                                                          :name "LASAN"^^xsd:string .
+                                                          :organizationName "LASAN"^^xsd:string .
 
 
 ###  http://linkeddata.la311.com/resource/Service/WLA
 <http://linkeddata.la311.com/resource/Service/WLA> rdf:type owl:NamedIndividual ,
                                                             :Service ;
                                                    rdfs:label "WLA" ;
-                                                   :name "WLA"^^xsd:string .
+                                                   :serviceName "WLA"^^xsd:string .
 
 
 ###  http://linkeddata.la311.com/resource/ServiceRequest/1-5167495871
