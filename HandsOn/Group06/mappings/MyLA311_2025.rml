@@ -204,7 +204,7 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate la311:name;
+    rr:predicate la311:organizationName;
     rr:objectMap [
       rml:reference "Owner";
       rr:termType rr:Literal;
@@ -238,7 +238,7 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate la311:name;
+    rr:predicate la311:organizationName;
     rr:objectMap [
       rml:reference "OrganizationReporter";
       rr:termType rr:Literal;
@@ -272,7 +272,7 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate la311:name;
+    rr:predicate la311:serviceName;
     rr:objectMap [
       rml:reference "AssignTo";
       rr:termType rr:Literal;
