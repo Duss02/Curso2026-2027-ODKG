@@ -10,12 +10,13 @@ SafeRoute Madrid reuses that project's cleaning steps, RML mapping, ontology, Wi
 queries.
 
 ## Getting started (Windows, Python 3.12)
-
+Using Windows Powershell CMD, copy and paste this commands:
 ```powershell
+#Route = the route in which you have SafeRouteMadrid directory
 py -3.12 -m venv .venv          # or: uv venv --python 3.12 .venv
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python scripts\build.py        # first run: about 10 minutes, needs internet once
-.venv\Scripts\streamlit run app.py           # http://localhost:8501
+Route\.venv\Scripts\python -m pip install -r requirements.txt
+Route\.venv\Scripts\python scripts\build.py        # first run: about 10 minutes, needs internet once
+Route\.venv\Scripts .\streamlit run Route\app.py           # http://localhost:8501, runs locally in your computer
 ```
 
 The first build downloads the OpenStreetMap extract of Madrid (BBBike, about 80 MB) and the
