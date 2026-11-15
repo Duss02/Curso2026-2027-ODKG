@@ -25,6 +25,15 @@ const MASK_STYLE = {
 };
 const BORDER_STYLE = { color: "#8c959f", weight: 0.8, fill: false, interactive: false };
 const SELECTED_BORDER_STYLE = { color: "#1f2328", weight: 1.8, fill: false, interactive: false };
+// Neutral colour for now; it will later depend on the station's average delay.
+const STATION_STYLE = {
+  pane: "stations",
+  radius: 6,
+  color: "#ffffff",
+  weight: 1.5,
+  fillColor: "#1f6feb",
+  fillOpacity: 0.9,
+};
 
 const title = document.getElementById("map-title");
 const status = document.getElementById("map-status");
@@ -41,9 +50,10 @@ document.getElementById("change-selection").href = `index.html${location.search}
 // wheel notch back to about one zoom level.
 const map = L.map("map", { zoomSnap: 0.25, wheelPxPerZoomLevel: 40 }).fitBounds(GERMANY_BOUNDS);
 
-// Panes control the stacking order: tiles (200) < mask < state borders < markers (600).
+// Panes control the stacking order: tiles (200) < mask < state borders < stations < popups (700).
 map.createPane("mask").style.zIndex = 450;
 map.createPane("borders").style.zIndex = 460;
+map.createPane("stations").style.zIndex = 500;
 for (const pane of ["mask", "borders"]) {
   map.getPane(pane).style.pointerEvents = "none";
 }
@@ -121,6 +131,20 @@ async function init() {
   }
   title.textContent = selectedStates.map(({ label }) => label).join(", ");
 
+  const stateIris = toSparqlIris(selectedStates.map(({ state }) => state));
+
+  const STATION_QUERY = `
+    SELECT ?station ?label ?lon ?lat ?zip ?city WHERE {
+       	?station a dbd:Station .
+        ?station dbd:inCity/dbd:inState ?state ;
+          rdfs:label ?label ;
+          dbd:longitude ?lon ;
+          dbd:latitude ?lat ;
+          dbd:postalCode ?zip ;
+          dbd:inCity ?city .
+        VALUES ?state {${stateIris}}
+    }`
+
   const selectedQids = new Set(selectedStates.map(({ wikidata }) => toQid(wikidata)));
   const selectedFeatures = geoJson.features.filter((f) => selectedQids.has(f.properties.wikidata));
 
@@ -136,6 +160,43 @@ async function init() {
     const selectedLayer = L.geoJSON(selectedFeatures, { ...SELECTED_BORDER_STYLE, pane: "borders" }).addTo(map);
     map.fitBounds(selectedLayer.getBounds(), { padding: [20, 20] });
   }
+
+  const {rows: stations} = await select(STATION_QUERY);
+  drawStations(stations);
+  if (stations.length === 0) {
+    showStatus("No stations found in the selected states.");
+  }
+}
+
+// Labels in the KG look like "Station:Berlin Bellevue station".
+function stationName(label) {
+  return label.replace(/^Station:/, "");
+}
+
+// Tooltips and popups are built from DOM nodes with textContent, because Leaflet
+// inserts string content as HTML and labels from the KG must not be interpreted as HTML.
+function textElement(tag, text) {
+  const element = document.createElement(tag);
+  element.textContent = text;
+  return element;
+}
+
+function stationPopup({ label, zip }) {
+  const popup = document.createElement("div");
+  popup.append(
+    textElement("strong", stationName(label)),
+    textElement("div", `Postal code: ${zip}`),
+  );
+  return popup;
+}
+
+function drawStations(stations) {
+  for (const station of stations) {
+    L.circleMarker([Number(station.lat), Number(station.lon)], STATION_STYLE)
+      .bindTooltip(() => textElement("span", stationName(station.label)))
+      .bindPopup(() => stationPopup(station))
+      .addTo(map);
+  }
 }
 
 init().catch((error) => {
@@ -143,3 +204,7 @@ init().catch((error) => {
   title.textContent = "";
   showStatus("Could not load the map data. Is GraphDB running?", true);
 });
+
+function toSparqlIris(uris) {
+  return uris.map((uri) => `<${uri}>`).join(" ");
+}
