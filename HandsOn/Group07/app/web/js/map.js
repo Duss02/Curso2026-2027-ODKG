@@ -25,15 +25,22 @@ const MASK_STYLE = {
 };
 const BORDER_STYLE = { color: "#8c959f", weight: 0.8, fill: false, interactive: false };
 const SELECTED_BORDER_STYLE = { color: "#1f2328", weight: 1.8, fill: false, interactive: false };
-// Neutral colour for now; it will later depend on the station's average delay.
 const STATION_STYLE = {
   pane: "stations",
   radius: 6,
   color: "#ffffff",
   weight: 1.5,
-  fillColor: "#1f6feb",
   fillOpacity: 0.9,
 };
+
+// Colour classes for a station's average arrival delay (upper bound inclusive, in minutes).
+// The ≤ 1 min class exists because most stations are on time and would otherwise share one colour.
+const DELAY_CLASSES = [
+  { max: 1, color: "#1a9641", label: "≤ 1 min" },
+  { max: 5, color: "#a6d96a", label: "1–5 min" },
+  { max: 15, color: "#fdae61", label: "5–15 min" },
+  { max: Infinity, color: "#d7191c", label: "> 15 min" },
+];
 
 const title = document.getElementById("map-title");
 const status = document.getElementById("map-status");
@@ -133,17 +140,23 @@ async function init() {
 
   const stateIris = toSparqlIris(selectedStates.map(({ state }) => state));
 
+  // One row per station with the average arrival delay over all of its train stops.
   const STATION_QUERY = `
-    SELECT ?station ?label ?lon ?lat ?zip ?city WHERE {
-       	?station a dbd:Station .
-        ?station dbd:inCity/dbd:inState ?state ;
-          rdfs:label ?label ;
-          dbd:longitude ?lon ;
-          dbd:latitude ?lat ;
-          dbd:postalCode ?zip ;
-          dbd:inCity ?city .
-        VALUES ?state {${stateIris}}
-    }`
+    SELECT ?station ?label ?lon ?lat ?zip
+           (AVG(?delay) AS ?avgDelay)
+           (COUNT(?stop) AS ?stopCount)
+    WHERE {
+        VALUES ?state { ${stateIris} }
+        ?station a dbd:Station ;
+                 dbd:inCity/dbd:inState ?state ;
+                 rdfs:label ?label ;
+                 dbd:longitude ?lon ;
+                 dbd:latitude ?lat ;
+                 dbd:postalCode ?zip .
+        ?stop dbd:atStation ?station ;
+              dbd:arrivalDelayMinutes ?delay .
+    }
+    GROUP BY ?station ?label ?lon ?lat ?zip`;
 
   const selectedQids = new Set(selectedStates.map(({ wikidata }) => toQid(wikidata)));
   const selectedFeatures = geoJson.features.filter((f) => selectedQids.has(f.properties.wikidata));
@@ -163,6 +176,7 @@ async function init() {
 
   const {rows: stations} = await select(STATION_QUERY);
   drawStations(stations);
+  addLegend();
   if (stations.length === 0) {
     showStatus("No stations found in the selected states.");
   }
@@ -181,22 +195,49 @@ function textElement(tag, text) {
   return element;
 }
 
-function stationPopup({ label, zip }) {
+function delayClass(avgDelay) {
+  return DELAY_CLASSES.find(({ max }) => avgDelay <= max);
+}
+
+function stationPopup({ label, zip, avgDelay, stopCount }) {
+  const stops = Number(stopCount) === 1 ? "1 stop" : `${stopCount} stops`;
   const popup = document.createElement("div");
   popup.append(
     textElement("strong", stationName(label)),
+    textElement("div", `Average arrival delay: ${Number(avgDelay).toFixed(1)} min (${stops})`),
     textElement("div", `Postal code: ${zip}`),
   );
   return popup;
 }
 
 function drawStations(stations) {
-  for (const station of stations) {
-    L.circleMarker([Number(station.lat), Number(station.lon)], STATION_STYLE)
+  // Draw the most delayed stations last, so they lie on top where dots overlap.
+  const sorted = [...stations].sort((a, b) => Number(a.avgDelay) - Number(b.avgDelay));
+  for (const station of sorted) {
+    const { color } = delayClass(Number(station.avgDelay));
+    L.circleMarker([Number(station.lat), Number(station.lon)], { ...STATION_STYLE, fillColor: color })
       .bindTooltip(() => textElement("span", stationName(station.label)))
       .bindPopup(() => stationPopup(station))
       .addTo(map);
   }
+}
+
+function addLegend() {
+  const legend = L.control({ position: "bottomright" });
+  legend.onAdd = () => {
+    const container = L.DomUtil.create("div", "legend");
+    container.append(textElement("strong", "Average arrival delay"));
+    for (const { color, label } of DELAY_CLASSES) {
+      const swatch = textElement("span", "");
+      swatch.className = "legend-swatch";
+      swatch.style.background = color;
+      const row = document.createElement("div");
+      row.append(swatch, textElement("span", label));
+      container.append(row);
+    }
+    return container;
+  };
+  legend.addTo(map);
 }
 
 init().catch((error) => {

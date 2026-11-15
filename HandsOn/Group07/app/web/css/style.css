@@ -90,6 +90,7 @@ body.map-page {
 .map-header h1 {
   margin: 0;
   font-size: 1.25rem;
+  white-space: nowrap;
 }
 
 .map-title {
@@ -115,4 +116,29 @@ body.map-page {
 
 .map {
   flex: 1;
+}
+
+.legend {
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.legend strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 1px #d0d7de;
+  vertical-align: -0.1rem;
 }
