@@ -1,4 +1,6 @@
 import { select } from "./sparql.js";
+import { DELAY_CLASSES, delayClass, stationName, textElement, toQid, toSparqlIri } from "./common.js";
+import { createStationDetail } from "./station-detail.js";
 
 // All states with their Wikidata link. The QID is the key into data/states.geo.json,
 // because the KG uses English state names and the boundary file German ones.
@@ -33,14 +35,7 @@ const STATION_STYLE = {
   fillOpacity: 0.9,
 };
 
-// Colour classes for a station's average arrival delay (upper bound inclusive, in minutes).
-// The ≤ 1 min class exists because most stations are on time and would otherwise share one colour.
-const DELAY_CLASSES = [
-  { max: 1, color: "#1a9641", label: "≤ 1 min" },
-  { max: 5, color: "#a6d96a", label: "1–5 min" },
-  { max: 15, color: "#fdae61", label: "5–15 min" },
-  { max: Infinity, color: "#d7191c", label: "> 15 min" },
-];
+const SELECTED_STATION_STYLE = { color: "#1f2328", weight: 3, radius: 8 };
 
 const title = document.getElementById("map-title");
 const status = document.getElementById("map-status");
@@ -92,6 +87,7 @@ const railways = L.tileLayer("https://tiles.openrailwaymap.org/standard/{z}/{x}/
   attribution: `${OSM_ATTRIBUTION}, style: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> `
     + '<a href="https://www.openrailwaymap.org/">OpenRailwayMap</a>',
 });
+railways.addTo(map);
 
 L.control.layers({ "Esri Light Gray": esriLightGray, "BKG TopPlus Open (grey)": bkgGrey }, { "Railway lines (OpenRailwayMap)": railways }).addTo(map);
 L.control.scale({ imperial: false }).addTo(map);
@@ -100,10 +96,6 @@ function showStatus(message, isError = false) {
   status.textContent = message;
   status.classList.toggle("error", isError);
   status.hidden = false;
-}
-
-function toQid(wikidataUri) {
-  return wikidataUri?.match(/Q\d+$/)?.[0];
 }
 
 // GeoJSON rings are [lng, lat]; Leaflet wants [lat, lng].
@@ -138,11 +130,11 @@ async function init() {
   }
   title.textContent = selectedStates.map(({ label }) => label).join(", ");
 
-  const stateIris = toSparqlIris(selectedStates.map(({ state }) => state));
+  const stateIris = selectedStates.map(({ state }) => toSparqlIri(state)).join(" ");
 
   // One row per station with the average arrival delay over all of its train stops.
   const STATION_QUERY = `
-    SELECT ?station ?label ?lon ?lat ?zip
+    SELECT ?station ?label ?lon ?lat
            (AVG(?delay) AS ?avgDelay)
            (COUNT(?stop) AS ?stopCount)
     WHERE {
@@ -151,12 +143,11 @@ async function init() {
                  dbd:inCity/dbd:inState ?state ;
                  rdfs:label ?label ;
                  dbd:longitude ?lon ;
-                 dbd:latitude ?lat ;
-                 dbd:postalCode ?zip .
+                 dbd:latitude ?lat .
         ?stop dbd:atStation ?station ;
               dbd:arrivalDelayMinutes ?delay .
     }
-    GROUP BY ?station ?label ?lon ?lat ?zip`;
+    GROUP BY ?station ?label ?lon ?lat`;
 
   const selectedQids = new Set(selectedStates.map(({ wikidata }) => toQid(wikidata)));
   const selectedFeatures = geoJson.features.filter((f) => selectedQids.has(f.properties.wikidata));
@@ -182,32 +173,42 @@ async function init() {
   }
 }
 
-// Labels in the KG look like "Station:Berlin Bellevue station".
-function stationName(label) {
-  return label.replace(/^Station:/, "");
+// Clicking a station opens the detail panel next to the map. The map is resized when the
+// panel opens or closes, and the selected station is kept in view.
+let selectedMarker = null;
+
+function unselectMarker() {
+  if (!selectedMarker) return;
+  selectedMarker.setStyle(selectedMarker.options.defaultStyle);
+  selectedMarker = null;
 }
 
-// Tooltips and popups are built from DOM nodes with textContent, because Leaflet
+const stationDetail = createStationDetail(document.getElementById("station-detail"), {
+  onVisibilityChange(visible) {
+    map.invalidateSize();
+    if (!visible) unselectMarker();
+  },
+});
+map.on("click", () => stationDetail.close());
+
+function selectStation(marker, station) {
+  unselectMarker();
+  selectedMarker = marker;
+  marker.setStyle(SELECTED_STATION_STYLE).bringToFront();
+  stationDetail.open(station);
+  map.panInside(marker.getLatLng(), { padding: [40, 40] });
+}
+
+// Tooltips are built from DOM nodes with textContent, because Leaflet
 // inserts string content as HTML and labels from the KG must not be interpreted as HTML.
-function textElement(tag, text) {
-  const element = document.createElement(tag);
-  element.textContent = text;
-  return element;
-}
-
-function delayClass(avgDelay) {
-  return DELAY_CLASSES.find(({ max }) => avgDelay <= max);
-}
-
-function stationPopup({ label, zip, avgDelay, stopCount }) {
+function stationTooltip({ label, avgDelay, stopCount }) {
   const stops = Number(stopCount) === 1 ? "1 stop" : `${stopCount} stops`;
-  const popup = document.createElement("div");
-  popup.append(
+  const tooltip = document.createElement("div");
+  tooltip.append(
     textElement("strong", stationName(label)),
-    textElement("div", `Average arrival delay: ${Number(avgDelay).toFixed(1)} min (${stops})`),
-    textElement("div", `Postal code: ${zip}`),
+    textElement("div", `Avg. arrival delay: ${Number(avgDelay).toFixed(1)} min (${stops})`),
   );
-  return popup;
+  return tooltip;
 }
 
 function drawStations(stations) {
@@ -215,10 +216,14 @@ function drawStations(stations) {
   const sorted = [...stations].sort((a, b) => Number(a.avgDelay) - Number(b.avgDelay));
   for (const station of sorted) {
     const { color } = delayClass(Number(station.avgDelay));
-    L.circleMarker([Number(station.lat), Number(station.lon)], { ...STATION_STYLE, fillColor: color })
-      .bindTooltip(() => textElement("span", stationName(station.label)))
-      .bindPopup(() => stationPopup(station))
+    const defaultStyle = { ...STATION_STYLE, fillColor: color };
+    const marker = L.circleMarker([Number(station.lat), Number(station.lon)], { ...defaultStyle, defaultStyle })
+      .bindTooltip(() => stationTooltip(station))
       .addTo(map);
+    marker.on("click", (event) => {
+      L.DomEvent.stopPropagation(event);
+      selectStation(marker, station);
+    });
   }
 }
 
@@ -245,7 +250,3 @@ init().catch((error) => {
   title.textContent = "";
   showStatus("Could not load the map data. Is GraphDB running?", true);
 });
-
-function toSparqlIris(uris) {
-  return uris.map((uri) => `<${uri}>`).join(" ");
-}

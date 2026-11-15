@@ -22,6 +22,7 @@ export async function select(query) {
 }
 
 async function sendQuery(query) {
+  console.log(`Sent following query to ${ENDPOINT}: ${query}`);
   return await fetch(ENDPOINT, {
     method: "POST",
     headers: {
