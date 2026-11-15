@@ -1,6 +1,5 @@
-
-from pathlib import Path
-
+from pathlib      import Path
+from urllib.parse import quote
 from flask import Flask, jsonify, render_template, Response
 from rdflib import Graph, URIRef, Namespace
 from rdflib.namespace import RDF
@@ -12,7 +11,7 @@ app.json.ensure_ascii = False
 RDF_PATH = (
     Path(__file__).resolve().parent.parent
     / "rdf"
-    / "aparcamientos.ttl"
+    / "aparcamientos-with-links.ttl"
 )
 
 # Cargar el grafo RDF
@@ -21,6 +20,7 @@ graph.parse(RDF_PATH, format="turtle")
 
 print(f"Grafo cargado: {len(graph)} tripletas RDF")
 
+APARCAMIENTOS_MAP = {}
 
 @app.route("/")
 def inicio():
@@ -103,8 +103,12 @@ def obtener_aparcamientos():
     ORDER BY ?nombre
     """
 
+    global APARCAMIENTOS_MAP
+
     resultados = graph.query(query)
     aparcamientos = []
+
+    # aparcamientos_dict = {}
 
     for row in resultados:
         aparcamiento = {
@@ -123,6 +127,21 @@ def obtener_aparcamientos():
         }
 
         aparcamientos.append(aparcamiento)
+        
+        APARCAMIENTOS_MAP[int(row.codigo)] = {
+            "uri": str(row.parking),
+            "codigo": int(row.codigo),
+            "nombre": str(row.nombre),
+            "tipo": str(row.tipo) if row.tipo is not None else None,
+            "direccion": str(row.direccion) if row.direccion is not None else None,
+            "plazas": int(row.plazas) if row.plazas is not None else None,
+            "latitud": float(row.lat) if row.lat is not None else None,
+            "longitud": float(row.lon) if row.lon is not None else None,
+            "distrito": str(row.distrito) if row.distrito is not None else None,
+            "barrio": str(row.barrio) if row.barrio is not None else None,
+            "estado": str(row.estado) if row.estado is not None else None,
+            "url": str(row.url) if row.url is not None else None
+        }
 
     return jsonify({
         "total": len(aparcamientos),
@@ -134,10 +153,13 @@ def obtener_aparcamientos():
 def obtener_ocupacion(codigo):
     pm = Namespace("https://parking-madrid.example.org/ontology#")
 
+    aparc_nombre = APARCAMIENTOS_MAP[codigo]['nombre']
+    app.logger.info(f"The nombre of {codigo} is {aparc_nombre}")
     parking_uri = URIRef(
-        f"https://parking-madrid.example.org/resource/Parking/{codigo}"
+        f"https://parking-madrid.example.org/resource/parking/{quote(aparc_nombre)}"
     )
-
+    app.logger.info(f"Parking URI: {parking_uri}")
+    
     # Comprobar que el aparcamiento existe
     if (parking_uri, RDF.type, pm.ParkingFacility) not in graph:
         return jsonify({"error": "Aparcamiento no encontrado"}), 404
@@ -171,6 +193,18 @@ def obtener_ocupacion(codigo):
         initBindings={"parking": parking_uri}
     )
 
+    if not resultados:
+        app.logger.info(f"No results found for {resultados}")
+    else:
+        app.logger.info(f"Results found for {resultados}")
+        for row in resultados:
+            app.logger.info(
+                f"Periodo: {row.periodo}, "
+                f"Ocupacion: {row.ocupacion}, "
+                f"Diurna: {row.diurna}, "
+                f"Vehiculos: {row.vehiculos}"
+            )
+    
     observaciones = []
 
     for fila in resultados:
