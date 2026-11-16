@@ -12,7 +12,7 @@
 <TrainStop/1573967790757085557-2407072312-14>
     a dbd:TrainStop ;
     rdfs:label "Train stop 1573967790757085557-2407072312-14"^^xsd:string ;
-    dbd:atStation <Station/8000001> ;
+    dbd:atStation <Station/Aachen-Hbf> ;
     dbd:stopId "1573967790757085557-2407072312-14"^^xsd:string ;
     dbd:lineLabel "20"^^xsd:string ;
     dbd:previousStations "Stolberg(Rheinl)Hbf Gl.44|Eschweiler-St.Jöris|Alsdorf Poststraße|Alsdorf-Mariadorf|Alsdorf-Kellersberg|Alsdorf-Annapark|Alsdorf-Busch|Herzogenrath-August-Schmidt-Platz|Herzogenrath-Alt-Merkstein|Herzogenrath|Kohlscheid|Aachen West|Aachen Schanz"^^xsd:string ;
@@ -29,7 +29,7 @@
 <TrainStop/349781417030375472-2407080017-1>
     a dbd:TrainStop ;
     rdfs:label "Train stop 349781417030375472-2407080017-1"^^xsd:string ;
-    dbd:atStation <Station/8000001> ;
+    dbd:atStation <Station/Aachen-Hbf> ;
     dbd:stopId "349781417030375472-2407080017-1"^^xsd:string ;
     dbd:lineLabel "18"^^xsd:string ;
     dbd:plannedDeparture "2024-07-08T00:17:00"^^xsd:dateTime ;
@@ -42,7 +42,7 @@
 <TrainStop/7157250219775883918-2407072120-25>
     a dbd:TrainStop ;
     rdfs:label "Train stop 7157250219775883918-2407072120-25"^^xsd:string ;
-    dbd:atStation <Station/8000406> ;
+    dbd:atStation <Station/Aachen-Rothe-Erde> ;
     dbd:stopId "7157250219775883918-2407072120-25"^^xsd:string ;
     dbd:lineLabel "1"^^xsd:string ;
     dbd:previousStations "Hamm(Westf)Hbf|Kamen|Kamen-Methler|Dortmund-Kurl|Dortmund-Scharnhorst|Dortmund Hbf|Bochum Hbf|Wattenscheid|Essen Hbf|Mülheim(Ruhr)Hbf|Duisburg Hbf|Düsseldorf Flughafen|Düsseldorf Hbf|Düsseldorf-Benrath|Leverkusen Mitte|Köln-Mülheim|Köln Messe/Deutz|Köln Hbf|Köln-Ehrenfeld|Horrem|Düren|Langerwehe|Eschweiler Hbf|Stolberg(Rheinl)Hbf"^^xsd:string ;
@@ -59,7 +59,7 @@
 <TrainStop/1640260421649276864-2407080004-5>
     a dbd:TrainStop ;
     rdfs:label "Train stop 1640260421649276864-2407080004-5"^^xsd:string ;
-    dbd:atStation <Station/8000443> ;
+    dbd:atStation <Station/Ahlten-Han> ;
     dbd:stopId "1640260421649276864-2407080004-5"^^xsd:string ;
     dbd:lineLabel "7"^^xsd:string ;
     dbd:previousStations "Hannover Hbf|Hannover-Kleefeld|Hannover Karl-Wiechert-Allee|Hannover Anderten-Misburg"^^xsd:string ;
@@ -75,7 +75,7 @@
 
 # Shared station and place resources.
 
-<Station/8000001>
+<Station/Aachen-Hbf>
     a dbd:Station ;
     rdfs:label "Aachen Hbf"^^xsd:string ;
     dbd:inCity <City/Nordrhein-Westfalen/Aachen> ;
@@ -85,7 +85,7 @@
     dbd:longitude "6.091499"^^xsd:decimal ;
     dbd:latitude "50.7678"^^xsd:decimal .
 
-<Station/8000406>
+<Station/Aachen-Rothe-Erde>
     a dbd:Station ;
     rdfs:label "Aachen-Rothe Erde"^^xsd:string ;
     dbd:inCity <City/Nordrhein-Westfalen/Aachen> ;
@@ -95,7 +95,7 @@
     dbd:longitude "6.116475"^^xsd:decimal ;
     dbd:latitude "50.770202"^^xsd:decimal .
 
-<Station/8000443>
+<Station/Ahlten-Han>
     a dbd:Station ;
     rdfs:label "Ahlten (Han)"^^xsd:string ;
     dbd:inCity <City/Niedersachsen/Lehrte> ;

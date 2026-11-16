@@ -10,6 +10,25 @@ Our dataset (./csv/DBtrainrides.csv) is too large to upload it on GitHub (772 MB
 The original is available at https://www.kaggle.com/datasets/nokkyu/deutsche-bahn-db-delays.
 It is licensed under the MIT-License.
 
+Transformation and resource naming
+----------------------------------
+The cleaned and linked CSVs both contain `state_slug`, `city_slug` and
+`station_slug`. Station URIs use `resource/Station/{station_slug}`; their labels
+use the `station` column without a `Station:` prefix. EVA numbers remain stored
+as `evaNumber` properties. Reconciliation can change names and therefore slugs.
+
+Apply `openrefine/DBtrainrides-cleaning-history.json` to the base CSV to reproduce
+the cleaning. Apply `lodrefine/operations-with-links.json` to the cleaned CSV
+containing all three slugs to replay reconciliation, corrections and slug updates.
+The reconciliation history uses `https://wikidata-reconciliation.wmcloud.org/en/api`.
+
+From `Group07`, regenerate the graphs after updating the CSVs or mappings:
+```bash
+python transformation/generate_graph.py
+python transformation/generate_graph.py --with-links
+python transformation/validate_shacl.py
+```
+
 Application setup
 -----------------
 The application uses GraphDB to host the knowledge graph. GraphDB runs in Docker.

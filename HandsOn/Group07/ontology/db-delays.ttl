@@ -20,7 +20,7 @@ dbd:TrainStop a owl:Class ;
 dbd:Station a owl:Class ;
     rdfs:subClassOf owl:Thing ;
     rdfs:label "Station"@en ;
-    rdfs:comment "A railway station identified by its EVA number. This class is a candidate for links to external station entities after identity verification."@en .
+    rdfs:comment "A railway station whose resource URI uses station_slug, derived from its source name. The EVA number is preserved as a property. This class is a candidate for links to external station entities after identity verification."@en .
 
 dbd:City a owl:Class ;
     rdfs:subClassOf owl:Thing ;
@@ -38,7 +38,7 @@ dbd:atStation a owl:ObjectProperty ;
     rdfs:domain dbd:TrainStop ;
     rdfs:range dbd:Station ;
     rdfs:label "at station"@en ;
-    rdfs:comment "Links a recorded stop to its station, using the source eva_nr value."@en .
+    rdfs:comment "Links a recorded stop to its station, using the source station_slug value."@en .
 
 dbd:inCity a owl:ObjectProperty ;
     rdfs:domain dbd:Station ;

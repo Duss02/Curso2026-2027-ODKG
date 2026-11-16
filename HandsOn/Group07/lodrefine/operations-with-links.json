@@ -8,7 +8,7 @@
     "columnName": "station",
     "config": {
       "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
+      "service": "https://wikidata-reconciliation.wmcloud.org/en/api",
       "identifierSpace": "http://www.wikidata.org/entity/",
       "schemaSpace": "http://www.wikidata.org/prop/direct/",
       "type": {
@@ -1408,7 +1408,7 @@
     "columnName": "state",
     "config": {
       "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
+      "service": "https://wikidata-reconciliation.wmcloud.org/en/api",
       "identifierSpace": "http://www.wikidata.org/entity/",
       "schemaSpace": "http://www.wikidata.org/prop/direct/",
       "type": {
@@ -1444,7 +1444,7 @@
     "columnName": "city",
     "config": {
       "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
+      "service": "https://wikidata-reconciliation.wmcloud.org/en/api",
       "identifierSpace": "http://www.wikidata.org/entity/",
       "schemaSpace": "http://www.wikidata.org/prop/direct/",
       "type": {
@@ -1500,7 +1500,7 @@
     "columnName": "city",
     "config": {
       "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
+      "service": "https://wikidata-reconciliation.wmcloud.org/en/api",
       "identifierSpace": "http://www.wikidata.org/entity/",
       "schemaSpace": "http://www.wikidata.org/prop/direct/",
       "type": {
@@ -1662,7 +1662,7 @@
     "columnName": "city",
     "config": {
       "mode": "standard-service",
-      "service": "https://wikidata.reconci.link/en/api",
+      "service": "https://wikidata-reconciliation.wmcloud.org/en/api",
       "identifierSpace": "http://www.wikidata.org/entity/",
       "schemaSpace": "http://www.wikidata.org/prop/direct/",
       "type": {
@@ -2130,7 +2130,7 @@
         {
           "type": "list",
           "name": "eva_nr",
-          "expression": "value",
+          "expression": "grel:value",
           "columnName": "eva_nr",
           "invert": false,
           "omitBlank": false,
@@ -2168,7 +2168,7 @@
         {
           "type": "list",
           "name": "eva_nr",
-          "expression": "value",
+          "expression": "grel:value",
           "columnName": "eva_nr",
           "invert": false,
           "omitBlank": false,
@@ -2188,11 +2188,11 @@
       "mode": "row-based"
     },
     "columnName": "same_as_wikidata_station",
-    "expression": "grel:if(cells[\"eva_nr\"].value.toString() == \"8000963\",\n   \"https://wikidata.org/entity/Q116155655\",\n   value)",
+    "expression": "grel:if(cells.get(\"eva_nr\").value.toString() == \"8000963\", \"https://wikidata.org/entity/Q116155655\", value)",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10,
-    "description": "Transformer le texte sur les cellules de la colonne same_as_wikidata_station à laide de lexpression grel:if(cells[\"eva_nr\"].value.toString() == \"8000963\",\n   \"https://wikidata.org/entity/Q116155655\",\n   value)"
+    "description": "Transformer le texte sur les cellules de la colonne same_as_wikidata_station à laide de lexpression grel:if(cells.get(\"eva_nr\").value.toString() == \"8000963\", \"https://wikidata.org/entity/Q116155655\", value)"
   },
   {
     "op": "core/recon-discard-judgments",
@@ -2201,7 +2201,7 @@
         {
           "type": "list",
           "name": "eva_nr",
-          "expression": "value",
+          "expression": "grel:value",
           "columnName": "eva_nr",
           "invert": false,
           "omitBlank": false,
@@ -2231,11 +2231,11 @@
       "mode": "row-based"
     },
     "columnName": "state_slug",
-    "expression": "grel:with(cells[\"state\"], c,\n  with(if(isBlank(c.recon), c.value,\n          if(c.recon.matched, c.recon.match.name, c.value)), nom,\n    if(isBlank(nom), null,\n      nom.replace(\"ü\", \"ue\").replace(\"ö\", \"oe\").replace(\"ä\", \"ae\")\n         .replace(\"ß\", \"ss\").replace(\"Ü\", \"Ue\").replace(\"Ö\", \"Oe\")\n         .replace(\"Ä\", \"Ae\").replace(\"ẞ\", \"SS\")\n         .replace(/[()]/, \"\").replace(/\\s+/, \"-\")\n         .replace(/-+/, \"-\").replace(/^-+|-+$/, \"\")\n    )\n  )\n)",
+    "expression": "grel:with(cells.get(\"state\"), c, with(if(isBlank(c.recon), c.value, if(c.recon.matched, c.recon.match.name, c.value)), nom, if(isBlank(nom), null, nom.replace(\"ü\", \"ue\").replace(\"ö\", \"oe\").replace(\"ä\", \"ae\").replace(\"ß\", \"ss\").replace(\"Ü\", \"Ue\").replace(\"Ö\", \"Oe\").replace(\"Ä\", \"Ae\").replace(\"ẞ\", \"SS\").replace(/[()]/, \"\").replace(/\\s+/, \"-\").replace(/-+/, \"-\").replace(/^-+|-+$/, \"\"))))",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10,
-    "description": "Transformer le texte sur les cellules de la colonne state_slug à laide de lexpression grel:with(cells[\"state\"], c,\n  with(if(isBlank(c.recon), c.value,\n          if(c.recon.matched, c.recon.match.name, c.value)), nom,\n    if(isBlank(nom), null,\n      nom.replace(\"ü\", \"ue\").replace(\"ö\", \"oe\").replace(\"ä\", \"ae\")\n         .replace(\"ß\", \"ss\").replace(\"Ü\", \"Ue\").replace(\"Ö\", \"Oe\")\n         .replace(\"Ä\", \"Ae\").replace(\"ẞ\", \"SS\")\n         .replace(/[()]/, \"\").replace(/\\s+/, \"-\")\n         .replace(/-+/, \"-\").replace(/^-+|-+$/, \"\")\n    )\n  )\n)"
+    "description": "Transformer le texte sur les cellules de la colonne state_slug à laide de lexpression grel:with(cells.get(\"state\"), c, with(if(isBlank(c.recon), c.value, if(c.recon.matched, c.recon.match.name, c.value)), nom, if(isBlank(nom), null, nom.replace(\"ü\", \"ue\").replace(\"ö\", \"oe\").replace(\"ä\", \"ae\").replace(\"ß\", \"ss\").replace(\"Ü\", \"Ue\").replace(\"Ö\", \"Oe\").replace(\"Ä\", \"Ae\").replace(\"ẞ\", \"SS\").replace(/[()]/, \"\").replace(/\\s+/, \"-\").replace(/-+/, \"-\").replace(/^-+|-+$/, \"\"))))"
   },
   {
     "op": "core/text-transform",
@@ -2244,11 +2244,11 @@
       "mode": "row-based"
     },
     "columnName": "city_slug",
-    "expression": "grel:with(cells[\"city\"], c,\n  with(if(isBlank(c.recon), c.value,\n          if(c.recon.matched, c.recon.match.name, c.value)), nom,\n    if(isBlank(nom), null,\n      nom.replace(\"ü\", \"ue\").replace(\"ö\", \"oe\").replace(\"ä\", \"ae\")\n         .replace(\"ß\", \"ss\").replace(\"Ü\", \"Ue\").replace(\"Ö\", \"Oe\")\n         .replace(\"Ä\", \"Ae\").replace(\"ẞ\", \"SS\")\n         .replace(/[()]/, \"\").replace(/\\s+/, \"-\")\n         .replace(/-+/, \"-\").replace(/^-+|-+$/, \"\")\n    )\n  )\n)",
+    "expression": "grel:with(cells.get(\"city\"), c, with(if(isBlank(c.recon), c.value, if(c.recon.matched, c.recon.match.name, c.value)), nom, if(isBlank(nom), null, nom.replace(\"ü\", \"ue\").replace(\"ö\", \"oe\").replace(\"ä\", \"ae\").replace(\"ß\", \"ss\").replace(\"Ü\", \"Ue\").replace(\"Ö\", \"Oe\").replace(\"Ä\", \"Ae\").replace(\"ẞ\", \"SS\").replace(/[()]/, \"\").replace(/\\s+/, \"-\").replace(/-+/, \"-\").replace(/^-+|-+$/, \"\"))))",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10,
-    "description": "Transformer le texte sur les cellules de la colonne city_slug à laide de lexpression grel:with(cells[\"city\"], c,\n  with(if(isBlank(c.recon), c.value,\n          if(c.recon.matched, c.recon.match.name, c.value)), nom,\n    if(isBlank(nom), null,\n      nom.replace(\"ü\", \"ue\").replace(\"ö\", \"oe\").replace(\"ä\", \"ae\")\n         .replace(\"ß\", \"ss\").replace(\"Ü\", \"Ue\").replace(\"Ö\", \"Oe\")\n         .replace(\"Ä\", \"Ae\").replace(\"ẞ\", \"SS\")\n         .replace(/[()]/, \"\").replace(/\\s+/, \"-\")\n         .replace(/-+/, \"-\").replace(/^-+|-+$/, \"\")\n    )\n  )\n)"
+    "description": "Transformer le texte sur les cellules de la colonne city_slug à laide de lexpression grel:with(cells.get(\"city\"), c, with(if(isBlank(c.recon), c.value, if(c.recon.matched, c.recon.match.name, c.value)), nom, if(isBlank(nom), null, nom.replace(\"ü\", \"ue\").replace(\"ö\", \"oe\").replace(\"ä\", \"ae\").replace(\"ß\", \"ss\").replace(\"Ü\", \"Ue\").replace(\"Ö\", \"Oe\").replace(\"Ä\", \"Ae\").replace(\"ẞ\", \"SS\").replace(/[()]/, \"\").replace(/\\s+/, \"-\").replace(/-+/, \"-\").replace(/^-+|-+$/, \"\"))))"
   },
   {
     "op": "core/text-transform",
@@ -2257,10 +2257,99 @@
       "mode": "row-based"
     },
     "columnName": "same_as_wikidata_city",
-    "expression": "grel:if(cells[\"ID\"].value == \"1640260421649276864-2407080004-8\",\n   \"http://www.wikidata.org/entity/Q555618\",\n   value)",
+    "expression": "grel:if(cells.get(\"ID\").value == \"1640260421649276864-2407080004-8\", \"http://www.wikidata.org/entity/Q555618\", value)",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10,
-    "description": "Transformer le texte sur les cellules de la colonne same_as_wikidata_city à laide de lexpression grel:if(cells[\"ID\"].value == \"1640260421649276864-2407080004-8\",\n   \"http://www.wikidata.org/entity/Q555618\",\n   value)"
+    "description": "Transformer le texte sur les cellules de la colonne same_as_wikidata_city à laide de lexpression grel:if(cells.get(\"ID\").value == \"1640260421649276864-2407080004-8\", \"http://www.wikidata.org/entity/Q555618\", value)"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "city: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "city",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "city",
+    "match": {
+      "id": "Q555618",
+      "name": "Burgdorf",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Aligner lélément spécifique {0} ({1}) aux cellules de la colonne {2}"
+  },
+  {
+    "op": "core/recon-match-specific-topic-to-cells",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "city: judgment",
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "columnName": "city",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "(unreconciled)",
+                "l": "(unreconciled)"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "city",
+    "match": {
+      "id": "Q3951",
+      "name": "Aalen",
+      "types": [
+        ""
+      ]
+    },
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "description": "Aligner lélément spécifique {0} ({1}) aux cellules de la colonne {2}"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "station_slug",
+    "expression": "grel:with(cells[\"station\"], c,\n  with(\n    if(isBlank(c.recon), c.value,\n      if(c.recon.matched, c.recon.match.name, c.value)\n    ),\n    nom,\n    if(\n      isBlank(nom),\n      null,\n      nom.trim()\n        .replace(\"ü\", \"ue\")\n        .replace(\"ö\", \"oe\")\n        .replace(\"ä\", \"ae\")\n        .replace(\"ß\", \"ss\")\n        .replace(\"Ü\", \"Ue\")\n        .replace(\"Ö\", \"Oe\")\n        .replace(\"Ä\", \"Ae\")\n        .replace(\"ẞ\", \"SS\")\n        .replace(/[()]/, \"\")\n        .replace(/\\s+/, \"-\")\n        .replace(/-+/, \"-\")\n        .replace(/^-+|-+$/, \"\")\n    )\n  )\n)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne station_slug à laide de lexpression grel:with(cells[\"station\"], c,\n  with(\n    if(isBlank(c.recon), c.value,\n      if(c.recon.matched, c.recon.match.name, c.value)\n    ),\n    nom,\n    if(\n      isBlank(nom),\n      null,\n      nom.trim()\n        .replace(\"ü\", \"ue\")\n        .replace(\"ö\", \"oe\")\n        .replace(\"ä\", \"ae\")\n        .replace(\"ß\", \"ss\")\n        .replace(\"Ü\", \"Ue\")\n        .replace(\"Ö\", \"Oe\")\n        .replace(\"Ä\", \"Ae\")\n        .replace(\"ẞ\", \"SS\")\n        .replace(/[()]/, \"\")\n        .replace(/\\s+/, \"-\")\n        .replace(/-+/, \"-\")\n        .replace(/^-+|-+$/, \"\")\n    )\n  )\n)"
   }
 ]

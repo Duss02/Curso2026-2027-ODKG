@@ -98,7 +98,7 @@ rr:predicateObjectMap [
     ]
 ];
 
-# ontology: atStation, csv: eva_nr
+# ontology: atStation, linked through StationMap
 rr:predicateObjectMap [
         rr:predicate dbd:atStation ;
         rr:objectMap [
@@ -225,7 +225,7 @@ rr:predicateObjectMap [
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://example.org/db-delays/resource/Station/{eva_nr}";
+        rr:template "https://example.org/db-delays/resource/Station/{station_slug}";
         rr:class dbd:Station
     ];
 
@@ -254,7 +254,7 @@ rr:predicateObjectMap [
             rr:termType rr:IRI
         ] ;
         rr:objectMap [
-            rr:template "Station:{station}" ;
+            rml:reference "station" ;
             rr:termType rr:Literal
         ]
     ];

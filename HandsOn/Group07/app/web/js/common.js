@@ -13,7 +13,7 @@ export function delayClass(delayMinutes) {
   return DELAY_CLASSES.find(({ max }) => delayMinutes <= max);
 }
 
-// Labels in the KG look like "Station:Berlin Bellevue station".
+// Also support older graph exports whose station labels had a "Station:" prefix.
 export function stationName(label) {
   return label.replace(/^Station:/, "");
 }

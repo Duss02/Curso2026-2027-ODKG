@@ -251,7 +251,7 @@ def main():
 
     # Imports follow argument parsing so --help works without dependencies.
     from pyshacl import validate
-    from rdflib import Graph, Literal, Namespace, RDF, URIRef, XSD
+    from rdflib import Graph, Literal, Namespace, RDF, XSD
 
     inputs = [args.data, args.ontology if args.regenerate_shapes else args.shapes]
     outputs = [args.report]
@@ -307,7 +307,16 @@ def main():
         if eva in seen:
             raise ValueError(f"Duplicate correction for station {eva}")
         seen.add(eva)
-        station = URIRef("https://example.org/db-delays/resource/Station/" + eva)
+        stations = {
+            subject for subject, value in data.subject_objects(dbd.evaNumber)
+            if str(value) == eva and (subject, RDF.type, dbd.Station) in data
+        }
+        if not stations:
+            print(f"Skipped {eva}: no station in this input")
+            continue
+        if len(stations) != 1:
+            raise ValueError(f"Ambiguous EVA number {eva}: multiple stations require review")
+        station = stations.pop()
         values = set(data.objects(station, dbd.postalCode))
         if not values:
             print(f"Skipped {eva}: no postal code in this input")

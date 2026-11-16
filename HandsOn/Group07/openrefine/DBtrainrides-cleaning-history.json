@@ -47,5 +47,23 @@
     "op": "core/column-move-last",
     "columnName": "city_slug",
     "description": "Move column city_slug to the end"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "station",
+    "expression": "grel:if(\n  isBlank(value),\n  null,\n  value.trim()\n    .replace(\"ü\", \"ue\")\n    .replace(\"ö\", \"oe\")\n    .replace(\"ä\", \"ae\")\n    .replace(\"ß\", \"ss\")\n    .replace(\"Ü\", \"Ue\")\n    .replace(\"Ö\", \"Oe\")\n    .replace(\"Ä\", \"Ae\")\n    .replace(\"ẞ\", \"SS\")\n    .replace(/[()]/, \"\")\n    .replace(/\\s+/, \"-\")\n    .replace(/-+/, \"-\")\n    .replace(/^-+|-+$/, \"\")\n)",
+    "onError": "set-to-blank",
+    "newColumnName": "station_slug",
+    "columnInsertIndex": 6,
+    "description": "Créer la colonne station_slug à l’index 6 sur la base de la colonne station à l’aide de l’expression grel:if(\n  isBlank(value),\n  null,\n  value.trim()\n    .replace(\"ü\", \"ue\")\n    .replace(\"ö\", \"oe\")\n    .replace(\"ä\", \"ae\")\n    .replace(\"ß\", \"ss\")\n    .replace(\"Ü\", \"Ue\")\n    .replace(\"Ö\", \"Oe\")\n    .replace(\"Ä\", \"Ae\")\n    .replace(\"ẞ\", \"SS\")\n    .replace(/[()]/, \"\")\n    .replace(/\\s+/, \"-\")\n    .replace(/-+/, \"-\")\n    .replace(/^-+|-+$/, \"\")\n)"
+  },
+  {
+    "op": "core/column-move-last",
+    "columnName": "station_slug",
+    "description": "Move column station_slug to the end"
   }
 ]
