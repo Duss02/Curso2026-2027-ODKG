@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=89382;export const __webpack_esm_ids__=[89382];export const __webpack_esm_modules__={89382(_,e,s){s.d(e,{k:()=>a});var r=s(21719);const a=_=>{if(!_||!_.shacl_graphs)return new r.P;const e=_.shacl_graphs.map(_=>new r.C({uri:_,label:_,id:_}));return new r.P(e)}}};
+//# sourceMappingURL=89382.ca4c2675a09326f1f94d.bundle.js.map

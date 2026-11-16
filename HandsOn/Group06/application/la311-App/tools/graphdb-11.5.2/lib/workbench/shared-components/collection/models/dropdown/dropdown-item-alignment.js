@@ -1,0 +1,1 @@
+export var DropdownItemAlignment;!function(n){n.RIGHT="right",n.LEFT="left"}(DropdownItemAlignment||(DropdownItemAlignment={}));

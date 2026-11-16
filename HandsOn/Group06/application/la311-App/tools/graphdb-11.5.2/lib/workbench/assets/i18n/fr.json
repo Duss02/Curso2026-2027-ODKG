@@ -1,0 +1,415 @@
+{
+  "guide.back.to.guides.btn": "Retour aux guides",
+  "guide.common.close": "Fermer",
+  "guide.previous.btn": "Précédent",
+  "guide.next.btn": "Suivant",
+  "guide.pause.btn": "Pause",
+  "guide.start.unexpected.error.message": "Le guide ne peut pas être démarré en raison d'une erreur inattendue. Veuillez réessayer d'exécuter le guide et si le problème persiste, contactez le support.",
+  "guide.unexpected.error.message": "Le guide a été annulé en raison d'une erreur inattendue. Veuillez exécuter à nouveau le guide et si le problème persiste, contactez le support.",
+  "guide.total.progress": "Étape de guidage {{n}} sur {{nn}}",
+  "guide.total.progress.tooltip": "Ceci indique l'étape actuelle par rapport à l'ensemble du guide et le nombre total d'étapes dans le guide.",
+  "guide.block.progress": "{{n}}/{{nn}}",
+  "guide.block.progress.tooltip": "Ceci indique l'étape actuelle et le nombre total d'étapes dans l'action {{action}}.",
+  "guide.step-type.info": "Cette étape fournit des informations. Aucune action requise autre que de cliquer sur le bouton Suivant.",
+  "guide.step-type.mouse": "Cette étape attend une action de l'utilisateur avec la souris, généralement un clic sur quelque chose.",
+  "guide.step-type.input": "Cette étape attend une entrée de l'utilisateur, généralement en tapant ou en collant un morceau de texte.",
+  "guides.error.guide-not-found": "Le guide demandé est introuvable.",
+  "menu.logo.link.title": "Logo GraphDB",
+  "menu.buttons.expand": "Développer le menu",
+  "menu.buttons.collapse": "Réduire le menu",
+  "common": {
+    "import": "Importer",
+    "button": {
+      "ok": "D'accord",
+      "close": "Fermer",
+      "cancel": "Annuler"
+    },
+    "loading": "Chargement...",
+    "errors": {
+      "error": "Erreur",
+      "server_error": "Erreur du serveur"
+    },
+    "warnings": {
+      "warning": "Avertissement"
+    }
+  },
+  "menu.rdf.label": "RDF",
+  "menu.explore.label": "Explorez",
+  "menu.graphs.overview.label": "Aperçu des graphes",
+  "menu.class.relationships.label": "Relations entre les classes",
+  "menu.class.hierarchy.label": "Hiérarchie des classes",
+  "menu.similarity.label": "Similarité",
+  "menu.sparql.label": "SPARQL",
+  "menu.monitor.label": "Surveiller",
+  "menu.queries.and.updates.label": "Requêtes et mises à jour",
+  "menu.backup_and_restore.label": "Sauvegarde et Restauration",
+  "menu.enableFtsIndex.label": "Activer l'index de recherche plein texte",
+  "menu.ftsIndexes.label": "Index de recherche en texte intégral à construire (délimités par des virgules)",
+  "menu.ftsStringLiteralsIndex.label": "Index de recherche en texte intégral pour les littéraux xsd:string",
+  "menu.ftsIrisIndex.label": "Index de recherche en texte intégral pour l'indexation en texte intégral des IRI",
+  "menu.ftsDefaultAnalyzer.label": "Analyseur pour l'index par défaut",
+  "menu.resources.label": "Système",
+  "menu.setup.label": "Configurer",
+  "menu.lab.label": "Laboratoire",
+  "menu.ttyg.label": "Parlez à votre graphe",
+  "menu.repositories.label": "Dépôts",
+  "menu.aclmanagement.label": "Gestion ACL",
+  "menu.users.and.access.label": "Utilisateurs et accès",
+  "menu.my.settings.label": "Mes paramètres",
+  "menu.cluster.label": "Cluster",
+  "menu.connectors.label": "Connecteurs",
+  "menu.namespaces.label": "Espaces de noms",
+  "menu.autocomplete.label": "Autocomplétion",
+  "menu.jdbc.label": "JDBC",
+  "menu.sparql.template.label": "Modèles SPARQL",
+  "menu.license.label": "Licence",
+  "menu.help.label": "Aide",
+  "menu.system.information.label": "Informations sur le système",
+  "menu.rest.api.label": "API REST",
+  "menu.documentation.label": "Documentation",
+  "menu.tutorials.label": "Tutoriels",
+  "menu.support.label": "Support",
+  "menu.guides.label": "Guides interactifs",
+  "menu.plugins.label": "Plugins",
+  "menu.graphql.label": "GraphQL",
+  "menu.graphql-endpoint-management.label": "Gestion des points de terminaison",
+  "menu.graphql-playground.label": "GraphQL Playground",
+  "visual.graph.label": "Graphique visuel",
+  "view.rdf.rank.title": "Rang RDF",
+  "language_selector": {
+    "toggle_menu": {
+      "label": "Sélectionner la langue",
+      "tooltip": "Langue actuelle : Français"
+    },
+    "language": {
+      "en": {
+        "label": "en &middot; Anglais",
+        "tooltip": {
+          "selected": "Langue actuelle",
+          "not_selected": "Changer la langue en Anglais"
+        }
+      },
+      "fr": {
+        "label": "fr &middot; Français",
+        "tooltip": {
+          "selected": "Langue actuelle",
+          "not_selected": "Changer la langue en Français"
+        }
+      }
+    }
+  },
+  "repository-selector": {
+    "btn": {
+      "toggle": "Choisissez le dépôt",
+      "no_repositories": "Aucun dépôt accessible"
+    },
+    "tooltip": {
+      "repository": "Dépôt",
+      "location": "L'emplacement",
+      "local": "Local",
+      "type": "Type",
+      "types": {
+        "graphdb": "Graphdb",
+        "system": "Système",
+        "ontop": "Ontop",
+        "fedx": "FedX",
+        "unknown": "Inconnu"
+      },
+      "permissions_label": "Permissions",
+      "permissions": {
+        "none": "Aucune",
+        "read": "Lecture",
+        "write": "Lecture/Écriture",
+        "maintain": "Lecture/Écriture/Maintenance",
+        "graphql_read": "Lecture (GraphQL uniquement)",
+        "graphql_write": "Lecture/Écriture (GraphQL uniquement)"
+      },
+      "repository-size": {
+        "total": "Total des déclarations",
+        "explicit": "Explicite",
+        "inferred": "Déduit",
+        "expansion_ratio": "Taux d'expansion (total/explicite)"
+      }
+    }
+  },
+  "license_alert": {
+    "label": "Aucune licence valide",
+    "no_license_set": "Aucune licence n'a été définie."
+  },
+  "footer": {
+    "label": {
+      "all_rights_reserved": "Tous droits réservés."
+    }
+  },
+  "permission_banner": {
+    "no_access_error": "Vous n'avez pas la permission d'accéder à cette fonctionnalité avec vos informations d'identification actuelles.",
+    "change_menu_or_user_warning": "Veuillez choisir un autre élément du menu ou vous connecter comme un autre utilisateur."
+  },
+  "cookie": {
+    "cookie_consent": "Nous pouvons utiliser des cookies pour nous aider à améliorer GraphDB et développer de meilleures fonctionnalités. Aucune information personnelle ou sensible n'est collectée. En cliquant sur « D'accord », vous consentez à notre ",
+    "cookie_policy_url_label": "politique de cookies",
+    "policy": {
+      "title": "Politique de cookies",
+      "purpose_heading": "Objectif",
+      "purpose_text": "Cette politique de cookies explique les données qu'Ontotext collecte et utilise lorsque vous utilisez notre produit GraphDB, en particulier l'édition Free.",
+      "purpose_enterprise_text": "Veuillez noter que si vous passez à l'édition commerciale GraphDB Enterprise, aucun cookie ne sera stocké sur votre appareil, quel que soit le paramètre.",
+      "privacy_commitment_heading": "Engagement de confidentialité d'Ontotext",
+      "privacy_commitment_text": "Nous nous engageons à ne collecter aucune donnée personnelle ou information lorsque vous utilisez GraphDB Free. De plus :",
+      "privacy_commitment_1": "Nous ne vendrons ni ne louerons à d'autres les informations techniques que nous collectons.",
+      "privacy_commitment_2": "Nous nous efforçons de maximiser la protection de toutes les données techniques collectées.",
+      "cookies_heading": "Cookies",
+      "cookies_text": "Lorsque vous utilisez l'édition GraphDB Free, Ontotext stockera des cookies sur votre appareil pour collecter des informations anonymes sur la façon dont vous interagissez avec le produit. Ces données techniques nous aident à améliorer et affiner notre produit. Il est important de noter que nous ne pouvons pas relier ces informations à vous personnellement ni à aucune donnée identifiable. Ces cookies ont uniquement pour but de nous aider à comprendre les interactions des utilisateurs et à identifier les éventuels problèmes dans GraphDB.",
+      "manage_cookies_heading": "Gérer les cookies",
+      "statistic_cookies": "Cookies d'analyse GraphDB",
+      "statistic_tooltip": "Activer/désactiver les cookies d'analyse GraphDB",
+      "statistic_text": "Ces cookies nous aident à comprendre comment les utilisateurs interagissent avec différents aspects de GraphDB en collectant et en rapportant des informations de manière anonyme. Ces données nous permettent d'améliorer l'expérience globale du produit et de développer des fonctionnalités en fonction de l'utilisation de GraphDB, sans collecter d'informations personnelles.",
+      "third_party_cookies": "Cookies tiers",
+      "third_party_tooltip": "Activer/désactiver les cookies tiers",
+      "third_party_cookies_text": "Nous utilisons les cookies Google Analytics 4 (GA4) pour nous aider à reconnaître les utilisateurs et sessions uniques, à suivre les interactions et à collecter des données telles que les pages consultées, la durée des sessions et l'engagement. Ces cookies sont gérés par Google, ce qui signifie que nous n'avons pas de contrôle sur leur fonctionnement. L'anonymisation IP est activée par défaut dans GA4, de sorte qu'il ne peut ni stocker les adresses IP ni suivre les utilisateurs personnellement. Aucune donnée n'est partagée entre GA4 et d'autres produits Google, et le traitement s'effectue à l'échelle mondiale, principalement aux États-Unis, sans enfreindre le RGPD, car aucune donnée personnelle n'est collectée.",
+      "change_cookies": "Vous pouvez modifier vos préférences de cookies à tout moment dans",
+      "change_cookies_location4": "Politique de cookies"
+    }
+  },
+  "security": {
+    "user": {
+      "settings": "Paramètres de l'utilisateur"
+    }
+  },
+  "operations_notification": {
+    "links": {
+      "queries": "Exécution de requêtes",
+      "updates": "Exécution de mises à jour",
+      "imports": "Exécution d'importations",
+      "CREATE_BACKUP_IN_PROGRESS": "Création de sauvegarde en cours",
+      "RESTORE_BACKUP_IN_PROGRESS": "Restauration de sauvegarde en cours",
+      "CREATE_CLOUD_BACKUP_IN_PROGRESS": "Création de sauvegarde cloud en cours",
+      "RESTORE_CLOUD_BACKUP_IN_PROGRESS": "Restauration de sauvegarde cloud en cours",
+      "IN_SYNC": "Synchronisé",
+      "RECOVERING": "Récupération en cours",
+      "OUT_OF_SYNC": "Désynchronisé",
+      "UNAVAILABLE_NODES": "Nœuds indisponibles"
+    }
+  },
+  "user_menu": {
+    "my_settings": "Mes paramètres",
+    "logout": "Déconnexion",
+    "login": "Se connecter"
+  },
+  "rdf_search": {
+    "labels": {
+      "search": "Rechercher des ressources RDF",
+      "hint": "Indice : \"abC\" correspond à \"abC*\", \"ab c*\" et \"ab-c*\"."
+    },
+    "buttons": {
+      "table": "Tableau",
+      "visual": "Visuel"
+    },
+    "tooltips": {
+      "close_search_area": "Fermer la recherche",
+      "clear": "Clair"
+    },
+    "toasts": {
+      "use_view_resource": "<b>Rechercher des ressources RDF</b></br>Utilisez <b>Voir la ressource</b> sur cette page",
+      "autocomplete_is_off": "L'autocomplétion est désactivée<br>Aller à Configuration -> Autocomplétion",
+      "empty_input": "S'il vous plaît remplir le champ de saisie!",
+      "invalid_uri": "IRI non valide"
+    }
+  },
+  "guides": {
+    "confirm-cancel-modal": {
+      "title": "Quitter le guide?",
+      "subtitle": "Êtes-vous sûr de vouloir quitter le guide ?<br><br>Vous pouvez le lancer à tout moment à partir de <b>Aide > Guides interactifs</b>.",
+      "exit-button": "Sortie",
+      "dont-show-again": "Ne pas démarrer automatiquement"
+    }
+  },
+  "openid": {
+    "errors": {
+      "title": "Échec de l'authentification OpenID",
+      "unknown_flow": "Flux d'authentification inconnu: {{authFlow}}",
+      "invalid_pkce_state": "État PKCE invalide",
+      "cannot_retrieve_token": "Impossible de récupérer le jeton après la connexion: {{error}}",
+      "cannot_refresh_token": "Impossible de rafraîchir le jeton OpenID: {{error}}",
+      "user_no_access": "L'utilisateur n'a pas accès à GraphDB"
+    }
+  },
+  "graph_explore_split_button": {
+    "buttons": {
+      "explore_visual_graph": {
+        "tooltip": "Utiliser la configuration par défaut"
+      },
+      "explore_visual_graph_dropdown": {
+        "tooltip": "Sélectionner la configuration"
+      }
+    },
+    "messages": {
+      "missing_graph_configuration": "Aucune configuration avancée du graphe.",
+      "create_graph_configuration": "En créer une",
+      "create_graph_configuration_link": "ici"
+    }
+  },
+  "deprecation-banner": {
+    "solr": {
+      "content": "Le connecteur Solr est obsolète et sera supprimé dans GraphDB 12. Si vous l'utilisez, <b>contactez-nous</b> via les canaux d'assistance disponibles."
+    }
+  },
+  "components": {
+    "dialog": {
+      "confirmation": {
+        "title": "Confirmer",
+        "confirm_btn": "Oui",
+        "cancel_btn": "Annuler",
+        "ok_btn": "OK"
+      },
+      "unsaved_changes": {
+        "confirmation": {
+          "message": "Vous avez des modifications non enregistrées. Êtes-vous sûr de vouloir continuer?"
+        }
+      },
+      "download_settings": {
+        "title": {
+          "json-ld": "Paramètres d'exportation : JSON-LD",
+          "ndjson-ld": "Paramètres d'exportation : NDJSON-LD"
+        },
+        "form": {
+          "label": "Formulaire JSON-LD",
+          "info": "Spécifie la forme du document JSON-LD"
+        },
+        "context": {
+          "link": "Contexte JSON-LD",
+          "info": "Spécifie le contexte JSON-LD externe en tant qu'URL. Seules les URL figurant sur la liste blanche peuvent être utilisées.",
+          "uri_placeholder": "http://example.com/context.jsonld"
+        },
+        "frame": {
+          "link": "Cadre JSON-LD",
+          "info": "Spécifie le document cadre JSON-LD en tant qu'URL. Seules les URL figurant sur la liste blanche peuvent être utilisées.",
+          "uri_placeholder": "http://example.com/frame.jsonld"
+        },
+        "actions": {
+          "export": "Exportation",
+          "cancel": "Annuler",
+          "restore_defaults": "Restaurer les valeurs par défaut"
+        }
+      }
+    },
+    "page_info_tooltip": {
+      "documentation_link": "Pour en savoir plus, consultez la documentation GraphDB"
+    },
+    "repository_banners": {
+      "no_active_repository": "Certaines fonctionnalités ne sont pas disponibles car vous n'êtes connecté à aucun dépôt."
+    }
+  },
+  "login": {
+    "title": "Connexion",
+    "logo_alt": "Logo GraphDB",
+    "sign_in": "Se connecter",
+    "username_mismatch": "Le mot de passe ou le nom d’utilisateur est incorrect!",
+    "username": "Nom d’utilisateur",
+    "username_placeholder": "Votre nom",
+    "password": "Mot de passe",
+    "password_placeholder": "Votre mot de passe",
+    "sign_in_openid": "Se connecter avec OpenID",
+    "error": "Erreur de connexion",
+    "errors": {
+      "no_rights": "L’utilisateur n’a pas les droits d’accès ou il y a une erreur de configuration.",
+      "auth_token_expired": "Votre jeton d’authentification a expiré. Veuillez vous reconnecter.",
+      "wrong_credentials": "Identifiants incorrects!"
+    }
+  },
+  "not_found_page": {
+    "warning": "404. C'est une erreur!",
+    "url_not_found_msg": "L'URL demandée n'a pas été trouvée sur ce serveur. C'est tout ce que je sais.",
+    "back_to_home": "Retour à la page d'accueil"
+  },
+  "sparql_editor": {
+    "title": "Requête et mise à jour SPARQL",
+    "helpInfo": "La vue Requête et mise à jour SPARQL est un éditeur unifié pour les requêtes et les mises à jour. Entrez n'importe quelle requête ou mise à jour SPARQL et cliquez sur Exécuter pour l'exécuter. La vue vous permet également d'enregistrer des requêtes pour une récupération et une exécution futures dans l'éditeur SPARQL.",
+    "errors": {
+      "saved_query_load_failed": "Impossible de récupérer des données pour la requête sauvegardée : {{savedQueryName}}; {{error}}",
+      "shared_query_load_failed": "Impossible de récupérer des données pour la requête partagée : {{sharedQueryName}}; {{error}}",
+      "saved_queries_load_failed": "Erreur! Impossible de récupérer les requêtes sauvegardées",
+      "query_save_failed": "Erreur! Impossible de créer la requête sauvegardée",
+      "query_delete_failed": "Erreur! Impossible de supprimer la requête sauvegardée",
+      "get_repo_size_error": "Impossible de récupérer la taille du dépôt pour : {{repo}}; {{error}}",
+      "add_known_prefixes_failed": "Erreur! Impossible d'ajouter les préfixes connus."
+    },
+    "warnings": {},
+    "success": {
+      "query_was_saved": "La requête {{name}} a été sauvegardée.",
+      "query_was_updated": "La requête {{name}} a été mise à jour.",
+      "query_was_deleted": "La requête {{savedQueryName}} a été supprimée.",
+      "url_was_copied": "URL copiée avec succès dans le presse-papiers."
+    },
+    "confirmation": {
+      "on_auto_execute_query": {
+        "title": "Confirmer l'exécution",
+        "message": "Il s'agit d'une mise à jour et elle peut modifier les données du dépôt. <br>Êtes-vous sûr de vouloir l'exécuter automatiquement ?"
+      },
+      "running_queries_warning": {
+        "queries_non_updates": "<div class=\"run_query_confirmation alert alert-warning\">Vous avez {queriesCount, plural, =0 {0 requête} one {1 requête} other {# requêtes}} en cours. {queriesCount, plural, =0 {} one {La requête sera annulée.} other {Les requêtes seront annulées.}}</div>",
+        "none_queries_updates": "<div class=\"run_query_confirmation alert alert-warning\">Vous avez {updatesCount, plural, =0 {0 mise à jour} one {1 mise à jour} other {# mises à jour}} en cours. Vous avez {updatesCount, plural, one {1 mise à jour} other {# mises à jour}} en cours.</div>",
+        "queries_updates": "<div class=\"run_query_confirmation alert alert-warning\">Vous avez {queriesCount, plural, =0 {0 requête} one {1 requête} other {# requêtes}} et {updatesCount, plural, =0 {0 mise à jour} one {1 mise à jour} other {# mises à jour}} en cours. {queriesCount, plural, one {La requête sera annulée.} other {Les requêtes seront annulées.}}</div>"
+      },
+      "on_language_change": {
+        "title": "Changer de langue",
+        "none_queries_non_updates": "Changer de langue rechargera la page. Êtes-vous sûr de vouloir continuer ?",
+        "queries_non_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_non_updates}}<div>Changer de langue rechargera la page. Êtes-vous sûr de vouloir continuer ?</div>",
+        "none_queries_updates": "{{sparql_editor.confirmation.running_queries_warning.none_queries_updates}}<div>Changer de langue rechargera la page. Êtes-vous sûr de vouloir continuer ?</div>",
+        "queries_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_updates}}<div>Changer de langue rechargera la page. Êtes-vous sûr de vouloir continuer ?</div>"
+      },
+      "on_page_leave": {
+        "title": "Confirmer la sortie",
+        "none_queries_non_updates": "Êtes-vous sûr de vouloir quitter ?",
+        "queries_non_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_non_updates}}<div>Êtes-vous sûr de vouloir quitter ?</div>",
+        "none_queries_updates": "{{sparql_editor.confirmation.running_queries_warning.none_queries_updates}}<div>Êtes-vous sûr de vouloir quitter ?</div>",
+        "queries_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_updates}}<div>Êtes-vous sûr de vouloir quitter ?</div>"
+      },
+      "on_repository_change": {
+        "title": "Confirmer le changement de dépôt sélectionné",
+        "none_queries_non_updates": "Êtes-vous sûr de vouloir changer le dépôt sélectionné ?",
+        "queries_non_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_non_updates}}<div>Êtes-vous sûr de vouloir changer le dépôt sélectionné ?</div>",
+        "none_queries_updates": "{{sparql_editor.confirmation.running_queries_warning.none_queries_updates}}<div>Êtes-vous sûr de vouloir changer le dépôt sélectionné ?</div>",
+        "queries_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_updates}}<div>Êtes-vous sûr de vouloir changer le dépôt sélectionné ?</div>"
+      }
+    },
+    "connector_progress": {
+      "action": {
+        "creating": "Création",
+        "repairing": "Réparation"
+      },
+      "title": "{{actionName}} du connecteur {{connectorName}}...",
+      "connector_label": "connecteur",
+      "eta": "ETA ",
+      "processed_entities": "Entités traitées",
+      "processed_entities_value": "{{processed}} sur {{estimated}} (estimé)",
+      "indexed_entities": "Entités indexées",
+      "speed": "Vitesse",
+      "speed_value": "{{speed}} entités/seconde"
+    },
+    "yasgui": {
+      "tabs": {
+        "unnamed_tab_title": "Anonyme"
+      },
+      "yasr": {
+        "yasr_header": {
+          "toolbar": {
+            "btn": {
+              "visual_graph_btn": {
+                "label": "Visualiser"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "repository": {
+    "url_param": {
+      "invalid_repo": "Le dépôt \"{{repositoryId}}\" spécifié dans l'URL n'existe pas. Veuillez sélectionner un dépôt existant.",
+      "invalid_repo_continue": "Le dépôt \"{{repositoryId}}\" spécifié dans l’URL n’existe pas. Vous pouvez continuer avec le dépôt actuel \"{{currentRepositoryId}}\" ou sélectionner un autre dépôt.",
+      "remote_location_repo_continue": "Le dépôt \"{{repositoryId}}\" spécifié dans l’URL n’existe pas à l’emplacement actuel. Vous pouvez continuer avec le dépôt actuel \"{{currentRepositoryId}}\" ou le sélectionner dans le menu.",
+      "change_active_repo": "Le dépôt actif sera remplacé par \"{{repositoryId}}\". Voulez-vous continuer?"
+    }
+  },
+  "language": "fr"
+}

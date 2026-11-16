@@ -1,0 +1,19 @@
+@prefix config: <tag:rdf4j.org,2023:config/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#la311> a config:Repository;
+  rdfs:label "LA 311 Fieldnotes · MyLA311 2025 (Group 06)";
+  config:rep.id "la311";
+  config:rep.impl [
+      config:rep.type "graphdb:SailRepository";
+      config:sail.impl [
+          <http://www.ontotext.com/config/graphdb#check-for-inconsistencies> "false";
+          <http://www.ontotext.com/config/graphdb#disable-sameAs> "true";
+          <http://www.ontotext.com/config/graphdb#enable-context-index> "false";
+          <http://www.ontotext.com/config/graphdb#entity-id-size> "32";
+          <http://www.ontotext.com/config/graphdb#read-only> "false";
+          <http://www.ontotext.com/config/graphdb#ruleset> "rdfsplus-optimized";
+          config:sail.type "graphdb:Sail"
+        ]
+    ] .

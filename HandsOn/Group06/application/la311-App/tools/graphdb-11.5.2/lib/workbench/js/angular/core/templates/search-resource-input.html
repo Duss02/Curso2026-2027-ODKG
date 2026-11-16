@@ -1,0 +1,51 @@
+<link href="css/search-resource-input.css?v=3.5.2" rel="stylesheet"/>
+
+<div id="search-resource-box" class="input-group btn-group" ng-class="{'input-group-lg': !radioButtons}" style="white-space: nowrap">
+    <input type="text" class="form-control view-res-input" placeholder="{{placeholder}}" ng-model="searchInput"
+           guide-selector="search-resource-input"
+           data-test="rdf-resource-input"
+           ng-change="onChange()"
+           ng-keydown="onKeyDown($event)">
+    <button ng-if="clearInputIcon && showClearInputIcon" class="btn btn-link clear-icon" data-test="rdf-resource-clear-button"
+            gdb-tooltip="{{'clear.tooltip' | translate}}" tooltip-placement="bottom">
+        <i class="ri-close-line" aria-hidden="true" ng-click="clearInput()"></i>
+    </button>
+    <span ng-if="!radioButtons" class="input-group-btn">
+        <button ng-if="textButton !== ''" type="button" class="btn btn-primary autocomplete-text-btn" ng-click="checkIfValidAndSearchText()">
+            {{textButtonLabel | translate}}
+        </button>
+    </span>
+    <span ng-if="!radioButtons" class="input-group-btn show-btn">
+        <button ng-if="visualButton !== ''" type="button" class="btn btn-primary autocomplete-visual-btn" ng-click="checkIfValidAndSearchVisual()">
+            {{visualButtonLabel | translate}}
+        </button>
+    </span>
+    <span ng-if="radioButtons" class="input-group-btn">
+        <button class="btn btn-secondary display-type-table-btn"
+                ng-model="searchType"
+                uib-btn-radio="searchDisplayType.table"
+                data-test="display-table-button"
+                ng-click="changeSearchType(searchDisplayType.table)">
+            {{textButtonLabel | translate}}
+        </button>
+        <button class="btn btn-secondary display-type-visual-btn"
+                ng-model="searchType"
+                uib-btn-radio="searchDisplayType.visual"
+                data-test="display-visual-button"
+                ng-click="changeSearchType(searchDisplayType.visual)">
+            {{visualButtonLabel | translate}}
+        </button>
+    </span>
+</div>
+<span class="autocomplete-hint text-muted">{{'query.editor.autocomplete.hint' | translate}}</span>
+<div id="auto-complete-results-wrapper" ng-if="isAutocompleteEnabled" data-test="auto-complete-results">
+    <div ng-repeat="autoCompleteUriResult in autoCompleteUriResults track by $index"
+         id="{{'auto_' + $index}}"
+         ng-click="searchRdfResourceByEvent(autoCompleteUriResult, $event)"
+         ng-class="{active: activeSearchElm === $index, selected: selectedElementIndex === $index}"
+         ng-mousemove="setActiveClassOnMouseMove($index)"
+         data-test="autocomplete-suggestion"
+         class="result-item" guide-selector="autocomplete-{{autoCompleteUriResult.value}}">
+        <p ng-bind-html="getResultItemHtml(autoCompleteUriResult)"></p>
+    </div>
+</div>

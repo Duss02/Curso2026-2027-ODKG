@@ -1,0 +1,46 @@
+<link href="css/lib/codemirror/moxer.css?v=3.5.2" rel="stylesheet">
+<link href="css/graphql/graphql-playground.css?v=3.5.2" rel="stylesheet"/>
+
+<div class="graphql-playground-view">
+    <h1 id="title-container">
+        <span id="graphql-playground-title-label">{{title}}</span>
+        <page-info-tooltip></page-info-tooltip>
+
+        <div ng-if="!loadingEndpoints && graphqlEndpoints.length" class="toolbar pull-right">
+            <select ng-model="selectedGraphqlEndpoint"
+                    ng-options="endpoint as endpoint.label for endpoint in graphqlEndpoints"
+                    ng-change="onGraphqlEndpointChange(selectedGraphqlEndpoint)"
+                    class="form-control graphql-endpoint-selector"
+                    gdb-tooltip="{{'graphql.playground.endpoint_selector.tooltip' | translate}}"
+                    tooltip-placement="top">
+            </select>
+        </div>
+    </h1>
+
+    <div core-errors></div>
+
+    <div onto-loader
+         ng-show="loadingEndpoints"
+         class="graphql-playground-page-loader"
+         size="100">
+    </div>
+
+    <div ng-if="!isSelectedRepositoryLocal" class="warnings unexpected-remote-repository-warning">
+        <div class="alert alert-warning">{{'graphql.playground.warnings.unexpected_remote_repository' | translate}}</div>
+    </div>
+
+    <div class="content" ng-if="isSelectedRepositoryLocal && initialized">
+        <div class="no-endpoints-view" ng-show="!loadingEndpoints && configuration === undefined && !graphqlEndpoints.length">
+            <div class="alert alert-warning">
+                <div ng-bind-html="'graphql.playground.message.no_schemas_in_repository' | translate | trustAsHtml"></div>
+            </div>
+        </div>
+
+        <div class="graphql-playground-container" ng-if="!loadingEndpoints && configuration && getActiveRepositoryNoError()">
+            <graphql-playground id="graphql-playground" configuration="configuration"></graphql-playground>
+        </div>
+    </div>
+</div>
+
+
+

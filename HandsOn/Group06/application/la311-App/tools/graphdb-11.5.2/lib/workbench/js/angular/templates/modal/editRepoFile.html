@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()"></button>
+    <h4 class="modal-title">{{dialogTitle}}</h4>
+</div>
+
+<div class="modal-body">
+    <div class="form-group">
+        <textarea id="wb-repository-file-textarea" class="form-control" rows="10" ng-model="fileContent"
+                  placeholder="{{'update.file.content.placeholder' | translate}}"
+                  uib-popover="{{'update.file.content.tooltip' | translate}}"
+                  popover-placement="bottom"
+                  popover-trigger="focus"></textarea>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <div>
+        <button type="button" ng-click="cancel()" class="btn btn-secondary">{{'common.cancel.btn' | translate}}</button>
+        <button id="wb-repository-saveFile" class="btn btn-primary" type="button"
+                ng-click="ok()">{{'common.save.btn' | translate}}</button>
+    </div>
+</div>

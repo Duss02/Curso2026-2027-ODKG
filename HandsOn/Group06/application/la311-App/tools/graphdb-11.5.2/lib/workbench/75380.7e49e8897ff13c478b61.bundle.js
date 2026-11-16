@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=75380;export const __webpack_esm_ids__=[75380];export const __webpack_esm_modules__={75380(_,e,t){t(19057),t(53294),angular.module("graphdb.framework.ttyg",["ngRoute","graphdb.framework.ttyg.controllers.ttyg-view"])}};
+//# sourceMappingURL=75380.7e49e8897ff13c478b61.bundle.js.map

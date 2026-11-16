@@ -1,0 +1,1 @@
+const addNotificationMessage=i=>{addNotification({type:i,code:"This is a notification message",title:"Title of notification message",parameters:{shouldToast:!0}})};

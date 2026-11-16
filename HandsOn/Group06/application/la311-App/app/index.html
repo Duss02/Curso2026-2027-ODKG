@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#eef1f3" />
+    <title>LA 311 Fieldnotes</title>
+  </head>
+  <body>
+    <!-- La mappa occupa tutto lo schermo; i pannelli in vetro galleggiano sopra. -->
+    <div id="map" class="map" aria-label="Map of service requests"></div>
+
+    <header class="topbar glass">
+      <a class="brand" href="#/" aria-label="LA 311 Fieldnotes, home">
+        <span class="brand__mark">311</span><span class="brand__name">Fieldnotes</span>
+      </a>
+      <nav class="seg nav" aria-label="Views">
+        <a href="#/" data-route="map"><span data-icon="map" data-size="16"></span><span>Map</span></a>
+        <a href="#/districts" data-route="districts"><span data-icon="people" data-size="16"></span><span>Districts</span></a>
+        <a href="#/graph" data-route="graph"><span data-icon="graph" data-size="16"></span><span>Graph</span></a>
+      </nav>
+      <form id="search" class="search" role="search">
+        <span class="search__icon" data-icon="search" data-size="16"></span>
+        <label class="sr-only" for="q">Search an address or SR number</label>
+        <input id="q" type="search" placeholder="Address or SR number" autocomplete="off" enterkeyhint="search" />
+        <ul class="search__results glass" hidden></ul>
+      </form>
+      <div class="topbar__tools">
+        <button id="inspector-open" class="icon-btn" type="button" aria-label="Show SPARQL queries (s)" title="SPARQL queries (s)">
+          <span data-icon="code"></span><span class="badge-count" hidden>0</span>
+        </button>
+        <button id="about-open" class="icon-btn" type="button" aria-label="About the data" title="About the data">
+          <span data-icon="info"></span>
+        </button>
+      </div>
+    </header>
+
+    <button id="filters-open" class="fab glass" type="button" aria-controls="panel" aria-expanded="false">
+      <span data-icon="sliders" data-size="16"></span> Filters
+    </button>
+    <aside id="panel" class="panel glass" aria-label="Map filters"></aside>
+
+    <section id="drawer" class="drawer glass" aria-label="Request record" hidden></section>
+    <section id="page" class="page" hidden></section>
+
+    <div id="inspector" class="inspector glass" hidden></div>
+    <div id="toast" class="toast glass" role="status" aria-live="polite" hidden></div>
+
+    <dialog id="about" class="about glass">
+      <header class="sheet__head">
+        <div><p class="eyebrow">About</p><h2>The data</h2></div>
+        <button type="button" class="icon-btn" data-close aria-label="Close"><span data-icon="close"></span></button>
+      </header>
+      <div id="about-body"></div>
+    </dialog>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
