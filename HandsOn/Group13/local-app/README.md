@@ -58,21 +58,27 @@ Existing users of the earlier application should also rerun setup: the geography
 
 ### Start the services
 
-In the first PowerShell terminal:
+Run a single launcher from the application directory:
+
+```powershell
+.\start.ps1
+```
+
+It starts `start-fuseki.ps1` and `start-app.ps1` as background PowerShell jobs and streams both services' output into this terminal. Wait for Fuseki's `Start Fuseki` message, then open **http://127.0.0.1:8080**.
+
+**Press Ctrl+C in the launcher to stop both services and their child processes.** If either service fails, the launcher stops the other rather than leaving half the application running. On Windows, the workers and their native descendants belong to a kill-on-close job object: force-terminating the launcher process also stops its services. The existing PowerShell terminal is not enrolled in that object.
+
+The launcher refuses occupied service ports; it never terminates an independently started server. Keep it running while using the app. It does not run first-time setup automatically.
+
+For manual debugging, you can still start the services in separate terminals:
 
 ```powershell
 .\start-fuseki.ps1
-```
-
-Wait for the `Start Fuseki` message. In a second terminal in the same directory:
-
-```powershell
+# In a second terminal:
 .\start-app.ps1
 ```
 
-Open **http://127.0.0.1:8080**.
-
-Both terminals must remain open. Stop each with `Ctrl+C` when done. Do not open the HTML directly from disk; the application needs its local API and RDF database.
+In manual mode, stop each terminal with Ctrl+C yourself. Do not open the HTML directly from disk; the application needs its local API and RDF database.
 
 | Port | Service |
 |---|---|
@@ -88,7 +94,7 @@ Use another web port:
 
 ```powershell
 $env:PORT = '8081'
-.\start-app.ps1
+.\start.ps1
 ```
 
 The Node server and refresh utilities accept `FUSEKI_QUERY_URL` when using a separately configured compatible Fuseki dataset. The supplied setup/start scripts retain their documented fixed Fuseki ports and database path.
@@ -453,6 +459,7 @@ Browser renders the same returned values in map and cards
 | [geography.mjs](geography.mjs) | Municipal location reconciliation and snapshot generation |
 | [fuseki-config.ttl](fuseki-config.ttl) | Persistent TDB2 dataset and normal query-only endpoint |
 | [setup.ps1](setup.ps1) | Verified Fuseki download and maintenance/import lifecycle |
+| [start.ps1](start.ps1) | Single foreground supervisor for both background services; shared shutdown and failure cleanup |
 | [start-fuseki.ps1](start-fuseki.ps1), [start-app.ps1](start-app.ps1) | Start local services |
 | [data/wikidata.ttl](data/wikidata.ttl) | Cached external border/context graph |
 | [data/geography.ttl](data/geography.ttl) | Verified coordinate enrichment graph |
