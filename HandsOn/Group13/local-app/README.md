@@ -330,6 +330,72 @@ It finds same/bordering candidates, retrieves their observations, computes valid
 
 The browser formats returned numbers; it does **not** load an embedded parking dataset or calculate a separate set of means.
 
+### Example: occupancy of facilities in bordering districts
+
+Starting from **PLAZA MAYOR in Centro**, this query returns parking facilities in districts bordering Centro, their **January 2025 overall occupancy**, and their coordinates when available. It joins all three local named graphs in one SPARQL query; it does not call Wikidata or the Geoportal while executing.
+
+Run it against `http://127.0.0.1:3030/parking/query` with Fuseki running, using a SPARQL client or an HTTP POST with `Content-Type: application/sparql-query` and the query as the request body. This is a direct read-only Fuseki query, not an additional operation exposed by the web application's allowlisted API.
+
+```sparql
+PREFIX mp: <http://parking.linkeddata.upm.es/ontology/>
+PREFIX prop: <http://parking.linkeddata.upm.es/property/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?districtName ?parking ?parkingName ?occupancy
+                ?latitude ?longitude
+WHERE {
+  VALUES (?selectedParking ?originDistrict ?year ?month) {
+    (<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20MAYOR>
+     <http://parking.linkeddata.upm.es/resource/district/Centro>
+     "2025"^^xsd:gYear 1)
+  }
+
+  GRAPH <urn:madrid-parking:reviewed> {
+    ?selectedParking prop:locatedIn ?originDistrict .
+    ?originDistrict owl:sameAs ?originWD .
+
+    ?district prop:districtName ?districtName ;
+              owl:sameAs ?districtWD .
+    ?parking a mp:ParkingFacility ;
+             prop:parkingName ?parkingName ;
+             prop:locatedIn ?district ;
+             prop:hasObservation ?observation .
+    ?observation prop:year ?year ;
+                 prop:month ?month ;
+                 prop:occupancyPercentage ?occupancy .
+  }
+
+  FILTER (?district != ?originDistrict && ?parking != ?selectedParking)
+  FILTER EXISTS {
+    GRAPH <urn:madrid-parking:wikidata> {
+      ?originWD (wdt:P47|^wdt:P47) ?districtWD .
+    }
+  }
+  FILTER (?occupancy >= 0 && ?occupancy <= 100)
+
+  OPTIONAL {
+    GRAPH <urn:madrid-parking:geography> {
+      ?parking geo:lat ?latitude ;
+               geo:long ?longitude .
+    }
+  }
+}
+ORDER BY ?occupancy ?districtName ?parkingName
+```
+
+How to read the joins:
+
+1. **Reviewed graph:** `?selectedParking` identifies PLAZA MAYOR, `?originDistrict` fixes its district context as Centro, and `?originWD` receives Centro's existing Wikidata URI. The same graph supplies candidate facilities, their district links, and their occupancy observations.
+2. **Wikidata graph:** `FILTER EXISTS` keeps only candidates whose `?districtWD` shares a border with `?originWD`. The shared Wikidata URIs connect the graphs. `(wdt:P47|^wdt:P47)` checks either recorded direction of one border relationship; the existence check does not multiply results when both directions are present.
+3. **Geography graph:** the shared `?parking` URI attaches coordinates to each candidate. `OPTIONAL` means a missing coordinate does not remove its occupancy result.
+
+`?occupancy` is a **facility's historical monthly percentage**, not a district-wide average or live availability. Results are ordered from lower to higher occupancy. This teaching example returns facility/district associations with a valid observation for the selected period; missing or out-of-range occupancy is excluded. A facility assigned to multiple eligible districts can appear under each district, whereas the application's full comparison query chooses one display context and also retains facilities with no valid data.
+
+Change the year and month in `VALUES` to inspect another period. Replace `prop:occupancyPercentage` with `prop:daytimeOccupancyPercentage` for the daytime metric. To start from another facility, change both the selected facility URI and its recorded district context.
+
 ### Simplified monthly average query
 
 ```sparql
