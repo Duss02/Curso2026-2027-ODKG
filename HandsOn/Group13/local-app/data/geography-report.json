@@ -1,0 +1,795 @@
+{
+  "retrieved": "2026-11-16T16:31:59.331Z",
+  "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0",
+  "crs": "EPSG:4326",
+  "facilities": [
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/ALMAGRO",
+      "name": "ALMAGRO",
+      "districts": [
+        "Chamberí"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/7",
+      "latitude": 40.42980193006558,
+      "longitude": -3.6932381285529585,
+      "address": "CALLE DE ALMAGRO S/N,  28010 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/ARQUITECTO%20RIBERA",
+      "name": "ARQUITECTO RIBERA",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/21",
+      "latitude": 40.426273740103916,
+      "longitude": -3.7003741870339804,
+      "address": "CALLE DE BARCELÓ NUM 2(D),  28004 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/ARQUITECTO%20RIBERA%20%28BARCEL%C3%93%29",
+      "name": "ARQUITECTO RIBERA (BARCELÓ)",
+      "districts": [
+        "Centro"
+      ],
+      "status": "unmatched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/ARTILLEROS",
+      "name": "ARTILLEROS",
+      "districts": [
+        "Vicálvaro"
+      ],
+      "status": "unmatched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/AVENIDA%20AM%C3%89RICA%20%28intercambiador%29",
+      "name": "AVENIDA AMÉRICA (intercambiador)",
+      "districts": [
+        "Chamartín"
+      ],
+      "status": "unmatched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/AVENIDA%20DE%20AM%C3%89RICA",
+      "name": "AVENIDA DE AMÉRICA",
+      "districts": [
+        "Chamartín"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/26",
+      "latitude": 40.438177970406606,
+      "longitude": -3.6768340646213375,
+      "address": "AVENIDA DE AMÉRICA NUM 9(A) INTER.-APAR. AV AMERICA,  28002 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/AVENIDA%20DE%20PORTUGAL",
+      "name": "AVENIDA DE PORTUGAL",
+      "districts": [
+        "Latina"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/28",
+      "latitude": 40.41123911037204,
+      "longitude": -3.7380878755145357,
+      "address": "AVENIDA DE PORTUGAL NUM 155(E) ESC I PLTA -1,  28011 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/BRASIL",
+      "name": "BRASIL",
+      "districts": [
+        "Tetuán"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/37",
+      "latitude": 40.45609250972133,
+      "longitude": -3.693496889026959,
+      "address": "CALLE DE SAN GERMÁN NUM 6(B),  28020 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/CASINO%20DE%20LA%20REINA",
+      "name": "CASINO DE LA REINA",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/54",
+      "latitude": 40.407094689862994,
+      "longitude": -3.7038875277186105,
+      "address": "CALLE DEL CASINO NUM 1 ESC T PLTA -2 PRTA OS,  28005 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/CONDESA%20DE%20GAVIA",
+      "name": "CONDESA DE GAVIA",
+      "districts": [
+        "Tetuán"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/66",
+      "latitude": 40.44905426985872,
+      "longitude": -3.7020861499096425,
+      "address": "PLAZA DE LA CONDESA DE GAVIA NUM 2(B) PLTA -2 PRTA 01,  28020 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/CORAZ%C3%93N%20DE%20MAR%C3%8DA%20II",
+      "name": "CORAZÓN DE MARÍA II",
+      "districts": [
+        "Chamartín"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/68",
+      "latitude": 40.44441744038219,
+      "longitude": -3.667028747907156,
+      "address": "CALLE DEL CORAZÓN DE MARÍA NUM 72(P),  28002 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/CORONA%20BOREAL",
+      "name": "CORONA BOREAL",
+      "districts": [
+        "Moncloa-Aravaca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/69",
+      "latitude": 40.45881377970287,
+      "longitude": -3.78414489488321,
+      "address": "CALLE DE PÉREZ DE VICTORIA NUM 2,  28023 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/DAO%C3%8DZ%20Y%20VELARDE",
+      "name": "DAOÍZ Y VELARDE",
+      "districts": [
+        "Retiro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/72",
+      "latitude": 40.402553440031106,
+      "longitude": -3.6776314416146167,
+      "address": "AVENIDA DE LA CIUDAD DE BARCELONA NUM 156 PLTA -3,  28007 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/DESCALZAS",
+      "name": "DESCALZAS",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/74",
+      "latitude": 40.41845756978674,
+      "longitude": -3.7070460369553637,
+      "address": "PLAZA DE LAS DESCALZAS NUM 3,  28013 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/D%C3%8DAZ%20PORLIER",
+      "name": "DÍAZ PORLIER",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/75",
+      "latitude": 40.43451019978539,
+      "longitude": -3.6754840134941587,
+      "address": "CALLE DE DIEGO DE LEÓN NUM 64,  28006 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/ENCUENTRO",
+      "name": "ENCUENTRO",
+      "districts": [
+        "Moratalaz"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/84",
+      "latitude": 40.4058768196961,
+      "longitude": -3.651386322300536,
+      "address": "PLAZA DEL ENCUENTRO NUM 5,  28030 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/FELIPE%20II",
+      "name": "FELIPE II",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/93",
+      "latitude": 40.42422075980146,
+      "longitude": -3.673421859331755,
+      "address": "CALLE DE GOYA NUM 88,  28001 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/FERN%C3%81NDEZ%20SHAW",
+      "name": "FERNÁNDEZ SHAW",
+      "districts": [
+        "Retiro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/94",
+      "latitude": 40.40489977956104,
+      "longitude": -3.6688509751144505,
+      "address": "CALLE DE CARLOS Y GUILLERMO FERNÁNDEZ SHAW NUM 1(P) PLTA -1 PRTA 01,  28007 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/FUENCARRAL",
+      "name": "FUENCARRAL",
+      "districts": [
+        "Chamberí"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/101",
+      "latitude": 40.429627070157125,
+      "longitude": -3.7027909617254977,
+      "address": "CALLE DE FUENCARRAL NUM 121(D),  28010 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/HERNANI",
+      "name": "HERNANI",
+      "districts": [
+        "Tetuán"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/115",
+      "latitude": 40.448176209960806,
+      "longitude": -3.697611312845352,
+      "address": "CALLE DE HERNANI NUM 79,  28020 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/JACINTO%20BENAVENTE",
+      "name": "JACINTO BENAVENTE",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/125",
+      "latitude": 40.414448109745344,
+      "longitude": -3.703321217488969,
+      "address": "PLAZA DE JACINTO BENAVENTE NUM 6 PLTA -4,  28012 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/JOS%C3%89%20CAST%C3%81N%20TOBE%C3%91AS",
+      "name": "JOSÉ CASTÁN TOBEÑAS",
+      "districts": [
+        "Tetuán"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/129",
+      "latitude": 40.46454832956105,
+      "longitude": -3.6915719848428203,
+      "address": "CALLE DEL POETA JOAN MARAGALL NUM 57 PLTA -2,  28020 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/LUNA%20TUDESCOS",
+      "name": "LUNA TUDESCOS",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/144",
+      "latitude": 40.42168497022235,
+      "longitude": -3.7056898194788155,
+      "address": "PLAZA DE SANTA MARÍA SOLEDAD TORRES ACOSTA NUM 2 PLTA 0 PRTA 02,  28004 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/MARQU%C3%89S%20DE%20SALAMANCA",
+      "name": "MARQUÉS DE SALAMANCA",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/151",
+      "latitude": 40.430499739585414,
+      "longitude": -3.679293743164883,
+      "address": "PLAZA DEL MARQUÉS DE SALAMANCA NUM 8(D),  28006 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/MARQU%C3%89S%20DE%20URQUIJO",
+      "name": "MARQUÉS DE URQUIJO",
+      "districts": [
+        "Moncloa-Aravaca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/154",
+      "latitude": 40.42990399990756,
+      "longitude": -3.7188149968024358,
+      "address": "CALLE DEL MARQUÉS DE URQUIJO S/N,  28008 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/MIGUEL%20YUSTE",
+      "name": "MIGUEL YUSTE",
+      "districts": [
+        "San Blas-Canillejas"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/165",
+      "latitude": 40.43429572043251,
+      "longitude": -3.6225141467159707,
+      "address": "CALLE DE MIGUEL YUSTE NUM 64,  28037 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/MONTALB%C3%81N",
+      "name": "MONTALBÁN",
+      "districts": [
+        "Retiro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/169",
+      "latitude": 40.41818592029199,
+      "longitude": -3.690958134497588,
+      "address": "CALLE DE MONTALBÁN NUM 4 ESC S PLTA OT PRTA AN,  28014 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/MOSTENSES",
+      "name": "MOSTENSES",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/173",
+      "latitude": 40.422727550051285,
+      "longitude": -3.708834615391187,
+      "address": "CALLE DE GARCÍA MOLINAS NUM 4,  28015 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/MUSEO%20DE%20LA%20CIUDAD",
+      "name": "MUSEO DE LA CIUDAD",
+      "districts": [
+        "Chamartín"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/175",
+      "latitude": 40.44422976960305,
+      "longitude": -3.6776553629545954,
+      "address": "CALLE DEL PRÍNCIPE DE VERGARA NUM 134,  28002 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/OLAVIDE",
+      "name": "OLAVIDE",
+      "districts": [
+        "Chamberí"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/182",
+      "latitude": 40.43287849958544,
+      "longitude": -3.7010393321238144,
+      "address": "PLAZA DE OLAVIDE NUM 17 PLTA -2 PRTA 01,  28010 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/ORENSE",
+      "name": "ORENSE",
+      "districts": [
+        "Tetuán"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/184",
+      "latitude": 40.45307229035573,
+      "longitude": -3.69413847227024,
+      "address": "AVENIDA DEL BRASIL NUM 2(P) PLTA -3 PRTA A,  28020 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/ORIENTE",
+      "name": "ORIENTE",
+      "districts": [
+        "Centro"
+      ],
+      "status": "unmatched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PEDRO%20ZEROLO",
+      "name": "PEDRO ZEROLO",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/198",
+      "latitude": 40.42080587979755,
+      "longitude": -3.69930167471886,
+      "address": "PLAZA DE PEDRO ZEROLO NUM 1(D),  28004 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20COL%C3%93N",
+      "name": "PLAZA DE COLÓN",
+      "districts": [
+        "Centro",
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/208",
+      "latitude": 40.42543462033092,
+      "longitude": -3.6884680271077808,
+      "address": "CALLE DE GOYA NUM 2,  28001 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20ESPA%C3%91A",
+      "name": "PLAZA DE ESPAÑA",
+      "districts": [
+        "Centro",
+        "Moncloa-Aravaca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/209",
+      "latitude": 40.423781200218286,
+      "longitude": -3.7115232126281303,
+      "address": "PLAZA DE ESPAÑA NUM 1(D),  28008 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20LAS%20CORTES",
+      "name": "PLAZA DE LAS CORTES",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/210",
+      "latitude": 40.415672089626334,
+      "longitude": -3.695312097612536,
+      "address": "PLAZA DE LAS CORTES NUM 13,  28014 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20ORIENTE",
+      "name": "PLAZA DE ORIENTE",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/211",
+      "latitude": 40.41840696005306,
+      "longitude": -3.71199039354424,
+      "address": "PLAZA DE ORIENTE NUM 9 ESC T PLTA -2,  28013 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20SANTA%20ANA",
+      "name": "PLAZA DE SANTA ANA",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/212",
+      "latitude": 40.41453121030341,
+      "longitude": -3.7005600993123533,
+      "address": "PLAZA DE SANTA ANA S/N,  28012 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20SANTO%20DOMINGO",
+      "name": "PLAZA DE SANTO DOMINGO",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/213",
+      "latitude": 40.42013314957564,
+      "longitude": -3.7082597875158516,
+      "address": "PLAZA DE SANTO DOMINGO S/N,  28013 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DEL%20CARMEN",
+      "name": "PLAZA DEL CARMEN",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/214",
+      "latitude": 40.41874520965899,
+      "longitude": -3.7035126814376516,
+      "address": "PLAZA DEL CARMEN NUM 10 PLTA -2,  28013 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DEL%20REY",
+      "name": "PLAZA DEL REY",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/215",
+      "latitude": 40.42021040984878,
+      "longitude": -3.6958066670745535,
+      "address": "PLAZA DEL REY NUM 1(D),  28004 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PLAZA%20MAYOR",
+      "name": "PLAZA MAYOR",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/216",
+      "latitude": 40.41586775971569,
+      "longitude": -3.7068956139215903,
+      "address": "PLAZA   MAYOR NUM 1(D) PLTA -1 PRTA 01,  28012 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PRESIDENTE%20CARMONA",
+      "name": "PRESIDENTE CARMONA",
+      "districts": [
+        "Tetuán"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/220",
+      "latitude": 40.45251615019899,
+      "longitude": -3.695683794517191,
+      "address": "AVENIDA DEL GENERAL PERÓN NUM 21(P),  28020 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PR%C3%ADNCIPE%20DE%20VERGARA%20%28AUDITORIO%29",
+      "name": "PRíNCIPE DE VERGARA (AUDITORIO)",
+      "districts": [
+        "Chamartín"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/221",
+      "latitude": 40.44429510014989,
+      "longitude": -3.6776974836681595,
+      "address": "CALLE DE CARTAGENA NUM 178 PLTA 0 PRTA 01,  28002 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/PUERTA%20DE%20TOLEDO",
+      "name": "PUERTA DE TOLEDO",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/222",
+      "latitude": 40.40738659020007,
+      "longitude": -3.710015157356849,
+      "address": "GLORIETA DE LA PUERTA DE TOLEDO S/N,  28005 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/RECOLETOS",
+      "name": "RECOLETOS",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/230",
+      "latitude": 40.42139749024411,
+      "longitude": -3.6918412701388803,
+      "address": "PASEO DE RECOLETOS NUM 8(B) PLTA -3,  28001 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/REP%C3%9ABLICA%20DOMINICANA",
+      "name": "REPÚBLICA DOMINICANA",
+      "districts": [
+        "Chamartín"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/233",
+      "latitude": 40.4588693800264,
+      "longitude": -3.676515790579005,
+      "address": "PLAZA DE LA REPÚBLICA DOMINICANA NUM 6 PLTA 1,  28016 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/REYES%20MAGOS",
+      "name": "REYES MAGOS",
+      "districts": [
+        "Retiro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/234",
+      "latitude": 40.408797320149795,
+      "longitude": -3.6763215887090874,
+      "address": "PLAZA DE LOS REYES MAGOS S/N,  28007 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/SAN%20CAYETANO",
+      "name": "SAN CAYETANO",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/246",
+      "latitude": 40.434424469841225,
+      "longitude": -3.67012877528381,
+      "address": "PLAZA DE SAN CAYETANO NUM 1,  28028 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/SAN%20GERM%C3%81N%20II",
+      "name": "SAN GERMÁN II",
+      "districts": [
+        "Tetuán"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/252",
+      "latitude": 40.45640904969497,
+      "longitude": -3.6933334477006268,
+      "address": "CALLE DE ORENSE NUM 48(A) PLTA -3 PRTA 01,  28020 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/SANTA%20ANA",
+      "name": "SANTA ANA",
+      "districts": [
+        "Centro"
+      ],
+      "status": "unmatched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/SERRANO%20I",
+      "name": "SERRANO I",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/265",
+      "latitude": 40.432945299626276,
+      "longitude": -3.6861133852827064,
+      "address": "CALLE DE SERRANO NUM 2(P),  28006 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/SERRANO%20II",
+      "name": "SERRANO II",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/266",
+      "latitude": 40.43034423015577,
+      "longitude": -3.688508088816427,
+      "address": "CALLE DE SERRANO NUM 44(P),  28006 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/SERRANO%20III",
+      "name": "SERRANO III",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/267",
+      "latitude": 40.42442682978039,
+      "longitude": -3.68965177343461,
+      "address": "CALLE DE SERRANO NUM 84(P),  28001 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/SEVILLA",
+      "name": "SEVILLA",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/268",
+      "latitude": 40.4178671496111,
+      "longitude": -3.6997969437612253,
+      "address": "CALLE DE ALCALÁ NUM 17(D),  28014 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/S%C3%81NCHEZ%20BUSTILLO",
+      "name": "SÁNCHEZ BUSTILLO",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/256",
+      "latitude": 40.408858840362626,
+      "longitude": -3.693821482771606,
+      "address": "CALLE DE SÁNCHEZ BUSTILLO NUM A PLTA -1,  28012 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/VEL%C3%81ZQUEZ%20AYALA",
+      "name": "VELÁZQUEZ AYALA",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/278",
+      "latitude": 40.42727020025434,
+      "longitude": -3.6840889240542323,
+      "address": "CALLE DE VELÁZQUEZ NUM 47(D) PLTA -1 PRTA 01,  28001 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/VEL%C3%81ZQUEZ%20JORGE%20JUAN",
+      "name": "VELÁZQUEZ JORGE JUAN",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/279",
+      "latitude": 40.42429917004091,
+      "longitude": -3.6843576234111772,
+      "address": "CALLE DE VELÁZQUEZ NUM 1 PLTA -1 PRTA 01,  28001 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/VEL%C3%81ZQUEZ%20JUAN%20BRAVO",
+      "name": "VELÁZQUEZ JUAN BRAVO",
+      "districts": [
+        "Salamanca"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/280",
+      "latitude": 40.43175231964038,
+      "longitude": -3.683453370290284,
+      "address": "CALLE DE VELÁZQUEZ NUM 88(D) ESC T PLTA OD PRTA 01,  28006 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/VERDAGUER%20Y%20GARC%C3%8DA",
+      "name": "VERDAGUER Y GARCÍA",
+      "districts": [
+        "Ciudad Lineal"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/281",
+      "latitude": 40.43971630980042,
+      "longitude": -3.6566922704864337,
+      "address": "CALLE DE VERDAGUER Y GARCÍA NUM 2,  28027 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/VILLA%20DE%20PAR%C3%8DS",
+      "name": "VILLA DE PARÍS",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/284",
+      "latitude": 40.42514857972056,
+      "longitude": -3.692395695413564,
+      "address": "PLAZA DE LA VILLA DE PARÍS NUM 1(D),  28004 MADRID"
+    },
+    {
+      "parking": "http://parking.linkeddata.upm.es/resource/parking/VILLA%20DE%20PAR%C3%ADS",
+      "name": "VILLA DE PARíS",
+      "districts": [
+        "Centro"
+      ],
+      "status": "matched",
+      "method": "Unique normalized exact name plus point-in-reviewed-district validation",
+      "source": "https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/284",
+      "latitude": 40.42514857972056,
+      "longitude": -3.692395695413564,
+      "address": "PLAZA DE LA VILLA DE PARÍS NUM 1(D),  28004 MADRID"
+    }
+  ]
+}

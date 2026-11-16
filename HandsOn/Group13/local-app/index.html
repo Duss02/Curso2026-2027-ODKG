@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Madrid Parking | Find an alternative</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+      const theme = param === "dark" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/vendor/leaflet.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/vendor/leaflet.js" defer></script>
+  <script src="/map.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#selected">Skip to selected parking</a>
+  <header class="masthead">
+    <div><p class="eyebrow">Group 13 / Madrid municipal parking</p>
+      <h1>Is there a quieter car park?</h1>
+      <p class="intro">Pick a parking facility and a month. Compare its historical occupancy with alternatives in the same or bordering districts.</p>
+    </div>
+  </header>
+  <main>
+    <div id="error" class="error" role="alert" hidden></div>
+    <section class="card filters" aria-labelledby="filter-title">
+      <div class="section-head"><h2 id="filter-title">1. Choose your parking and month</h2><span id="status" role="status" aria-live="polite">Connecting to local data...</span></div>
+      <form id="filters">
+        <label class="facility-picker">Parking facility<select id="parking" disabled><option value="">Choose a parking facility...</option></select></label>
+        <label id="origin-context" hidden>District context<select id="originDistrict" disabled></select></label>
+        <label>Month<select id="month" disabled></select></label>
+        <label>Year<select id="year" disabled><option value="average">Average across recorded years</option></select></label>
+        <label>Occupancy metric<select id="metric" disabled><option value="overall">Overall</option><option value="daytime">Daytime / 09:00-21:00</option></select></label>
+        <button type="submit" id="search" disabled>Compare parking</button>
+      </form>
+      <details class="advanced">
+        <summary>Filter alternatives</summary>
+        <div class="secondary-filters">
+          <label>District<select id="district" form="filters" disabled><option value="">Same and bordering districts</option></select></label>
+          <label>Recorded facility type<select id="type" form="filters" disabled><option value="">All recorded types</option></select></label>
+        </div>
+        <p class="muted small">Filters apply only to alternatives, never to your selected parking. A district outside the selected parking's district and its recorded neighbors will have no alternatives. Types are facility-level records, not specific to a year.</p>
+      </details>
+    </section>
+    <section id="selected" class="card selected-card" tabindex="-1" aria-labelledby="selected-title">
+      <div class="section-head"><div><p class="eyebrow">Your starting point</p><h2 id="selected-title">Choose a parking facility to begin</h2></div></div>
+      <div id="baseline" class="inset"><p class="muted">Then see its occupancy, find it on the map, and compare alternatives.</p></div>
+    </section>
+    <p class="notice small"><strong>Historical information, not live availability.</strong> “Average” means the mean for this calendar month across valid recorded years, not a forecast. Bordering districts do not guarantee walking distance.</p>
+    <div class="parking-workspace">
+      <section class="card map-card" aria-labelledby="map-title">
+        <div class="section-head"><div><p class="eyebrow">2. See the area</p><h2 id="map-title">Occupancy on the map</h2></div><button id="fit-map" type="button" disabled>Fit results</button></div>
+        <div class="map-toolbar">
+          <label class="inline"><input type="checkbox" id="streets"> Online street layer (uses internet)</label>
+          <span id="map-status" class="small muted" role="status">Local district outlines / verified municipal coordinates</span>
+        </div>
+        <div id="map" aria-label="Map of selected parking and alternatives"></div>
+        <div class="map-legend" aria-label="Occupancy legend">
+          <span><i class="legend-dot low"></i> Below 50%</span><span><i class="legend-dot medium"></i> 50–&lt;80%</span>
+          <span><i class="legend-dot high"></i> 80–100%</span><span><i class="legend-dot unknown"></i> No valid data</span>
+          <span><i class="legend-ring"></i> Your selected facility</span>
+        </div>
+        <p id="location-status" class="muted small inset">Facilities without verified coordinates stay in the lists; positions are never guessed.</p>
+      </section>
+      <section class="card alternatives-card" aria-labelledby="alternatives-title">
+        <div class="section-head"><div><p class="eyebrow">3. Compare your options</p><h2 id="alternatives-title">Other parking facilities</h2></div></div>
+        <div class="inset">
+          <p id="comparison-context" class="muted">Choose a parking facility to find alternatives.</p>
+          <p class="muted small">Ordered by historical occupancy within each group. Different year coverage can make averages less comparable. Color bins are visual guides, not probabilities.</p>
+          <h3>Same district <span id="same-count" class="pill">0</span></h3><div id="same-list" class="alternative-list"></div>
+          <h3>Bordering districts <span id="border-count" class="pill">0</span></h3>
+          <p class="muted small">Found through Wikidata's “shares border with” relationships, not map distance.</p>
+          <div id="border-list" class="alternative-list"></div>
+          <details id="unavailable-panel" hidden><summary id="unavailable-title">No valid data</summary><div id="unavailable-list"></div></details>
+        </div>
+      </section>
+    </div>
+    <section class="card">
+      <details class="inset">
+        <summary>How the application connects the data (RDF / SPARQL)</summary>
+        <p class="muted">The chosen facility leads to its district, its Wikidata identity, bordering districts, and their parking observations. SPARQL selects and averages the observations. The same values feed the cards and map.</p>
+        <p class="graph-path">Facility → local district → owl:sameAs → Wikidata district → P47 border → other district → parking → monthly observations</p>
+        <h3>Border relationship evidence and coverage</h3><div id="neighbors"></div>
+        <details><summary>Selected facility: source resources and recorded history</summary><div id="history"></div></details>
+        <details><summary>Exact executed SPARQL and JSON results</summary><p class="muted small">Most recent 12 operations.</p><div id="queries"></div></details>
+        <details><summary>Sources, quality, and provenance</summary>
+          <div id="coverage"></div>
+          <p>Reviewed parking graph: <code>urn:madrid-parking:reviewed</code>. Loaded directly from <code>aparcamientos-with-links.ttl</code>, unchanged.</p>
+          <p>Wikidata borders: <code>urn:madrid-parking:wikidata</code>. Snapshot, not a live complete graph.</p>
+          <p>Verified parking coordinates: <code>urn:madrid-parking:geography</code>. Separate municipal enrichment; missing matches are not invented. Current outlines/locations do not reconstruct historical geography.</p>
+          <p>Sources: <a href="https://datos.madrid.es/dataset/300346-0-aparcamientos-ocupa-historico" target="_blank" rel="noopener noreferrer">Ayuntamiento de Madrid parking occupancy</a> (Group13 records <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>);
+            <a href="https://geoportal.madrid.es/IDEAM_WBGEOPORTAL/dataset.iam?id=d1fe870f-04d1-11f0-a71f-c8e265b91dd3">municipal geography</a> (<a href="https://datos.madrid.es/pages/condiciones-generales-ayuntamiento-de-madrid">reuse terms</a>);
+            <a href="https://www.wikidata.org/wiki/Property:P47">Wikidata P47</a> (<a href="https://www.wikidata.org/wiki/Wikidata:Licensing">CC0 structured data</a>).</p>
+        </details>
+      </details>
+    </section>
+  </main>
+  <footer>Madrid Parking / Group 13. Historical comparisons powered by local RDF, SPARQL, and Wikidata relationships. No live parking availability is implied.</footer>
+</body>
+</html>

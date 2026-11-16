@@ -1,0 +1,120 @@
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<urn:madrid-parking:geography-snapshot> dct:created "2026-11-16T16:31:59.331Z"^^xsd:dateTime ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0> ;
+ dct:license <https://datos.madrid.es/pages/condiciones-generales-ayuntamiento-de-madrid> .
+<http://parking.linkeddata.upm.es/resource/parking/ALMAGRO> geo:lat "40.42980193006558"^^xsd:decimal ; geo:long "-3.6932381285529585"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/7> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/ARQUITECTO%20RIBERA> geo:lat "40.426273740103916"^^xsd:decimal ; geo:long "-3.7003741870339804"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/21> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/AVENIDA%20DE%20AM%C3%89RICA> geo:lat "40.438177970406606"^^xsd:decimal ; geo:long "-3.6768340646213375"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/26> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/AVENIDA%20DE%20PORTUGAL> geo:lat "40.41123911037204"^^xsd:decimal ; geo:long "-3.7380878755145357"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/28> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/BRASIL> geo:lat "40.45609250972133"^^xsd:decimal ; geo:long "-3.693496889026959"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/37> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/CASINO%20DE%20LA%20REINA> geo:lat "40.407094689862994"^^xsd:decimal ; geo:long "-3.7038875277186105"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/54> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/CONDESA%20DE%20GAVIA> geo:lat "40.44905426985872"^^xsd:decimal ; geo:long "-3.7020861499096425"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/66> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/CORAZ%C3%93N%20DE%20MAR%C3%8DA%20II> geo:lat "40.44441744038219"^^xsd:decimal ; geo:long "-3.667028747907156"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/68> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/CORONA%20BOREAL> geo:lat "40.45881377970287"^^xsd:decimal ; geo:long "-3.78414489488321"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/69> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/DAO%C3%8DZ%20Y%20VELARDE> geo:lat "40.402553440031106"^^xsd:decimal ; geo:long "-3.6776314416146167"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/72> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/DESCALZAS> geo:lat "40.41845756978674"^^xsd:decimal ; geo:long "-3.7070460369553637"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/74> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/D%C3%8DAZ%20PORLIER> geo:lat "40.43451019978539"^^xsd:decimal ; geo:long "-3.6754840134941587"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/75> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/ENCUENTRO> geo:lat "40.4058768196961"^^xsd:decimal ; geo:long "-3.651386322300536"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/84> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/FELIPE%20II> geo:lat "40.42422075980146"^^xsd:decimal ; geo:long "-3.673421859331755"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/93> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/FERN%C3%81NDEZ%20SHAW> geo:lat "40.40489977956104"^^xsd:decimal ; geo:long "-3.6688509751144505"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/94> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/FUENCARRAL> geo:lat "40.429627070157125"^^xsd:decimal ; geo:long "-3.7027909617254977"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/101> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/HERNANI> geo:lat "40.448176209960806"^^xsd:decimal ; geo:long "-3.697611312845352"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/115> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/JACINTO%20BENAVENTE> geo:lat "40.414448109745344"^^xsd:decimal ; geo:long "-3.703321217488969"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/125> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/JOS%C3%89%20CAST%C3%81N%20TOBE%C3%91AS> geo:lat "40.46454832956105"^^xsd:decimal ; geo:long "-3.6915719848428203"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/129> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/LUNA%20TUDESCOS> geo:lat "40.42168497022235"^^xsd:decimal ; geo:long "-3.7056898194788155"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/144> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/MARQU%C3%89S%20DE%20SALAMANCA> geo:lat "40.430499739585414"^^xsd:decimal ; geo:long "-3.679293743164883"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/151> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/MARQU%C3%89S%20DE%20URQUIJO> geo:lat "40.42990399990756"^^xsd:decimal ; geo:long "-3.7188149968024358"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/154> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/MIGUEL%20YUSTE> geo:lat "40.43429572043251"^^xsd:decimal ; geo:long "-3.6225141467159707"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/165> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/MONTALB%C3%81N> geo:lat "40.41818592029199"^^xsd:decimal ; geo:long "-3.690958134497588"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/169> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/MOSTENSES> geo:lat "40.422727550051285"^^xsd:decimal ; geo:long "-3.708834615391187"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/173> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/MUSEO%20DE%20LA%20CIUDAD> geo:lat "40.44422976960305"^^xsd:decimal ; geo:long "-3.6776553629545954"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/175> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/OLAVIDE> geo:lat "40.43287849958544"^^xsd:decimal ; geo:long "-3.7010393321238144"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/182> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/ORENSE> geo:lat "40.45307229035573"^^xsd:decimal ; geo:long "-3.69413847227024"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/184> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PEDRO%20ZEROLO> geo:lat "40.42080587979755"^^xsd:decimal ; geo:long "-3.69930167471886"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/198> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20COL%C3%93N> geo:lat "40.42543462033092"^^xsd:decimal ; geo:long "-3.6884680271077808"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/208> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20ESPA%C3%91A> geo:lat "40.423781200218286"^^xsd:decimal ; geo:long "-3.7115232126281303"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/209> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20LAS%20CORTES> geo:lat "40.415672089626334"^^xsd:decimal ; geo:long "-3.695312097612536"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/210> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20ORIENTE> geo:lat "40.41840696005306"^^xsd:decimal ; geo:long "-3.71199039354424"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/211> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20SANTA%20ANA> geo:lat "40.41453121030341"^^xsd:decimal ; geo:long "-3.7005600993123533"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/212> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DE%20SANTO%20DOMINGO> geo:lat "40.42013314957564"^^xsd:decimal ; geo:long "-3.7082597875158516"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/213> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DEL%20CARMEN> geo:lat "40.41874520965899"^^xsd:decimal ; geo:long "-3.7035126814376516"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/214> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20DEL%20REY> geo:lat "40.42021040984878"^^xsd:decimal ; geo:long "-3.6958066670745535"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/215> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PLAZA%20MAYOR> geo:lat "40.41586775971569"^^xsd:decimal ; geo:long "-3.7068956139215903"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/216> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PRESIDENTE%20CARMONA> geo:lat "40.45251615019899"^^xsd:decimal ; geo:long "-3.695683794517191"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/220> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PR%C3%ADNCIPE%20DE%20VERGARA%20%28AUDITORIO%29> geo:lat "40.44429510014989"^^xsd:decimal ; geo:long "-3.6776974836681595"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/221> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/PUERTA%20DE%20TOLEDO> geo:lat "40.40738659020007"^^xsd:decimal ; geo:long "-3.710015157356849"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/222> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/RECOLETOS> geo:lat "40.42139749024411"^^xsd:decimal ; geo:long "-3.6918412701388803"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/230> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/REP%C3%9ABLICA%20DOMINICANA> geo:lat "40.4588693800264"^^xsd:decimal ; geo:long "-3.676515790579005"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/233> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/REYES%20MAGOS> geo:lat "40.408797320149795"^^xsd:decimal ; geo:long "-3.6763215887090874"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/234> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/SAN%20CAYETANO> geo:lat "40.434424469841225"^^xsd:decimal ; geo:long "-3.67012877528381"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/246> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/SAN%20GERM%C3%81N%20II> geo:lat "40.45640904969497"^^xsd:decimal ; geo:long "-3.6933334477006268"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/252> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/SERRANO%20I> geo:lat "40.432945299626276"^^xsd:decimal ; geo:long "-3.6861133852827064"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/265> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/SERRANO%20II> geo:lat "40.43034423015577"^^xsd:decimal ; geo:long "-3.688508088816427"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/266> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/SERRANO%20III> geo:lat "40.42442682978039"^^xsd:decimal ; geo:long "-3.68965177343461"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/267> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/SEVILLA> geo:lat "40.4178671496111"^^xsd:decimal ; geo:long "-3.6997969437612253"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/268> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/S%C3%81NCHEZ%20BUSTILLO> geo:lat "40.408858840362626"^^xsd:decimal ; geo:long "-3.693821482771606"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/256> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/VEL%C3%81ZQUEZ%20AYALA> geo:lat "40.42727020025434"^^xsd:decimal ; geo:long "-3.6840889240542323"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/278> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/VEL%C3%81ZQUEZ%20JORGE%20JUAN> geo:lat "40.42429917004091"^^xsd:decimal ; geo:long "-3.6843576234111772"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/279> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/VEL%C3%81ZQUEZ%20JUAN%20BRAVO> geo:lat "40.43175231964038"^^xsd:decimal ; geo:long "-3.683453370290284"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/280> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/VERDAGUER%20Y%20GARC%C3%8DA> geo:lat "40.43971630980042"^^xsd:decimal ; geo:long "-3.6566922704864337"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/281> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/VILLA%20DE%20PAR%C3%8DS> geo:lat "40.42514857972056"^^xsd:decimal ; geo:long "-3.692395695413564"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/284> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
+<http://parking.linkeddata.upm.es/resource/parking/VILLA%20DE%20PAR%C3%ADS> geo:lat "40.42514857972056"^^xsd:decimal ; geo:long "-3.692395695413564"^^xsd:decimal ;
+ dct:source <https://sigma.madrid.es/hosted/rest/services/GEOPORTAL/APARCAMIENTOS_PUBLICOS/MapServer/0/284> ; dct:description "Unique normalized exact name plus point-in-reviewed-district validation" .
