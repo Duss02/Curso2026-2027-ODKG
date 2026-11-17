@@ -1,0 +1,38 @@
+{
+  "entries": [
+    "components/dialogs/onto-dialog.js",
+    "components/dialogs/onto-confirm-cancel-dialog/onto-confirm-cancel-dialog.js",
+    "components/dialogs/onto-cookie-policy-dialog/onto-cookie-policy-dialog.js",
+    "components/onto-cookie-consent/onto-cookie-consent.js",
+    "components/onto-deprecation-banner/onto-deprecation-banner.js",
+    "components/onto-dropdown/onto-dropdown.js",
+    "components/onto-footer/onto-footer.js",
+    "components/onto-graph-explore-split-button/onto-graph-explore-split-button.js",
+    "components/onto-header/onto-header.js",
+    "components/onto-language-selector/onto-language-selector.js",
+    "components/onto-layout/onto-layout.js",
+    "components/onto-license-alert/onto-license-alert.js",
+    "components/onto-loader/onto-loader.js",
+    "components/onto-navbar/onto-navbar.js",
+    "components/onto-operations-notification/onto-operations-notification.js",
+    "components/onto-permission-banner/onto-permission-banner.js",
+    "components/onto-rdf-search/onto-rdf-search.js",
+    "components/onto-repository-selector/onto-repository-selector.js",
+    "components/onto-search-icon/onto-search-icon.js",
+    "components/onto-search-resource-input/onto-search-resource-input.js",
+    "components/onto-test-context/onto-test-context.js",
+    "components/onto-toastr/onto-toastr.js",
+    "components/onto-toggle-switch/onto-toggle-switch.js",
+    "components/onto-tooltip/onto-tooltip.js",
+    "components/onto-user-login/onto-user-login.js",
+    "components/onto-user-menu/onto-user-menu.js",
+    "components/translate-label/translate-label.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "4.35.1",
+    "typescriptVersion": "5.5.4"
+  },
+  "collections": [],
+  "bundles": []
+}

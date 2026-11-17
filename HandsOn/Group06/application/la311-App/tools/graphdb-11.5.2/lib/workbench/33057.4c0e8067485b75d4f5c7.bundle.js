@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=33057;export const __webpack_esm_ids__=[33057];export const __webpack_esm_modules__={33057(){function t(t,o){t.importFormat={name:"Auto",type:""},t.startImport=!0,t.cancel=function(){o.dismiss()},t.ok=function(){o.close({url:t.dataUrl,format:t.importFormat.type,startImport:t.startImport})}}angular.module("graphdb.framework.impex.import.controllers.import-url",[]).controller("ImportUrlController",t),t.$inject=["$scope","$uibModalInstance","toastr"]}};
+//# sourceMappingURL=33057.4c0e8067485b75d4f5c7.bundle.js.map

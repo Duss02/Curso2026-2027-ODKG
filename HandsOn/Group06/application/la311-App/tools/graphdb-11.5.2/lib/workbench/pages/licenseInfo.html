@@ -1,0 +1,79 @@
+<title>GraphDB License Information</title>
+
+<h1>
+    {{title}}
+    <page-info-tooltip></page-info-tooltip>
+</h1>
+
+<div class="license-container" data-test="license-info-page">
+    <div class="card">
+        <h4 ng-if="isLicensePresent()" class="card-header" data-test="valid-license-title">GraphDB {{getProductType() | titlecase}} {{'edition' | translate}}</h4>
+        <h4 ng-if="!isLicensePresent()" class="card-header" data-test="no-license-title">{{'no.license' | translate}}</h4>
+        <div class="alert alert-danger" ng-if="!isLicenseValid()" data-test="no-valid-license-alert">
+            <strong>{{getLicenseErrorMsg()}}</strong>
+            <div ng-bind-html="'supply.license.or.contact.us.warning' | translate | trustAsHtml"></div>
+            <div class="mt-1">{{'no.license.restrictions' | translate}}</div>
+        </div>
+        <div class="card-block">
+            <div ng-if="isLicensePresent()" data-test="license-content">
+                <div class="float-xs-left d-inline-block mr-2 mb-1">
+                    {{'licensed.to' | translate}}
+                    <span class="data-value d-block">{{getLicense().licensee}}</span>
+                </div>
+                <div class="float-xs-left d-inline-block mr-2 mb-1">
+                    {{'valid.until' | translate}}
+                    <span
+                        class="data-value d-block">{{getLicense().expiryDate ? (getLicense().expiryDate | date: 'yyyy-MM-dd') : 'perpetual' | translate}}</span>
+                </div>
+                <div class="float-xs-left d-inline-block mr-2 mb-1">
+                    {{'cores.number' | translate}}
+                    <span
+                        class="data-value d-block">{{getLicense().maxCpuCores ? getLicense().maxCpuCores : 'unlimited' | translate}}</span>
+                </div>
+                <div class="float-xs-left d-inline-block mr-2 mb-1">
+                    {{'maintenance.date' | translate}}
+                    <span
+                        class="data-value d-block">{{getLicense().latestPublicationDate ? (getLicense().latestPublicationDate | date: 'yyyy-MM-dd') : 'perpetual' | translate}}</span>
+                </div>
+                <div class="d-inline-block mb-1">
+                    {{'capabilities' | translate}}
+                    <div class="data-value d-block">
+                        <div ng-if="getLicense().licenseCapabilities.getItems().length !== 0">
+                            <div ng-repeat="capability in getLicense().licenseCapabilities.getItems()">
+                                <div>{{capability}}</div>
+                            </div>
+                        </div>
+                        <div ng-if="getLicense().licenseCapabilities.getItems().length === 0">
+                            <div>{{'none' | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-muted">{{getLicense().typeOfUse}}</div>
+            </div>
+            <div class="text-right">
+                <button ng-click="removeLicense()" ng-if="!isLicenseHardcoded && isAdmin()"
+                        ng-disabled="!isLicensePresent()"
+                        class="btn btn-secondary revert-to-free-license-btn"
+                        data-test="remove-license-button">
+                    {{'remove.license' | translate}}
+                </button>
+                <a href="license/register" ng-if="!isLicenseHardcoded && isAdmin()"
+                   class="btn btn-primary set-new-license-link"
+                   data-test="set-new-license-link">
+                    {{'core.errors.set.new.license.warning.msg' | translate}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-warning license-hardcoded-alert-message"
+     data-test="license-hardcoded-alert-message"
+     ng-if="isLicenseHardcoded && isAdmin()">
+    {{'license.cannot.be.changed.from.wb.warning' | translate}}
+</div>
+
+<div class="alert alert-warning" ng-if="!isAdmin()">
+    {{'license.admin.authority.constraint' | translate}}
+</div>
+

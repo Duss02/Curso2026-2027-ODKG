@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=18660;export const __webpack_esm_ids__=[18660];export const __webpack_esm_modules__={18660(){function e(e,o){e.forceDelete=!1,e.ok=()=>{o.close(e.forceDelete)},e.cancel=()=>{o.dismiss("cancel")},e.onClick=e=>{e.stopPropagation()}}angular.module("graphdb.framework.clustermanagement.controllers.delete-cluster",[]).controller("DeleteClusterCtrl",e),e.$inject=["$scope","$uibModalInstance"]}};
+//# sourceMappingURL=18660.b9e265f4a2fbbd18b465.bundle.js.map

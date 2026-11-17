@@ -1,0 +1,40 @@
+#!/bin/bash
+
+source "`dirname "$0"`/setvars.in.sh"
+
+properties="-Dgraphdb.page.cache.size=16m -Djdk.xml.entityExpansionLimit=0"
+mainclass="com.ontotext.graphdb.importrdf.ImportRDF"
+
+launch_tool()
+{
+  javaProps=$1
+  commandLineProps=$2
+
+  exec "$JAVA" "${JAVA_OPTS_ARRAY[@]}" $GDB_JAVA_OPTS -Dgraphdb.dist="$GDB_DIST" -cp "$GDB_CLASSPATH" $javaProps \
+                $mainclass $commandLineProps
+  # exec without running it in the background, makes it replace this shell, we'll never get here...
+  # no need to return something
+}
+
+while [ $# -gt 0 ]
+do
+    case $1 in
+        -X*)
+            properties="$properties $1"
+            shift
+        ;;
+        -D*)
+            properties="$properties $1"
+            shift
+        ;;
+        *)
+            commandLineProperties="$commandLineProperties $1"
+            shift
+        ;;
+    esac
+done
+
+# Start up the tool
+launch_tool "$properties" "$commandLineProperties"
+
+exit $?

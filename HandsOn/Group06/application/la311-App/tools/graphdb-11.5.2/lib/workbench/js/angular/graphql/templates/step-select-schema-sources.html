@@ -1,0 +1,179 @@
+<div onto-loader ng-if="loadingData" class="schema-sources-loader" size="100"></div>
+
+<!-- Using ng-show instead of ng-if here and down below because of the endpointParamsForm for which we need angular to
+ bind the form controller to the scope immediately. Otherwise, we have to do gimmicks with timeout or intervals in order
+ to obtain it from the DOM -->
+<div ng-show="!loadingData" class="select-schema-source-view">
+    <div class="schema-source-types mt-2">
+        <div ng-repeat="type in stepDefinition.schemaSourceTypes"
+             class="schema-source-type mr-3">
+            <label gdb-tooltip="{{'graphql.create_endpoint.wizard_steps.select_schema_sources.source_type.' + type.value + '.tooltip' | translate}}">
+                <input type="radio" ng-model="stepDefinition.schemaSourceType" ng-value="type.value"
+                       ng-change="onSchemaSourceTypeChange()">
+                {{'graphql.create_endpoint.wizard_steps.select_schema_sources.source_type.' + type.value + '.label' | translate}}
+            </label>
+        </div>
+    </div>
+
+    <!--    GraphQL schema shapes selection -->
+
+    <div class="schema-source-container graphql-schema-shapes"
+         ng-if="stepDefinition.schemaSourceType === schemaSourceType.GRAPHQL_SCHEMA_SHAPES">
+
+        <h5 class="mt-2">
+            {{'graphql.create_endpoint.wizard_steps.select_schema_sources.graphql_schema_shapes.title' | translate}}</h5>
+
+        <div ng-if="endpointConfiguration">
+            <div ng-if="graphqlSchemaShapes.isEmpty" class="alert alert-warning no-shapes mt-2">
+                <span>{{'graphql.create_endpoint.wizard_steps.select_schema_sources.graphql_schema_shapes.messages.no_schemas' | translate}}</span>
+            </div>
+
+            <div ng-if="!graphqlSchemaShapes.isEmpty" class="alert alert-info shapes-count mt-2 mb-2">
+                <span>{{'graphql.create_endpoint.wizard_steps.select_schema_sources.graphql_schema_shapes.messages.endpoint_per_shape' | translate}}</span>
+            </div>
+
+            <div ng-if="!graphqlSchemaShapes.isEmpty" class="graphql-shapes-selector">
+                <shuttle-multiselect options="graphqlSchemaShapes.shapes"
+                                     selected="endpointConfiguration.selectedGraphqlSchemaShapes.shapes"
+                                     labels="shapesMultiselectLabels"></shuttle-multiselect>
+            </div>
+        </div>
+    </div>
+
+    <!--    Ontologies and SHACL shapes selection -->
+
+    <div class="schema-source-container ontologies-and-shacl-shapes"
+         ng-show="stepDefinition.schemaSourceType === schemaSourceType.SHACL_SHAPES">
+
+        <h5 class="mt-2">
+            {{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.title' | translate}}</h5>
+
+        <!--        Endpoint properties form -->
+
+        <form name="endpointParamsForm" id="endpointParamsForm" class="endpoint-params-form">
+            <div class="endpoint-param-field">
+                <div class="form-inline endpoint-id">
+                    <label for="endpointId"
+                           uib-popover="{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_id.tooltip' | translate}}"
+                           popover-trigger="mouseenter">{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_id.label' | translate}}*</label>
+                    <input type="text" class="form-control" id="endpointId" name="endpointId"
+                           ng-model="endpointConfiguration.params.endpointId" autocomplete="off"
+                           required ng-pattern="/^[\w-]+$/"
+                           placeholder="{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_id.placeholder' | translate}}">
+                </div>
+                <div class="alert alert-danger"
+                     ng-if="endpointParamsForm.endpointId.$touched && endpointParamsForm.endpointId.$invalid">
+                    <span ng-if="endpointParamsForm.endpointId.$error.required">
+                        {{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_id.validation.required' | translate}}
+                    </span>
+                    <span ng-if="endpointParamsForm.endpointId.$error.pattern">
+                        {{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_id.validation.pattern' | translate}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="endpoint-param-field">
+                <div class="form-inline vocabulary-prefix">
+                    <label for="vocabularyPrefix"
+                           uib-popover="{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.vocabulary_prefix.tooltip' | translate}}"
+                           popover-trigger="mouseenter">{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.vocabulary_prefix.label' | translate}}</label>
+                    <select ng-if="!loadingPrefixes" class="form-control" id="vocabularyPrefix" name="vocabularyPrefix"
+                            ng-model="endpointConfiguration.params.vocPrefix"
+                            ng-options="prefix.value as prefix.label for prefix in prefixList">
+                        <option value="">
+                            {{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.vocabulary_prefix.placeholder' | translate}}
+                        </option>
+                    </select>
+                    <div class="loading-prefixes" ng-if="loadingPrefixes" onto-loader size="25"></div>
+                </div>
+                <div class="alert alert-danger"
+                     ng-if="endpointParamsForm.vocabularyPrefix.$touched && endpointParamsForm.vocabularyPrefix.$invalid">
+                    {{'required.field' | translate}}
+                </div>
+            </div>
+
+            <div class="endpoint-param-field">
+                <div class="form-inline endpoint-label">
+                    <label for="endpointLabel"
+                           uib-popover="{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_label.tooltip' | translate}}"
+                           popover-trigger="mouseenter">{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_label.label' | translate}}</label>
+                    <input type="text" class="form-control" id="endpointLabel" name="endpointLabel"
+                           ng-model="endpointConfiguration.params.endpointLabel" autocomplete="off"
+                           placeholder="{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_label.placeholder' | translate}}">
+                </div>
+            </div>
+
+            <div class="endpoint-param-field">
+                <div class="form-inline endpoint-description">
+                    <label for="endpointDescription"
+                           uib-popover="{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_description.tooltip' | translate}}"
+                           popover-trigger="mouseenter">{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_description.label' | translate}}</label>
+                    <textarea class="form-control" id="endpointDescription" name="endpointDescription"
+                              ng-model="endpointConfiguration.params.endpointDescription"
+                              placeholder="{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.form.endpoint_description.placeholder' | translate}}">
+                    </textarea>
+                </div>
+            </div>
+        </form>
+
+        <div class="schema-source-types mt-2">
+            <div ng-repeat="type in stepDefinition.ontologyShaclShapeSources"
+                 class="graph-source-type mr-3">
+                <label>
+                    <input type="radio" ng-model="stepDefinition.ontotlogyShaclShapeSource" ng-value="type.value"
+                           ng-change="onOntologyShaclShapeSourceChange()">
+                    {{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.source.' + type.value + '.label' | translate}}
+                </label>
+            </div>
+        </div>
+
+        <div class="schema-source-container use-all-graphs"
+             ng-if="stepDefinition.ontotlogyShaclShapeSource === ontologyShaclShapeSource.USE_ALL_GRAPHS">
+            <div ng-if="true" class="alert alert-success all-graphs-selected mt-2">
+                <span>{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.source.use_all_graphs.messages.use_all_data' | translate}}</span>
+            </div>
+        </div>
+
+        <div class="schema-source-container use-all-shacl-shape-graphs"
+             ng-if="stepDefinition.ontotlogyShaclShapeSource === ontologyShaclShapeSource.USE_SHACL_SHAPE_GRAPH">
+            <div ng-if="shaclShapeGraphs.isEmpty"
+                 class="alert alert-warning no-shacl-shapes mt-2">
+                <span>{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.source.use_shacl_shape_graph.messages.no_graphs' | translate}}</span>
+            </div>
+
+            <div ng-if="!shaclShapeGraphs.isEmpty" class="alert alert-success mt-2">
+                <span>{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.source.use_shacl_shape_graph.messages.all_shacl_shape_graphs' |
+                translate: {count: shaclShapeGraphs.size} }}</span>
+            </div>
+        </div>
+
+        <div ng-if="stepDefinition.ontotlogyShaclShapeSource === ontologyShaclShapeSource.PICK_GRAPHS"
+             class="schema-source-container select-graphs mt-2">
+            <div ng-if="graphs.isEmpty" class="alert alert-warning no-graphs mt-2">
+                <span>{{'graphql.create_endpoint.wizard_steps.select_schema_sources.shacl_shapes.source.pick_graphs.messages.no_graphs' | translate}}</span>
+            </div>
+
+            <!--
+                Explicitly guard this with check for loadingData flag to prevent errors if data is not yet loaded. This
+                is because the whole select-schema-source-view is just hidden and not removed from the DOM during
+                loading due to issues with the form controller binding.
+             -->
+            <div ng-if="!loadingData && !allGraphs.isEmpty" class="graphs-selector">
+                <shuttle-multiselect options="allGraphs.graphList"
+                                     selected="endpointConfiguration.selectedGraphs.graphList"
+                                     labels="graphsMultiselectLabels"></shuttle-multiselect>
+            </div>
+        </div>
+    </div>
+
+    <div class="wizard-actions mt-2">
+        <button class="btn btn-secondary cancel-btn mr-1" ng-click="cancel()"
+                gdb-tooltip="{{'graphql.create_endpoint.wizard_steps.actions.cancel.tooltip' | translate}}"
+                tooltip-placement="top">
+            {{'graphql.create_endpoint.wizard_steps.actions.cancel.label' | translate}}
+        </button>
+        <button ng-click="next()" ng-disabled="!canProceed()" class="btn btn-primary next-btn">
+            {{'graphql.create_endpoint.wizard_steps.actions.next.label' | translate}}
+        </button>
+    </div>
+</div>

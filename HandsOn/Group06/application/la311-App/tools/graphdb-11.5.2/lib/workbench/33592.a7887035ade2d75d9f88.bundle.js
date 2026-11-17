@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=33592;export const __webpack_esm_ids__=[33592];export const __webpack_esm_modules__={33592(e,o,s){s.d(o,{a:()=>t});class t{constructor(e){this.graphQLPlaygroundComponent=e}setLanguage(e){this.graphQLPlaygroundComponent.setLanguage(e)}setEditorsTheme(e){this.graphQLPlaygroundComponent.setEditorsTheme(e)}}}};
+//# sourceMappingURL=33592.a7887035ade2d75d9f88.bundle.js.map

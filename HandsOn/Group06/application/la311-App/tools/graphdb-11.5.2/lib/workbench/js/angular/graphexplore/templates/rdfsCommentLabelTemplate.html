@@ -1,0 +1,30 @@
+<div>
+	<div ng-hide="rdfsLabel == undefined" class="media mb-1">
+		<div class="media-left"
+			 gdb-tooltip="rdfs:label"
+			 tooltip-placement="top">
+			<i class="ri-price-tag-3-line icon-lg" aria-hidden="true"></i>
+		</div>
+		<div class="media-body">
+			{{rdfsLabel}}
+		</div>
+	</div>
+    <div ng-if="rdfsComment" class="media mb-1">
+        <div class="media-left"
+			 gdb-tooltip="rdfs:comment"
+			tooltip-placement="top">
+			<i class="ri-chat-4-line icon-lg" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+			<div class="rdfs-comment" ng-class="expanded ? 'expanded' : 'not-expanded'">
+				<em class="rdfs-comment-text rdfs-text small">{{rdfsComment | limitTo: stringLimit}} {{rdfsComment.length > stringLimit ? '...' : ''}}</em>
+			</div>
+        </div>
+    </div>
+    <div ng-if="!alwaysExpanded && rdfsComment && !checkCommentLength()" class="clearfix">
+		<button class="pull-right btn btn-link small px-0" ng-click="scrollToTop(); equalHeights(); toggleFullComment()">
+			<span ng-show="!expanded">{{'rdfs.comment.show' | translate}}</span>
+			<span ng-show="expanded">{{'rdfs.comment.hide' | translate}}</span> {{'rdfs.comment.full.comment' | translate}}
+		</button>
+    </div>
+</div>
