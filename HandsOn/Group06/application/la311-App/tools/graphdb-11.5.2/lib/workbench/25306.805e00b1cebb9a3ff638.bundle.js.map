@@ -1,0 +1,1 @@
+{"version":3,"file":"25306.805e00b1cebb9a3ff638.bundle.js","mappings":"mJAAO,MAAMA,EAAqB,iC","sources":["webpack://root-config/./packages/legacy-workbench/src/js/angular/models/sparql/constants.js"],"sourcesContent":["export const VIEW_SPARQL_EDITOR = 'graphdb-workbench-sparql-editor';\n"],"names":["VIEW_SPARQL_EDITOR"],"sourceRoot":""}

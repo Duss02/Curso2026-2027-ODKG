@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=83847;export const __webpack_esm_ids__=[83847];export const __webpack_esm_modules__={83847(){function i(i){return{restrict:"A",require:"ngModel",link:function(t,e,r,a){a.$parsers.unshift(function(t){if(a.$setValidity("validateUri",!0),!a.$isEmpty(t)){const e=i.isValidIri(t,t.toString());a.$setValidity("validateUri",e)}return t})}}}angular.module("graphdb.framework.import.directives.validate-uri",[]).directive("validateUri",i),i.$inject=["UriUtils"]}};
+//# sourceMappingURL=83847.d0ec141fd54e3567be9d.bundle.js.map

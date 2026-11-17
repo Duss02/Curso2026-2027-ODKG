@@ -1,0 +1,9 @@
+PREFIX la311: <http://linkeddata.la311.com/ontology#>
+
+# Q1: Count of individuals per class
+SELECT ?class (COUNT(?s) AS ?individuals)
+WHERE {
+  ?s a ?class .
+}
+GROUP BY ?class
+ORDER BY DESC(?individuals)

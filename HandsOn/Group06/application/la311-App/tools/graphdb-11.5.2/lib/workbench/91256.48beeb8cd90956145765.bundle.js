@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=91256;export const __webpack_esm_ids__=[86993,91256];export const __webpack_esm_modules__={86993(_,e,p){p.d(e,{P:()=>o});const o={PLAYGROUND:"graphql/playground",CREATE_ENDPOINT:"graphql/endpoint/create",ENDPOINT_MANAGEMENT:"graphql/endpoints"}},91256(_,e,p){p.d(e,{I:()=>r,r:()=>t});var o=p(86993),n=p(51504);const t=(_,e)=>`${n.h}/${_}/graphql/${e}`,r=_=>`${o.P.PLAYGROUND}?endpointId=${_}`}};
+//# sourceMappingURL=91256.48beeb8cd90956145765.bundle.js.map

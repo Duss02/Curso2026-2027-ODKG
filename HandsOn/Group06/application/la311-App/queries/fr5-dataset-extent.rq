@@ -1,0 +1,11 @@
+PREFIX la311: <http://linkeddata.la311.com/ontology#>
+PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+SELECT (MIN(?created) AS ?first) (MAX(?created) AS ?last)
+       (COUNT(?sr) AS ?records) (COUNT(?loc) AS ?located)
+WHERE {
+  ?sr a la311:ServiceRequest ; la311:createdDate ?created .
+  OPTIONAL { ?sr la311:hasLocation ?loc . ?loc geo:asWKT ?wkt }
+}

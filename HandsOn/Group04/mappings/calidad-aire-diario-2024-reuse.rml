@@ -1,0 +1,350 @@
+@prefix rr:       <http://www.w3.org/ns/r2rml#> .
+@prefix rml:      <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql:       <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix sosa:     <http://www.w3.org/ns/sosa/> .
+@prefix qudt:     <http://qudt.org/schema/qudt/> .
+@prefix time:     <http://www.w3.org/2006/time#> .
+@prefix edintmed: <https://edint.es/def/medio-ambiente#> .
+@prefix bpm:      <https://w3id.org/breatheplay-madrid/ontology#> .
+@base             <https://w3id.org/breatheplay-madrid/mappings/calidad-aire-diario-2024-reuse#> .
+
+# Group04 - Breathe & Play Madrid - Hands-on 6 (ontology reuse).
+# Run from the HandsOn/Group04 directory (python mappings/generate_rdf-reuse.py).
+# Dataset: Calidad del aire. Datos diarios 2024 (Ayuntamiento de Madrid)
+# Sources: csv/calidad-aire-diario-2024-csv-updated-with-links.csv
+#          csv/edint-environmental-properties.csv (correspondence table: Madrid
+#          pollutant code -> EDINT environmental property, QUDT unit, Wikidata)
+#
+# Model: EDINT environmental sensors applied to air quality
+# (https://edint.es/def/calidad-aire): observations are
+# edintmed:EnvironmentalObservation (and bpm:DailyObservation, daily means),
+# sampling points are edintmed:EnvironmentalSensor of type AirQualitySensor,
+# pollutants are EDINT environmental properties (SKOS concepts), units are QUDT
+# units and the day of the observation is an OWL-Time interval.
+#
+# IRIs: readable names (columns *_SLUG, added in OpenRefine: name in lower case
+# without accents, words joined by "-"); the codes of the source are kept with
+# dct:identifier. Example: resource/observation/plaza-de-espana-no2-2024-01-15.
+
+# ---------------------------------------------------------------------------
+# Daily observations
+# ---------------------------------------------------------------------------
+<#DailyObservationMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/calidad-aire-diario-2024-csv-updated-with-links.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/breatheplay-madrid/resource/observation/{ESTACION_SLUG}-{CONTAMINANTE_SLUG}-{FECHA}" ;
+        rr:termType rr:IRI ;
+        rr:class edintmed:EnvironmentalObservation, bpm:DailyObservation
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rr:template "Observación diaria de {CONTAMINANTE} en el punto de muestreo {PUNTO_MUESTREO} el {FECHA}" ;
+            rr:termType rr:Literal ;
+            rr:language "es"
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate dct:identifier ;
+        rr:objectMap [ rml:reference "OBSERVACION_ID" ; rr:termType rr:Literal ; rr:datatype xsd:string ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:madeBySensor ;
+        rr:objectMap [
+            rr:template "https://w3id.org/breatheplay-madrid/resource/sampling-point/{ESTACION_SLUG}-{CONTAMINANTE_SLUG}" ;
+            rr:termType rr:IRI
+        ]
+    ] ;
+
+    # Observed property: the EDINT concept that corresponds to the pollutant code
+    # (join MAGNITUD = MAGNITUD of the correspondence table)
+    rr:predicateObjectMap [
+        rr:predicate sosa:observedProperty ;
+        rr:objectMap [
+            rr:parentTriplesMap <#EnvironmentalPropertyMap> ;
+            rr:joinCondition [ rr:child "MAGNITUD" ; rr:parent "MAGNITUD" ]
+        ]
+    ] ;
+
+    # Feature of interest: the air (EDINT FeaturesOfInterest vocabulary)
+    rr:predicateObjectMap [
+        rr:predicate sosa:hasFeatureOfInterest ;
+        rr:objectMap [ rr:constant <https://edint.es/kos/FeaturesOfInterest/Air> ]
+    ] ;
+
+    # Day of the observation (OWL-Time interval shared by all the observations of that day)
+    rr:predicateObjectMap [
+        rr:predicate sosa:phenomenonTime ;
+        rr:objectMap [
+            rr:template "https://w3id.org/breatheplay-madrid/resource/day/{FECHA}" ;
+            rr:termType rr:IRI
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:hasSimpleResult ;
+        rr:objectMap [ rml:reference "VALOR" ; rr:termType rr:Literal ; rr:datatype xsd:decimal ]
+    ] ;
+
+    # Unit of the value (QUDT), as in the EDINT air quality examples
+    rr:predicateObjectMap [
+        rr:predicate qudt:unit ;
+        rr:objectMap [
+            rr:parentTriplesMap <#UnitMap> ;
+            rr:joinCondition [ rr:child "MAGNITUD" ; rr:parent "MAGNITUD" ]
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate bpm:isValid ;
+        rr:objectMap [ rml:reference "VALIDO" ; rr:termType rr:Literal ; rr:datatype xsd:boolean ]
+    ] .
+
+# ---------------------------------------------------------------------------
+# Days (OWL-Time): an interval of one day that begins at an instant with the date
+# (time:inXSDDate is defined for instants, so the date goes in the beginning)
+# ---------------------------------------------------------------------------
+<#DayMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/calidad-aire-diario-2024-csv-updated-with-links.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/breatheplay-madrid/resource/day/{FECHA}" ;
+        rr:termType rr:IRI ;
+        rr:class time:Interval
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ rr:template "Día {FECHA}" ; rr:termType rr:Literal ; rr:language "es" ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate time:hasBeginning ;
+        rr:objectMap [
+            rr:template "https://w3id.org/breatheplay-madrid/resource/instant/{FECHA}" ;
+            rr:termType rr:IRI
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate time:hasXSDDuration ;
+        rr:objectMap [ rr:constant "P1D" ; rr:termType rr:Literal ; rr:datatype xsd:duration ]
+    ] .
+
+<#InstantMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/calidad-aire-diario-2024-csv-updated-with-links.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/breatheplay-madrid/resource/instant/{FECHA}" ;
+        rr:termType rr:IRI ;
+        rr:class time:Instant
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ rr:template "Inicio del día {FECHA}" ; rr:termType rr:Literal ; rr:language "es" ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate time:inXSDDate ;
+        rr:objectMap [ rml:reference "FECHA" ; rr:termType rr:Literal ; rr:datatype xsd:date ]
+    ] .
+
+# ---------------------------------------------------------------------------
+# Sampling points (station + pollutant + technique) = EDINT environmental sensors
+# ---------------------------------------------------------------------------
+<#SamplingPointMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/calidad-aire-diario-2024-csv-updated-with-links.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/breatheplay-madrid/resource/sampling-point/{ESTACION_SLUG}-{CONTAMINANTE_SLUG}" ;
+        rr:termType rr:IRI ;
+        rr:class edintmed:EnvironmentalSensor
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rr:template "Punto de muestreo {PUNTO_MUESTREO} ({CONTAMINANTE})" ;
+            rr:termType rr:Literal ;
+            rr:language "es"
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate dct:identifier ;
+        rr:objectMap [ rml:reference "PUNTO_MUESTREO" ; rr:termType rr:Literal ; rr:datatype xsd:string ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate edintmed:hasSensorType ;
+        rr:objectMap [ rr:constant <https://edint.es/kos/SensorTypes/AirQualitySensor> ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:isHostedBy ;
+        rr:objectMap [
+            rr:template "https://w3id.org/breatheplay-madrid/resource/station/{ESTACION_SLUG}" ;
+            rr:termType rr:IRI
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:observes ;
+        rr:objectMap [
+            rr:parentTriplesMap <#EnvironmentalPropertyMap> ;
+            rr:joinCondition [ rr:child "MAGNITUD" ; rr:parent "MAGNITUD" ]
+        ]
+    ] ;
+
+    # Measurement technique: EDINT has no procedure, so SOSA is used directly
+    rr:predicateObjectMap [
+        rr:predicate sosa:implements ;
+        rr:objectMap [
+            rr:template "https://w3id.org/breatheplay-madrid/resource/technique/{TECNICA_SLUG}" ;
+            rr:termType rr:IRI
+        ]
+    ] .
+
+# ---------------------------------------------------------------------------
+# Stations host the sampling points (EDINT pattern: sosa:hosts and sosa:isHostedBy)
+# ---------------------------------------------------------------------------
+<#StationHostsMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/calidad-aire-diario-2024-csv-updated-with-links.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/breatheplay-madrid/resource/station/{ESTACION_SLUG}" ;
+        rr:termType rr:IRI
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:hosts ;
+        rr:objectMap [
+            rr:template "https://w3id.org/breatheplay-madrid/resource/sampling-point/{ESTACION_SLUG}-{CONTAMINANTE_SLUG}" ;
+            rr:termType rr:IRI
+        ]
+    ] .
+
+# ---------------------------------------------------------------------------
+# Measurement techniques (sosa:Procedure)
+# ---------------------------------------------------------------------------
+<#TechniqueMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/calidad-aire-diario-2024-csv-updated-with-links.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/breatheplay-madrid/resource/technique/{TECNICA_SLUG}" ;
+        rr:termType rr:IRI ;
+        rr:class sosa:Procedure
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ rml:reference "TECNICA_NOMBRE" ; rr:termType rr:Literal ; rr:language "es" ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate dct:identifier ;
+        rr:objectMap [ rml:reference "TECNICA" ; rr:termType rr:Literal ; rr:datatype xsd:string ]
+    ] .
+
+# ---------------------------------------------------------------------------
+# Environmental properties (from the correspondence table). The concepts belong to
+# EDINT (or to our own vocabulary, for ethylbenzene: ontology/breatheplay-kos.ttl);
+# here they are only typed, as in the EDINT vocabulary.
+# ---------------------------------------------------------------------------
+<#EnvironmentalPropertyMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/edint-environmental-properties.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rml:reference "EDINT_PROPERTY" ;
+        rr:termType rr:IRI ;
+        rr:class skos:Concept, edintmed:EnvironmentalProperty
+    ] .
+
+# ---------------------------------------------------------------------------
+# Madrid pollutant codes (MAGNITUD) as a SKOS list mapped to the EDINT concepts.
+# IRI with the readable name of the pollutant (resource/pollutant/no2); the Madrid
+# code is its skos:notation.
+# The link to the Wikidata entity of the substance (Hands-on 5) is kept here as
+# skos:relatedMatch and not owl:sameAs: what is observed is the concentration of
+# the substance, not the substance.
+# ---------------------------------------------------------------------------
+<#MadridPollutantMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/edint-environmental-properties.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/breatheplay-madrid/resource/pollutant/{CONTAMINANTE_SLUG}" ;
+        rr:termType rr:IRI ;
+        rr:class skos:Concept
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate skos:prefLabel ;
+        rr:objectMap [ rml:reference "CONTAMINANTE" ; rr:termType rr:Literal ; rr:language "es" ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate skos:notation ;
+        rr:objectMap [ rml:reference "MAGNITUD" ; rr:termType rr:Literal ; rr:datatype xsd:string ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate skos:inScheme ;
+        rr:objectMap [ rr:constant <https://w3id.org/breatheplay-madrid/kos/MadridPollutants> ]
+    ] ;
+
+    # skos:exactMatch to the EDINT concept (column SKOS_MATCH)
+    rr:predicateObjectMap [
+        rr:predicateMap [ rml:reference "SKOS_MATCH" ] ;
+        rr:objectMap [ rml:reference "EDINT_PROPERTY" ; rr:termType rr:IRI ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate skos:relatedMatch ;
+        rr:objectMap [ rml:reference "WIKIDATA" ; rr:termType rr:IRI ]
+    ] .
+
+# QUDT units (from the correspondence table)
+<#UnitMap> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "csv/edint-environmental-properties.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rml:reference "QUDT_UNIT" ;
+        rr:termType rr:IRI ;
+        rr:class qudt:Unit
+    ] .

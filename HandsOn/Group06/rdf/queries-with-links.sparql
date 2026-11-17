@@ -26,13 +26,13 @@ WHERE {
       la311:requestType ?requestType ;
       la311:status ?status ;
       la311:createdDate ?created ;
-      la311:responsible/la311:name ?organization ;
+      la311:responsible/la311:organizationName ?organization ;
       la311:reportedBy/rdfs:label ?agent ;
       la311:hasLocation ?location .
   ?location la311:address ?address ;
             la311:latitude ?latitude ;
             la311:longitude ?longitude .
-  OPTIONAL { ?sr la311:assignedTo/la311:name ?service }
+  OPTIONAL { ?sr la311:assignedTo/la311:serviceName ?service }
   OPTIONAL { ?location la311:isWithin/rdfs:label ?region }
 }
 LIMIT 10
@@ -69,7 +69,7 @@ SELECT ?organization (COUNT(?sr) AS ?requests)
 WHERE {
   ?sr a la311:ServiceRequest ;
       la311:responsible ?org .
-  ?org la311:name ?organization .
+  ?org la311:organizationName ?organization .
 }
 GROUP BY ?organization
 ORDER BY DESC(?requests)

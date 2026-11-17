@@ -1,0 +1,24 @@
+PREFIX la311: <http://linkeddata.la311.com/ontology#>
+PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?kind ?value ?label (COUNT(?sr) AS ?n)
+WHERE {
+  {
+    ?sr la311:requestType ?value . BIND ("type" AS ?kind) BIND (?value AS ?label)
+  } UNION {
+    ?sr la311:status ?value .      BIND ("status" AS ?kind) BIND (?value AS ?label)
+  } UNION {
+    ?sr la311:hasLocation/la311:isWithin/la311:cd ?value .
+    BIND ("cd" AS ?kind) BIND (CONCAT("Council District ", STR(?value)) AS ?label)
+  } UNION {
+    ?sr la311:hasLocation/la311:isWithin ?region .
+    ?region la311:nc ?value ; rdfs:label ?regionLabel .
+    FILTER (?value != 0)
+    BIND ("nc" AS ?kind)
+    BIND (REPLACE(?regionLabel, " \\(CD [0-9]+\\)$", "") AS ?label)
+  }
+}
+GROUP BY ?kind ?value ?label
+ORDER BY ?kind DESC(?n)

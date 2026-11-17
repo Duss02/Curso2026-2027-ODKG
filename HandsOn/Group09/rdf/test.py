@@ -28,6 +28,7 @@ INFO_ONLY = {
 def load_queries(path: Path) -> dict[str, str]:
     """Load SPARQL queries separated by '# QUERY: name' markers."""
     content = path.read_text(encoding="utf-8")
+
     sections = re.split(
         r"(?m)^# QUERY:\s*([a-zA-Z0-9_]+)\s*$",
         content,
@@ -39,8 +40,14 @@ def load_queries(path: Path) -> dict[str, str]:
         name = sections[index].strip()
         query = sections[index + 1].strip()
 
+        for line_number, line in enumerate(query.splitlines(), start=1):
+            print(f"{line_number:02d}: {line!r}")
+
         if query:
             queries[name] = query
+            print(f"\n[DEBUG] Query: {name}")
+            print(f"[DEBUG] Length: {len(query)}")
+            print(f"[DEBUG] First line: {query.splitlines()[0]}")
 
     if not queries:
         raise ValueError(f"No named queries found in {path}")
@@ -117,7 +124,7 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    rdf_path = BASE_DIR / "aparcamientos.ttl"
+    rdf_path = BASE_DIR / "aparcamientos-with-links.ttl"
     query_path = Path(args.queries)
     if not query_path.is_absolute():
         query_path = BASE_DIR / query_path

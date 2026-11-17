@@ -4,7 +4,7 @@
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh:    <http://www.w3.org/ns/shacl#> .
-@prefix dbd:   <https://example.org/db-delays/ontology/#> .
+@prefix dbd:   <https://example.org/db-delays/ontology#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -219,7 +219,7 @@
 
 # SECTION 2: Explicit repairs to the released generator output.
 
-@prefix dbd: <https://example.org/db-delays/ontology/#> .
+@prefix dbd: <https://example.org/db-delays/ontology#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <https://astrea.linkeddata.es/shapes#125f3145808471c46a6b5e7b1aed4f2d> sh:property <https://astrea.linkeddata.es/shapes#15e0cc80aca885e314c418d7213b74fa> .
@@ -288,8 +288,8 @@
 
 # SECTION 3: Manually added dataset-specific constraints.
 
-@prefix dbd: <https://example.org/db-delays/ontology/#> .
-@prefix shape: <https://example.org/db-delays/shapes/#> .
+@prefix dbd: <https://example.org/db-delays/ontology#> .
+@prefix shape: <https://example.org/db-delays/shapes#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
