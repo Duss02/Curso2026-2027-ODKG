@@ -1,0 +1,6 @@
+*
+!requirements.txt
+!traffic_api/
+!traffic_api/**
+**/__pycache__
+**/*.pyc
