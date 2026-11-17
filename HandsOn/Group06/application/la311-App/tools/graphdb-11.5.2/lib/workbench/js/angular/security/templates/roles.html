@@ -1,0 +1,23 @@
+<h1>
+    {{title}}
+</h1>
+<div core-errors></div>
+<div ng-show="getActiveRepository()">
+    <table class="table table-striped" aria-describedby="Role mappings table">
+        <thead>
+        <th id="mappingsColumn"><strong>{{'security.mapping.header' | translate}}</strong></th>
+        <th ng-repeat="role in roles" id="rolesColumn">
+            <strong>{{role}}</strong>
+        </th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="mapping in mappings">
+            <td><span>{{mapping}}</span></td>
+            <td ng-repeat="role in roles">
+                <span ng-style="{'color': roleMappings[role][mapping] ? 'green' : 'red'}">
+                {{roleMappings[role][mapping]}}</span> <span role="button" ng-click="debugMapping(role, mapping)" class="menu-item-icon ri-question-line"></span></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

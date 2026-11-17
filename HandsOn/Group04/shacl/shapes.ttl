@@ -1,0 +1,167 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix bpm:    <https://w3id.org/breatheplay-madrid/ontology#> .
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix geo:    <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+#  SHACL shapes for the Breathe and Play Madrid ontology (bpm:)
+#  Group04 - Open Data and Knowledge Graphs - Hands-on (optional)
+#################################################################
+
+bpm:MonitoringStationShape
+    a sh:NodeShape ;
+    sh:targetClass bpm:MonitoringStation ;
+    sh:property [
+        sh:path bpm:stationCode ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[0-9]{8}$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path geo:lat ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 40.0 ;
+        sh:maxInclusive 41.0 ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path geo:long ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive -4.0 ;
+        sh:maxInclusive -3.0 ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bpm:hasStationType ;
+        sh:class bpm:StationType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bpm:startDate ;
+        sh:datatype xsd:date ;
+        sh:maxCount 1 ;
+    ] .
+
+bpm:SportsFacilityShape
+    a sh:NodeShape ;
+    sh:targetClass bpm:SportsFacility ;
+    sh:property [
+        sh:path bpm:facilityId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bpm:hasFacilityType ;
+        sh:class bpm:FacilityType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bpm:hasAccessibilityLevel ;
+        sh:class bpm:AccessibilityLevel ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bpm:hasNearestStation ;
+        sh:class bpm:MonitoringStation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bpm:distanceToNearestStation ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path geo:lat ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path geo:long ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+bpm:DailyObservationShape
+    a sh:NodeShape ;
+    sh:targetClass bpm:DailyObservation ;
+    sh:property [
+        sh:path bpm:date ;
+        sh:datatype xsd:date ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bpm:isValid ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path sosa:hasSimpleResult ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path sosa:madeBySensor ;
+        sh:class bpm:SamplingPoint ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path sosa:observedProperty ;
+        sh:class bpm:Pollutant ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+bpm:DistrictShape
+    a sh:NodeShape ;
+    sh:targetClass bpm:District ;
+    sh:property [
+        sh:path bpm:districtCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+    ] .
+
+bpm:NeighbourhoodShape
+    a sh:NodeShape ;
+    sh:targetClass bpm:Neighbourhood ;
+    sh:property [
+        sh:path bpm:neighbourhoodCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bpm:isPartOfDistrict ;
+        sh:class bpm:District ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .

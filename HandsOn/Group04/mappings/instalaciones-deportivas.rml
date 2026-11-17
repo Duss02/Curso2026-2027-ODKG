@@ -13,6 +13,9 @@
 # (python mappings/generate_rdf.py), so that the csv/ paths resolve.
 # Dataset: Instalaciones deportivas municipales básicas (Ayuntamiento de Madrid, 200215)
 # Source:  csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv
+# IRIs: readable names of the resources (columns *_SLUG, added in OpenRefine: name
+# in lower case without accents, words joined by "-"), e.g. resource/station/plaza-de-espana;
+# the codes of the source are kept as literals.
 
 # ---------------------------------------------------------------------------
 # Sports facilities
@@ -24,7 +27,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/sports-facility/{PK}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/sports-facility/{INSTALACION_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:SportsFacility, schema:SportsActivityLocation
     ] ;
@@ -91,7 +94,7 @@
     rr:predicateObjectMap [
         rr:predicate bpm:hasAccessibilityLevel ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/accessibility-level/{ACCESIBILIDAD}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/accessibility-level/{ACCESIBILIDAD_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] ;
@@ -99,7 +102,7 @@
     rr:predicateObjectMap [
         rr:predicate bpm:locatedInDistrict ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/district/{COD-DISTRITO}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/district/{DISTRITO_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] ;
@@ -108,7 +111,7 @@
     rr:predicateObjectMap [
         rr:predicate bpm:locatedInNeighbourhood ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/neighbourhood/{BARRIO_ID}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/neighbourhood/{BARRIO_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] ;
@@ -137,7 +140,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/station/{CODIGO}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/station/{ESTACION_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:MonitoringStation, sosa:Platform
     ] ;
@@ -177,7 +180,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/accessibility-level/{ACCESIBILIDAD}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/accessibility-level/{ACCESIBILIDAD_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:AccessibilityLevel
     ] ;
@@ -197,7 +200,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/district/{COD-DISTRITO}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/district/{DISTRITO_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:District
     ] ;
@@ -222,7 +225,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/neighbourhood/{BARRIO_ID}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/neighbourhood/{BARRIO_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:Neighbourhood
     ] ;
@@ -240,7 +243,7 @@
     rr:predicateObjectMap [
         rr:predicate bpm:isPartOfDistrict ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/district/{COD-DISTRITO}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/district/{DISTRITO_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] .

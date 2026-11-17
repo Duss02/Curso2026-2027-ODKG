@@ -12,6 +12,9 @@
 # (python mappings/generate_rdf.py), so that the csv/ paths resolve.
 # Dataset: Estaciones de control de la calidad del aire (Ayuntamiento de Madrid, 212629)
 # Source:  csv/212629-0-estaciones-control-aire-csv-updated.csv
+# IRIs: readable names of the resources (columns *_SLUG, added in OpenRefine: name
+# in lower case without accents, words joined by "-"), e.g. resource/station/plaza-de-espana;
+# the codes of the source are kept as literals.
 
 # ---------------------------------------------------------------------------
 # Monitoring stations
@@ -23,7 +26,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/station/{CODIGO}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/station/{ESTACION_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:MonitoringStation, sosa:Platform
     ] ;
@@ -66,7 +69,7 @@
     rr:predicateObjectMap [
         rr:predicate bpm:hasStationType ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/station-type/{COD_TIPO}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/station-type/{TIPO_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] .
@@ -81,7 +84,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/station-type/{COD_TIPO}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/station-type/{TIPO_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:StationType
     ] ;

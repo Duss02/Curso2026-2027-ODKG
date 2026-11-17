@@ -1,0 +1,1 @@
+import{h}from"@stencil/core";export const SelectorItemButton=({repository:o})=>h("div",{class:"repository-selector-dropdown-item"},h("i",{class:"item-icon icon-repo-"+o.type}),h("div",{class:"item-label"},h("div",{class:"repository-id"},o.id),h("div",{class:"repository-location"},o.location?o.location:"Local")));

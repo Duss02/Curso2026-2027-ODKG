@@ -1,0 +1,1036 @@
+[INFO ] 2026-11-16 13:21:05,201 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 13:21:05,426 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 13:21:14,581 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 13:21:14,581 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 13:21:14,581 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:21:14,581 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 13:21:14,581 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 13:21:14,581 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[ERROR] 2026-11-16 13:21:14,794 [main | c.o.l.LicenseRegistry] License could not be loaded: No license was set
+[ERROR] 2026-11-16 13:21:14,795 [main | c.o.l.LicenseRegistry] License can be set in one of the following ways (in order of preference):
+- System or config property 'graphdb.license.file'
+- File 'graphdb.license' in config directory (/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf)
+- Set through Workbench
+Please refer to the documentation for more information on how to set the license.
+[INFO ] 2026-11-16 13:21:15,269 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 13:21:15,569 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 13:21:15,569 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 13:21:15,608 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 13:21:15,771 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 13:21:16,082 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 13:21:16,709 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 13:21:16,717 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 13:21:17,072 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Initializing repository: la3115298456059034368819
+[INFO ] 2026-11-16 13:21:17,074 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Started repository la3115298456059034368819 in READ/WRITE mode.
+[INFO ] 2026-11-16 13:21:17,075 [http-nio-7200-exec-5 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 13:21:17,076 [http-nio-7200-exec-5 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 15.0% (OK)
+[INFO ] 2026-11-16 13:21:17,076 [http-nio-7200-exec-5 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 15.0% (OK)
+[INFO ] 2026-11-16 13:21:17,077 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Storage folder does not exist but it is successfully created: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work/tmp/la3115298456059034368819/storage
+[INFO ] 2026-11-16 13:21:17,082 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la3115298456059034368819, entity id size 32
+[INFO ] 2026-11-16 13:21:17,202 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Initialization of la3115298456059034368819 entity pool successful!
+[INFO ] 2026-11-16 13:21:17,206 [http-nio-7200-exec-5 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 13:21:17,305 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la3115298456059034368819
+[INFO ] 2026-11-16 13:21:18,256 [http-nio-7200-exec-5 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 13:21:18,287 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la3115298456059034368819 in 1215 ms
+[INFO ] 2026-11-16 13:21:18,288 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Shutting down repository: la3115298456059034368819, reason: DEFAULT, closing the open connections: false
+[WARN ] 2026-11-16 13:21:18,429 [http-nio-7200-exec-5 | c.o.t.i.FileSystemHealth] The system is running out of disk space: The directory '/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs' is running out of free disk space with 15.0% (33 GB) free left (WARN)
+[INFO ] 2026-11-16 13:21:18,487 [http-nio-7200-exec-5 | c.o.t.OwlimSchemaRepository] Shutdown repository la3115298456059034368819 in 199 ms
+[INFO ] 2026-11-16 13:21:18,576 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 13:21:18,576 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 13:21:18,577 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Storage folder does not exist but it is successfully created: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311/storage
+[INFO ] 2026-11-16 13:21:18,577 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 13:21:18,659 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 13:21:18,681 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 13:21:19,213 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 637 ms
+[INFO ] 2026-11-16 13:21:19,216 [repositories/la311 | c.o.g.s.StatementsController] POST data to repository
+[ERROR] 2026-11-16 13:21:19,226 [repositories/la311 | c.o.f.s.GraphDBProtocolExceptionResolver] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: org.eclipse.rdf4j.repository.RepositoryException: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: No license was set
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.getAddDataResult(StatementsController.java:424)
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.handleRequestInternal(StatementsController.java:120)
+	at com.ontotext.graphdb.sesame.StatementsController.handleRequestInternal(StatementsController.java:76)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:178)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:132)
+	at com.ontotext.forest.security.AdminDelegatingFilterProxy.doFilter(AdminDelegatingFilterProxy.java:92)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.clusterproxy.ClusterFilterBean.doFilter(ClusterFilterBean.java:73)
+	at com.ontotext.forest.clusterproxy.ClusterLoadBalancerFilter.doFilterInternal(ClusterLoadBalancerFilter.java:25)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.RequestFilter.doFilterInternal(RequestFilter.java:47)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.lambda$new$0(GraphDBUrlHandlerFilter.java:26)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.doFilter(GraphDBUrlHandlerFilter.java:32)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2201)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: No license was set
+	at org.eclipse.rdf4j.repository.sail.SailRepositoryConnection.begin(SailRepositoryConnection.java:207)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.beginInternal(MonitorRepositoryConnection.java:309)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.begin(MonitorRepositoryConnection.java:255)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.begin(MonitorRepositoryConnection.java:249)
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.getAddDataResult(StatementsController.java:395)
+	... 45 common frames omitted
+Caused by: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: No license was set
+	at com.ontotext.trree.SailConnectionImpl.validateLicenseAndThrow(SailConnectionImpl.java:491)
+	at com.ontotext.trree.SailConnectionImpl.startTransactionInternal(SailConnectionImpl.java:648)
+	at com.ontotext.trree.SailConnectionImpl.begin(SailConnectionImpl.java:3227)
+	at com.ontotext.trree.SailConnectionImpl.begin(SailConnectionImpl.java:3207)
+	at org.eclipse.rdf4j.repository.sail.SailRepositoryConnection.begin(SailRepositoryConnection.java:204)
+	... 49 common frames omitted
+Caused by: com.ontotext.license.LicenseValidationException: No license was set
+	at com.ontotext.license.LicenseRegistry.validateLicense(LicenseRegistry.java:171)
+	at com.ontotext.trree.SailConnectionImpl.validateLicenseAndThrow(SailConnectionImpl.java:479)
+	... 53 common frames omitted
+[ERROR] 2026-11-16 13:21:25,727 [repositories/la311 | c.o.f.s.GraphDBProtocolExceptionResolver] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: Query evaluation error: com.ontotext.license.LicenseValidationException: No license was set
+	at org.eclipse.rdf4j.http.server.repository.handler.AbstractQueryRequestHandler.handleQueryRequest(AbstractQueryRequestHandler.java:156)
+	at org.eclipse.rdf4j.http.server.repository.AbstractRepositoryController.handleRequestInternal(AbstractRepositoryController.java:56)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:178)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:132)
+	at com.ontotext.forest.security.AdminDelegatingFilterProxy.doFilter(AdminDelegatingFilterProxy.java:92)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.clusterproxy.ClusterFilterBean.doFilter(ClusterFilterBean.java:73)
+	at com.ontotext.forest.clusterproxy.ClusterLoadBalancerFilter.doFilterInternal(ClusterLoadBalancerFilter.java:25)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.RequestFilter.doFilterInternal(RequestFilter.java:47)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.lambda$new$0(GraphDBUrlHandlerFilter.java:26)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.doFilter(GraphDBUrlHandlerFilter.java:32)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2201)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+[INFO ] 2026-11-16 13:21:57,052 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 13:21:57,076 [Thread-5 | c.o.f.c.s.SemanticDataManagement] Shutting down current semantic location
+[INFO ] 2026-11-16 13:21:57,080 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutting down repository: la311, reason: DEFAULT, closing the open connections: false
+[INFO ] 2026-11-16 13:21:57,379 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutdown repository la311 in 299 ms
+[INFO ] 2026-11-16 13:27:53,414 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 13:27:53,641 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 13:28:01,839 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 13:28:01,840 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 13:28:01,840 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:28:01,840 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 13:28:01,840 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 13:28:01,840 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:28:02,043 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 13:28:02,043 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[ERROR] 2026-11-16 13:28:02,043 [main | c.o.l.LicenseRegistry] License could not be loaded from file /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license: Failed to read license
+[INFO ] 2026-11-16 13:28:02,330 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 13:28:02,594 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 13:28:02,594 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 13:28:02,870 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 13:28:03,008 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 13:28:03,234 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 13:28:03,809 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 13:28:03,817 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 13:28:03,943 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 13:28:03,945 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 13:28:03,946 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 13:28:03,947 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 13:28:03,948 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 13:28:03,948 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 13:28:03,954 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 13:28:04,041 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 13:28:04,044 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 13:28:04,123 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 13:28:05,039 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 13:28:05,081 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1138 ms
+[INFO ] 2026-11-16 13:28:05,086 [repositories/la311 | c.o.g.s.StatementsController] DELETE data from repository
+[ERROR] 2026-11-16 13:28:05,096 [repositories/la311 | c.o.f.s.GraphDBProtocolExceptionResolver] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: org.eclipse.rdf4j.repository.RepositoryException: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.getDeleteDataResult(StatementsController.java:454)
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.handleRequestInternal(StatementsController.java:127)
+	at com.ontotext.graphdb.sesame.StatementsController.handleRequestInternal(StatementsController.java:76)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:178)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:132)
+	at com.ontotext.forest.security.AdminDelegatingFilterProxy.doFilter(AdminDelegatingFilterProxy.java:92)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.clusterproxy.ClusterFilterBean.doFilter(ClusterFilterBean.java:73)
+	at com.ontotext.forest.clusterproxy.ClusterLoadBalancerFilter.doFilterInternal(ClusterLoadBalancerFilter.java:25)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.RequestFilter.doFilterInternal(RequestFilter.java:47)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.lambda$new$0(GraphDBUrlHandlerFilter.java:26)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.doFilter(GraphDBUrlHandlerFilter.java:32)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2201)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at org.eclipse.rdf4j.repository.sail.SailRepositoryConnection.begin(SailRepositoryConnection.java:207)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.beginInternal(MonitorRepositoryConnection.java:309)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.begin(MonitorRepositoryConnection.java:255)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.begin(MonitorRepositoryConnection.java:249)
+	at org.eclipse.rdf4j.repository.base.AbstractRepositoryConnection.startLocalTransaction(AbstractRepositoryConnection.java:307)
+	at org.eclipse.rdf4j.repository.base.AbstractRepositoryConnection.remove(AbstractRepositoryConnection.java:489)
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.getDeleteDataResult(StatementsController.java:444)
+	... 45 common frames omitted
+Caused by: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at com.ontotext.trree.SailConnectionImpl.validateLicenseAndThrow(SailConnectionImpl.java:491)
+	at com.ontotext.trree.SailConnectionImpl.startTransactionInternal(SailConnectionImpl.java:648)
+	at com.ontotext.trree.SailConnectionImpl.begin(SailConnectionImpl.java:3227)
+	at com.ontotext.trree.SailConnectionImpl.begin(SailConnectionImpl.java:3207)
+	at org.eclipse.rdf4j.repository.sail.SailRepositoryConnection.begin(SailRepositoryConnection.java:204)
+	... 51 common frames omitted
+Caused by: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at com.ontotext.license.LicenseRegistry.validateLicense(LicenseRegistry.java:171)
+	at com.ontotext.trree.SailConnectionImpl.validateLicenseAndThrow(SailConnectionImpl.java:479)
+	... 55 common frames omitted
+[INFO ] 2026-11-16 13:28:10,308 [repositories/la311 | c.o.g.s.StatementsController] DELETE data from repository
+[ERROR] 2026-11-16 13:28:10,310 [repositories/la311 | c.o.f.s.GraphDBProtocolExceptionResolver] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: org.eclipse.rdf4j.repository.RepositoryException: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.getDeleteDataResult(StatementsController.java:454)
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.handleRequestInternal(StatementsController.java:127)
+	at com.ontotext.graphdb.sesame.StatementsController.handleRequestInternal(StatementsController.java:76)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:178)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:132)
+	at com.ontotext.forest.security.AdminDelegatingFilterProxy.doFilter(AdminDelegatingFilterProxy.java:92)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.clusterproxy.ClusterFilterBean.doFilter(ClusterFilterBean.java:73)
+	at com.ontotext.forest.clusterproxy.ClusterLoadBalancerFilter.doFilterInternal(ClusterLoadBalancerFilter.java:25)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.RequestFilter.doFilterInternal(RequestFilter.java:47)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.lambda$new$0(GraphDBUrlHandlerFilter.java:26)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.doFilter(GraphDBUrlHandlerFilter.java:32)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2201)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+Caused by: org.eclipse.rdf4j.repository.RepositoryException: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at org.eclipse.rdf4j.repository.sail.SailRepositoryConnection.begin(SailRepositoryConnection.java:207)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.beginInternal(MonitorRepositoryConnection.java:309)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.begin(MonitorRepositoryConnection.java:255)
+	at com.ontotext.trree.monitorRepository.MonitorRepositoryConnection.begin(MonitorRepositoryConnection.java:249)
+	at org.eclipse.rdf4j.repository.base.AbstractRepositoryConnection.startLocalTransaction(AbstractRepositoryConnection.java:307)
+	at org.eclipse.rdf4j.repository.base.AbstractRepositoryConnection.remove(AbstractRepositoryConnection.java:489)
+	at org.eclipse.rdf4j.http.server.repository.statements.StatementsController.getDeleteDataResult(StatementsController.java:444)
+	... 45 common frames omitted
+Caused by: org.eclipse.rdf4j.sail.SailException: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at com.ontotext.trree.SailConnectionImpl.validateLicenseAndThrow(SailConnectionImpl.java:491)
+	at com.ontotext.trree.SailConnectionImpl.startTransactionInternal(SailConnectionImpl.java:648)
+	at com.ontotext.trree.SailConnectionImpl.begin(SailConnectionImpl.java:3227)
+	at com.ontotext.trree.SailConnectionImpl.begin(SailConnectionImpl.java:3207)
+	at org.eclipse.rdf4j.repository.sail.SailRepositoryConnection.begin(SailRepositoryConnection.java:204)
+	... 51 common frames omitted
+Caused by: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at com.ontotext.license.LicenseRegistry.validateLicense(LicenseRegistry.java:171)
+	at com.ontotext.trree.SailConnectionImpl.validateLicenseAndThrow(SailConnectionImpl.java:479)
+	... 55 common frames omitted
+[ERROR] 2026-11-16 13:28:10,363 [repositories/la311 | c.o.f.s.GraphDBProtocolExceptionResolver] Error while handling request (500)
+org.eclipse.rdf4j.http.server.ServerHTTPException: Query evaluation error: com.ontotext.license.LicenseValidationException: License validation has failed: Failed to read license
+	at org.eclipse.rdf4j.http.server.repository.handler.AbstractQueryRequestHandler.handleQueryRequest(AbstractQueryRequestHandler.java:156)
+	at org.eclipse.rdf4j.http.server.repository.AbstractRepositoryController.handleRequestInternal(AbstractRepositoryController.java:56)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:178)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:51)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:132)
+	at com.ontotext.forest.security.AdminDelegatingFilterProxy.doFilter(AdminDelegatingFilterProxy.java:92)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.clusterproxy.ClusterFilterBean.doFilter(ClusterFilterBean.java:73)
+	at com.ontotext.forest.clusterproxy.ClusterLoadBalancerFilter.doFilterInternal(ClusterLoadBalancerFilter.java:25)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.RequestFilter.doFilterInternal(RequestFilter.java:47)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.lambda$new$0(GraphDBUrlHandlerFilter.java:26)
+	at com.ontotext.forest.core.request.GraphDBUrlHandlerFilter.doFilter(GraphDBUrlHandlerFilter.java:32)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2201)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+[INFO ] 2026-11-16 13:28:32,892 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 13:28:32,916 [Thread-5 | c.o.f.c.s.SemanticDataManagement] Shutting down current semantic location
+[INFO ] 2026-11-16 13:28:32,918 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutting down repository: la311, reason: DEFAULT, closing the open connections: false
+[WARN ] 2026-11-16 13:28:33,051 [Thread-5 | c.o.t.i.FileSystemHealth] The system is running out of disk space: The directory '/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311' is running out of free disk space with 14.0% (32 GB) free left (WARN)
+[INFO ] 2026-11-16 13:28:33,069 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutdown repository la311 in 151 ms
+[INFO ] 2026-11-16 13:28:37,559 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 13:28:37,769 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 13:28:45,553 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 13:28:45,554 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 13:28:45,554 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:28:45,554 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 13:28:45,554 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 13:28:45,554 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:28:45,746 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 13:28:45,747 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 13:28:45,747 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 13:28:45,747 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 13:28:45,747 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 13:28:45,747 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 13:28:45,747 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 13:28:45,748 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 13:28:45,748 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 13:28:45,748 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 13:28:45,748 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 13:28:45,748 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 13:28:46,008 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 13:28:46,270 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 13:28:46,270 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 13:28:46,514 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 13:28:46,650 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 13:28:46,865 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 13:28:47,443 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 13:28:47,450 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 13:28:54,421 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 13:28:54,423 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 13:28:54,424 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 13:28:54,425 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 13:28:54,425 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 13:28:54,425 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 13:28:54,431 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 13:28:54,523 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 13:28:54,527 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 13:28:54,613 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 13:28:55,556 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 13:28:55,590 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1169 ms
+[INFO ] 2026-11-16 13:28:55,592 [repositories/la311 | c.o.g.s.StatementsController] DELETE data from repository
+[WARN ] 2026-11-16 13:28:55,604 [repositories/la311 | c.o.t.i.FileSystemHealth] The directory '/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs' is running out of free disk space with 14.0% (32 GB) free left
+[WARN ] 2026-11-16 13:28:55,605 [repositories/la311 | c.o.t.i.FileSystemHealth] The directory '/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work' is running out of free disk space with 14.0% (32 GB) free left
+[WARN ] 2026-11-16 13:28:55,608 [repositories/la311 | c.o.t.i.FileSystemHealth] The system is running out of disk space: The directory '/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311' is running out of free disk space with 14.0% (32 GB) free left (WARN)
+[INFO ] 2026-11-16 13:28:55,643 [repositories/la311 | c.o.p.literals-index] Deleting the FTS indexes..
+[INFO ] 2026-11-16 13:28:55,644 [repositories/la311 | c.o.p.literals-index] Completed FTS indexes removal
+[INFO ] 2026-11-16 13:28:55,650 [repositories/la311 | c.o.p.history] Clearing the entire history
+[INFO ] 2026-11-16 13:28:55,793 [repositories/la311 | c.o.g.s.StatementsController] POST data to repository
+[WARN ] 2026-11-16 13:29:39,402 [repositories/la311 | o.e.r.h.c.SPARQLProtocolSession] Server reports problem: null (enable debug logging for full details)
+[ERROR] 2026-11-16 13:29:39,407 [repositories/la311 | c.o.g.s.TupleQueryResultView] Query evaluation error: Please set a user-agent and respect our robot policy https://w.wiki/4wJS. See also https://phabricator.wikimedia.org/T400119.
+[INFO ] 2026-11-16 13:34:19,442 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 13:34:19,477 [Thread-5 | c.o.f.c.s.SemanticDataManagement] Shutting down current semantic location
+[INFO ] 2026-11-16 13:34:19,480 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutting down repository: la311, reason: DEFAULT, closing the open connections: false
+[WARN ] 2026-11-16 13:34:19,627 [Thread-5 | c.o.t.i.FileSystemHealth] The system is running out of disk space: The directory '/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311' is running out of free disk space with 14.0% (32 GB) free left (WARN)
+[INFO ] 2026-11-16 13:34:19,798 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutdown repository la311 in 318 ms
+[INFO ] 2026-11-16 13:36:06,278 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 13:36:06,496 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 13:36:14,436 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 13:36:14,436 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 13:36:14,436 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:36:14,437 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 13:36:14,437 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 13:36:14,437 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:36:14,628 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 13:36:14,629 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 13:36:14,630 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 13:36:14,923 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 13:36:15,161 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 13:36:15,161 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 13:36:15,417 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 13:36:15,560 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 13:36:15,786 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 13:36:16,346 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 13:36:16,354 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 13:36:17,226 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 13:36:17,228 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 13:36:17,229 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 13:36:17,230 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 13:36:17,230 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 13:36:17,230 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 13:36:17,236 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 13:36:17,333 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 13:36:17,336 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 13:36:17,435 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 13:36:18,308 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 13:36:18,340 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1114 ms
+[WARN ] 2026-11-16 13:36:19,578 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=RG7Epd4SHn2CqP5I1njwrQQaAAAAAFvdwoxVxP_GPEvJ748UtPgWr36ocVZE2B34;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:36:19,585 [repositories/la311 | o.e.r.h.c.SPARQLProtocolSession] Server reports problem: null (enable debug logging for full details)
+[ERROR] 2026-11-16 13:36:19,589 [repositories/la311 | c.o.g.s.TupleQueryResultView] Query evaluation error: SPARQL-QUERY: queryStr=PREFIX la311: <http://linkeddata.la311.com/ontology#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX schema: <http://schema.org/> PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX rdf4j: <http://rdf4j.org/schema/rdf4j#> PREFIX sesame: <http://www.openrdf.org/schema/sesame#> PREFIX fn: <http://www.w3.org/2005/xpath-functions#> SELECT  ?p ?img ?art ?pl ?ds ?nm WHERE { VALUES <http://www.wikidata.org/entity/Q120064371> { wd:Q120064371 wd:Q4931858 wd:Q100728314 wd:Q4685737 wd:Q131101480 wd:Q115327492 wd:Q115238364 wd:Q20638114 wd:Q113686955 wd:Q117101867 wd:Q112652355 wd:Q115471735 wd:Q30122916 }
+      OPTIONAL { <http://www.wikidata.org/entity/Q120064371> rdfs:label ?nm . FILTER (LANG(?nm) IN ("en", "mul")) }
+      OPTIONAL { <http://www.wikidata.org/entity/Q120064371> schema:description ?ds . FILTER (LANG(?ds) = "en") }
+      OPTIONAL { <http://www.wikidata.org/entity/Q120064371> wdt:P18 ?img }
+      OPTIONAL { <http://www.wikidata.org/entity/Q120064371> wdt:P102 ?p . ?p rdfs:label ?pl . FILTER (LANG(?pl) = "en") }
+      OPTIONAL { ?art schema:about <http://www.wikidata.org/entity/Q120064371> ; schema:isPartOf <https://en.wikipedia.org/> }
+}
+java.util.concurrent.ExecutionException: org.openrdf.query.MalformedQueryException: Encountered " <Q_IRI_REF> "<http://www.wikidata.org/entity/Q120064371> "" at line 1, column 646.
+Was expecting one of:
+    "(" ...
+    <NIL> ...
+    <VAR1> ...
+    <VAR2> ...
+    
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at com.bigdata.rdf.sail.webapp.BigdataServlet.submitApiTask(BigdataServlet.java:292)
+	at com.bigdata.rdf.sail.webapp.QueryServlet.doSparqlQuery(QueryServlet.java:678)
+	at com.bigdata.rdf.sail.webapp.QueryServlet.doPost(QueryServlet.java:275)
+	at com.bigdata.rdf.sail.webapp.RESTServlet.doPost(RESTServlet.java:269)
+	at com.bigdata.rdf.sail.webapp.MultiTenancyServlet.doPost(MultiTenancyServlet.java:195)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:865)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.wikidata.query.rdf.blazegraph.throttling.ThrottlingFilter.doFilter(ThrottlingFilter.java:339)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.throttling.SystemOverloadFilter.doFilter(SystemOverloadFilter.java:84)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at ch.qos.logback.classic.helpers.MDCInsertingServletFilter.doFilter(MDCInsertingServletFilter.java:50)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.QueryEventSenderFilter.doFilter(QueryEventSenderFilter.java:126)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.ClientIPFilter.doFilter(ClientIPFilter.java:43)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.JWTIdentityFilter.doFilter(JWTIdentityFilter.java:66)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.RealAgentFilter.doFilter(RealAgentFilter.java:33)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.RequestConcurrencyFilter.doFilter(RequestConcurrencyFilter.java:50)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.openrdf.query.MalformedQueryException: Encountered " <Q_IRI_REF> "<http://www.wikidata.org/entity/Q120064371> "" at line 1, column 646.
+Was expecting one of:
+    "(" ...
+    <NIL> ...
+    <VAR1> ...
+    <VAR2> ...
+    
+	at com.bigdata.rdf.sail.sparql.Bigdata2ASTSPARQLParser.parseQuery2(Bigdata2ASTSPARQLParser.java:400)
+	at com.bigdata.rdf.sail.webapp.QueryServlet$SparqlQueryTask.call(QueryServlet.java:741)
+	at com.bigdata.rdf.sail.webapp.QueryServlet$SparqlQueryTask.call(QueryServlet.java:695)
+	at com.bigdata.rdf.task.ApiTaskForIndexManager.call(ApiTaskForIndexManager.java:68)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: com.bigdata.rdf.sail.sparql.ast.ParseException: Encountered " <Q_IRI_REF> "<http://www.wikidata.org/entity/Q120064371> "" at line 1, column 646.
+Was expecting one of:
+    "(" ...
+    <NIL> ...
+    <VAR1> ...
+    <VAR2> ...
+    
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.generateParseException(SyntaxTreeBuilder.java:9722)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.jj_consume_token(SyntaxTreeBuilder.java:9589)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.DataBlock(SyntaxTreeBuilder.java:1144)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.InlineData(SyntaxTreeBuilder.java:1110)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.GraphPatternNotTriples(SyntaxTreeBuilder.java:2373)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.GraphPattern(SyntaxTreeBuilder.java:2047)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.GroupGraphPattern(SyntaxTreeBuilder.java:1969)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.WhereClause(SyntaxTreeBuilder.java:1013)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.SelectQuery(SyntaxTreeBuilder.java:377)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.Query(SyntaxTreeBuilder.java:328)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.QueryContainer(SyntaxTreeBuilder.java:216)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.parseQuery(SyntaxTreeBuilder.java:32)
+	at com.bigdata.rdf.sail.sparql.Bigdata2ASTSPARQLParser.parseQuery2(Bigdata2ASTSPARQLParser.java:336)
+	... 7 more
+[WARN ] 2026-11-16 13:36:26,441 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=El4MCMPX0N2mYUWphz2C5AQaAAAAAFvdYLRllrMzwJPLAVVlG_AadS-0pqPo9owp;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:36:26,442 [repositories/la311 | o.e.r.h.c.SPARQLProtocolSession] Server reports problem: null (enable debug logging for full details)
+[ERROR] 2026-11-16 13:36:26,443 [repositories/la311 | c.o.g.s.TupleQueryResultView] Query evaluation error: SPARQL-QUERY: queryStr=PREFIX la311: <http://linkeddata.la311.com/ontology#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX schema: <http://schema.org/> PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX rdf4j: <http://rdf4j.org/schema/rdf4j#> PREFIX sesame: <http://www.openrdf.org/schema/sesame#> PREFIX fn: <http://www.w3.org/2005/xpath-functions#> SELECT  ?p ?img ?art ?pl ?ds ?nm WHERE { VALUES <http://www.wikidata.org/entity/Q120064371> { wd:Q131101480 wd:Q30122916 wd:Q115327492 wd:Q20638114 wd:Q115471735 wd:Q113686955 wd:Q117101867 wd:Q4685737 wd:Q4931858 wd:Q115238364 wd:Q120064371 wd:Q100728314 wd:Q112652355 }
+      OPTIONAL { <http://www.wikidata.org/entity/Q120064371> rdfs:label ?nm . FILTER (LANG(?nm) IN ("en", "mul")) }
+      OPTIONAL { <http://www.wikidata.org/entity/Q120064371> schema:description ?ds . FILTER (LANG(?ds) = "en") }
+      OPTIONAL { <http://www.wikidata.org/entity/Q120064371> wdt:P18 ?img }
+      OPTIONAL { <http://www.wikidata.org/entity/Q120064371> wdt:P102 ?p . ?p rdfs:label ?pl . FILTER (LANG(?pl) = "en") }
+      OPTIONAL { ?art schema:about <http://www.wikidata.org/entity/Q120064371> ; schema:isPartOf <https://en.wikipedia.org/> }
+}
+java.util.concurrent.ExecutionException: org.openrdf.query.MalformedQueryException: Encountered " <Q_IRI_REF> "<http://www.wikidata.org/entity/Q120064371> "" at line 1, column 646.
+Was expecting one of:
+    "(" ...
+    <NIL> ...
+    <VAR1> ...
+    <VAR2> ...
+    
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at com.bigdata.rdf.sail.webapp.BigdataServlet.submitApiTask(BigdataServlet.java:292)
+	at com.bigdata.rdf.sail.webapp.QueryServlet.doSparqlQuery(QueryServlet.java:678)
+	at com.bigdata.rdf.sail.webapp.QueryServlet.doPost(QueryServlet.java:275)
+	at com.bigdata.rdf.sail.webapp.RESTServlet.doPost(RESTServlet.java:269)
+	at com.bigdata.rdf.sail.webapp.MultiTenancyServlet.doPost(MultiTenancyServlet.java:195)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:865)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.wikidata.query.rdf.blazegraph.throttling.ThrottlingFilter.doFilter(ThrottlingFilter.java:339)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.throttling.SystemOverloadFilter.doFilter(SystemOverloadFilter.java:84)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at ch.qos.logback.classic.helpers.MDCInsertingServletFilter.doFilter(MDCInsertingServletFilter.java:50)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.QueryEventSenderFilter.doFilter(QueryEventSenderFilter.java:126)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.ClientIPFilter.doFilter(ClientIPFilter.java:43)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.JWTIdentityFilter.doFilter(JWTIdentityFilter.java:66)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.RealAgentFilter.doFilter(RealAgentFilter.java:33)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.wikidata.query.rdf.blazegraph.filters.RequestConcurrencyFilter.doFilter(RequestConcurrencyFilter.java:50)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.openrdf.query.MalformedQueryException: Encountered " <Q_IRI_REF> "<http://www.wikidata.org/entity/Q120064371> "" at line 1, column 646.
+Was expecting one of:
+    "(" ...
+    <NIL> ...
+    <VAR1> ...
+    <VAR2> ...
+    
+	at com.bigdata.rdf.sail.sparql.Bigdata2ASTSPARQLParser.parseQuery2(Bigdata2ASTSPARQLParser.java:400)
+	at com.bigdata.rdf.sail.webapp.QueryServlet$SparqlQueryTask.call(QueryServlet.java:741)
+	at com.bigdata.rdf.sail.webapp.QueryServlet$SparqlQueryTask.call(QueryServlet.java:695)
+	at com.bigdata.rdf.task.ApiTaskForIndexManager.call(ApiTaskForIndexManager.java:68)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+Caused by: com.bigdata.rdf.sail.sparql.ast.ParseException: Encountered " <Q_IRI_REF> "<http://www.wikidata.org/entity/Q120064371> "" at line 1, column 646.
+Was expecting one of:
+    "(" ...
+    <NIL> ...
+    <VAR1> ...
+    <VAR2> ...
+    
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.generateParseException(SyntaxTreeBuilder.java:9722)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.jj_consume_token(SyntaxTreeBuilder.java:9589)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.DataBlock(SyntaxTreeBuilder.java:1144)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.InlineData(SyntaxTreeBuilder.java:1110)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.GraphPatternNotTriples(SyntaxTreeBuilder.java:2373)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.GraphPattern(SyntaxTreeBuilder.java:2047)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.GroupGraphPattern(SyntaxTreeBuilder.java:1969)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.WhereClause(SyntaxTreeBuilder.java:1013)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.SelectQuery(SyntaxTreeBuilder.java:377)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.Query(SyntaxTreeBuilder.java:328)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.QueryContainer(SyntaxTreeBuilder.java:216)
+	at com.bigdata.rdf.sail.sparql.ast.SyntaxTreeBuilder.parseQuery(SyntaxTreeBuilder.java:32)
+	at com.bigdata.rdf.sail.sparql.Bigdata2ASTSPARQLParser.parseQuery2(Bigdata2ASTSPARQLParser.java:336)
+	... 7 more
+[WARN ] 2026-11-16 13:37:30,855 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=r9vgcv2uJ3k-psDTm_WTUAQaAAAAAFvdVOGDKhlur5IyqU2vsio82DbsTyi9Hsn2;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:31,031 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=rCfmrSBr3E8Pqzs6OPEzMwQaAAAAAFvd5ZagJ644vfZIGgV9uTHpwPuY7Cw91I92;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:31,506 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=GnbED-FPvTFwOoeI-Onb7wQaAAAAAFvdHG7rA8t8UznJkKh68PcqLwhNhze_KNnJ;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:31,890 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=9ZhhABjH4FAx4V0BYE01fwQaAAAAAFvdsqPmcAnexAgclQF2ZJQhbYGX0OEBWraU;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:33,023 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=wqO75mY-zTOPffhb5ve96gQaAAAAAFvdKIEzJ96r-cWZ9DTdUfoL1viYktAyDjRL;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:33,401 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=t_1VUGw_igB0B71sZA49twQaAAAAAFvdXKH_ipPtWR-gaNh-pm2bov4enWH_adcG;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:36,263 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=fKVsCowr2Vurtu30Pae2EAQaAAAAAFvdqx42xM_hApm04KSyyehioe0HwOnRxXoK;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:36,454 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=_QuMkcU79d21IdWqJ_zZNgQaAAAAAFvdxd39pnwi4WTT8YxYzVSBLuuXYCLfGR0A;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:36,781 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=VDvmh-N0EF_j7bz3t4FGkgQaAAAAAFvd3LE6g4TjcTJQ0ygtymPy2-W3NzvmSnHb;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:37,022 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=pgtHoZFVX6cGfZsRg2Ex9QQaAAAAAFvdZozKsNKCpH4-psb3F56WE1aPs4CpblD-;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:37,494 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=ZT5HRIzrd6nKw5agSWQ9jAQaAAAAAFvde55xX745oaDlrfzDdqfCDipdwITCGn2_;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:37,852 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=HoosYjT55kEsPfKatLf6DgQaAAAAAFvdoFrtXa9Ks85WkgLNmB_nnoHrJ_atpztm;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:37,999 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=i8jSrAOqurB22RqWl9_gjAQaAAAAAFvdlYKIZic3p4o9JX4Mvb2WsjPmpz5b4aB_;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:38,215 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=ULGlmwwebAkFadboy0-3oAQaAAAAAFvdkw4AEA3PFBIj-aXA3vn2enc15oBU66Fn;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:38,520 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=mxdnw49vbdSQeEInzTf3mgQaAAAAAFvdewW36QiQd9QdAq6JlxNDYFPrzhfDj5vV;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:46,436 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=y4RHkbVevoZzvJdS31mBMAQaAAAAAFvdPrnqCraq3XbkNGYlcrEBYW6UH1X9PRRL;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:47,323 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=HzyVlJHDaSvDWfuzpjMt_AQaAAAAAFvdMLuQt1QJEZCjxiyC4S0I6Qko4TkQamz7;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:37:47,566 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=4wL7NyZVh6Mg80FHbejE6QQaAAAAAFvdxqnaQt0EDD7fnkCUBL0SBemiaDti06h4;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:38:29,389 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=zOC67Ve0cMpMCna_yZv_jgQaAAAAAFvdC_DSQhef1iPAV1SP7i85toAz0dTXTzKo;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:39:12,746 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=27NDUC3UJBUY62KXI3absgQaAAAAAFvdc71GzLEdVmJycHc-uKA-qVmoCg9QUSUO;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:39:13,545 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=a5LhPOYFGy4t858MtNIhvwQaAAAAAFvdc4dOc7ZDBPXoe3xRhTTuyiOiNC7_A7bf;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:39:14,059 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=gceJH-Vot7CXIQuKVHe_JAQaAAAAAFvd_jbH0CcrlQS-J4zjZhKBhO2dzyVEJbrD;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:39:14,645 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=laOR9Vug8Kq7cDsEQr0eVQQaAAAAAFvdXh95FScwJ8N0VPNbaqriKiz2nWWzXSYx;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:39:23,884 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=x3ejFea_pHaG77d-z6KfewQaAAAAAFvdavVqbawgOcQYZXmIcXKFe97pfzud_FDF;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:39:44,902 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=MnInO0wC1qKnGyUw3JGa8AQaAAAAAFvd0DSvaGNMAJLcFw5NyRh59Fjuoug-UHyb;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:39:48,036 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=QynEQyA9GHtmR-N13ck4qgQaAAAAAFvd-FnFKUiZDkqhZ2_qVGmPeQ45zVsXJsav;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 13:39:48,243 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=9LoSPOsnQ9PsafhoHdxPaAQaAAAAAFvdC8FJhoK3AgKEPxe-XjSTyHDV0eyqa7lA;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[INFO ] 2026-11-16 13:48:15,690 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 13:48:15,726 [Thread-5 | c.o.f.c.s.SemanticDataManagement] Shutting down current semantic location
+[INFO ] 2026-11-16 13:48:15,730 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutting down repository: la311, reason: DEFAULT, closing the open connections: false
+[WARN ] 2026-11-16 13:48:15,873 [Thread-5 | c.o.t.i.FileSystemHealth] The system is running out of disk space: The directory '/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311' is running out of free disk space with 14.0% (32 GB) free left (WARN)
+[INFO ] 2026-11-16 13:48:15,896 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutdown repository la311 in 166 ms
+[INFO ] 2026-11-16 13:49:44,492 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 13:49:44,704 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 13:49:52,293 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 13:49:52,293 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 13:49:52,293 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:49:52,293 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 13:49:52,293 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 13:49:52,293 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 13:49:52,497 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 13:49:52,497 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 13:49:52,498 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 13:49:52,772 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 13:49:53,054 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 13:49:53,054 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 13:49:53,343 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 13:49:53,476 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 13:49:53,693 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 13:49:54,259 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 13:49:54,267 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 13:49:57,803 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 13:49:57,807 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 13:49:57,811 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 13:49:57,814 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 13:49:57,814 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 13:49:57,814 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 13:49:57,848 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 13:49:57,949 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 13:49:57,953 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 13:49:58,083 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 13:49:59,299 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 13:49:59,337 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1534 ms
+[WARN ] 2026-11-16 13:50:21,368 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=XrDzN8xqv3ufdtdfEJFwGwQaAAAAAFvd87t9scIMwWbjWPBxO4TPnm2P7qOuRmhi;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[INFO ] 2026-11-16 13:50:30,886 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 17:17:17,444 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 17:17:17,670 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 17:17:25,606 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 17:17:25,607 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 17:17:25,607 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:17:25,607 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 17:17:25,607 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 17:17:25,607 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:17:26,198 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 17:17:26,198 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 17:17:26,200 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 17:17:26,605 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 17:17:26,895 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 17:17:26,895 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 17:17:27,215 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 17:17:27,480 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 17:17:27,825 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 17:17:28,457 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 17:17:28,466 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 17:17:31,429 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 17:17:31,436 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 17:17:31,472 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 17:17:31,484 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 17:17:31,485 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 17:17:31,485 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 17:17:31,523 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 17:17:31,801 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 17:17:31,807 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 17:17:31,932 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 17:17:32,999 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 17:17:33,042 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1613 ms
+[WARN ] 2026-11-16 17:26:45,477 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=SYOhAYFyR4iuXguJ14vEWQQaAAAAAFvdmHI_W4HGTXZltvLCPmmLRlAyC5sGruEx;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:26:50,690 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=Olmd9exK7Jr6bwP5wSGrFAQaAAAAAFvd_c18ewkus5Hknk1yq5h6ebrMHKJ4M9Ct;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[INFO ] 2026-11-16 17:39:55,409 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 17:40:05,091 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 17:40:05,316 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 17:40:15,562 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 17:40:15,563 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 17:40:15,563 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:40:15,563 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 17:40:15,563 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 17:40:15,563 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:40:15,804 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 17:40:15,804 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 17:40:15,805 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 17:40:16,194 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 17:40:16,529 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 17:40:16,529 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 17:40:16,875 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 17:40:17,033 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 17:40:17,317 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 17:40:19,019 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 17:40:19,041 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 17:40:31,495 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 17:40:31,498 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 17:40:31,500 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 17:40:31,502 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 17:40:31,502 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 17:40:31,502 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 17:40:31,550 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 17:40:31,674 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 17:40:31,679 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 17:40:31,801 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 17:40:32,829 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 17:40:32,888 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1393 ms
+[WARN ] 2026-11-16 17:42:19,590 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=A-JX-3-q-_8V3ZJoXf-y0QQaAAAAAFvd3W7isfcGzIiUX0Uqaz4LM2u68S7_M18w;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:42:20,049 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=jH1AorR0txyJCmuL4CaslAQaAAAAAFvdBFbM3ODBMWmyKudSvTLMheudc0Mrw7sI;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:42:20,346 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=5mXogSBMbM79YTuBQIYKqwQaAAAAAFvdzhrRqhmy3SmiSS8FbcxN4pNlGUL1_57M;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[INFO ] 2026-11-16 17:42:52,816 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 17:42:56,098 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 17:42:56,335 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 17:43:05,159 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 17:43:05,160 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 17:43:05,160 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:43:05,160 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 17:43:05,160 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 17:43:05,160 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:43:05,388 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 17:43:05,389 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 17:43:05,390 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 17:43:05,717 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 17:43:06,046 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 17:43:06,047 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 17:43:06,363 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 17:43:06,534 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 17:43:06,804 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 17:43:07,492 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 17:43:07,501 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 17:43:07,563 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 17:43:07,566 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 17:43:07,567 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 17:43:07,568 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 17:43:07,568 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 17:43:07,568 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 17:43:07,577 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 17:43:07,681 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 17:43:07,684 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 17:43:07,789 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 17:43:08,696 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 17:43:08,737 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1174 ms
+[WARN ] 2026-11-16 17:43:32,118 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=09XXtug-rrF9Tka9ZqoCrQQaAAAAAFvdQ-XlKOwXtR-eENXhVrWEnEtjbOSK2D5f;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:43:34,133 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=250M5gNcR2AaF0mS7biaUwQaAAAAAFvdWeoJYi64QDyhHI9KAfpQGxMu8hKMvcrh;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:43:41,173 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=l1fCGm3lvbOpV_KXT2dD4wQaAAAAAFvdLqSkUc6EvHMcFxdgDgO9n3nOtejOqDOp;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:43:53,486 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=7rd1n8GNpSlPZGzNpoFtNQQaAAAAAFvdRaI2V-dJk9ug8L71QQsgPI1ZcGstIQ7_;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:43:54,152 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=uYcELJ_ksm-EoJIf4iFc7wQaAAAAAFvdCKamc4YWq1hfSLrJxhDyjbDyFZ_82aX5;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:43:54,612 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=7lHoDjQ0n2fsobV8wMNa2gQaAAAAAFvdKApdYMFhdZ41GYOF7zskLoMTnYFXPdez;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:44:54,618 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=ScRe9R7P-3IVRPfkZXZRlAQaAAAAAFvdbR5dSE6dWV0QelhiWNNNNbCOMjv90x6V;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[INFO ] 2026-11-16 17:48:06,846 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 17:48:49,610 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 17:48:49,839 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 17:48:58,296 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 17:48:58,297 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 17:48:58,297 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:48:58,297 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 17:48:58,297 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 17:48:58,297 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:48:58,495 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 17:48:58,495 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 17:48:58,496 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 17:48:58,496 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 17:48:58,496 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 17:48:58,496 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 17:48:58,496 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 17:48:58,496 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 17:48:58,496 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 17:48:58,497 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 17:48:58,497 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 17:48:58,497 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 17:48:58,772 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 17:48:59,015 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 17:48:59,015 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 17:48:59,281 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 17:48:59,420 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 17:48:59,652 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 17:49:00,446 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 17:49:00,453 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 17:49:00,574 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 17:49:00,576 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 17:49:00,577 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 17:49:00,578 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 17:49:00,578 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 17:49:00,578 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 17:49:00,584 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 17:49:00,695 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 17:49:00,698 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 17:49:00,794 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 17:49:01,797 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 17:49:01,831 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1257 ms
+[WARN ] 2026-11-16 17:50:25,802 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=xfPLWGsmIGvH4xCJ-E4LUAQaAAAAAFvdg7icxOCElvjoRZDDaekXHBcpTuVva7pk;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[WARN ] 2026-11-16 17:50:36,217 [repositories/la311 | o.a.h.c.p.ResponseProcessCookies] Invalid cookie header: "set-cookie: WMF-Uniq=giv3nI9UplAV5tP8ly5CUQQaAAAAAFvd4TM0qjWK11km6X8wAmeAODO83jLXULkH;Domain=.wikidata.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue, 16 Nov 2027 00:00:00 GMT". Invalid 'expires' attribute: Tue, 16 Nov 2027 00:00:00 GMT
+[INFO ] 2026-11-16 17:51:13,607 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 17:51:13,626 [Thread-5 | c.o.f.c.s.SemanticDataManagement] Shutting down current semantic location
+[INFO ] 2026-11-16 17:51:13,630 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutting down repository: la311, reason: DEFAULT, closing the open connections: false
+[WARN ] 2026-11-16 17:51:13,751 [Thread-5 | c.o.t.i.FileSystemHealth] The system is running out of disk space: The directory '/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311' is running out of free disk space with 14.0% (31 GB) free left (WARN)
+[INFO ] 2026-11-16 17:51:13,769 [Thread-5 | c.o.t.OwlimSchemaRepository] Shutdown repository la311 in 139 ms
+[INFO ] 2026-11-16 17:54:35,390 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 17:54:35,634 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 17:54:48,115 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 17:54:48,115 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 17:54:48,115 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:54:48,115 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 17:54:48,115 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 17:54:48,115 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 17:54:48,336 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 17:54:48,336 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 17:54:48,337 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 17:54:48,663 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 17:54:48,902 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 17:54:48,902 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 17:54:49,181 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 17:54:49,337 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 17:54:49,576 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 17:54:50,190 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 17:54:50,200 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 17:54:50,265 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 17:54:50,268 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 17:54:50,271 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 17:54:50,272 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 17:54:50,272 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 17:54:50,272 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 17:54:50,280 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 17:54:50,387 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 17:54:50,391 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 17:54:50,511 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 17:54:51,767 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 17:54:51,821 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1556 ms
+[INFO ] 2026-11-16 17:59:50,255 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2026-11-16 17:59:54,150 [main | c.o.g.Config] Using 'file:/Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/logback.xml' as logback's configuration file
+[INFO ] 2026-11-16 17:59:54,396 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2026-11-16 18:00:03,317 [main | c.o.g.Config] GraphDB Home directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2
+[INFO ] 2026-11-16 18:00:03,318 [main | c.o.g.Config] GraphDB Config directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf
+[INFO ] 2026-11-16 18:00:03,318 [main | c.o.g.Config] GraphDB Data directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 18:00:03,318 [main | c.o.g.Config] GraphDB Work directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work
+[INFO ] 2026-11-16 18:00:03,318 [main | c.o.g.Config] GraphDB Logs directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs
+[INFO ] 2026-11-16 18:00:03,318 [main | c.o.g.Config] GraphDB Recovery directory: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data
+[INFO ] 2026-11-16 18:00:03,539 [main | c.o.l.LicenseRegistry] License configuration: File 'graphdb.license' in config directory
+[INFO ] 2026-11-16 18:00:03,539 [main | c.o.l.LicenseRegistry] License file: /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/conf/graphdb.license
+[INFO ] 2026-11-16 18:00:03,540 [main | c.o.l.LicenseRegistry] GraphDB Edition:            Free
+[INFO ] 2026-11-16 18:00:03,540 [main | c.o.l.LicenseRegistry] Max number of repositories: 5
+[INFO ] 2026-11-16 18:00:03,540 [main | c.o.l.LicenseRegistry] Capabilities:               Lucene connector
+[INFO ] 2026-11-16 18:00:03,540 [main | c.o.l.LicenseRegistry] Usage restriction:          unlimited
+[INFO ] 2026-11-16 18:00:03,540 [main | c.o.l.LicenseRegistry] Licensee:                   UPM
+[INFO ] 2026-11-16 18:00:03,540 [main | c.o.l.LicenseRegistry] Permitted use:              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[INFO ] 2026-11-16 18:00:03,540 [main | c.o.l.LicenseRegistry] Version:                    11.3
+[INFO ] 2026-11-16 18:00:03,540 [main | c.o.l.LicenseRegistry] Expiry date:                none
+[INFO ] 2026-11-16 18:00:03,541 [main | c.o.l.LicenseRegistry] Latest publication date:    none
+[INFO ] 2026-11-16 18:00:03,541 [main | c.o.l.LicenseRegistry] Max CPU cores:              1
+[INFO ] 2026-11-16 18:00:03,869 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[INFO ] 2026-11-16 18:00:04,116 [main | c.o.g.GraphDBRepositoryManager] Version: 11.5, revision: -1924574793
+[INFO ] 2026-11-16 18:00:04,116 [main | c.o.g.GraphDBRepositoryManager] Build date: Fri Oct 16 09:04:11 CEST 2026
+[INFO ] 2026-11-16 18:00:04,404 [main | c.o.f.g.GraphQLService] GraphQL server initialized
+[INFO ] 2026-11-16 18:00:04,551 [main | o.h.v.i.u.Version] HV000001: Hibernate Validator 8.0.3.Final
+[WARN ] 2026-11-16 18:00:04,781 [main | o.s.s.c.h.DefaultFilterChainValidator] Usage of authorizeRequests is deprecated. Please use authorizeHttpRequests in the configuration
+[INFO ] 2026-11-16 18:00:05,350 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2026-11-16 18:00:05,360 [main | c.o.g.s.GraphDB] The Solr connector has been deprecated and will be removed in version 12 of GraphDB. If you are using it, please contact us via the available support channels to discuss the alternatives.
+[INFO ] 2026-11-16 18:00:05,417 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing repository: la311
+[INFO ] 2026-11-16 18:00:05,419 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Started repository la311 in READ/WRITE mode.
+[INFO ] 2026-11-16 18:00:05,421 [repository-manager-0 | c.o.t.i.FileSystemHealth] Active locations health:
+[INFO ] 2026-11-16 18:00:05,422 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/data/repositories/la311: 14.0% (OK)
+[INFO ] 2026-11-16 18:00:05,422 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/logs: 14.0% (OK)
+[INFO ] 2026-11-16 18:00:05,422 [repository-manager-0 | c.o.t.i.FileSystemHealth] /Users/duss/Documents/Upm/OpenDataKG/la311-fieldnotes/tools/graphdb-11.5.2/work: 14.0% (OK)
+[INFO ] 2026-11-16 18:00:05,429 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing entity pool 'transactional' of repository la311, entity id size 32
+[INFO ] 2026-11-16 18:00:05,521 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initialization of la311 entity pool successful!
+[INFO ] 2026-11-16 18:00:05,524 [repository-manager-0 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2026-11-16 18:00:05,627 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Initializing inferencer for repository la311
+[INFO ] 2026-11-16 18:00:06,651 [repository-manager-0 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2026-11-16 18:00:06,705 [repository-manager-0 | c.o.t.OwlimSchemaRepository] Successfully initialized repository: la311 in 1288 ms
+[INFO ] 2026-11-16 18:17:09,955 [Thread-5 | c.o.g.s.GraphDB] Stopping GraphDB.

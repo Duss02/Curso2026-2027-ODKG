@@ -1,0 +1,1 @@
+"use strict";exports.DropdownItemAlignment=void 0,function(t){t.RIGHT="right",t.LEFT="left"}(exports.DropdownItemAlignment||(exports.DropdownItemAlignment={}));

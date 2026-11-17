@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=33739;export const __webpack_esm_ids__=[33739];export const __webpack_esm_modules__={33739(_,t,o){o.d(t,{o:()=>s});class s{constructor(_){this.TYPE=_.TYPE,this.duration=_.payload.duration,this.tabId=_.payload.tabId}}}};
+//# sourceMappingURL=33739.8933aa340a6c18eaef7d.bundle.js.map

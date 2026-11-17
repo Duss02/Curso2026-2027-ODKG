@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=41345;export const __webpack_esm_ids__=[41345];export const __webpack_esm_modules__={41345(){angular.module("graphdb.framework.rest.aclmanagement.service",[]).factory("AclManagementRestService",t),t.$inject=["$http"];const e="rest/repositories";function t(t){return{getAcl:function(c){return t.get(`${e}/${c}/acl`)},updateAcl:function(c,r){return t.put(`${e}/${c}/acl`,r)}}}}};
+//# sourceMappingURL=41345.d0060a4b2472ed9d5cfc.bundle.js.map

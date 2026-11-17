@@ -1,0 +1,10 @@
+PREFIX wd:   <http://www.wikidata.org/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?item ?label ?description
+WHERE {
+  VALUES ?item { wd:Q7985390 wd:Q4931858 wd:Q65 }
+  ?item rdfs:label ?label . FILTER (LANG(?label) = "en")
+  OPTIONAL { ?item schema:description ?description . FILTER (LANG(?description) = "en") }
+}

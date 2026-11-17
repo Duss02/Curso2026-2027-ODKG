@@ -1,0 +1,33 @@
+# One row per traffic accident, across every loaded CSV graph (default graph = union).
+# Vehicle types and injury-severity codes are reached through the accident's vehicles:
+#   accident -involvesVehicle-> vehicle -involvesPerson-> person -hasInjurySeverity-> severity
+PREFIX ns:   <https://w3id.org/saferoutemadrid/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?accident
+       (SAMPLE(?date) AS ?date) (SAMPLE(?time) AS ?time)
+       (SAMPLE(?lat) AS ?lat) (SAMPLE(?lon) AS ?lon)
+       (SAMPLE(?street) AS ?street) (SAMPLE(?districtName) AS ?district)
+       (SAMPLE(?typeLabel) AS ?accidentType) (SAMPLE(?weatherLabel) AS ?weather)
+       (GROUP_CONCAT(DISTINCT ?vehicleLabel; separator="|") AS ?vehicleTypes)
+       (GROUP_CONCAT(DISTINCT ?severityCode; separator="|") AS ?severityCodes)
+WHERE {
+  ?accident a ns:TrafficAccident ;
+            ns:accidentDate ?date ;
+            ns:occursAt ?location .
+  ?location ns:hasGeometry ?point .
+  ?point ns:latitude ?lat ;
+         ns:longitude ?lon .
+  OPTIONAL { ?accident ns:accidentTime ?time }
+  OPTIONAL { ?location ns:streetName ?street }
+  OPTIONAL { ?location ns:locatedIn ?d . ?d ns:districtName ?districtName }
+  OPTIONAL { ?accident ns:hasAccidentType ?t . ?t skos:prefLabel ?typeLabel }
+  OPTIONAL { ?accident ns:hasWeatherCondition ?w . ?w skos:prefLabel ?weatherLabel }
+  OPTIONAL {
+    ?accident ns:involvesVehicle ?vehicle .
+    OPTIONAL { ?vehicle ns:hasVehicleType ?vt . ?vt skos:prefLabel ?vehicleLabel }
+    OPTIONAL { ?vehicle ns:involvesPerson ?p . ?p ns:hasInjurySeverity ?s . ?s skos:notation ?severityCode }
+  }
+}
+GROUP BY ?accident

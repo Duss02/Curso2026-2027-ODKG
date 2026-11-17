@@ -1,4 +1,4 @@
-@prefix dbd: <https://example.org/db-delays/ontology/#> .
+@prefix dbd: <https://example.org/db-delays/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -20,7 +20,7 @@ dbd:TrainStop a owl:Class ;
 dbd:Station a owl:Class ;
     rdfs:subClassOf owl:Thing ;
     rdfs:label "Station"@en ;
-    rdfs:comment "A railway station identified by its EVA number. This class is a candidate for links to external station entities after identity verification."@en .
+    rdfs:comment "A railway station whose resource URI uses station_slug, derived from its source name. The EVA number is preserved as a property. This class is a candidate for links to external station entities after identity verification."@en .
 
 dbd:City a owl:Class ;
     rdfs:subClassOf owl:Thing ;
@@ -38,7 +38,7 @@ dbd:atStation a owl:ObjectProperty ;
     rdfs:domain dbd:TrainStop ;
     rdfs:range dbd:Station ;
     rdfs:label "at station"@en ;
-    rdfs:comment "Links a recorded stop to its station, using the source eva_nr value."@en .
+    rdfs:comment "Links a recorded stop to its station, using the source station_slug value."@en .
 
 dbd:inCity a owl:ObjectProperty ;
     rdfs:domain dbd:Station ;
@@ -133,12 +133,6 @@ dbd:evaNumber a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "EVA number"@en ;
     rdfs:comment "The station identifier from eva_nr, preserved as text rather than a numerical quantity."@en .
-
-dbd:stationName a owl:DatatypeProperty ;
-    rdfs:domain dbd:Station ;
-    rdfs:range xsd:string ;
-    rdfs:label "station name"@en ;
-    rdfs:comment "The original station name from station, retaining German characters."@en .
 
 dbd:stationCategory a owl:DatatypeProperty ;
     rdfs:domain dbd:Station ;

@@ -1,0 +1,5 @@
+streamlit>=1.50
+pyoxigraph>=0.4
+folium>=0.17
+pandas>=2.0
+requests>=2.31
