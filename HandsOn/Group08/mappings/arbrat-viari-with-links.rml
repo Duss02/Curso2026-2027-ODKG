@@ -19,6 +19,15 @@
 # The logical source of the trees is a SQL view over the CSV file (rml:query, executed by Morph-KGC with DuckDB):
 #   - the placeholder street numbers 0 and 9999 at the end of adreca (", 0" and ", 9999") are removed,
 #     so that those trees keep the street only;
+#   - an adreca without the street name (", 11": 11 trees in the source, found by the SHACL validation) takes
+#     the street of the nearest tree with the same house number, if it is at most 15 m away and the nearest
+#     other street with that number is at least twice as far (8 trees, 5-13 m); otherwise the address is
+#     dropped and the tree has no hr:streetAddress (3 trees of the Virginia Amposta gardens: the nearest
+#     tree with number 11 is 18-26 m away, and for one of them both Jaume Fabre, 11 and
+#     Sant Ramon de Penyafort, 11 are close);
+#   - a tree without neighbourhood in the source (only 0345745AR) gets the neighbourhood of the nearest tree
+#     (el Besòs i el Maresme, the 5 nearest trees are all there, 19-29 m away; the point is inside the official
+#     boundary of that neighbourhood); distances use the ETRS89 coordinates, in metres;
 #   - empty cells, which DuckDB reads as NULL, are turned into empty strings, so that Morph-KGC
 #     generates no triple for them.
 # The logical source of the species is a SQL view with one row per species (empty cells become empty strings).
@@ -28,7 +37,6 @@
 #   - hr:plantingDate: the source gives only the day, so "T00:00:00" is appended (xsd:dateTime, see the ontology);
 #   - the species are read from the same file: every species id has a single scientific name and a single
 #     set of common names, so each species is described once;
-#   - the tree 0345745AR has no neighbourhood in the source, so it has no hr:isLocatedInNeighbourhood link.
 #
 # URIs of the individuals (feedback on HO4): the identifier is a slug of the name, readable and meaningful,
 # never the numeric code of the source. slug = lower case, accents removed, the middle dot of "l·l" removed,
@@ -45,11 +53,50 @@
   rml:logicalSource [
     rml:query """
       SELECT coalesce(COLUMNS(*), '') FROM (
-      SELECT * REPLACE (regexp_replace(adreca, ', (0|9999)$', '') AS adreca),
-        lower(trim(regexp_replace(strip_accents(replace(cat_nom_cientific || ' ' || codi, '·', '')), '[^A-Za-z0-9]+', '-', 'g'), '-')) AS tree_slug,
+      WITH source AS (
+        SELECT * FROM read_csv('csv/arbrat-viari-with-links.csv', header = true, all_varchar = true)
+      ),
+      located AS (
+        SELECT * FROM source WHERE nom_barri IS NOT NULL
+        UNION ALL BY NAME
+        SELECT * REPLACE ((
+          SELECT n.nom_barri FROM source AS n WHERE n.nom_barri IS NOT NULL
+          ORDER BY pow(CAST(n.x_etrs89 AS DOUBLE) - CAST(source.x_etrs89 AS DOUBLE), 2)
+                 + pow(CAST(n.y_etrs89 AS DOUBLE) - CAST(source.y_etrs89 AS DOUBLE), 2)
+          LIMIT 1) AS nom_barri)
+        FROM source WHERE source.nom_barri IS NULL
+      ),
+      no_street AS (
+        SELECT codi, trim(regexp_extract(adreca, ', *([^,]*)$', 1)) AS num,
+               CAST(x_etrs89 AS DOUBLE) AS x, CAST(y_etrs89 AS DOUBLE) AS y
+        FROM located WHERE regexp_matches(adreca, '^ *,')
+      ),
+      with_street AS (
+        SELECT regexp_extract(adreca, '^(.*), *[^,]*$', 1) AS street,
+               trim(regexp_extract(adreca, ', *([^,]*)$', 1)) AS num,
+               CAST(x_etrs89 AS DOUBLE) AS x, CAST(y_etrs89 AS DOUBLE) AS y
+        FROM located WHERE NOT regexp_matches(adreca, '^ *,') AND regexp_matches(adreca, '^[^,]+, *[^,]+$')
+      ),
+      street_distance AS (
+        SELECT b.codi, b.num, c.street, min(sqrt(pow(c.x - b.x, 2) + pow(c.y - b.y, 2))) AS dist
+        FROM no_street AS b JOIN with_street AS c ON c.num = b.num
+        GROUP BY b.codi, b.num, c.street
+      ),
+      ranked AS (
+        SELECT *, row_number() OVER (PARTITION BY codi ORDER BY dist) AS rk FROM street_distance
+      ),
+      recovered AS (
+        SELECT first.codi, first.street || ', ' || first.num AS recovered_adreca
+        FROM ranked AS first LEFT JOIN ranked AS second ON second.codi = first.codi AND second.rk = 2
+        WHERE first.rk = 1 AND first.dist <= 15 AND (second.dist IS NULL OR second.dist >= 2 * first.dist)
+      )
+      SELECT located.* REPLACE (
+          CASE WHEN regexp_matches(located.adreca, '^ *,') THEN recovered.recovered_adreca
+               ELSE regexp_replace(located.adreca, ', (0|9999)$', '') END AS adreca),
+        lower(trim(regexp_replace(strip_accents(replace(cat_nom_cientific || ' ' || located.codi, '·', '')), '[^A-Za-z0-9]+', '-', 'g'), '-')) AS tree_slug,
         lower(trim(regexp_replace(strip_accents(replace(cat_nom_cientific, '·', '')), '[^A-Za-z0-9]+', '-', 'g'), '-')) AS species_slug,
         lower(trim(regexp_replace(strip_accents(replace(nom_barri, '·', '')), '[^A-Za-z0-9]+', '-', 'g'), '-')) AS neighbourhood_slug
-      FROM read_csv('csv/arbrat-viari-with-links.csv', header = true, all_varchar = true)
+      FROM located LEFT JOIN recovered ON recovered.codi = located.codi
       )
     """ ;
     rml:referenceFormulation ql:CSV
