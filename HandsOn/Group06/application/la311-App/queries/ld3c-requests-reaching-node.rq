@@ -1,0 +1,27 @@
+PREFIX la311:  <http://linkeddata.la311.com/ontology#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:    <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+PREFIX geo:    <http://www.opengis.net/ont/geosparql#>
+PREFIX schema: <http://schema.org/>
+PREFIX wd:     <http://www.wikidata.org/entity/>
+PREFIX wdt:    <http://www.wikidata.org/prop/direct/>
+
+SELECT ?path (COUNT(DISTINCT ?sr) AS ?n)
+WHERE {
+  { ?sr la311:responsible <http://www.wikidata.org/entity/Q115471735> . BIND ("la311:responsible" AS ?path) }
+  UNION
+  { ?sr la311:assignedTo <http://www.wikidata.org/entity/Q115471735> . BIND ("la311:assignedTo" AS ?path) }
+  UNION
+  { ?sr la311:hasLocation <http://www.wikidata.org/entity/Q115471735> . BIND ("la311:hasLocation" AS ?path) }
+  UNION
+  { ?sr la311:hasLocation/la311:isWithin <http://www.wikidata.org/entity/Q115471735> . BIND ("la311:hasLocation/la311:isWithin" AS ?path) }
+  UNION
+  { ?sr la311:hasLocation/la311:isWithin/la311:cdMember <http://www.wikidata.org/entity/Q115471735> . BIND ("la311:hasLocation/la311:isWithin/la311:cdMember" AS ?path) }
+  UNION
+  { ?sr la311:hasLocation/la311:isWithin/la311:ncName <http://www.wikidata.org/entity/Q115471735> . BIND ("la311:hasLocation/la311:isWithin/la311:ncName" AS ?path) }
+  UNION
+  { ?sr la311:hasLocation/la311:isWithin/schema:containedInPlace <http://www.wikidata.org/entity/Q115471735> . BIND ("la311:hasLocation/la311:isWithin/schema:containedInPlace" AS ?path) }
+}
+GROUP BY ?path ORDER BY DESC(?n)

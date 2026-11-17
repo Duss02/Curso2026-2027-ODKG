@@ -1,0 +1,13 @@
+<link href='css/lib/swagger-ui.min.css?v=3.5.2' rel='stylesheet' type='text/css'/>
+<link href='css/swagger.custom.css?v=3.5.2' rel='stylesheet' type='text/css'/>
+
+<h1>
+    {{title}}
+    <page-info-tooltip></page-info-tooltip>
+</h1>
+
+<iframe id="webapi_frame"
+        title="{{'webapi.title' | translate}}"
+        data-test="rest-api-content"
+        ng-src="{{webapiFrameSrc}}"
+        style="width: 100%; height: 90vh; border: none; background: var(--gw-body-background)"></iframe>

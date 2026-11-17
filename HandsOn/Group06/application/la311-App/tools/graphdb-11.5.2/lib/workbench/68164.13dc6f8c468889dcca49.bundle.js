@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=68164;export const __webpack_esm_ids__=[68164];export const __webpack_esm_modules__={68164(e,s,t){t.d(s,{f:()=>r});class r{constructor(e){this.TYPE=e.TYPE,this.request=e.payload.request,this.queryMode=e.payload.queryMode}getQueryTrackAlias(){if(this.request)return this.request.header["X-GraphDB-Track-Alias"]}getRepository(){if(this.request){const e=this.request.url;return e.substring(e.lastIndexOf("/")+1)}}}}};
+//# sourceMappingURL=68164.13dc6f8c468889dcca49.bundle.js.map

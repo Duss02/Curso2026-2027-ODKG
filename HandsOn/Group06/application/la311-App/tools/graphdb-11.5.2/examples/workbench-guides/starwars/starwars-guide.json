@@ -1,0 +1,211 @@
+{
+    "guideId": "star-wars",
+    "guideName": {
+        "en": "The Star Wars guide",
+        "fr": "Le guide Star Wars"
+    },
+    "guideDescription": {
+        "en": "The Star Wars guide is a beginner's guide showing repository creation, importing RDF data from a file, starting to explore data from the visual graph, and executing SPARQL queries. The guide takes approximately 30 minutes to complete.",
+        "fr": "Le guide Star Wars est un guide pour débutant montrant la création d'un dépôt, l'importation de données RDF à partir d'un fichier, le début de l'exploration des données du graphe visuel et l'exécution de requêtes SPARQL. Le guide prend environ 30 minutes à compléter."
+    },
+    "guideLevel": 0,
+    "guideOrder": 1,
+    "options": {
+        "repositoryIdBase": "starwars"
+    },
+    "steps": [
+        {
+            "guideBlockName": "welcome"
+        },
+        {
+            "guideBlockName": "create-repository"
+        },
+        {
+            "guideBlockName": "select-repository-dropdown"
+        },
+        {
+            "guideBlockName": "enable-autocomplete"
+        },
+        {
+            "guideBlockName": "import-rdf-file",
+            "options": {
+                "resourcePath": "starwars",
+                "resourceFile": "starwars.ttl"
+            }
+        },
+        {
+            "guideBlockName": "visual-graph",
+            "options": {
+                "easyGraphInputText": "lu",
+                "iri": "https://swapi.co/resource/human/1",
+                "iriLabel": "Luke Skywalker"
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-node-focus",
+            "options": {
+                "iri": "https://swapi.co/resource/human/1",
+                "iriLabel": "Luke Skywalker"
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-link-focus",
+            "options": {
+                "fromIri": "https://swapi.co/resource/human/1",
+                "fromIriLabel": "Luke Skywalker",
+                "toIri": "https://swapi.co/vocabulary/Character",
+                "toIriLabel": "Character",
+                "iriLabel": "type",
+                "extraContent": {
+                    "en": "This tells us that one of the RDF types for <b>{{fromIriLabel}}</b> is <b>{{toIriLabel}}</b>.",
+                    "fr": "Cela nous indique que l'un des types RDF pour <b>{{fromIriLabel}}</b> est <b>{{toIriLabel}}</b>."
+                }
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-node-focus",
+            "options": {
+                "iri": "https://swapi.co/vocabulary/Mammal",
+                "iriLabel": "Mammal",
+                "content": "",
+                "extraContent": {
+                    "en": "<b>{{iriLabel}}</b> is another RDF type for <b>Luke Skywalker</b>.",
+                    "fr": "<b>{{iriLabel}}</b> est un autre type RDF pour <b>Luke Skywalker</b>."
+                }
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-link-focus",
+            "options": {
+                "fromIri": "https://swapi.co/resource/human/1",
+                "fromIriLabel": "Luke Skywalker",
+                "toIri": "https://swapi.co/resource/vehicle/14",
+                "toIriLabel": "Snowspeeder",
+                "iriLabel": "vehicle",
+                "content": "",
+                "extraContent": {
+                    "en": "This connection tells us that <b>{{fromIriLabel}}</b> has a <b>{{iriLabel}}</b> called <b>{{toIriLabel}}</b>. In addition, it shows the reverse relation <b>pilot</b>, which links <b>{{toIriLabel}}</b> to <b>{{fromIriLabel}}</b>.",
+                    "fr": "Cette connexion nous indique que <b>{{fromIriLabel}}</b> a un <b>{{iriLabel}}</b> appelé <b>{{toIriLabel}}</b>. De plus, il montre la relation inverse <b>pilot</b>, qui relie <b>{{toIriLabel}}</b> à <b>{{fromIriLabel}}</b>."
+                }
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-node-focus",
+            "options": {
+                "fromIriLabel": "Luke Skywalker",
+                "iri": "https://swapi.co/resource/vehicle/30",
+                "iriLabel": "Imperial Speeder Bike",
+                "content": "",
+                "extraContent": {
+                    "en": "<b>{{fromIriLabel}}</b> has another <b>vehicle</b> called <b>{{iriLabel}}</b>. Again, the reverse relation <b>pilot</b> links <b>{{iriLabel}}</b> to <b>{{fromIriLabel}}</b>.",
+                    "fr": "<b>{{fromIriLabel}}</b> a un autre <b>vehicle</b> appelé <b>{{iriLabel}}</b>. Encore une fois, la relation inverse <b>pilot</b> relie <b>{{iriLabel}}</b> à <b>{{fromIriLabel}}</b>."
+                }
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-properties",
+            "options": {
+                "iri": "https://swapi.co/resource/film/1",
+                "iriLabel": "A New Hope",
+                "focusProperties": [
+                    {
+                        "property": "types",
+                        "message": {
+                            "en": "We can see that <b>{{iriLabel}}</b> has a single type, <b>voc:Film</b>.",
+                            "fr": "Nous pouvons voir que <b>{{iriLabel}}</b> a un seul type, <b>voc:Film</b>."
+                        }
+                    },
+                    {
+                        "property": "voc:releaseDate",
+                        "message": {
+                            "en": "This shows the actual release date of <b>{{iriLabel}}</b>.",
+                            "fr": "Cela montre la date de sortie réelle de <b>{{iriLabel}}</b>."
+                        }
+                    },
+                    {
+                        "property": "voc:episodeId",
+                        "skipGenericMessage": true,
+                        "message": {
+                            "en": "The property <b>voc:episodeId</b> tells us that <b>{{iriLabel}}</b> was envisioned as the 4th movie in the series, even though it was the first to be released in 1977.",
+                            "fr": "La propriété <b>voc:episodeId</b> nous indique que <b>{{iriLabel}}</b> a été envisagé comme le 4ème film de la série, même s'il était le premier à être sorti en 1977."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-expand",
+            "options": {
+                "iri": "https://swapi.co/resource/film/1",
+                "iriLabel": "A New Hope"
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-node-focus",
+            "options": {
+                "iri": "https://swapi.co/resource/droid/2",
+                "iriLabel": "C-3PO",
+                "content": "",
+                "extraContent": {
+                    "en": "Node expansion enriches the graph by showing nodes connected to the expanded node, such as the character <b>{{iriLabel}}</b>.",
+                    "fr": "L'expansion du nœud enrichit le graphique en affichant les nœuds connectés au nœud étendu, comme le caractère <b>{{iriLabel}}</b>."
+                }
+            }
+        },
+        {
+            "guideBlockName": "visual-graph-node-focus",
+            "options": {
+                "iri": "https://swapi.co/resource/planet/1",
+                "iriLabel": "Tatooine",
+                "content": "",
+                "extraContent": {
+                    "en": "The planet <b>{{iriLabel}}</b>, which was already shown before expanding, is now linked to both <b>Luke Skywalker</b> and <b>A New Hope</b>.",
+                    "fr": "La planète <b>{{iriLabel}}</b>, qui était déjà montrée avant de s'étendre, est maintenant liée à la fois à <b>Luke Skywalker</b> et à <b>A New Hope</b>."
+                }
+            }
+        },
+        {
+            "guideBlockName": "execute-sparql-query",
+            "options": {
+                "queries": [
+                    {
+                        "query": "SELECT * {\n    <https://swapi.co/resource/human/1> ?p ?o\n}\n",
+                        "queryExtraContent": {
+                            "en": "The query selects RDF statements whose <i>subject</i> is <b>Luke Skywalker</b> (identified by the IRI <b>https://swapi.co/resource/human/1</b>).",
+                            "fr": "La requête sélectionne les déclarations RDF dont le <i>sujet</i> est <b>Luke Skywalker</b> (identifié par l'IRI <b>https://swapi.co/resource/human/1</b>)."
+                        },
+                        "resultExtraContent": {
+                            "en": "The variables <b>?p</b> and <b>?o</b> correspond to the <i>predicate</i> and <i>object</i> of the RDF statements.",
+                            "fr": "Les variables <b>?p</b> et <b>?o</b> correspondent au <i>prédicat</i> et à l'<i>objet</i> des déclarations RDF."
+                        }
+                    },
+                    {
+                        "query": "PREFIX voc: <https://swapi.co/vocabulary/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT * {\n    <https://swapi.co/resource/human/1> voc:film ?movie .\n    ?movie rdfs:label ?movieName .\n}\n",
+                        "queryExtraContent": {
+                            "en": "The query selects all movies where <b>Luke Skywalker</b> is one of the characters and illustrates the simplest SPARQL join, using the same variable <b>?movie</b> in two different statement patterns.",
+                            "fr": "La requête sélectionne tous les films où <b>Luke Skywalker</b> est l'un des personnages et illustre la jointure SPARQL la plus simple, en utilisant la même variable <b>?movie</b> dans deux modèles d'instructions différents."
+                        },
+                        "resultExtraContent": {
+                            "en": "The variables <b>?movie</b> and <b>?movieName</b> contain each movie's IRI and name respectively.",
+                            "fr": "Les variables <b>?movie</b> et <b>?movieName</b> contiennent respectivement l'IRI et le nom de chaque film."
+                        }
+                    },
+                    {
+                        "query": "PREFIX voc: <https://swapi.co/vocabulary/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT * {\n    <https://swapi.co/resource/human/1> voc:film ?movie .\n    ?movie rdfs:label ?movieName ;\n           voc:releaseDate ?movieReleaseDate .\n} ORDER BY ?movieReleaseDate\n",
+                        "queryExtraContent": {
+                            "en": "The query builds upon the previous query but adds an additional join to fetch each movie's release date, and also sorting the results by the release date.",
+                            "fr": "La requête s'appuie sur la requête précédente mais ajoute une jointure supplémentaire pour récupérer la date de sortie de chaque film, et également trier les résultats par date de sortie."
+                        },
+                        "resultExtraContent": {
+                            "en": "The new variable <b>?movieReleaseDate</b> contains the release date and the results are sorted by it. We can clearly see that <b>A New Hope</b> was released first.",
+                            "fr": "La nouvelle variable <b>?movieReleaseDate</b> contient la date de sortie et les résultats sont triés en fonction de celle-ci. Nous pouvons clairement voir que <b>A New Hope</b> est sorti en premier."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "guideBlockName": "guide-end"
+        }
+    ]
+}

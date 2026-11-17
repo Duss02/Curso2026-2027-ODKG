@@ -1,0 +1,168 @@
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#> .
+@prefix hrs: <https://w3id.org/barcelona-heat-relief/shapes#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hrs:ClimateShelterShape a sh:NodeShape ;
+    sh:property hrs:ClimateShelter-email,
+        hrs:ClimateShelter-hasShelterCategory,
+        hrs:ClimateShelter-isHostedBy,
+        hrs:ClimateShelter-openingHours,
+        hrs:ClimateShelter-telephone,
+        hrs:ClimateShelter-website ;
+    sh:targetClass hr:ClimateShelter .
+
+hrs:DistrictShape a sh:NodeShape ;
+    sh:targetClass hr:District .
+
+hrs:DrinkingFountainShape a sh:NodeShape ;
+    sh:targetClass hr:DrinkingFountain .
+
+hrs:FacilityShape a sh:NodeShape ;
+    sh:targetClass hr:Facility .
+
+hrs:NeighbourhoodShape a sh:NodeShape ;
+    sh:property hrs:Neighbourhood-isPartOfDistrict ;
+    sh:targetClass hr:Neighbourhood .
+
+hrs:ShelterCategoryShape a sh:NodeShape ;
+    sh:targetClass hr:ShelterCategory .
+
+hrs:SpatialThingShape a sh:NodeShape ;
+    sh:property hrs:SpatialThing-lat,
+        hrs:SpatialThing-long ;
+    sh:targetClass geo:SpatialThing .
+
+hrs:StreetTreeShape a sh:NodeShape ;
+    sh:property hrs:StreetTree-greenSpace,
+        hrs:StreetTree-hasSpecies,
+        hrs:StreetTree-irrigationType,
+        hrs:StreetTree-irrigationWaterType,
+        hrs:StreetTree-plantingDate,
+        hrs:StreetTree-treeCategory ;
+    sh:targetClass hr:StreetTree .
+
+hrs:TreeSpeciesShape a sh:NodeShape ;
+    sh:property hrs:TreeSpecies-catalanName,
+        hrs:TreeSpecies-scientificName,
+        hrs:TreeSpecies-spanishName ;
+    sh:targetClass hr:TreeSpecies .
+
+hrs:UrbanElementShape a sh:NodeShape ;
+    sh:property hrs:UrbanElement-etrs89X,
+        hrs:UrbanElement-etrs89Y,
+        hrs:UrbanElement-isLocatedInNeighbourhood,
+        hrs:UrbanElement-streetAddress ;
+    sh:targetClass hr:UrbanElement .
+
+hrs:ClimateShelter-email a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:email .
+
+hrs:ClimateShelter-hasShelterCategory a sh:PropertyShape ;
+    sh:class hr:ShelterCategory ;
+    sh:nodeKind sh:IRI ;
+    sh:path hr:hasShelterCategory .
+
+hrs:ClimateShelter-isHostedBy a sh:PropertyShape ;
+    sh:class hr:Facility ;
+    sh:nodeKind sh:IRI ;
+    sh:path hr:isHostedBy .
+
+hrs:ClimateShelter-openingHours a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:openingHours .
+
+hrs:ClimateShelter-telephone a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:telephone .
+
+hrs:ClimateShelter-website a sh:PropertyShape ;
+    sh:datatype xsd:anyURI ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:website .
+
+hrs:Neighbourhood-isPartOfDistrict a sh:PropertyShape ;
+    sh:class hr:District ;
+    sh:nodeKind sh:IRI ;
+    sh:path hr:isPartOfDistrict .
+
+hrs:SpatialThing-lat a sh:PropertyShape ;
+    sh:datatype xsd:decimal ;
+    sh:nodeKind sh:Literal ;
+    sh:path geo:lat .
+
+hrs:SpatialThing-long a sh:PropertyShape ;
+    sh:datatype xsd:decimal ;
+    sh:nodeKind sh:Literal ;
+    sh:path geo:long .
+
+hrs:StreetTree-greenSpace a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:greenSpace .
+
+hrs:StreetTree-hasSpecies a sh:PropertyShape ;
+    sh:class hr:TreeSpecies ;
+    sh:nodeKind sh:IRI ;
+    sh:path hr:hasSpecies .
+
+hrs:StreetTree-irrigationType a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:irrigationType .
+
+hrs:StreetTree-irrigationWaterType a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:irrigationWaterType .
+
+hrs:StreetTree-plantingDate a sh:PropertyShape ;
+    sh:datatype xsd:dateTime ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:plantingDate .
+
+hrs:StreetTree-treeCategory a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:treeCategory .
+
+hrs:TreeSpecies-catalanName a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:catalanName .
+
+hrs:TreeSpecies-scientificName a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:scientificName .
+
+hrs:TreeSpecies-spanishName a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:spanishName .
+
+hrs:UrbanElement-etrs89X a sh:PropertyShape ;
+    sh:datatype xsd:decimal ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:etrs89X .
+
+hrs:UrbanElement-etrs89Y a sh:PropertyShape ;
+    sh:datatype xsd:decimal ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:etrs89Y .
+
+hrs:UrbanElement-isLocatedInNeighbourhood a sh:PropertyShape ;
+    sh:class hr:Neighbourhood ;
+    sh:nodeKind sh:IRI ;
+    sh:path hr:isLocatedInNeighbourhood .
+
+hrs:UrbanElement-streetAddress a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:nodeKind sh:Literal ;
+    sh:path hr:streetAddress .
+

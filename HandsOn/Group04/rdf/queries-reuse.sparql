@@ -1,0 +1,365 @@
+# Group04 - Breathe & Play Madrid - Hands-on 6 (ontology reuse)
+# SPARQL queries over the RDF generated with the EDINT ontologies.
+# Load the three files in rdf/ (calidad-aire-diario-2024-reuse.ttl,
+# estaciones-control-aire-reuse.ttl, instalaciones-deportivas-reuse.ttl) and
+# ontology/breatheplay-kos.ttl into the same graph and run each query separately.
+# Q1-Q4 check the RDF, Q5-Q9 explore the data, Q10-Q15 answer the competency
+# questions of Hands-on 1 and Q16-Q17 show the reuse of EDINT and the links.
+
+PREFIX bpm:      <https://w3id.org/breatheplay-madrid/ontology#>
+PREFIX edintmed: <https://edint.es/def/medio-ambiente#>
+PREFIX edintinf: <https://edint.es/def/infraestructura#>
+PREFIX edintkos-vars:    <https://edint.es/kos/EnvironmentalProperty/>
+PREFIX edintkos-inftype: <https://edint.es/kos/InfrastructureType/>
+PREFIX esadm:    <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#>
+PREFIX sosa:     <http://www.w3.org/ns/sosa/>
+PREFIX qudt:     <http://qudt.org/schema/qudt/>
+PREFIX time:     <http://www.w3.org/2006/time#>
+PREFIX gsp:      <http://www.opengis.net/ont/geosparql#>
+PREFIX geo:      <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX schema:   <http://schema.org/>
+PREFIX skos:     <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct:      <http://purl.org/dc/terms/>
+PREFIX owl:      <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
+PREFIX factype:  <https://w3id.org/breatheplay-madrid/resource/facility-type/>
+PREFIX facility: <https://w3id.org/breatheplay-madrid/resource/sports-facility/>
+
+# -----------------------------------------------------------------------------
+# Control queries
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Q1. Number of individuals of each class.
+#     Expected: 42973 EnvironmentalObservation and DailyObservation,
+#     335 time:Interval and time:Instant (days with data), 131 EnvironmentalSensor,
+#     6 sosa:Procedure, 24 SensorPlatform, 3 StationType, 607 Facility,
+#     631 DireccionPostal and 631 gsp:Geometry (24 stations + 607 facilities),
+#     21 Distrito, 113 Barrio, 2 qudt:Unit and 66 skos:Concept (11 Madrid
+#     pollutant codes, 11 environmental properties, 24 Madrid facility types and
+#     20 infrastructure types; 11 of them are edintmed:EnvironmentalProperty).
+#     The 3 own concepts of ontology/breatheplay-kos.ttl are among them.
+# -----------------------------------------------------------------------------
+SELECT ?class (COUNT(DISTINCT ?s) AS ?individuals)
+WHERE { ?s a ?class . }
+GROUP BY ?class
+ORDER BY DESC(?individuals)
+
+# -----------------------------------------------------------------------------
+# Q2. Our individuals (resource/ namespace) without a label (rdfs:label or
+#     skos:prefLabel). Expected: no results.
+# -----------------------------------------------------------------------------
+SELECT ?s ?class
+WHERE {
+  ?s a ?class .
+  FILTER (STRSTARTS(STR(?s), "https://w3id.org/breatheplay-madrid/"))
+  FILTER NOT EXISTS { ?s rdfs:label|skos:prefLabel ?label }
+}
+
+# -----------------------------------------------------------------------------
+# Q3. Object references between our resources that do not point to a typed
+#     individual. Expected: no results.
+# -----------------------------------------------------------------------------
+SELECT ?s ?p ?o
+WHERE {
+  VALUES ?p { sosa:madeBySensor sosa:isHostedBy sosa:hosts sosa:implements
+              sosa:phenomenonTime time:hasBeginning bpm:hasStationType
+              bpm:hasNearestStation edintinf:belongsTo gsp:sfWithin
+              gsp:hasGeometry schema:address sosa:observedProperty
+              sosa:observes edintinf:hasInfrastructureType qudt:unit }
+  ?s ?p ?o .
+  FILTER NOT EXISTS { ?o a ?class }
+}
+
+# -----------------------------------------------------------------------------
+# Q4. Literals with a datatype different from the expected one.
+#     Expected: no results.
+# -----------------------------------------------------------------------------
+SELECT ?s ?p ?value ?expected
+WHERE {
+  VALUES (?p ?expected) {
+    (time:inXSDDate xsd:date) (bpm:startDate xsd:date) (sosa:hasSimpleResult xsd:decimal)
+    (bpm:isValid xsd:boolean) (geo:alt xsd:decimal) (geo:lat xsd:decimal)
+    (geo:long xsd:decimal) (bpm:distanceToNearestStation xsd:decimal)
+    (schema:url xsd:anyURI) (gsp:asWKT gsp:wktLiteral)
+    (time:hasXSDDuration xsd:duration) (dct:identifier xsd:string)
+  }
+  ?s ?p ?value .
+  FILTER (DATATYPE(?value) != ?expected)
+}
+
+# -----------------------------------------------------------------------------
+# Queries for verification of the data
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Q5. Correspondence between the Madrid pollutant codes, the EDINT environmental
+#     properties and Wikidata.
+# -----------------------------------------------------------------------------
+SELECT ?code ?pollutant ?edintProperty ?wikidata
+WHERE {
+  ?c skos:inScheme <https://w3id.org/breatheplay-madrid/kos/MadridPollutants> ;
+     skos:notation ?code ;
+     skos:prefLabel ?pollutant ;
+     skos:exactMatch ?edintProperty ;
+     skos:relatedMatch ?wikidata .
+}
+ORDER BY xsd:integer(?code)
+
+# -----------------------------------------------------------------------------
+# Q6. Observations per EDINT environmental property: total, not valid, and
+#     average of the valid daily values in 2024, with their QUDT unit.
+# -----------------------------------------------------------------------------
+SELECT ?property ?unit (COUNT(?obs) AS ?observations)
+       (SUM(IF(?valid, 0, 1)) AS ?notValid)
+       (ROUND(SUM(IF(?valid, ?value, 0)) / SUM(IF(?valid, 1, 0)) * 100) / 100
+        AS ?avgValid)
+WHERE {
+  ?obs a edintmed:EnvironmentalObservation ;
+       sosa:observedProperty ?property ;
+       sosa:hasSimpleResult ?value ;
+       qudt:unit ?unit ;
+       bpm:isValid ?valid .
+}
+GROUP BY ?property ?unit
+ORDER BY ?property
+
+# -----------------------------------------------------------------------------
+# Q7. Stations ranked by average valid NO2 daily value in 2024.
+# -----------------------------------------------------------------------------
+SELECT ?station ?name (ROUND(AVG(?value) * 10) / 10 AS ?avgNO2)
+WHERE {
+  ?obs sosa:madeBySensor ?sensor ;
+       sosa:observedProperty edintkos-vars:NO2Concentration ;
+       bpm:isValid true ;
+       sosa:hasSimpleResult ?value .
+  ?sensor sosa:isHostedBy ?station .
+  ?station rdfs:label ?name .
+}
+GROUP BY ?station ?name
+ORDER BY DESC(?avgNO2)
+
+# -----------------------------------------------------------------------------
+# Q8. Sports facilities per district (esadm:Distrito).
+# -----------------------------------------------------------------------------
+SELECT ?district (COUNT(?f) AS ?facilities)
+WHERE {
+  ?f a edintinf:Facility ;
+     edintinf:belongsTo ?d .
+  ?d a esadm:Distrito ;
+     rdfs:label ?district .
+}
+GROUP BY ?district
+ORDER BY DESC(?facilities)
+
+# -----------------------------------------------------------------------------
+# Q9. Cross-dataset query (D3 -> D2 -> D1): accessible sports facilities, their
+#     nearest monitoring station and the average NO2 measured there in 2024.
+# -----------------------------------------------------------------------------
+SELECT ?facility ?station ?distanceKm ?avgNO2
+WHERE {
+  {
+    SELECT ?st (ROUND(AVG(?value) * 10) / 10 AS ?avgNO2)
+    WHERE {
+      ?obs sosa:madeBySensor ?sensor ;
+           sosa:observedProperty edintkos-vars:NO2Concentration ;
+           bpm:isValid true ;
+           sosa:hasSimpleResult ?value .
+      ?sensor sosa:isHostedBy ?st .
+    }
+    GROUP BY ?st
+  }
+  ?f a edintinf:Facility ;
+     rdfs:label ?facility ;
+     edintinf:accessibility "Accesible"^^xsd:string ;
+     bpm:hasNearestStation ?st ;
+     bpm:distanceToNearestStation ?distanceKm .
+  ?st rdfs:label ?station .
+}
+ORDER BY ?avgNO2 ?facility
+
+# -----------------------------------------------------------------------------
+# Competency questions - Hands-on 1
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Q10. CQ01 - Which calisthenics facilities are in the district of Retiro, and
+#      which monitoring station is closest to each? The Madrid type is used: the
+#      EDINT type (fitness de exterior y circuitos biosaludables) also includes
+#      "Circuito Vida" and "Cubo Gym".
+# -----------------------------------------------------------------------------
+SELECT ?facility ?station ?distanceKm
+WHERE {
+  ?f a edintinf:Facility ;
+     rdfs:label ?facility ;
+     edintinf:hasInfrastructureType factype:calistenia ;
+     edintinf:belongsTo ?d ;
+     bpm:hasNearestStation/rdfs:label ?station ;
+     bpm:distanceToNearestStation ?distanceKm .
+  ?d a esadm:Distrito ;
+     rdfs:label "RETIRO"@es .
+}
+ORDER BY ?facility
+
+# -----------------------------------------------------------------------------
+# Q11. CQ02 - What was the daily NO2 value at the station nearest to a given
+#      facility on 15/01/2024? (example: facility:ademo-arroyo-fontarron). The date is
+#      the beginning of the OWL-Time day of the observation.
+# -----------------------------------------------------------------------------
+SELECT ?facility ?station ?date ?value ?unit ?valid
+WHERE {
+  facility:ademo-arroyo-fontarron rdfs:label ?facility ;
+                                  bpm:hasNearestStation ?st .
+  ?st rdfs:label ?station .
+  ?sensor sosa:isHostedBy ?st ;
+          sosa:observes edintkos-vars:NO2Concentration .
+  ?obs sosa:madeBySensor ?sensor ;
+       sosa:phenomenonTime/time:hasBeginning/time:inXSDDate ?date ;
+       sosa:hasSimpleResult ?value ;
+       qudt:unit ?unit ;
+       bpm:isValid ?valid .
+  FILTER (?date = "2024-01-15"^^xsd:date)
+}
+
+# -----------------------------------------------------------------------------
+# Q12. CQ03 - On how many days in 2024 did the station nearest to each football
+#      pitch exceed a daily PM10 mean of 50 ug/m3? Only valid values are
+#      counted. The EDINT type "campo de fútbol" is used. Pitches whose nearest
+#      station does not measure PM10 are not listed.
+# -----------------------------------------------------------------------------
+SELECT ?facility ?station ?daysAbove50
+WHERE {
+  {
+    SELECT ?st (SUM(IF(?value > 50, 1, 0)) AS ?daysAbove50)
+    WHERE {
+      ?obs sosa:madeBySensor ?sensor ;
+           sosa:observedProperty edintkos-vars:PM10Concentration ;
+           bpm:isValid true ;
+           sosa:hasSimpleResult ?value .
+      ?sensor sosa:isHostedBy ?st .
+    }
+    GROUP BY ?st
+  }
+  ?f a edintinf:Facility ;
+     rdfs:label ?facility ;
+     edintinf:hasInfrastructureType edintkos-inftype:campo-de-futbol ;
+     bpm:hasNearestStation ?st .
+  ?st rdfs:label ?station .
+}
+ORDER BY DESC(?daysAbove50) ?facility
+
+# -----------------------------------------------------------------------------
+# Q13. CQ04 - Which district has the most sports facilities, and what is the
+#      average NO2 of the stations located in it? Districts without a station
+#      measuring NO2 are not listed.
+# -----------------------------------------------------------------------------
+SELECT ?district ?wikidata ?facilities ?avgNO2
+WHERE {
+  {
+    SELECT ?d (ROUND(AVG(?value) * 10) / 10 AS ?avgNO2)
+    WHERE {
+      ?obs sosa:madeBySensor ?sensor ;
+           sosa:observedProperty edintkos-vars:NO2Concentration ;
+           bpm:isValid true ;
+           sosa:hasSimpleResult ?value .
+      ?sensor sosa:isHostedBy ?st .
+      ?st edintinf:belongsTo ?d .
+      ?d a esadm:Distrito .
+    }
+    GROUP BY ?d
+  }
+  {
+    SELECT ?d (COUNT(?f) AS ?facilities)
+    WHERE { ?f a edintinf:Facility ; edintinf:belongsTo ?d . ?d a esadm:Distrito . }
+    GROUP BY ?d
+  }
+  ?d rdfs:label ?district ;
+     owl:sameAs ?wikidata .
+}
+ORDER BY DESC(?facilities)
+LIMIT 5
+
+# -----------------------------------------------------------------------------
+# Q14. CQ05 - Which accessible facilities are near an "urban background"
+#      station rather than an "urban traffic" one?
+# -----------------------------------------------------------------------------
+SELECT ?facility ?station ?stationType ?distanceKm
+WHERE {
+  ?f a edintinf:Facility ;
+     rdfs:label ?facility ;
+     edintinf:accessibility "Accesible"^^xsd:string ;
+     bpm:hasNearestStation ?st ;
+     bpm:distanceToNearestStation ?distanceKm .
+  ?st rdfs:label ?station ;
+      bpm:hasStationType/rdfs:label ?stationType .
+  FILTER (?stationType = "Urbana fondo"@es)
+}
+ORDER BY ?station ?facility
+
+# -----------------------------------------------------------------------------
+# Q15. CQ06 - What is the pollutant with code 14? Its EDINT environmental
+#      property, the unit of its values and its Wikidata entity.
+# -----------------------------------------------------------------------------
+SELECT ?pollutant ?edintProperty ?unit ?wikidata
+WHERE {
+  ?c skos:inScheme <https://w3id.org/breatheplay-madrid/kos/MadridPollutants> ;
+     skos:notation "14"^^xsd:string ;
+     skos:prefLabel ?pollutant ;
+     skos:exactMatch ?edintProperty ;
+     skos:relatedMatch ?wikidata .
+  { SELECT DISTINCT ?edintProperty ?unit
+    WHERE { ?obs sosa:observedProperty ?edintProperty ; qudt:unit ?unit . } }
+}
+
+# -----------------------------------------------------------------------------
+# Reuse of EDINT and links
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Q16. Sports facilities per EDINT infrastructure type, with the Madrid types
+#      grouped under it and the kind of correspondence (exact, close, broad).
+# -----------------------------------------------------------------------------
+SELECT ?edintType ?match ?madridType (COUNT(DISTINCT ?f) AS ?facilities)
+WHERE {
+  ?f a edintinf:Facility ;
+     edintinf:hasInfrastructureType ?t .
+  ?t skos:inScheme <https://w3id.org/breatheplay-madrid/kos/MadridFacilityTypes> ;
+     skos:prefLabel ?madridType ;
+     ?m ?edintType .
+  VALUES (?m ?match) { (skos:exactMatch "exact") (skos:closeMatch "close")
+                       (skos:broadMatch "broad") }
+}
+GROUP BY ?edintType ?match ?madridType
+ORDER BY DESC(?facilities)
+
+# -----------------------------------------------------------------------------
+# Q17. Sports facilities in the same Wikidata neighbourhood as a monitoring
+#      station, with the average NO2 of that station in 2024 (owl:sameAs links
+#      of Hands-on 5).
+# -----------------------------------------------------------------------------
+SELECT ?wikidata ?neighbourhood ?station ?facility ?avgNO2
+WHERE {
+  {
+    SELECT ?st ?wikidata (ROUND(AVG(?value) * 10) / 10 AS ?avgNO2)
+    WHERE {
+      ?obs sosa:madeBySensor ?sensor ;
+           sosa:observedProperty edintkos-vars:NO2Concentration ;
+           bpm:isValid true ;
+           sosa:hasSimpleResult ?value .
+      ?sensor sosa:isHostedBy ?st .
+      ?st edintinf:belongsTo ?stationNeighbourhood .
+      ?stationNeighbourhood a esadm:Barrio ;
+                            owl:sameAs ?wikidata .
+    }
+    GROUP BY ?st ?wikidata
+  }
+  ?n owl:sameAs ?wikidata ;
+     a esadm:Barrio ;
+     rdfs:label ?neighbourhood .
+  ?f edintinf:belongsTo ?n ;
+     a edintinf:Facility ;
+     rdfs:label ?facility .
+  ?st rdfs:label ?station .
+}
+ORDER BY ?neighbourhood ?facility

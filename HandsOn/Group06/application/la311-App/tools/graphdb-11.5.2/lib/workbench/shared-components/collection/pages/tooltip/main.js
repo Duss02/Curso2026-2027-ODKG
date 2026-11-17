@@ -1,0 +1,1 @@
+const removeElement=()=>{const e=document.getElementById("remove-me");e&&e.remove()};

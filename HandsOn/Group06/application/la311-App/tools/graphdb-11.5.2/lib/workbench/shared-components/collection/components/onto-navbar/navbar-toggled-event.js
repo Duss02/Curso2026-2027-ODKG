@@ -1,0 +1,1 @@
+export class NavbarToggledEvent{constructor(a){this.type="navbarToggled",this.payload=a}}

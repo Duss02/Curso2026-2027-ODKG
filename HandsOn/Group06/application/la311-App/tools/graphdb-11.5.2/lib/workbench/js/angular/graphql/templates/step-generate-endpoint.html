@@ -1,0 +1,74 @@
+<div class="generate-endpoint-view">
+
+    <h5 class="mt-2">
+        {{'graphql.create_endpoint.wizard_steps.generate_endpoint.overview.title' | translate}}</h5>
+
+    <div class="generate-endpoint-container">
+        <div ng-if="!generatingEndpoint && !generationReport" class="endpoints-generation-overview">
+            <div ng-if="endpointsCountToGenerate > 0" class="alert alert-info generation-summary-message">
+                <span>{{'graphql.create_endpoint.wizard_steps.generate_endpoint.overview.for_shapes.info' |
+                translate: {
+                    activeRepoId: activeRepository,
+                    endpointsCount: endpointsCountToGenerate,
+                    stepLabel: stepLabel
+                } }}</span>
+            </div>
+
+            <h5 ng-if="generateFromGraphqlSchemaShapes" class="mt-1">
+                {{'graphql.create_endpoint.wizard_steps.generate_endpoint.overview.for_shapes.included_endpoints' | translate}}</h5>
+
+            <div class="endpoints-overview">
+                <div ng-repeat="endpointOverview in endpointsOverview.endpointList" class="endpoint-overview">
+                    <strong class="label">{{endpointOverview.label}}</strong>
+                    <span ng-if="endpointOverview.label && endpointOverview.uri">|</span>
+                    <span class="uri">{{endpointOverview.uri}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="generation-progress my-3" ng-if="generatingEndpoint && !generationReport" onto-loader
+             size="25" auto-font-size="false"
+             message-text="{{'graphql.create_endpoint.wizard_steps.generate_endpoint.messages.generation_progress' | translate}}"></div>
+
+        <div ng-if="!generatingEndpoint && generationReport" class="generation-report">
+            <h5 class="mt-2">
+                {{'graphql.create_endpoint.wizard_steps.generate_endpoint.overview.for_shapes.generated_endpoints' | translate}}</h5>
+
+            <div class="generation-report-list">
+                <div ng-repeat="endpointReport in generationReport.reports" class="endpoint-report">
+                    <i ng-if="endpointReport.createdSuccessfully" class="ri-checkbox-circle-line status-success"></i>
+                    <i ng-if="!endpointReport.createdSuccessfully" class="fa-regular fa-circle-xmark status-failed"></i>
+                    <a href="#" ng-if="endpointReport.createdSuccessfully"
+                       gdb-tooltip="{{'graphql.create_endpoint.wizard_steps.generate_endpoint.overview.for_shapes.explore_in_playground_link_tooltip' | translate}}"
+                       ng-click="exploreInPlayground(endpointReport)"
+                       class="endpoint-id">{{endpointReport.endpointId}}</a>
+                    <span ng-if="!endpointReport.createdSuccessfully"
+                          class="endpoint-id">{{endpointReport.endpointId}}</span>
+                    <a href="#" ng-if="!endpointReport.createdSuccessfully"
+                       ng-click="showEndpointReport(endpointReport)"
+                       gdb-tooltip="{{'graphql.create_endpoint.wizard_steps.generate_endpoint.overview.for_shapes.view_report_link_tooltip' | translate}}"
+                       class="btn btn-link endpoint-report-link">{{'graphql.create_endpoint.wizard_steps.generate_endpoint.overview.for_shapes.view_report_link' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wizard-actions mt-1">
+        <button ng-if="!generationReport" ng-disabled="generatingEndpoint" ng-click="cancel()"
+                class="btn btn-secondary cancel-btn mr-1">
+            {{'graphql.create_endpoint.wizard_steps.actions.cancel.label' | translate}}
+        </button>
+        <button ng-disabled="generatingEndpoint" ng-click="back()" class="btn btn-secondary back-btn mr-1">
+            {{'graphql.create_endpoint.wizard_steps.actions.back.label' | translate}}
+        </button>
+        <button ng-if="!generationReport" ng-disabled="generatingEndpoint" ng-click="generateEndpoint()"
+                class="btn btn-primary generate-endpoint-btn">
+            {{'graphql.create_endpoint.wizard_steps.actions.generate_endpoint.label' | translate}}
+        </button>
+        <button ng-if="generationReport" ng-click="finishGenerationWorkflow()"
+                class="btn btn-primary finish-generation-workflow-btn"
+                gdb-tooltip="{{'graphql.create_endpoint.wizard_steps.actions.finish_workflow.tooltip' | translate}}">
+            {{'graphql.create_endpoint.wizard_steps.actions.finish_workflow.label' | translate}}
+        </button>
+    </div>
+</div>
