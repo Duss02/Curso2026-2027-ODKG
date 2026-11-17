@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.ontotext.graphdb.examples</groupId>
+    <artifactId>dev-examples</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>GraphDB Developer Examples</name>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <graphdb.version>11.5.2</graphdb.version>
+        <rdf4j.version>5.3.1</rdf4j.version>
+    </properties>
+
+    <repositories>
+        <!-- Ontotext's public Maven repository for GraphDB artifacts -->
+        <repository>
+            <id>graphdb-public</id>
+            <url>https://maven.ontotext.com/repository/owlim-releases</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ontotext.graphdb</groupId>
+            <artifactId>graphdb-client-api</artifactId>
+            <version>${graphdb.version}</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <!-- GraphDB uses a patched RDF4J due to the transition from javax to jakarta.
+             The patched version is not needed for the GraphDB client so this brings stock RDF4J instead.
+             We recommend you to put this after other bom-dependencies in your project,
+             as RDF4J's bom provides some non-RDF4J versions too. -->
+        <dependencies>
+            <dependency>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-bom</artifactId>
+                <version>${rdf4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

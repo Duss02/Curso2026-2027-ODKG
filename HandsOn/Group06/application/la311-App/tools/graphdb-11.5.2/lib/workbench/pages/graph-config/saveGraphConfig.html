@@ -1,0 +1,330 @@
+<link href="css/graphs-config.css?v=3.5.2" rel="stylesheet"/>
+
+<h1>
+    {{title}}
+    <span class="btn btn-link"
+          uib-popover-template="'js/angular/templates/titlePopoverTemplate.html'"
+          popover-trigger="mouseenter"
+          popover-placement="bottom-right"
+          popover-append-to-body="true"><span class="ri-information-2-line text-tertiary"></span></span>
+</h1>
+
+<div class="card mb-2 graph-config-meta-card">
+    <div class="card-block">
+        <div class="row graph-config-meta-row">
+            <div class="col-12 col-lg-6 graph-config-meta-left">
+                <div class="form-group">
+                    <label for="graphConfigName" class="d-block">{{'config.name.label' | translate}}*</label>
+                    <input id="graphConfigName" required class="form-control form-control-lg graph-config-name" type="text"
+                           guide-selector="graph-config-name"
+                           placeholder="{{'graph.config.required' | translate}}" ng-model="newConfig.name">
+                </div>
+                <div class="form-group">
+                    <label for="graphConfigHint" class="d-block">{{'hint.label' | translate}}</label>
+                    <input id="graphConfigHint" class="form-control form-control-lg graph-config-example" type="text"
+                           guide-selector="graph-config-hint"
+                           placeholder="{{'add.hint.prompt' | translate}}"
+                           ng-model="newConfig.hint">
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6 graph-config-meta-right">
+                <div class="form-group">
+                    <label for="graphConfigDesc" class="d-block">{{'description.text' | translate}}</label>
+                    <textarea id="graphConfigDesc"
+                              class="form-control form-control-lg graph-config-description"
+                              guide-selector="graph-config-description"
+                              placeholder="{{'enter.description' | translate}}"
+                              ng-model="newConfig.description"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group ml-1 mb-0">
+                    <label for="share-graph-config" guide-selector="share-graph-config"
+                           gdb-tooltip="{{'visual.graph.other.users.see' | translate}}">
+                        <input id="share-graph-config" type="checkbox" ng-model="newConfig.shared" data-test="share-graph-config">
+                        {{'share.visual.graph' | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button ng-show="page != 1" type="button" class="btn btn-link pull-right" ng-click="toggleHelp()">
+        <span class="ri-question-line" uib-popover="{{'toggle.help' | translate}}"
+              popover-placement="top"
+              popover-trigger="mouseenter">
+        </span>
+        <span class="hidden-lg-down">{{'menu.help.label' | translate}}</span>
+    </button>
+    <ul class="nav nav-tabs">
+        <li ng-repeat="tab in tabsViewModel track by tab.page" class="nav-item">
+            <a ng-class="page === tab.page ? 'active' : ''" ng-click="goToPage(tab.page)"
+               guide-selector="graph-config-tab-{{tab.page}}"
+               data-test="graph-config-tab-{{tab.page}}"
+               class="nav-link page-{{tab.page}}-link" href>
+                {{tab.label}}
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="card" style="border-top: none">
+    <div class="graph-config-wizard-body card-block">
+        <div class="start-modes image-label-container" ng-show="page == 1">
+            <label class="start-mode search image-label d-flex" guide-selector="start-with-search-box" ng-class="{'active': newConfig.startMode === 'search'}">
+                <input type="radio" class="form-check-input" id="checkboxSuccessSearch"
+                       ng-model="newConfig.startMode" value="search">
+                <img class="image-label-image" src="css/images/search.png?v=3.5.2" alt="search image"
+                     width="100%">
+                <div class="image-label-content">
+                    <h5>{{'start.with.search.box' | translate}}</h5>
+                    <div>{{'choose.starting.point' | translate}}</div>
+                </div>
+            </label>
+
+            <label class="start-mode node image-label d-flex" guide-selector="start-with-a-fixed-node" ng-class="{'active': newConfig.startMode === 'node'}">
+                <input type="radio" class="form-check-input" id="checkboxSuccessNode" ng-model="newConfig.startMode"
+                       value="node">
+                <img class="image-label-image" src="css/images/node.png?v=3.5.2" alt="node image"
+                     width="100%">
+                <div class="image-label-content">
+                    <h5>{{'start.with.fixed.node' | translate}}</h5>
+                    <div>{{'visual.graph.start' | translate}}</div>
+                </div>
+            </label>
+
+            <label class="start-mode query image-label d-flex" guide-selector="start-with-graph-query-result" ng-class="{'active': newConfig.startMode === 'query'}">
+                <input type="radio" class="form-check-input" data-cy="graph-config-by-graph-query-checkbox"
+                       ng-model="newConfig.startMode" value="query">
+                <img class="image-label-image" src="css/images/query.png?v=3.5.2" alt="query image"
+                     width="100%">
+                <div class="image-label-content">
+                    <h5>{{'query.results.start' | translate}}</h5>
+                    <div>{{'results.start' | translate}}</div>
+                </div>
+            </label>
+        </div>
+
+        <div class="start-node-selector form-group card mt-2 mb-0"
+             ng-show="newConfig.startMode === 'node' && page === 1">
+            <div class="card-block">
+                <p class="lead selected-node" ng-show="newConfig.startIRI">
+                    <strong>{{'selected.node' | translate}}</strong>
+                    <code
+                        ng-bind="newConfig.startIRILabel ? newConfig.startIRILabel + '<' + newConfig.startIRI + '>' : newConfig.startIRI"></code>
+                    <em ng-hide="newConfig.startIRI" class="text-muted">{{'no.node.selected' | translate}}</em>
+                </p>
+                <p class="lead" ng-hide="newConfig.startIRI">
+                    <strong>{{'no.node.selected' | translate}}</strong>
+                </p>
+                <search-resource-input
+                    repository-namespaces="repositoryNamespaces"
+                    placeholder="{{'search.start.rdf.node' | translate}}"
+                    is-autocomplete-enabled="isAutocompleteEnabled"
+                    text-button=""
+                    visual-button=""
+                    visual-callback="fixedVisualCallback(uri, label)"
+                    empty="empty">
+                </search-resource-input>
+            </div>
+        </div>
+
+        <!-- help info boxes -->
+        <div uib-collapse="helpHidden" class="wizard-help alert alert-info no-icon p-1 mb-2" ng-if="page != 1">
+            <div class="help-box d-flex" ng-if="page == 2">
+                <button class="close absolute" ng-click="toggleHelp(0)"></button>
+                <div class="alert alert-help">
+                    <p class="lead">{{'this.is.a' | translate}} <span class="small-caps">CONSTRUCT</span>
+                        {{'construct.query.explanation' | translate}}</p>
+
+                    <p>{{'the.sentence.start' | translate}} <code>?node</code> {{'variable.required' | translate}}</p>
+
+                    <p>{{'optional.query' | translate}} <em ng-if="samples && samples.length > 0">{{getSampleName(samples[0], 'expandQuery')}}</em>
+                        {{'sample.query.used' | translate}}</p>
+                </div>
+                <div>
+                    <img src="css/images/expand.png?v=3.5.2" class="info-box-img" height="220"
+                         alt="expand image">
+                </div>
+            </div>
+
+            <div class="help-box d-flex" ng-if="page == 3">
+                <button class="close absolute" ng-click="toggleHelp(0)"></button>
+                <div class="alert alert-help">
+                    <p class="lead">
+                        {{'this.sentence.start' | translate}} <span class="small-caps">SELECT</span>
+                        {{'query.node.basic.info' | translate}}
+                    </p>
+
+                    <p>{{'query.must' | translate}} <span class="small-caps">SELECT</span>
+                        {{'one.or.more.bindings' | translate}}</p>
+                    <ul>
+                        <li><code>?type</code> {{'determines.color' | translate}}</li>
+                        <li><code>?label</code> {{'determines.label' | translate}}</li>
+                        <li><code>?comment</code> {{'determines.description' | translate}}</li>
+                        <li><code>?rank</code> {{'determines.size' | translate}}</li>
+                    </ul>
+
+                    <p>{{'the.sentence.start' | translate}} <code>?node</code> {{'variable.required' | translate}}</p>
+
+                    <p>{{'optional.query' | translate}} <em ng-if="samples && samples.length > 0">{{getSampleName(samples[0], 'resourceQuery')}}</em>
+                        {{'sample.query.used' | translate}}</p>
+                </div>
+                <div>
+                    <img src="css/images/labels-size.png?v=3.5.2" class="info-box-img" height="220"
+                         alt="labels size image">
+                </div>
+            </div>
+
+            <div class="help-box d-flex" ng-if="page == 4">
+                <button class="close absolute" ng-click="toggleHelp(0)"></button>
+                <div class="alert alert-help">
+                    <p class="lead">{{'this.sentence.start' | translate}} <span class="small-caps">SELECT</span>
+                        {{'query.edge.basic.info' | translate}}</p>
+
+                    <p>{{'query.must' | translate}} <span class="small-caps">SELECT</span> {{'this.binding' | translate}}
+                    </p>
+                    <ul>
+                        <li><code>?label</code> {{'determines.label.edge' | translate}}</li>
+                    </ul>
+
+                    <p>{{'the.sentence.start' | translate}} <code>?edge</code> {{'variable.required.edge' | translate}}
+                    </p>
+
+                    <p>{{'query.is.optional.local.name' | translate}}</p>
+                </div>
+                <div>
+                    <img src="css/images/predicates.png?v=3.5.2" class="info-box-img" height="220"
+                         alt="predicates image">
+                </div>
+            </div>
+
+            <div class="help-box d-flex" ng-if="page == 5">
+                <button class="close absolute" ng-click="toggleHelp(0)"></button>
+                <div class="alert alert-help">
+                    <p class="lead">{{'this.sentence.start' | translate}} <span class="small-caps">SELECT</span>
+                        {{'extra.properties.shown.node' | translate}}</p>
+
+                    <p>{{'query.must' | translate}} <span class="small-caps">SELECT</span>
+                        {{'these.bindings' | translate}}</p>
+                    <ul>
+                        <li><code>?property</code> {{'name.of.each.property' | translate}}</li>
+                        <li><code>?value</code> {{'value.of.each.property' | translate}}</li>
+                    </ul>
+
+                    <p>{{'query.may.also' | translate}} <span class="small-caps">SELECT</span>
+                        {{'this.binding' | translate}}</p>
+                    <ul>
+                        <li><code>?image</code> {{'url.to.image.properties' | translate}}</li>
+                    </ul>
+
+                    <p>{{'the.sentence.start' | translate}} <code>?node</code>
+                        {{'variable.required.viewed.node' | translate}}</p>
+
+                    <p>{{'optional.query' | translate}}
+                        <em ng-if="samples && samples.length > 0">{{getSampleName(samples[0], 'resourcePropertiesQuery')}}</em>
+                        {{'sample.query.used' | translate}}</p>
+                </div>
+                <div>
+                    <img src="css/images/side-panel.png?v=3.5.2" class="info-box-img" height="220"
+                         alt="side panel image">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row pt-2 mb-0" ng-hide="page == 1 && newConfig.startMode !== 'query'">
+            <div class="col-md-9">
+                <yasgui-component id="query-editor"
+                                  ng-if="yasguiConfig"
+                                  yasgui-config="yasguiConfig"
+                                  query-changed="markDirty()">
+                </yasgui-component>
+            </div>
+
+            <div class="sample-queries col-md-3">
+                <p>{{'sample.queries' | translate}} </p>
+                <div ng-repeat="tab in tabsViewModel track by tab.page" ng-if="tab.page === page"
+                     class="predefined-queries list-group"
+                     guide-selector="sample-queries-{{tab.page}}">
+                    <div ng-repeat="sample in samples | filter:isDefaultGraph">
+                        <a href="#" ng-if="sample[tab.type]" ng-click="setQuery(sample[tab.type])"
+                           class="predefined-query list-group-item list-group-item-action">
+                            <strong ng-bind="getSampleName(sample, tab.type)"></strong>
+                            <samp class="text-muted small">{{sample[tab.type]}}</samp>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="mt-1">{{'user.queries' | translate}} </p>
+                <div ng-repeat="tab in tabsViewModel track by tab.page" ng-if="tab.page === page"
+                     class="user-queries list-group">
+                    <div ng-repeat="sample in samples | filter:isUserGraph">
+                        <a href="#" ng-if="sample[tab.type]" ng-click="setQuery(sample[tab.type])"
+                           class="user-query list-group-item list-group-item-action">
+                            <strong ng-bind="getSampleName(sample, tab.type)"></strong>
+                            <samp class="text-muted small">{{sample[tab.type]}}</samp>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="m-0 d-flex justify-content-between align-items-start">
+    <div>
+        <button href ng-show="page > 1" ng-click="goToPreviousPage()" class="btn btn-lg btn-secondary btn-previous-page"
+                uib-popover="{{'previous.config.step' | translate}}"
+                popover-placement="top"
+                popover-trigger="mouseenter"><span class="ri-arrow-left-circle-line"></span> {{'previous.btn' | translate}}
+        </button>
+        <button href ng-show="page < totalPages" ng-click="goToNextPage()" class="btn btn-lg btn-secondary btn-next-page"
+                uib-popover="{{'next.config.step' | translate}}"
+                popover-placement="top"
+                popover-trigger="mouseenter"> {{'next.btn' | translate}} <span class="ri-arrow-right-circle-line"></span>
+        </button>
+        <button class="btn btn-lg btn-secondary btn-preview-query-results" ng-click="showPreview()"
+                ng-hide="viewMode == 'editor' || (page == 1 && newConfig.startMode != 'query')"
+                uib-popover="{{'preview.results' | translate}}"
+                popover-placement="top"
+                popover-trigger="mouseenter">
+            {{'common.preview' | translate}}
+        </button>
+        <button class="btn btn-lg btn-secondary btn-show-query-editor" ng-click="showEditor()"
+                ng-show="viewMode == 'editor' && (page != 1 || newConfig.startMode == 'query')"
+                uib-popover="{{'closes.preview' | translate}}"
+                popover-placement="top"
+                popover-trigger="mouseenter">
+            {{'core.edit.query' | translate}}
+        </button>
+        <button class="btn btn-lg btn-secondary btn-revert-query" ng-click="revertEditor()" ng-disabled="!queryEditorIsDirty"
+                ng-hide="!revertConfig || viewMode == 'editor' || (page == 1 && newConfig.startMode != 'query')"
+                uib-popover="{{'reverts.changes' | translate}}"
+                popover-placement="top"
+                popover-trigger="mouseenter">
+            {{'revert.changes.btn' | translate}}
+        </button>
+    </div>
+    <div>
+        <a ng-href="graphs-visualizations/" class="btn btn-lg btn-secondary btn-cancel-save-config"
+           uib-popover="{{'closes.config.no.save' | translate}}"
+           popover-class="config-action-popover"
+           popover-placement="top"
+           popover-trigger="mouseenter">
+            {{'common.cancel.btn' | translate}}
+        </a>
+        <a href ng-click="saveGraphConfig()" class="btn btn-lg btn-primary btn-save-config"
+           uib-popover="{{'closes.config.save' | translate}}"
+           guide-selector="save-graph-config"
+           popover-class="config-action-popover"
+           popover-placement="top"
+           popover-trigger="mouseenter">
+            {{'common.save.btn' | translate}}
+        </a>
+    </div>
+</div>

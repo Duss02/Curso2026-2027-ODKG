@@ -1,0 +1,79 @@
+<div onto-loader ng-if="loader" class="create-cluster-loader" message="getLoaderMessage" size="75"></div>
+<div ng-click="onClick($event)">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()"></button>
+        <h3 class="modal-title">{{pageTitle}}</h3>
+    </div>
+
+    <div class="modal-body">
+        <form novalidate id="clusterConfigurationForm" name="clusterConfigurationForm">
+            <div class="form-horizontal">
+                <div class="form-group" ng-repeat="fieldConfig in configFields">
+                    <div class="input-group"
+                         ng-class="{'has-danger': clusterConfigurationForm[fieldConfig.name].$invalid}">
+                        <label for="{{fieldConfig.id}}" class="col-xs-4 col-form-label">{{fieldConfig.label |
+                            translate}}*</label>
+                        <div class="col-xs-8" gdb-tooltip="{{fieldConfig.tooltip | translate}}">
+                            <input
+                                class="form-control"
+                                placeholder="{{'required.field' | translate}}"
+                                type="number"
+                                ng-model="clusterConfiguration[fieldConfig.name]"
+                                required
+                                id="{{fieldConfig.id}}"
+                                min="0"
+                                name="{{fieldConfig.name}}"
+                                ng-pattern="fieldConfig.pattern">
+                            <div class="form-control-feedback"
+                                 ng-show="clusterConfigurationForm[fieldConfig.name].$error.required">
+                                {{'required.field' | translate}}
+                            </div>
+                            <div class="form-control-feedback"
+                                 ng-show="clusterConfigurationForm[fieldConfig.name].$error.pattern">
+                                {{fieldConfig.errorMsg | translate}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div ng-repeat="error in errors" class="cluster-properties-error alert alert-danger mt-1">
+                        {{error}}
+                    </div>
+                    <div ng-if="preconditionErrors" class="precondition-errors alert alert-danger">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                {{'cluster_management.cluster_page.errors.preconditions_failed.label' | translate}}
+                                <ul>
+                                    <li>{{'cluster_management.cluster_page.errors.preconditions_failed.valid_license' |
+                                        translate}}
+                                    </li>
+                                    <li>
+                                        {{'cluster_management.cluster_page.errors.preconditions_failed.authentication_secret' | translate}}
+                                    </li>
+                                    <li>{{'cluster_management.cluster_page.errors.preconditions_failed.nodes_reachable' | translate}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-6">
+                                {{'cluster_management.cluster_page.errors.nodes_status_label' | translate}}
+                                <ul>
+                                    <li ng-repeat="error in preconditionErrors">
+                                        {{error}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancel-cluster-configuration-btn" ng-click="cancel()">{{'common.cancel.btn' | translate}}</button>
+        <button type="submit" ng-click="ok()" ng-disabled="!isClusterConfigurationValid()"
+                form="clusterConfigurationForm"
+                class="btn btn-primary save-cluster-configuration-btn">{{'cluster_management.cluster_page.save_btn' | translate}}
+        </button>
+    </div>
+</div>

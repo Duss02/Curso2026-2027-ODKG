@@ -1,0 +1,1 @@
+editable-content .contenteditable{height:100%;max-height:7rem;min-height:2rem;outline:none;overflow-y:auto;width:100%}editable-content .contenteditable[disabled]{cursor:not-allowed}editable-content [placeholder]:empty:before{background-color:transparent;color:gray;content:attr(placeholder);position:absolute}

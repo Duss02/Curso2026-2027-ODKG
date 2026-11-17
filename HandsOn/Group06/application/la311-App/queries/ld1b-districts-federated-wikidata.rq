@@ -1,0 +1,41 @@
+PREFIX la311:  <http://linkeddata.la311.com/ontology#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:    <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+PREFIX geo:    <http://www.opengis.net/ont/geosparql#>
+PREFIX schema: <http://schema.org/>
+PREFIX wd:     <http://www.wikidata.org/entity/>
+PREFIX wdt:    <http://www.wikidata.org/prop/direct/>
+
+# Step 2: ONE query joining council-member data (Wikidata) with request counts (our graph).
+# The SERVICE comes first so GraphDB sends a single request with all linked IRIs.
+SELECT ?cd ?n ?member
+       (SAMPLE(?nm) AS ?name) (SAMPLE(?ds) AS ?description) (SAMPLE(?img) AS ?image)
+       (GROUP_CONCAT(DISTINCT ?pl; separator=", ") AS ?party) (SAMPLE(?art) AS ?article)
+WHERE {
+  SERVICE <https://query.wikidata.org/sparql> {
+    VALUES ?member { wd:Q120064371 wd:Q4931858 wd:Q100728314 wd:Q4685737 wd:Q131101480 wd:Q115327492 wd:Q115238364 wd:Q20638114 wd:Q113686955 wd:Q117101867 wd:Q112652355 wd:Q115471735 wd:Q30122916 }
+    OPTIONAL { ?member rdfs:label ?nm . FILTER (LANG(?nm) IN ("en", "mul")) }
+    OPTIONAL { ?member schema:description ?ds . FILTER (LANG(?ds) = "en") }
+    OPTIONAL { ?member wdt:P18 ?img }
+    OPTIONAL { ?member wdt:P102 ?p . ?p rdfs:label ?pl . FILTER (LANG(?pl) = "en") }
+    OPTIONAL { ?art schema:about ?member ; schema:isPartOf <https://en.wikipedia.org/> }
+  }
+  {
+    SELECT ?cd ?member (COUNT(?sr) AS ?n)
+    WHERE {
+      ?sr la311:requestType ?requestType ;
+          la311:status ?status ;
+          la311:createdDate ?created ;
+          la311:hasLocation ?loc .
+      ?loc la311:isWithin ?region .
+      ?region la311:cd ?cd ;
+              la311:cdMember ?member .
+      FILTER (?created >= "2025-01-01T00:00:00Z"^^xsd:dateTime && ?created < "2026-01-01T00:00:00Z"^^xsd:dateTime)
+    }
+    GROUP BY ?cd ?member
+  }
+}
+GROUP BY ?cd ?n ?member
+ORDER BY DESC(?n)

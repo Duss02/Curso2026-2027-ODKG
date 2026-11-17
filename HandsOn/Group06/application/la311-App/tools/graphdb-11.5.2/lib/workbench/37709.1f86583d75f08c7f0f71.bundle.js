@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=37709;export const __webpack_esm_ids__=[37709];export const __webpack_esm_modules__={37709(_,e,c){c.d(e,{R:()=>s,e:()=>o});const s={EXTERNAL_CLICK_HANDLER:"externalClickHandler"},o={NODE_CLICK:"visgraph.click.node",EDGE_CLICK:"visgraph.click.edge"}}};
+//# sourceMappingURL=37709.1f86583d75f08c7f0f71.bundle.js.map

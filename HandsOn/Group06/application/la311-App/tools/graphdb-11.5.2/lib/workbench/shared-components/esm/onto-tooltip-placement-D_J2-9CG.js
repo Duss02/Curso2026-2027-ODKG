@@ -1,0 +1,1 @@
+var OntoTooltipPlacement;!function(t){t.LEFT="left",t.RIGHT="right",t.TOP="top",t.BOTTOM="bottom",t.AUTO="auto"}(OntoTooltipPlacement||(OntoTooltipPlacement={}));export{OntoTooltipPlacement as O};

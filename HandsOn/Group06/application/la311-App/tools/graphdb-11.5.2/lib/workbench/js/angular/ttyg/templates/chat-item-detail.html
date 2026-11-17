@@ -1,0 +1,131 @@
+<link href="css/ttyg/chat-item-details.css?v=3.5.2" rel="stylesheet"/>
+
+<div class="chat-detail">
+    <div class="user-message" ng-if="chatItemDetail.question">
+        <div class="question alert-help"
+             gdb-tooltip="{{ 'ttyg.chat_panel.labels.question_asked' | translate : { date: getHumanReadableQuestionTimestamp(chatItemDetail.question.timestamp), time: (chatItemDetail.question.timestamp | date:'HH:mm') } }}">
+            <markdown-content class="question-text"
+                              content="{{chatItemDetail.question.message}}"
+                              trusted="true"></markdown-content>
+        </div>
+    </div>
+    <div class="answers" ng-repeat="answer in chatItemDetail.answers">
+        <div class="assistant">
+            <div ng-if="!answer.isTerminalState" class="assistant-icon alert-help"
+                 gdb-tooltip="{{'ttyg.chat_panel.labels.agent_name' | translate : { agentName: agentNameByIdMap[chatItemDetail.agentId], date: getHumanReadableQuestionTimestamp(chatItemDetail.question.timestamp), time: (chatItemDetail.question.timestamp | date:'HH:mm') } }}">
+                <i class="ri-lg ri-robot-2-line"></i>
+            </div>
+            <div class="assistant-message" ng-if="answer.status !== 'completed'">
+                <markdown-content class="answer"
+                                  ng-class="{'italic': answer.isTerminalState}"
+                                  content="{{answer.message}}"
+                                  options="markdownContentOptions" trusted="true"></markdown-content>
+                <div class="actions" ng-class="{'hidden-actions': !explainResponseModel[answer.id].expanded && (!showActions || !$last)}">
+                    <button class="btn btn-link btn-sm regenerate-question-btn"
+                            ng-click="regenerateQuestion()"
+                            ng-disabled="disabled"
+                            gdb-tooltip="{{'ttyg.chat_panel.btn.regenerate.tooltip' | translate}}">
+                        <i class="ri-refresh-line"></i>
+                    </button>
+                    <copy-to-clipboard tooltip-text="ttyg.chat_panel.btn.copy_answer.tooltip"
+                                       text-to-copy="{{answer.message}}"></copy-to-clipboard>
+                    <button ng-if="answer.tokenUsageInfo"
+                         class="btn btn-link btn-sm token-usage-info-btn"
+                         uib-popover-template="'token-usage-info.html'"
+                         ng-click="onTokenUsageInfo($event)"
+                         popover-class="token-usage-info"
+                         popover-placement="bottom-right"
+                         popover-trigger="mouseenter">
+                        <i class="ri-coin-line"></i>
+                    </button>
+                    <button class="btn btn-link btn-link-only-icons btn-sm explain-response-btn" guide-selector="explain-response-btn"
+                            ng-click="explainResponse(answer.id)"
+                            ng-disabled="answer.isTerminalState || (disabled && !explainResponseModel[answer.id])"
+                            gdb-tooltip="{{'ttyg.chat_panel.btn.explain_response.tooltip' | translate}}">
+                        <i class="ri-sparkling-line"></i>
+                        <i class="ri-arrow-up-s-line toggle-explain-response-icon"
+                           ng-class="{expanded: explainResponseModel[answer.id] && explainResponseModel[answer.id].expanded}"></i>
+                    </button>
+                </div>
+                <div class="derived-answer-hint"
+                     ng-if="showActions && $last && explainResponseModel[answer.id].expanded">
+                    <div ng-bind-html="'ttyg.chat_panel.btn.derive_answer.hint' | translate | trustAsHtml"></div>
+                    <button class="btn btn-secondary deliver-answer-btn" ng-click="onAskHowAnswerWasDerived()" guide-selector="how-derive-answer-btn">
+                        {{ 'ttyg.chat_panel.btn.derive_answer.label' | translate }}
+                    </button>
+                </div>
+                <div ng-if="loadingExplainResponse[answer.id]" onto-loader size="40"></div>
+                <div class="explain-responses" ng-if="explainResponseModel[answer.id] && explainResponseModel[answer.id].expanded">
+                    <div ng-if="!explainResponseModel[answer.id].queryMethods.items.length"
+                         class="explain-response">
+                        {{ 'ttyg.chat_panel.labels.explain_no_methods' | translate }}
+                    </div>
+                    <div ng-if="explainResponseModel[answer.id].queryMethods.items"
+                         class="explain-response"
+                         ng-repeat="queryMethod in explainResponseModel[answer.id].queryMethods.items">
+                        <div class="explain-call">
+                            <div class="header" gdb-tooltip="">
+                                <div class="label">
+                                    <span class="query-method" ng-bind-html="'ttyg.chat_panel.labels.called' | translate:{name: queryMethod.name} | trustAsHtml">
+                                    </span>{{ 'ttyg.chat_panel.query_colon' | translate }}
+                                    <span class="query-method-details" ng-bind="('ttyg.chat_panel.query_desc.' + queryMethod.name) | translate">
+                                    </span>
+                                </div>
+                                <div ng-if="queryMethod.query" class="actions">
+                                    <open-in-sparql-editor
+                                        ng-if="queryMethod.queryType === ExplainQueryType.SPARQL"
+                                        execute-query="{{!queryMethod.errorMessage}}"
+                                        repository-id="{{repositoryId}}"
+                                        query="{{queryMethod.query}}"
+                                        add-prefixes="true">
+                                    </open-in-sparql-editor>
+                                    <copy-to-clipboard tooltip-text="ttyg.chat_panel.btn.copy_{{ queryMethod.queryType }}.tooltip"
+                                                       text-to-copy="{{queryMethod.query}}"></copy-to-clipboard>
+                                </div>
+                            </div>
+                            <div class="query">
+                                <div ng-if="!queryMethod.query" class="mb-1">{{ 'ttyg.chat_panel.labels.no_query' | translate }}</code></div>
+                                <pre ng-if="queryMethod.query"><code>{{queryMethod.query}}</code></pre>
+                            </div>
+                            <div ng-if="showRawQuery(queryMethod)" class="raw-query">
+                                <span class="label">{{'ttyg.chat_panel.labels.raw_query' | translate}}:</span>
+                                <span class="content">{{queryMethod.rawQuery}}</span>
+                                <copy-to-clipboard class="copy-to-clipboard-btn" tooltip-text="ttyg.chat_panel.btn.copy_raw_query.tooltip"
+                                                   text-to-copy="{{queryMethod.rawQuery}}"></copy-to-clipboard>
+                            </div>
+                            <div ng-if="queryMethod.errorMessage" class="alert no-icon alert-warning error-message">
+                                <div class="error-header">
+                                    <div class="label">{{'ttyg.chat_panel.labels.error_message' | translate}}:</div>
+                                    <copy-to-clipboard class="copy-to-clipboard-btn" tooltip-text="ttyg.chat_panel.btn.copy_error_message.tooltip"
+                                                       text-to-copy="{{queryMethod.errorMessage}}"></copy-to-clipboard>
+                                </div>
+                                <div class="error-content">{{queryMethod.errorMessage}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="asking || isCancellingAnswer" data-test="question-loader" onto-loader size="40" guide-selector="question-loader"></div>
+</div>
+
+<script type="text/ng-template" id="token-usage-info.html">
+    <h4 class="title">{{'ttyg.chat_panel.dialog.token_usage_info.title' | translate}}</h4>
+
+    <span class="token-info-number">
+            {{answer.tokenUsageInfo.promptTokens | formatNumberToLocaleString}}
+    </span>
+    {{'ttyg.chat_panel.dialog.token_usage_info.prompt_tokens_info' | translate}}
+    <div class="description">
+        {{'ttyg.chat_panel.dialog.token_usage_info.prompt_tokens_info_description' | translate }}
+    </div>
+
+    <span class="token-info-number">
+            {{answer.tokenUsageInfo.completionTokens | formatNumberToLocaleString}}
+    </span>
+    {{'ttyg.chat_panel.dialog.token_usage_info.completion_tokens_info' | translate}}
+    <div class="description">
+        {{'ttyg.chat_panel.dialog.token_usage_info.completion_tokens_info_description' | translate }}
+    </div>
+</script>
