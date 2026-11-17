@@ -48938,8 +48938,8 @@ tree:brachychiton-acerifolius-0345745ar a hr:StreetTree ;
     hr:greenSpace "Virginia Amposta Amposta, jardins de" ;
     hr:hasSpecies species:brachychiton-acerifolius ;
     hr:irrigationType "ROTATOR" ;
+    hr:isLocatedInNeighbourhood neighbourhood:el-besos-i-el-maresme ;
     hr:plantingDate "2026-03-13T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 11" ;
     hr:treeCategory "SEGONA" .
 
 tree:brachychiton-acerifolius-0346888ar a hr:StreetTree ;
@@ -346828,7 +346828,6 @@ tree:celtis-australis-0345740ar a hr:StreetTree ;
     hr:irrigationType "ROTATOR" ;
     hr:isLocatedInNeighbourhood neighbourhood:el-besos-i-el-maresme ;
     hr:plantingDate "2026-03-13T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 11" ;
     hr:treeCategory "SEGONA" .
 
 tree:celtis-australis-0345741ar a hr:StreetTree ;
@@ -346842,7 +346841,6 @@ tree:celtis-australis-0345741ar a hr:StreetTree ;
     hr:irrigationType "ROTATOR" ;
     hr:isLocatedInNeighbourhood neighbourhood:el-besos-i-el-maresme ;
     hr:plantingDate "2026-03-13T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 11" ;
     hr:treeCategory "SEGONA" .
 
 tree:celtis-australis-0345873ar a hr:StreetTree ;
@@ -523018,7 +523016,7 @@ tree:grevillea-robusta-0346628ar a hr:StreetTree ;
     hr:hasSpecies species:grevillea-robusta ;
     hr:isLocatedInNeighbourhood neighbourhood:el-besos-i-el-maresme ;
     hr:plantingDate "2026-05-27T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 2" ;
+    hr:streetAddress "C\\ Càller, 2" ;
     hr:treeCategory "PRIMERA" .
 
 tree:grevillea-robusta-0347358ar a hr:StreetTree ;
@@ -600288,7 +600286,7 @@ tree:lagerstroemia-indica-0344482ar a hr:StreetTree ;
     hr:irrigationType "GOTEIG" ;
     hr:isLocatedInNeighbourhood neighbourhood:les-corts ;
     hr:plantingDate "2026-09-23T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 607" ;
+    hr:streetAddress "Av Diagonal, 607" ;
     hr:treeCategory "PRIMERA" .
 
 tree:lagerstroemia-indica-0346887ar a hr:StreetTree ;
@@ -645071,7 +645069,7 @@ tree:ligustrum-lucidum-0344472ar a hr:StreetTree ;
     hr:hasSpecies species:ligustrum-lucidum ;
     hr:isLocatedInNeighbourhood neighbourhood:la-vila-de-gracia ;
     hr:plantingDate "2026-09-01T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 36" ;
+    hr:streetAddress "C\\ Riera de Sant Miquel, 36" ;
     hr:treeCategory "PRIMERA" .
 
 tree:ligustrum-lucidum-0344473ar a hr:StreetTree ;
@@ -645083,7 +645081,7 @@ tree:ligustrum-lucidum-0344473ar a hr:StreetTree ;
     hr:hasSpecies species:ligustrum-lucidum ;
     hr:isLocatedInNeighbourhood neighbourhood:pedralbes ;
     hr:plantingDate "2026-09-17T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 7" ;
+    hr:streetAddress "C\\ Pedro i Pons, 7" ;
     hr:treeCategory "PRIMERA" .
 
 tree:ligustrum-lucidum-0346477ar a hr:StreetTree ;
@@ -745558,7 +745556,7 @@ tree:melia-azedarach-0344784ar a hr:StreetTree ;
     hr:hasSpecies species:melia-azedarach ;
     hr:isLocatedInNeighbourhood neighbourhood:la-sagrada-familia ;
     hr:plantingDate "2026-04-16T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 222" ;
+    hr:streetAddress "C\\ Nàpols, 222" ;
     hr:treeCategory "PRIMERA" .
 
 tree:melia-azedarach-0344886ar a hr:StreetTree ;
@@ -745837,7 +745835,7 @@ tree:melia-azedarach-0346663ar a hr:StreetTree ;
     hr:hasSpecies species:melia-azedarach ;
     hr:isLocatedInNeighbourhood neighbourhood:el-besos-i-el-maresme ;
     hr:plantingDate "2026-05-27T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 52" ;
+    hr:streetAddress "C\\ Josep Pla, 52" ;
     hr:treeCategory "PRIMERA" .
 
 tree:melia-azedarach-0346996ar a hr:StreetTree ;
@@ -1260500,7 +1260498,7 @@ tree:platanus-acerifolia-0346556ar a hr:StreetTree ;
     hr:hasSpecies species:platanus-acerifolia ;
     hr:isLocatedInNeighbourhood neighbourhood:les-corts ;
     hr:plantingDate "2026-09-23T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 597" ;
+    hr:streetAddress "Av Diagonal, 597" ;
     hr:treeCategory "PRIMERA" .
 
 tree:platanus-acerifolia-0346558ar a hr:StreetTree ;
@@ -1360723,7 +1360721,7 @@ tree:pyrus-calleryana-chanticleer-0345176ar a hr:StreetTree ;
     hr:hasSpecies species:pyrus-calleryana-chanticleer ;
     hr:isLocatedInNeighbourhood neighbourhood:la-verneda-i-la-pau ;
     hr:plantingDate "2026-09-22T00:00:00"^^xsd:dateTime ;
-    hr:streetAddress ", 139" ;
+    hr:streetAddress "Rbla Prim, 139" ;
     hr:treeCategory "PRIMERA" .
 
 tree:pyrus-calleryana-chanticleer-0346106ar a hr:StreetTree ;
