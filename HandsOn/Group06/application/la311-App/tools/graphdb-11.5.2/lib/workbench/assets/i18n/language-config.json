@@ -1,0 +1,15 @@
+{
+  "defaultLanguage": "en",
+  "languageBundleVersion": "3.5.2",
+  "availableLanguages": [
+    {
+      "key": "en",
+      "name": "English"
+    },
+    {
+      "key": "fr",
+      "name": "Français"
+    }
+  ],
+  "language": "language-config"
+}

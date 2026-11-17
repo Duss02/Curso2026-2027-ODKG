@@ -1,0 +1,31 @@
+<link href="css/dynamic-form.css?v=3.5.2" rel="stylesheet"/>
+
+<div class="dynamic-form-container">
+    <form name="dynamicForm" novalidate class="dynamic-form">
+        <div ng-repeat="model in formModel.models">
+            <!-- Groups -->
+            <div ng-if="model.groupId && (model.fields.length > 0 || showAllFields)" class="form-group">
+                <h5 class="group-title">
+                    <span
+                        gdb-tooltip="{{(translationKeyPrefix ? (translationKeyPrefix + model.groupId + '.tooltip') : null) | translate}}">
+                        {{(translationKeyPrefix ? (translationKeyPrefix + model.groupId + '.label') : model.groupId) | translate}}
+                    </span>
+                </h5>
+                <dynamic-form-field ng-repeat="field in model.fields" field="field" form="dynamicForm"
+                                    translation-key-prefix="translationKeyPrefix">
+                </dynamic-form-field>
+
+                <div class="hidden-fields">
+                    <dynamic-form-field ng-if="showAllFields" ng-repeat="field in model.hiddenFields"
+                                        field="field" form="dynamicForm" translation-key-prefix="translationKeyPrefix">
+                    </dynamic-form-field>
+                </div>
+            </div>
+
+            <!-- Individual fields -->
+            <dynamic-form-field ng-if="!model.groupId" field="model" form-name="dynamicForm"
+                                translation-key-prefix="translationKeyPrefix">
+            </dynamic-form-field>
+        </div>
+    </form>
+</div>

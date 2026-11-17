@@ -1,0 +1,134 @@
+<script type="text/ng-template" id="popover-extended-rights.html">
+    <div ng-if="user.isExtended">
+        {{'security.extended.role' | translate: {role: user.userTypeDescription} }}
+    </div>
+    <div ng-show="user.showRepositoryRights" class="repository-rights-list" ng-repeat="rights in user.repositoryRights track by rights.repository">
+        <em ng-if="rights.iconClass" class="{{rights.iconClass}} text-tertiary" gdb-tooltip="{{rights.tooltipKey | translate}}"></em>
+        {{rights.repository}}
+        <em class="icon-graphql text-info" ng-if="rights.hasGraphqlAccess" gdb-tooltip="{{rights.graphqlTooltipKey | translate}}"></em>
+    </div>
+    <div ng-if="user.showUnrestrictedRights">{{'security.unrestricted' | translate}}</div>
+    <div data-test="custom-roles">
+        <span ng-repeat="role in user.customRoles" >
+            <span class="tag tag-primary" data-test="custom-role">{{ role }}</span>
+            &nbsp;
+        </span>
+    </div>
+</script>
+
+<link href='css/users.css?v=3.5.2' rel='stylesheet' type='text/css'/>
+
+<h1>
+	{{title}}
+    <page-info-tooltip></page-info-tooltip>
+</h1>
+<div id="wb-users" ng-hide="loader">
+	<div class="mb-1">
+		<div class="pull-right">
+			<span id="toggle-security" class="mr-1">
+				<span class="security-switch-label">{{'security.is' | translate}} <span class="tag {{securityEnabled() ? 'tag-primary' : 'tag-default'}}">{{securityEnabled() ? 'common.on.btn' : 'common.off.btn' | translate}}</span></span>
+				<span class="switch" ng-mouseenter="toggleState.hovered = true" ng-mouseleave="toggleState.hovered = false" ng-click="toggleSecurity()">
+					<input type="checkbox" id="securityToggle" class="switch" ng-disabled="!isSecurityToggleAllowed" ng-checked="securityEnabled()"/>
+					<label ng-if="!isSecurityToggleAllowed"
+                           for="securityToggle"
+						   uib-popover-template="'js/angular/security/templates/security-toggle-not-allowed-popover.html'"
+                           popover-placement="bottom"
+                           popover-append-to-body="false"
+                           aria-label="{{'security.toggle.not.allowed' | translate}}"
+						   popover-trigger="none"
+                           popover-is-open="toggleState.hovered">
+					</label>
+					<label ng-if="isSecurityToggleAllowed"
+                           for="securityToggle"
+                           aria-label="{{securityToggleTooltip}}"
+						   gdb-tooltip="{{securityToggleTooltip}}" tooltip-placement="top">
+					</label>
+				</span>
+			</span>
+			<span ng-show="securityEnabled()" id="toggle-freeaccess">
+				<span>{{'security.free.access.is' | translate}} <span class="tag {{freeAccessEnabled() ? 'tag-primary' : 'tag-default'}}">{{freeAccessEnabled() ? 'common.on.btn' : 'common.off.btn' | translate}}</span></span>
+				<span gdb-tooltip="{{'click.to' | translate}} {{freeAccessEnabled() ? 'disable' : 'enable' | translate}} {{'security.free.access.non.admin' | translate}}" tooltip-placement="top" ng-click="toggleFreeAccess()" class="switch">
+					<input type="checkbox" class="switch" ng-checked="freeAccessEnabled()"/>
+					<label for="toggle-freeaccess"></label>
+				</span>
+				<span ng-show="freeAccessEnabled()">
+					{{'security.free.access.settings' | translate}}
+					<a style="padding-left: 0px;"  class="btn btn-link" href="#"><em class="ri-settings-3-line" gdb-tooltip="{{'security.free.access.config.title' | translate}}" ng-click="editFreeAccess()"></em></a>
+				</span>
+			</span>
+		</div>
+
+		<a id="wb-users-userCreateLink" ng-show="!hasExternalAuth() || canExtendExternalUserRole" class="btn btn-primary" href="user/create">
+            <span class="ri-add-circle-line"></span> {{'view.create.user.title' | translate}}
+        </a>
+	</div>
+
+	<div ng-show="hasExternalAuth()">
+		<div>&nbsp;</div>
+		<div class="alert alert-info mt-1">
+            <div class="auth-info" ng-if="isOpenIDEnabled && !isPasswordLoginEnabled">{{'security.using.external.auth.db.openid' | translate: {authSource: authSource} }}</div>
+            <div class="auth-info" ng-if="isOpenIDEnabled && isPasswordLoginEnabled">{{'security.using.external.auth.db.openid.and.password' | translate: {authSource: authSource} }}</div>
+            <div class="auth-info" ng-if="!isOpenIDEnabled">{{'security.using.external.auth.db' | translate: {authSource: authSource} }}</div>
+            <div ng-if="canExtendExternalUserRole">{{'security.user.settings.modification.extend' | translate: {authSource: authSource} }}</div>
+            <div ng-if="additionalAuthSources">{{'security.user.settings.modification.extend.external' | translate: {authSource: authSource, additionalAuth: additionalAuthSources} }}</div>
+            <div ng-if="!canExtendExternalUserRole">{{'security.user.settings.modification' | translate}}</div>
+            <div>{{'security.user.settings.user_role' | translate}}</div>
+		</div>
+	</div>
+
+	<table id="wb-users-userInUsers" class="table table-striped" aria-describedby="Users table">
+		<thead>
+			<tr>
+				<th id="usernameColumn">{{'security.table.username' | translate}}</th>
+				<th ng-if="!hasExternalAuth()" id="roleColumn">{{'security.table.role' | translate}}</th>
+				<th ng-if="!hasExternalAuth()" id="repoRightsColumn">{{'security.repo.rights' | translate}}</th>
+				<th id="creationDateColumn">{{'security.table.date.created' | translate}}</th>
+				<th id="actionsColumn">{{'security.table.actions' | translate}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in usersData | orderBy: 'username'">
+				<td class="username">
+                    <span>{{user.username}}</span>
+                    <div ng-if="user.isExtended" class="is-extended-badge tag tag-info"
+                         uib-popover-template="'popover-extended-rights.html'"
+                         popover-trigger="mouseenter"
+                         popover-placement="top">{{'security.table.tag.extended' | translate}}</div>
+                    <div ng-if="user.showPendingExternalLogin" class="has-external-login tag tag-warning">{{'security.table.tag.not_logged_in' | translate}}</div>
+                </td>
+				<td ng-if="!hasExternalAuth()" class="user-type">{{user.userTypeDescription}}</td>
+				<td ng-if="!hasExternalAuth()" class="repository-rights">
+                    <div ng-include="'popover-extended-rights.html'"></div>
+				</td>
+				<td class="date-created"><span>{{user.dateCreated | date: 'yyyy-MM-dd HH:mm:ss'}}</span></td>
+				<td class="actions-bar">
+					<span>
+						<a class="btn btn-link edit-user-btn" href="user/{{encodeURIComponent(user.username)}}">
+                            <em class="ri-edit-line" gdb-tooltip="{{'security.edit.user.tooltip' | translate}}"></em>
+                        </a>
+                        <!-- Remove locally assigned extended permissions -->
+                        <a class="btn btn-link secondary delete-user-btn"
+                           ng-if="user.canRemoveExtendedPermissions"
+                           href
+                           ng-click="removeUser(user)">
+                            <em class="ri-arrow-down-double-line"
+                                gdb-tooltip="{{'security.remove_local_permissions.user.tooltip' | translate}}">
+                            </em>
+                        </a>
+
+                        <!-- Delete user -->
+                        <a class="btn btn-link secondary delete-user-btn"
+                           ng-if="user.canDelete"
+                           href
+                           ng-click="removeUser(user)">
+                            <em class="ri-delete-bin-6-line"
+                                gdb-tooltip="{{'security.delete.user.tooltip' | translate}}">
+                            </em>
+                        </a>
+					</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div onto-loader size="50" ng-show="loader"></div>

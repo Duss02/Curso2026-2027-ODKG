@@ -1,0 +1,77 @@
+<link href="css/clustermanagement.css?v=3.5.2" rel="stylesheet"/>
+<link href="js/lib/d3-tip/d3-tip.css?v=3.5.2" rel="stylesheet"/>
+
+<title>{{'view.clusterManagement.title' | translate}}</title>
+
+<h1>
+    {{title}}
+    <page-info-tooltip></page-info-tooltip>
+</h1>
+
+<div onto-loader
+     ng-show="loader"
+     class="cluster-loader"
+     message="getLoaderMessage"
+     size="75">
+</div>
+
+<div class="clearfix d-flex" ng-if="!loader && clusterConfiguration">
+    <div class="action-buttons">
+        <div ng-if="isAdmin()" class="buttons-wrapper">
+            <button type="button" class="btn btn-primary edit-cluster-nodes-modal-btn" ng-if="currentLeader"
+                    ng-click="showUpdateClusterGroupDialog()"
+                    gdb-tooltip="{{'cluster_management.buttons.update_nodes_group_btn_tooltip' | translate}}" tooltip-placement="bottom">
+                <i class="ri-add-line"></i> {{'cluster_management.buttons.update_nodes_group_btn' | translate}}
+            </button>
+        </div>
+    </div>
+    <button class="btn btn-link preview-cluster-config-btn"
+            ng-click="openClusterConfigurationPanel()"
+            gdb-tooltip="{{'cluster_management.buttons.show_cluster_settings_tooltip' | translate}}"
+            tooltip-placement="left"><span class="ri-settings-3-line settings-icon small"></span></button>
+</div>
+
+<div id="nodeTooltip" class="nodetooltip" ng-hide="selectedNode == null">
+    <a href="{{selectedNode.endpoint}}" target="_blank" rel="noopener" class="break-word"><strong>{{selectedNode.endpoint}}</strong></a>
+    <hr style="margin-top: 10px; margin-bottom: 10px"/>
+    <div class="row">
+        <div class="col-sm-6">{{'cluster_management.cluster_status.node.rpc_address' | translate}}</div>
+        <div class="col-sm-6 break-word">{{selectedNode.address}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">{{'cluster_management.cluster_status.node.state' | translate}}</div>
+        <div class="col-sm-6">{{selectedNode.nodeState}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">{{'cluster_management.cluster_status.node.term' | translate}}</div>
+        <div class="col-sm-6">{{selectedNode.term}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">{{'cluster_management.cluster_status.node.last_log_term' | translate}}</div>
+        <div class="col-sm-6">{{selectedNode.lastLogTerm}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">{{'cluster_management.cluster_status.node.last_log_index' | translate}}</div>
+        <div class="col-sm-6">{{selectedNode.lastLogIndex}}</div>
+    </div>
+</div>
+
+<div ng-if="!loader" class="cluster-view">
+    <cluster-graphical-view cluster-model="clusterModel" legend-visible=""></cluster-graphical-view>
+    <cluster-legend></cluster-legend>
+</div>
+
+<pageslide ng-show="clusterConfiguration"
+           ps-class="cluster-configuration-panel"
+           ps-open="showClusterConfigurationPanel"
+           onopen="onopen"
+           onclose="onclose"
+           ps-side="right"
+           ps-click-outside="false"
+           ps-key-listener="true"
+           ps-custom-height="calc(100vh - 55px)"
+           ps-size="{{ clusterConfigurationPanelSize }}">
+    <cluster-configuration current-node="currentNode"
+                           cluster-configuration="clusterConfiguration"
+                           cluster-model="clusterModel"></cluster-configuration>
+</pageslide>

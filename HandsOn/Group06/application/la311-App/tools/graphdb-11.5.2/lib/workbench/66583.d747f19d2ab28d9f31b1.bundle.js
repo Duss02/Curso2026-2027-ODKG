@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=66583;export const __webpack_esm_ids__=[66583];export const __webpack_esm_modules__={66583(){angular.module("graphdb.framework.ttyg.directives.show-tooltip-on-overflow",[]).directive("showTooltipOnOverflow",function(){return{link:function(t,e){setTimeout(function(){const o=e[0].querySelector(".editable-text-element");o&&(o.scrollWidth>o.clientWidth?e.attr("title",t.chat.name):e.removeAttr("title"))},0)}}})}};
+//# sourceMappingURL=66583.d747f19d2ab28d9f31b1.bundle.js.map

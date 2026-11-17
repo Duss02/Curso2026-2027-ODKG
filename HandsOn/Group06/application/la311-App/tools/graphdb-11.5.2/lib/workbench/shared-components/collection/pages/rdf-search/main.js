@@ -1,0 +1,1 @@
+const rdfSearch=document.querySelector("onto-rdf-search"),namespaces={list:"http://jena.apache.org/ARQ/list#"};

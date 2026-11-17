@@ -1,0 +1,202 @@
+<link href="css/lib/angular-xeditable/xeditable.min.css?v=3.5.2" rel="stylesheet">
+
+<div core-errors></div>
+<div class="page" ng-show="getActiveRepository()">
+    <div class="resource-info">
+        <div class="thumb" ng-show="{{details.img}}">
+            <a href="{{details.img}}"><img ng-src="{{details.img}}" alt="details image"/></a>
+        </div>
+        <h1>
+            {{'edit' | translate}}
+            <a href="{{details.uri}}" gdb-tooltip="{{details.uri}}">
+                {{details.label ? details.label : getLocalName(details.uri)}}
+            </a>
+            <a class="btn btn-link" gdb-tooltip="{{'common.cancel.btn' | translate}}" href="resource?uri={{details.encodeURI}}"><em class="ri-close-line"></em></a>
+        </h1>
+
+        <p ng-show="{{details.comment}}" data-escape="false">{{details.comment}}</p>
+
+        <p class="source">
+            <span>{{'source.label' | translate}}:</span>&nbsp;<a href="{{details.uri}}">{{details.uri}}</a>
+        </p>
+    </div>
+
+    <div>
+
+            <table class="table table-hover table-striped" aria-describedby="Resources table">
+                <thead>
+                <tr>
+                    <th id="predicateColumn">{{'pred.label' | translate}}</th>
+                    <th id="objectColumn">{{'object.label' | translate}}</th>
+                    <th id="contextColumn">{{'context.label' | translate}}</th>
+					<th id="actionsColumn"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="vertical-align: top;">
+                        <form name="newRowPredicate" novalidate>
+                            <input required uri name="value"
+                                   placeholder="{{'example.label' | translate}}: &quot;http://exampleuri.com/examplepath&quot;, &quot;namespaceprefix:exampleproperty&quot;"
+                                   class="form-control predicate-input" type="text" ng-model="newRow.predicate"
+                                   autocomplete="off">
+
+                            <div ng-show="predicate_new.$submitted || predicate_new.value.$touched">
+                                <p ng-show="predicate_new.value.$error.required"
+                                   class="alert alert-info completeUriAlert">
+                                    {{'complete.short.iri.warning' | translate}}
+                                </p>
+                            </div>
+                            <ul class="list-inline predicate-suggestions">
+                                <li ng-repeat="namespace in namespaces" class="list-inline-item">
+                                    <a href
+                                       ng-click="newRow.predicate = namespace.uri"
+                                       class="pointer predicate-suggestion">{{namespace.prefix}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </form>
+                    </td>
+                    <td style="vertical-align: top;">
+                        <form name="newRowObject" novalidate>
+                            <select class="form-control mb-1 object-type-selector" ng-model="newRow.object.type">
+                                <option value="uri">{{'iri.label' | translate}}</option>
+                                <option value="literal">{{'literal.type.index' | translate}}</option>
+                            </select>
+                            <input required name="value" id="objectUriText" class="form-control" type="text"
+                                   ng-model="newRow.object.value" auto-complete uiItems="namespaces"
+                                   value="exampleObjectValueText" placeholder="{{'value.label' | translate}}"
+                                   autocomplete="off">
+
+                            <div ng-show="object_new.$submitted || object_new.value.$touched">
+                                <p ng-show="newRow.object.type == 'uri' && !validateUri(newRow.object.value)"
+                                   class="alert alert-info completeUriAlert">
+                                    {{'complete.short.iri.warning' | translate}}
+                                </p>
+                            </div>
+                            <ul class="list-inline object-iri-type-suggestions" ng-show="newRow.object.type == 'uri'">
+                                <li ng-repeat="namespace in namespaces" class="list-inline-item">
+                                    <a href
+                                       ng-click="newRow.object.value = namespace.uri"
+                                       class="pointer object-iri-type-suggestion">{{namespace.prefix}}
+                                    </a>
+                                </li>
+                            </ul>
+                            <select ng-show="newRow.object.type == 'literal'" class="form-control literalType"
+                                    ng-model="newRow.object.datatype">
+                                <option ng-repeat="option in datatypeOptions" value="{{option.value}}">
+                                    {{option.label}}
+                                </option>
+
+                            </select>
+                            <input ng-show="newRow.object.datatype == '' && newRow.object.type == 'literal'"
+                                   name="languageText" id="languageText" class="form-control" type="text"
+                                   ng-model="newRow.object.lang" autocomplete="off">
+                        </form>
+                    </td>
+                    <td style="vertical-align: top;">
+                        <form name="newRowContext" novalidate>
+                            <input name="" uri
+                                   placeholder="{{'example.label' | translate}}: &quot;http://exampleuri.com/examplepath&quot;, &quot;namespaceprefix:exampleproperty&quot;"
+                                   class="form-control context-input" type="text" ng-model="newRow.context"
+                                   autocomplete="off">
+
+                            <p ng-show="newRow.context && !validateUri(newRow.context)"
+                               class="alert alert-info completeUriAlert">
+                                {{'complete.short.iri.warning' | translate}}
+                            </p>
+                            <ul class="list-inline">
+                                <li ng-repeat="namespace in namespaces" class="list-inline-item context-suggestions">
+                                    <a href
+                                       ng-click="newRow.context = namespace.prefix+':'"
+                                       class="pointer context-suggestion">{{namespace.prefix}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </form>
+                    </td>
+                    <td style="vertical-align: top;" class="text-nowrap">
+                        <form name="newRowForm" novalidate ng-submit="addStatement()">
+                            <button type="submit" class="btn btn-link px-0" ng-form="newRowForm">
+                                <em class="ri-checkbox-circle-line"></em>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                <tr ng-repeat="statement in statements" ng-class="{'table-info':rowform.$visible}">
+                    <td style="vertical-align: top;">
+                        <span editable-text="statement.predicate" e-name="predicate" e-form="rowform" e-required e-uri
+                              onbeforesave="checkValid($data)">{{statement.predicate}}</span>
+                        <ul class="list-inline" ng-show="rowform.$visible">
+                            <li ng-repeat="namespace in namespaces" class="list-inline-item"><a href
+                                                                       ng-click="rowform.$editables[0].scope.$data = namespace.uri"
+                                                                       class="pointer">{{namespace.prefix}}</a></li>
+                        </ul>
+                    </td>
+                    <td style="vertical-align: top;">
+                        <span editable-text="statement.object.value" e-name="object_value" e-form="rowform" e-required
+                              onbeforesave="checkValid($data)">{{statement.object.value}}</span>
+                        <sup e-ng-show="statement.object.type != 'uri'"
+                             ng-show="statement.object.datatype || rowform.$visible"
+                             editable-select="statement.object.datatype" e-name="object_datatype" e-form="rowform"
+                             e-ng-options="option.value as option.label for option in datatypeOptions"
+                             e-ng-change="rowform.$editables[2].scope.$data != '' ? rowform.$editables[3].scope.$data = '' : ''">^^{{statement.object.datatype}}</sup>
+                        <sup e-ng-show="statement.object.type != 'uri' && rowform.$editables[2].scope.$data == ''"
+                             ng-show="statement.object.lang || rowform.$visible" editable-text="statement.object.lang"
+                             e-name="object_lang" e-form="rowform">@{{statement.object.lang}}</sup>
+                        <ul class="list-inline" ng-show="rowform.$visible && statement.object.type == 'uri'">
+                            <li ng-repeat="namespace in namespaces" class="list-inline-item"><a href
+                                                                       ng-click="rowform.$editables[1].scope.$data = namespace.uri"
+                                                                       class="pointer">{{namespace.prefix}}</a></li>
+                        </ul>
+                    </td>
+                    <td style="vertical-align: top;">
+                        <span editable-text="statement.context" e-name="context" e-form="rowform" e-uri>{{statement.context}}</span>
+                        <ul class="list-inline" ng-show="rowform.$visible">
+                            <li ng-repeat="namespace in namespaces" class="list-inline-item"><a href
+                                                                       ng-click="rowform.$editables[4].scope.$data = namespace.uri"
+                                                                       class="pointer">{{namespace.prefix}}</a></li>
+                        </ul>
+                    </td>
+                    <td style="vertical-align: top;" class="text-nowrap">
+                        <!-- form -->
+                        <form editable-form name="rowform" class="form-buttons form-inline" ng-show="rowform.$visible"
+                              shown="inserted == statement">
+                            <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-link px-0"
+                                    gdb-tooltip="{{'common.save.btn' | translate}}">
+                                <em class="ri-checkbox-circle-line"></em>
+                            </button>
+                            <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                    class="btn btn-link px-0 secondary" gdb-tooltip="{{'common.cancel.btn' | translate}}">
+                                <em class="ri-close-line"></em>
+                            </button>
+                        </form>
+                        <div class="buttons" ng-show="!rowform.$visible">
+                            <button class="btn btn-link px-0" ng-click="rowform.$show()">
+                                <em class="ri-edit-line"></em>
+                            </button>
+                            <button class="btn btn-link px-0 secondary" ng-click="removeStatement($index)">
+                                <em class="ri-delete-bin-6-line"></em>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+    <div class="text-xs-right">
+		<button class="btn btn-secondary view-trig-btn"
+                ng-disabled="statements.length == 0"
+                gdb-tooltip="{{'view.resource.trig.format.tooltip' | translate}}"
+                ng-click="viewTrig()">
+            {{'view.trig.format.label' | translate}}
+        </button>
+        <button class="btn btn-primary save-btn"
+                gdb-tooltip="{{'save.changes.label' | translate}}"
+                ng-click="save()">
+            {{'common.save.btn' | translate}}
+        </button>
+    </div>
+</div>
+
+

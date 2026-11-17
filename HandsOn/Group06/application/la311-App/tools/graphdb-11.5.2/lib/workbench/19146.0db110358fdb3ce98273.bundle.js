@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=19146;export const __webpack_esm_ids__=[19146];export const __webpack_esm_modules__={19146(){angular.module("graphdb.framework.core.directives.validate-duplicate-url",[]).directive("validateDuplicateUrl",function(){return{restrict:"A",require:"ngModel",scope:{excludedUrls:"="},link:function(e,l,r,t){t.$validators.duplicateUrl=function(l,r){return e.excludedUrls&&e.excludedUrls.includes(r)?(t.$setValidity("duplicateUrl",!1),!1):(t.$setValidity("duplicateUrl",!0),!0)}}}})}};
+//# sourceMappingURL=19146.0db110358fdb3ce98273.bundle.js.map

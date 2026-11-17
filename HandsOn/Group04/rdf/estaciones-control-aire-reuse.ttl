@@ -1,0 +1,649 @@
+@prefix bpm: <https://w3id.org/breatheplay-madrid/ontology#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix district: <https://w3id.org/breatheplay-madrid/resource/district/> .
+@prefix edintinf: <https://edint.es/def/infraestructura#> .
+@prefix edintmed: <https://edint.es/def/medio-ambiente#> .
+@prefix esadm: <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#> .
+@prefix esdir: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/direccion-postal#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix nbh: <https://w3id.org/breatheplay-madrid/resource/neighbourhood/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix station: <https://w3id.org/breatheplay-madrid/resource/station/> .
+@prefix sttype: <https://w3id.org/breatheplay-madrid/resource/station-type/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+station:arturo-soria a edintmed:SensorPlatform ;
+    rdfs:label "Arturo Soria"@es ;
+    dct:identifier "28079016"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/arturo-soria> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/arturo-soria> ;
+    geo:alt 695.0 ;
+    geo:lat 40.4400457 ;
+    geo:long -3.6392422 ;
+    edintinf:belongsTo district:ciudad-lineal,
+        nbh:quintana ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "1998-12-01"^^xsd:date .
+
+station:barajas-pueblo a edintmed:SensorPlatform ;
+    rdfs:label "Barajas Pueblo"@es ;
+    dct:identifier "28079027"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/barajas-pueblo> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/barajas-pueblo> ;
+    geo:alt 619.0 ;
+    geo:lat 40.4769179 ;
+    geo:long -3.5800258 ;
+    edintinf:belongsTo district:barajas ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "2002-12-31"^^xsd:date .
+
+station:barrio-del-pilar a edintmed:SensorPlatform ;
+    rdfs:label "Barrio del Pilar"@es ;
+    dct:identifier "28079039"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/barrio-del-pilar> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/barrio-del-pilar> ;
+    geo:alt 675.0 ;
+    geo:lat 40.4782322 ;
+    geo:long -3.7115364 ;
+    edintinf:belongsTo district:fuencarral-el-pardo,
+        nbh:el-pilar ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "1998-05-01"^^xsd:date .
+
+station:casa-de-campo a edintmed:SensorPlatform ;
+    rdfs:label "Casa de Campo"@es ;
+    dct:identifier "28079024"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/casa-de-campo> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/casa-de-campo> ;
+    geo:alt 645.0 ;
+    geo:lat 40.4193577 ;
+    geo:long -3.7473445 ;
+    edintinf:belongsTo district:moncloa-aravaca ;
+    bpm:hasStationType sttype:suburban ;
+    bpm:startDate "1998-12-01"^^xsd:date .
+
+station:castellana a edintmed:SensorPlatform ;
+    rdfs:label "Castellana"@es ;
+    dct:identifier "28079048"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/castellana> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/castellana> ;
+    geo:alt 678.0 ;
+    geo:lat 40.4398904 ;
+    geo:long -3.6903729 ;
+    edintinf:belongsTo district:chamartin ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "2010-02-01"^^xsd:date .
+
+station:cuatro-caminos a edintmed:SensorPlatform ;
+    rdfs:label "Cuatro Caminos"@es ;
+    dct:identifier "28079038"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/cuatro-caminos> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/cuatro-caminos> ;
+    geo:alt 699.0 ;
+    geo:lat 40.4455439 ;
+    geo:long -3.7071303 ;
+    edintinf:belongsTo district:chamberi,
+        nbh:vallehermoso ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "1998-11-01"^^xsd:date .
+
+station:el-pardo a edintmed:SensorPlatform ;
+    rdfs:label "El Pardo"@es ;
+    dct:identifier "28079058"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/el-pardo> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/el-pardo> ;
+    geo:alt 611.0 ;
+    geo:lat 40.5180701 ;
+    geo:long -3.7746101 ;
+    edintinf:belongsTo district:fuencarral-el-pardo ;
+    bpm:hasStationType sttype:suburban ;
+    bpm:startDate "2009-12-01"^^xsd:date .
+
+station:ensanche-de-vallecas a edintmed:SensorPlatform ;
+    rdfs:label "Ensanche de Vallecas"@es ;
+    dct:identifier "28079054"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/ensanche-de-vallecas> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/ensanche-de-vallecas> ;
+    geo:alt 628.0 ;
+    geo:lat 40.3730118 ;
+    geo:long -3.6121394 ;
+    edintinf:belongsTo district:villa-de-vallecas ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "2009-12-11"^^xsd:date .
+
+station:escuelas-aguirre a edintmed:SensorPlatform ;
+    rdfs:label "Escuelas Aguirre"@es ;
+    dct:identifier "28079008"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/escuelas-aguirre> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/escuelas-aguirre> ;
+    geo:alt 672.0 ;
+    geo:lat 40.4215533 ;
+    geo:long -3.6823158 ;
+    edintinf:belongsTo district:salamanca,
+        nbh:recoletos ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "1998-12-01"^^xsd:date .
+
+station:farolillo a edintmed:SensorPlatform ;
+    rdfs:label "Farolillo"@es ;
+    dct:identifier "28079018"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/farolillo> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/farolillo> ;
+    geo:alt 625.0 ;
+    geo:lat 40.3947825 ;
+    geo:long -3.7318356 ;
+    edintinf:belongsTo district:carabanchel ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "2001-03-31"^^xsd:date .
+
+station:juan-carlos-i a edintmed:SensorPlatform ;
+    rdfs:label "Juan Carlos I"@es ;
+    dct:identifier "28079059"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/juan-carlos-i> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/juan-carlos-i> ;
+    geo:alt 660.0 ;
+    geo:lat 40.465144 ;
+    geo:long -3.609031 ;
+    edintinf:belongsTo district:barajas ;
+    bpm:hasStationType sttype:suburban ;
+    bpm:startDate "2009-12-14"^^xsd:date .
+
+station:mendez-alvaro a edintmed:SensorPlatform ;
+    rdfs:label "Méndez Álvaro"@es ;
+    dct:identifier "28079047"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/mendez-alvaro> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/mendez-alvaro> ;
+    geo:alt 600.0 ;
+    geo:lat 40.3980991 ;
+    geo:long -3.6868138 ;
+    edintinf:belongsTo district:arganzuela,
+        nbh:delicias ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "2009-12-21"^^xsd:date .
+
+station:moratalaz a edintmed:SensorPlatform ;
+    rdfs:label "Moratalaz"@es ;
+    dct:identifier "28079036"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/moratalaz> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/moratalaz> ;
+    geo:alt 671.0 ;
+    geo:lat 40.4079517 ;
+    geo:long -3.6453104 ;
+    edintinf:belongsTo district:moratalaz ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "1998-12-01"^^xsd:date .
+
+station:parque-del-retiro a edintmed:SensorPlatform ;
+    rdfs:label "Parque del Retiro"@es ;
+    dct:identifier "28079049"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/parque-del-retiro> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/parque-del-retiro> ;
+    geo:alt 658.0 ;
+    geo:lat 40.4144444 ;
+    geo:long -3.6824999 ;
+    edintinf:belongsTo district:retiro ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "2010-01-01"^^xsd:date .
+
+station:plaza-castilla a edintmed:SensorPlatform ;
+    rdfs:label "Plaza Castilla"@es ;
+    dct:identifier "28079050"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/plaza-castilla> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/plaza-castilla> ;
+    geo:alt 730.0 ;
+    geo:lat 40.4655841 ;
+    geo:long -3.6887449 ;
+    edintinf:belongsTo district:chamartin ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "2010-02-01"^^xsd:date .
+
+station:plaza-de-espana a edintmed:SensorPlatform ;
+    rdfs:label "Plaza de España"@es ;
+    dct:identifier "28079004"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/plaza-de-espana> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/plaza-de-espana> ;
+    geo:alt 637.0 ;
+    geo:lat 40.4238823 ;
+    geo:long -3.7122567 ;
+    edintinf:belongsTo district:moncloa-aravaca ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "1998-12-01"^^xsd:date .
+
+station:plaza-del-carmen a edintmed:SensorPlatform ;
+    rdfs:label "Plaza del Carmen"@es ;
+    dct:identifier "28079035"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/plaza-del-carmen> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/plaza-del-carmen> ;
+    geo:alt 660.0 ;
+    geo:lat 40.4192091 ;
+    geo:long -3.7031662 ;
+    edintinf:belongsTo district:centro ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "1999-11-01"^^xsd:date .
+
+station:plaza-eliptica a edintmed:SensorPlatform ;
+    rdfs:label "Plaza Elíptica"@es ;
+    dct:identifier "28079056"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/plaza-eliptica> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/plaza-eliptica> ;
+    geo:alt 605.0 ;
+    geo:lat 40.3850336 ;
+    geo:long -3.7187679 ;
+    edintinf:belongsTo district:carabanchel ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "2010-01-18"^^xsd:date .
+
+station:ramon-y-cajal a edintmed:SensorPlatform ;
+    rdfs:label "Ramón y Cajal"@es ;
+    dct:identifier "28079011"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/ramon-y-cajal> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/ramon-y-cajal> ;
+    geo:alt 709.0 ;
+    geo:lat 40.4514734 ;
+    geo:long -3.6773491 ;
+    edintinf:belongsTo district:chamartin ;
+    bpm:hasStationType sttype:urban-traffic ;
+    bpm:startDate "1998-12-01"^^xsd:date .
+
+station:sanchinarro a edintmed:SensorPlatform ;
+    rdfs:label "Sanchinarro"@es ;
+    dct:identifier "28079057"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/sanchinarro> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/sanchinarro> ;
+    geo:alt 700.0 ;
+    geo:lat 40.4942012 ;
+    geo:long -3.6605173 ;
+    edintinf:belongsTo district:hortaleza ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "2009-11-23"^^xsd:date .
+
+station:tres-olivos a edintmed:SensorPlatform ;
+    rdfs:label "Tres Olivos"@es ;
+    dct:identifier "28079060"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/tres-olivos> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/tres-olivos> ;
+    geo:alt 709.0 ;
+    geo:lat 40.5005477 ;
+    geo:long -3.6897308 ;
+    edintinf:belongsTo district:fuencarral-el-pardo ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "2010-02-08"^^xsd:date .
+
+station:urb-embajada a edintmed:SensorPlatform ;
+    rdfs:label "Urb. Embajada"@es ;
+    dct:identifier "28079055"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/urb-embajada> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/urb-embajada> ;
+    geo:alt 614.0 ;
+    geo:lat 40.4623628 ;
+    geo:long -3.5805649 ;
+    edintinf:belongsTo district:barajas ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "2010-01-20"^^xsd:date .
+
+station:vallecas a edintmed:SensorPlatform ;
+    rdfs:label "Vallecas"@es ;
+    dct:identifier "28079040"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/vallecas> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/vallecas> ;
+    geo:alt 678.0 ;
+    geo:lat 40.3881478 ;
+    geo:long -3.6515286 ;
+    edintinf:belongsTo district:puente-de-vallecas ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "1999-09-30"^^xsd:date .
+
+station:villaverde a edintmed:SensorPlatform ;
+    rdfs:label "Villaverde"@es ;
+    dct:identifier "28079017"^^xsd:string ;
+    schema:address <https://w3id.org/breatheplay-madrid/resource/postal-address/station/villaverde> ;
+    gsp:hasGeometry <https://w3id.org/breatheplay-madrid/resource/geometry/station/villaverde> ;
+    geo:alt 601.0 ;
+    geo:lat 40.347147 ;
+    geo:long -3.7133167 ;
+    edintinf:belongsTo district:villaverde ;
+    bpm:hasStationType sttype:urban-background ;
+    bpm:startDate "1998-12-01"^^xsd:date .
+
+district:centro a esadm:Distrito ;
+    rdfs:label "CENTRO"@es ;
+    dct:identifier "01"^^xsd:string ;
+    owl:sameAs wd:Q1763376 .
+
+district:hortaleza a esadm:Distrito ;
+    rdfs:label "HORTALEZA"@es ;
+    dct:identifier "16"^^xsd:string ;
+    owl:sameAs wd:Q1928529 .
+
+district:moratalaz a esadm:Distrito ;
+    rdfs:label "MORATALAZ"@es ;
+    dct:identifier "14"^^xsd:string ;
+    owl:sameAs wd:Q2076109 .
+
+district:puente-de-vallecas a esadm:Distrito ;
+    rdfs:label "PUENTE DE VALLECAS"@es ;
+    dct:identifier "13"^^xsd:string ;
+    owl:sameAs wd:Q2003054 .
+
+district:retiro a esadm:Distrito ;
+    rdfs:label "RETIRO"@es ;
+    dct:identifier "03"^^xsd:string ;
+    owl:sameAs wd:Q2002296 .
+
+district:villa-de-vallecas a esadm:Distrito ;
+    rdfs:label "VILLA DE VALLECAS"@es ;
+    dct:identifier "18"^^xsd:string ;
+    owl:sameAs wd:Q1947988 .
+
+district:villaverde a esadm:Distrito ;
+    rdfs:label "VILLAVERDE"@es ;
+    dct:identifier "17"^^xsd:string ;
+    owl:sameAs wd:Q919536 .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/arturo-soria> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Arturo Soria"@es ;
+    gsp:asWKT "POINT(-3.6392422 40.4400457)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/barajas-pueblo> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Barajas Pueblo"@es ;
+    gsp:asWKT "POINT(-3.5800258 40.4769179)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/barrio-del-pilar> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Barrio del Pilar"@es ;
+    gsp:asWKT "POINT(-3.7115364 40.4782322)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/casa-de-campo> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Casa de Campo"@es ;
+    gsp:asWKT "POINT(-3.7473445 40.4193577)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/castellana> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Castellana"@es ;
+    gsp:asWKT "POINT(-3.6903729 40.4398904)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/cuatro-caminos> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Cuatro Caminos"@es ;
+    gsp:asWKT "POINT(-3.7071303 40.4455439)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/el-pardo> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación El Pardo"@es ;
+    gsp:asWKT "POINT(-3.7746101 40.5180701)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/ensanche-de-vallecas> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Ensanche de Vallecas"@es ;
+    gsp:asWKT "POINT(-3.6121394 40.3730118)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/escuelas-aguirre> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Escuelas Aguirre"@es ;
+    gsp:asWKT "POINT(-3.6823158 40.4215533)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/farolillo> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Farolillo"@es ;
+    gsp:asWKT "POINT(-3.7318356 40.3947825)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/juan-carlos-i> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Juan Carlos I"@es ;
+    gsp:asWKT "POINT(-3.609031 40.465144)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/mendez-alvaro> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Méndez Álvaro"@es ;
+    gsp:asWKT "POINT(-3.6868138 40.3980991)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/moratalaz> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Moratalaz"@es ;
+    gsp:asWKT "POINT(-3.6453104 40.4079517)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/parque-del-retiro> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Parque del Retiro"@es ;
+    gsp:asWKT "POINT(-3.6824999 40.4144444)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/plaza-castilla> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Plaza Castilla"@es ;
+    gsp:asWKT "POINT(-3.6887449 40.4655841)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/plaza-de-espana> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Plaza de España"@es ;
+    gsp:asWKT "POINT(-3.7122567 40.4238823)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/plaza-del-carmen> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Plaza del Carmen"@es ;
+    gsp:asWKT "POINT(-3.7031662 40.4192091)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/plaza-eliptica> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Plaza Elíptica"@es ;
+    gsp:asWKT "POINT(-3.7187679 40.3850336)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/ramon-y-cajal> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Ramón y Cajal"@es ;
+    gsp:asWKT "POINT(-3.6773491 40.4514734)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/sanchinarro> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Sanchinarro"@es ;
+    gsp:asWKT "POINT(-3.6605173 40.4942012)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/tres-olivos> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Tres Olivos"@es ;
+    gsp:asWKT "POINT(-3.6897308 40.5005477)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/urb-embajada> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Urb. Embajada"@es ;
+    gsp:asWKT "POINT(-3.5805649 40.4623628)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/vallecas> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Vallecas"@es ;
+    gsp:asWKT "POINT(-3.6515286 40.3881478)"^^gsp:wktLiteral .
+
+<https://w3id.org/breatheplay-madrid/resource/geometry/station/villaverde> a gsp:Geometry ;
+    rdfs:label "Ubicación de la estación Villaverde"@es ;
+    gsp:asWKT "POINT(-3.7133167 40.347147)"^^gsp:wktLiteral .
+
+nbh:delicias a esadm:Barrio ;
+    rdfs:label "DELICIAS"@es ;
+    dct:identifier "025"^^xsd:string ;
+    gsp:sfWithin district:arganzuela ;
+    owl:sameAs wd:Q3773736 .
+
+nbh:el-pilar a esadm:Barrio ;
+    rdfs:label "EL PILAR"@es ;
+    dct:identifier "084"^^xsd:string ;
+    gsp:sfWithin district:fuencarral-el-pardo ;
+    owl:sameAs wd:Q3773964 .
+
+nbh:quintana a esadm:Barrio ;
+    rdfs:label "QUINTANA"@es ;
+    dct:identifier "153"^^xsd:string ;
+    gsp:sfWithin district:ciudad-lineal ;
+    owl:sameAs wd:Q71810 .
+
+nbh:recoletos a esadm:Barrio ;
+    rdfs:label "RECOLETOS"@es ;
+    dct:identifier "041"^^xsd:string ;
+    gsp:sfWithin district:salamanca ;
+    owl:sameAs wd:Q3814551 .
+
+nbh:vallehermoso a esadm:Barrio ;
+    rdfs:label "VALLEHERMOSO"@es ;
+    dct:identifier "076"^^xsd:string ;
+    gsp:sfWithin district:chamberi ;
+    owl:sameAs wd:Q6122685 .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/arturo-soria> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Arturo Soria"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ Arturo Soria esq. C/ Vizconde de los Asilos"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/barajas-pueblo> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Barajas Pueblo"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ Júpiter, 21"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/barrio-del-pilar> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Barrio del Pilar"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Avda. Betanzos esq. C/ Monforte de Lemos"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/casa-de-campo> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Casa de Campo"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Casa de Campo (Terminal del Teleférico)"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/castellana> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Castellana"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ José Gutiérrez Abascal"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/cuatro-caminos> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Cuatro Caminos"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Avda. Pablo Iglesias esq. C/ Marqués de Lema"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/el-pardo> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación El Pardo"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Avda. La Guardia"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/ensanche-de-vallecas> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Ensanche de Vallecas"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Avda. La Gavia / Avda. Las Suertes"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/escuelas-aguirre> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Escuelas Aguirre"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Entre C/ Alcalá y C/ O’ Donell"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/farolillo> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Farolillo"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ Farolillo - C/ Ervigio"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/juan-carlos-i> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Juan Carlos I"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Parque Juan Carlos I (frente oficinas mantenimiento)"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/mendez-alvaro> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Méndez Álvaro"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ Juan de Mariana / Plaza Amanecer Méndez Álvaro"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/moratalaz> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Moratalaz"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Avda. Moratalaz esq. Camino de los Vinateros"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/parque-del-retiro> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Parque del Retiro"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Paseo Venezuela- Palacio de Velázquez"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/plaza-castilla> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Plaza Castilla"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Plaza Castilla (Canal)"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/plaza-de-espana> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Plaza de España"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Plaza de España"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/plaza-del-carmen> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Plaza del Carmen"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Plaza del Carmen esq. Tres Cruces"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/plaza-eliptica> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Plaza Elíptica"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Plaza Elíptica - Avda. Oporto"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/ramon-y-cajal> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Ramón y Cajal"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Avda. Ramón y Cajal esq. C/ Príncipe de Vergara"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/sanchinarro> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Sanchinarro"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ Princesa de Éboli esq. C/ María Tudor"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/tres-olivos> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Tres Olivos"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "Plaza Tres Olivos"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/urb-embajada> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Urb. Embajada"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ Riaño (Barajas)"^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/vallecas> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Vallecas"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ Arroyo del Olivar esq. C/ Río Grande."^^xsd:string .
+
+<https://w3id.org/breatheplay-madrid/resource/postal-address/station/villaverde> a esdir:DireccionPostal ;
+    rdfs:label "Dirección de la estación Villaverde"@es ;
+    schema:addressLocality "Madrid"^^xsd:string ;
+    schema:streetAddress "C/ Juan Peñalver"^^xsd:string .
+
+district:arganzuela a esadm:Distrito ;
+    rdfs:label "ARGANZUELA"@es ;
+    dct:identifier "02"^^xsd:string ;
+    owl:sameAs wd:Q2000929 .
+
+district:carabanchel a esadm:Distrito ;
+    rdfs:label "CARABANCHEL"@es ;
+    dct:identifier "11"^^xsd:string ;
+    owl:sameAs wd:Q1001991 .
+
+district:chamberi a esadm:Distrito ;
+    rdfs:label "CHAMBERI"@es ;
+    dct:identifier "07"^^xsd:string ;
+    owl:sameAs wd:Q1763370 .
+
+district:ciudad-lineal a esadm:Distrito ;
+    rdfs:label "CIUDAD LINEAL"@es ;
+    dct:identifier "15"^^xsd:string ;
+    owl:sameAs wd:Q1763694 .
+
+district:moncloa-aravaca a esadm:Distrito ;
+    rdfs:label "MONCLOA-ARAVACA"@es ;
+    dct:identifier "09"^^xsd:string ;
+    owl:sameAs wd:Q2017682 .
+
+district:salamanca a esadm:Distrito ;
+    rdfs:label "SALAMANCA"@es ;
+    dct:identifier "04"^^xsd:string ;
+    owl:sameAs wd:Q1773521 .
+
+district:barajas a esadm:Distrito ;
+    rdfs:label "BARAJAS"@es ;
+    dct:identifier "21"^^xsd:string ;
+    owl:sameAs wd:Q807230 .
+
+district:chamartin a esadm:Distrito ;
+    rdfs:label "CHAMARTIN"@es ;
+    dct:identifier "05"^^xsd:string ;
+    owl:sameAs wd:Q1766348 .
+
+sttype:suburban a bpm:StationType ;
+    rdfs:label "Suburbana"@es ;
+    dct:identifier "s"^^xsd:string .
+
+district:fuencarral-el-pardo a esadm:Distrito ;
+    rdfs:label "FUENCARRAL-EL PARDO"@es ;
+    dct:identifier "08"^^xsd:string ;
+    owl:sameAs wd:Q656196 .
+
+sttype:urban-traffic a bpm:StationType ;
+    rdfs:label "Urbana tráfico"@es ;
+    dct:identifier "ut"^^xsd:string .
+
+sttype:urban-background a bpm:StationType ;
+    rdfs:label "Urbana fondo"@es ;
+    dct:identifier "uf"^^xsd:string .
+

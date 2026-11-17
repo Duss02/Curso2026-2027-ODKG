@@ -1,0 +1,105 @@
+# Group04 - Breathe & Play Madrid
+# YARRRML version of instalaciones-deportivas.rml (same rules, same RDF).
+# Dataset: Instalaciones deportivas municipales básicas (Ayuntamiento de Madrid, 200215)
+# Source:  csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv
+# IRIs: readable names of the resources (columns *_SLUG, added in OpenRefine: name
+# in lower case without accents, words joined by "-"), e.g. resource/station/plaza-de-espana;
+# the codes of the source are kept as literals.
+# Run from the HandsOn/Group04 directory (python mappings/generate_rdf.py yml),
+# so that the csv/ paths resolve.
+
+prefixes:
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  bpm: https://w3id.org/breatheplay-madrid/ontology#
+  sosa: http://www.w3.org/ns/sosa/
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  schema: http://schema.org/
+  res: https://w3id.org/breatheplay-madrid/resource/
+
+mappings:
+
+  # Sports facilities
+  SportsFacility:
+    sources:
+      - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
+    s: res:sports-facility/$(INSTALACION_SLUG)
+    po:
+      - [a, bpm:SportsFacility]
+      - [a, schema:SportsActivityLocation]
+      - [bpm:facilityId, $(PK), xsd:string]
+      - [rdfs:label, $(NOMBRE), es~lang]
+      - [bpm:equipment, $(EQUIPAMIENTO), xsd:string]
+      - [bpm:transportInfo, $(TRANSPORTE), xsd:string]
+      - [bpm:contentURL, $(CONTENT-URL), xsd:anyURI]
+      - [bpm:address, $(DIRECCION), xsd:string]
+      - [bpm:postalCode, $(CODIGO-POSTAL), xsd:string]
+      - [geo:lat, $(LATITUD), xsd:decimal]
+      - [geo:long, $(LONGITUD), xsd:decimal]
+      # Distance in kilometres
+      - [bpm:distanceToNearestStation, $(DISTANCIA_ESTACION_KM), xsd:decimal]
+      - [bpm:hasFacilityType, res:facility-type/$(TIPO_ID)~iri]
+      - [bpm:hasAccessibilityLevel, res:accessibility-level/$(ACCESIBILIDAD_SLUG)~iri]
+      - [bpm:locatedInDistrict, res:district/$(DISTRITO_SLUG)~iri]
+      # Not generated for the 8 rows with an empty BARRIO_ID
+      - [bpm:locatedInNeighbourhood, res:neighbourhood/$(BARRIO_SLUG)~iri]
+      # Link to the air quality stations dataset:
+      # join ESTACION_CERCANA (this CSV) = CODIGO (stations CSV)
+      - p: bpm:hasNearestStation
+        o:
+          mapping: MonitoringStation
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(ESTACION_CERCANA), s]
+              - [str2, $(CODIGO), o]
+
+  # Monitoring stations (parent of the join above). Same IRI pattern and label
+  # as in estaciones-control-aire.yml, so the resources merge across datasets.
+  MonitoringStation:
+    sources:
+      - [csv/212629-0-estaciones-control-aire-csv-updated.csv~csv]
+    s: res:station/$(ESTACION_SLUG)
+    po:
+      - [a, bpm:MonitoringStation]
+      - [a, sosa:Platform]
+      - [rdfs:label, $(ESTACION), es~lang]
+
+  # Facility types
+  FacilityType:
+    sources:
+      - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
+    s: res:facility-type/$(TIPO_ID)
+    po:
+      - [a, bpm:FacilityType]
+      - [rdfs:label, $(TIPO_NOMBRE), es~lang]
+
+  # Accessibility levels (0 No accesible, 1 Accesible, 2 Parcialmente accesible, 3 Sin información)
+  AccessibilityLevel:
+    sources:
+      - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
+    s: res:accessibility-level/$(ACCESIBILIDAD_SLUG)
+    po:
+      - [a, bpm:AccessibilityLevel]
+      - [rdfs:label, $(ACCESIBILIDAD_NOMBRE), es~lang]
+
+  # Districts
+  District:
+    sources:
+      - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
+    s: res:district/$(DISTRITO_SLUG)
+    po:
+      - [a, bpm:District]
+      - [bpm:districtCode, $(COD-DISTRITO), xsd:string]
+      - [rdfs:label, $(DISTRITO), es~lang]
+
+  # Neighbourhoods
+  Neighbourhood:
+    sources:
+      - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
+    s: res:neighbourhood/$(BARRIO_SLUG)
+    po:
+      - [a, bpm:Neighbourhood]
+      - [bpm:neighbourhoodCode, $(BARRIO_ID), xsd:string]
+      - [rdfs:label, $(BARRIO), es~lang]
+      - [bpm:isPartOfDistrict, res:district/$(DISTRITO_SLUG)~iri]

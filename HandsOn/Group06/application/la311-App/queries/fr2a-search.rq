@@ -1,0 +1,27 @@
+PREFIX la311: <http://linkeddata.la311.com/ontology#>
+PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?srNumber ?requestType ?status ?created (SAMPLE(?addr) AS ?address)
+       (SAMPLE(?area) AS ?areaLabel) (SAMPLE(?geom) AS ?wkt)
+WHERE {
+  ?sr a la311:ServiceRequest ;
+      la311:srNumber    ?srNumber ;
+      la311:requestType ?requestType ;
+      la311:status      ?status ;
+      la311:createdDate ?created .
+  OPTIONAL {
+    ?sr la311:hasLocation ?loc .
+    OPTIONAL { ?loc la311:address ?addr }
+    OPTIONAL { ?loc geo:asWKT ?geom }
+    OPTIONAL { ?loc la311:isWithin/rdfs:label ?area }
+  }
+  FILTER (CONTAINS(LCASE(STR(?addr)), "shepard"))
+  VALUES ?status { "Open" "Pending" "Closed" }
+  FILTER (?created >= "2025-01-01T00:00:00Z"^^xsd:dateTime
+       && ?created <  "2026-01-01T00:00:00Z"^^xsd:dateTime)
+}
+GROUP BY ?srNumber ?requestType ?status ?created
+ORDER BY DESC(?created)
+LIMIT 50

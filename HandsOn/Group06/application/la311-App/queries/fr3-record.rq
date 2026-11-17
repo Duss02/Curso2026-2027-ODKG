@@ -1,0 +1,44 @@
+PREFIX la311:  <http://linkeddata.la311.com/ontology#>
+PREFIX geo:    <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:    <http://www.w3.org/2002/07/owl#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?sr ?srNumber ?requestType ?status ?created ?updated ?serviceDate ?closed
+       ?actionTaken ?requestSource ?owner ?assignTo
+       ?address ?zip ?approximate ?wkt
+       ?regionLabel ?cd ?nc ?apc ?policePrecinct ?ncWikidata ?cdMemberWikidata ?city
+WHERE {
+  VALUES ?srNumber { "1-5100408681" }   # parametro dal client
+  ?sr a la311:ServiceRequest ;
+      la311:srNumber ?srNumber ;
+      la311:requestType ?requestType ;
+      la311:status ?status ;
+      la311:createdDate ?created .
+  OPTIONAL { ?sr la311:updatedDate ?updated }
+  OPTIONAL { ?sr la311:serviceDate ?serviceDate }
+  OPTIONAL { ?sr la311:closedDate ?closed }
+  OPTIONAL { ?sr la311:actionTaken ?actionTaken }
+  OPTIONAL { ?sr la311:requestSource ?requestSource }
+  OPTIONAL { ?sr la311:responsible/la311:name ?owner }
+  OPTIONAL { ?sr la311:assignedTo/la311:name ?assignTo }
+  OPTIONAL {
+    ?sr la311:hasLocation ?loc .
+    OPTIONAL { ?loc la311:address ?address }
+    OPTIONAL { ?loc la311:zipCode ?zip }
+    OPTIONAL { ?loc la311:approximateAddress ?approximate }
+    OPTIONAL { ?loc geo:asWKT ?wkt }
+    OPTIONAL {
+      ?loc la311:isWithin ?region .
+      ?region rdfs:label ?regionLabel .
+      OPTIONAL { ?region la311:cd ?cd }
+      OPTIONAL { ?region la311:nc ?nc }
+      OPTIONAL { ?region la311:apc ?apc }
+      OPTIONAL { ?region la311:policePrecinct ?policePrecinct }
+      OPTIONAL { ?region la311:ncName ?ncWikidata }
+      OPTIONAL { ?region la311:cdMember ?cdMemberWikidata }
+      OPTIONAL { ?region schema:containedInPlace ?city }
+    }
+  }
+}
+LIMIT 1

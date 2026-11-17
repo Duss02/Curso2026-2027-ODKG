@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=58592;export const __webpack_esm_ids__=[58592];export const __webpack_esm_modules__={58592(){function t(t,e){return{showToastMessageWithDelay:function(s){return new Promise(o=>{t.success(e.instant(s)),setTimeout(o,300)})}}}angular.module("graphdb.framework.utils.notifications",[]).factory("Notifications",t),t.$inject=["toastr","$translate"]}};
+//# sourceMappingURL=58592.5f52c55a3df43252e893.bundle.js.map

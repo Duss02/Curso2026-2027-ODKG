@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=21608;export const __webpack_esm_ids__=[21608];export const __webpack_esm_modules__={21608(e,o,s){s.d(o,{x:()=>_});class t{}class _ extends t{constructor(){super(),this.defaultGeoStyleOptions={weight:3,color:"var(--graphwise-blue-color)",opacity:.7,fillColor:"var(--graphwise-blue-color)",fillOpacity:.2},this.onFeatureClick=void 0}}}};
+//# sourceMappingURL=21608.d8a36123252c67a9ff6c.bundle.js.map

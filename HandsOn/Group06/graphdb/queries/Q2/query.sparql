@@ -1,0 +1,17 @@
+PREFIX la311: <http://linkeddata.la311.com/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Q2: Details of service requests with organization, service, reporter, and address
+SELECT ?sr ?requestType ?status ?created ?organization ?service ?agent ?address
+WHERE {
+  ?sr a la311:ServiceRequest ;
+      la311:requestType ?requestType ;
+      la311:status ?status ;
+      la311:createdDate ?created ;
+      la311:responsible/la311:organizationName ?organization ;
+      la311:reportedBy/rdfs:label ?agent ;
+      la311:hasLocation ?location .
+  ?location la311:address ?address .
+  OPTIONAL { ?sr la311:assignedTo/la311:serviceName ?service }
+}
+LIMIT 10
