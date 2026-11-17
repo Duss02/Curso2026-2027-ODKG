@@ -2,6 +2,9 @@
 # YARRRML version of instalaciones-deportivas.rml (same rules, same RDF).
 # Dataset: Instalaciones deportivas municipales básicas (Ayuntamiento de Madrid, 200215)
 # Source:  csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv
+# IRIs: readable names of the resources (columns *_SLUG, added in OpenRefine: name
+# in lower case without accents, words joined by "-"), e.g. resource/station/plaza-de-espana;
+# the codes of the source are kept as literals.
 # Run from the HandsOn/Group04 directory (python mappings/generate_rdf.py yml),
 # so that the csv/ paths resolve.
 
@@ -20,7 +23,7 @@ mappings:
   SportsFacility:
     sources:
       - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
-    s: res:sports-facility/$(PK)
+    s: res:sports-facility/$(INSTALACION_SLUG)
     po:
       - [a, bpm:SportsFacility]
       - [a, schema:SportsActivityLocation]
@@ -36,10 +39,10 @@ mappings:
       # Distance in kilometres
       - [bpm:distanceToNearestStation, $(DISTANCIA_ESTACION_KM), xsd:decimal]
       - [bpm:hasFacilityType, res:facility-type/$(TIPO_ID)~iri]
-      - [bpm:hasAccessibilityLevel, res:accessibility-level/$(ACCESIBILIDAD)~iri]
-      - [bpm:locatedInDistrict, res:district/$(COD-DISTRITO)~iri]
+      - [bpm:hasAccessibilityLevel, res:accessibility-level/$(ACCESIBILIDAD_SLUG)~iri]
+      - [bpm:locatedInDistrict, res:district/$(DISTRITO_SLUG)~iri]
       # Not generated for the 8 rows with an empty BARRIO_ID
-      - [bpm:locatedInNeighbourhood, res:neighbourhood/$(BARRIO_ID)~iri]
+      - [bpm:locatedInNeighbourhood, res:neighbourhood/$(BARRIO_SLUG)~iri]
       # Link to the air quality stations dataset:
       # join ESTACION_CERCANA (this CSV) = CODIGO (stations CSV)
       - p: bpm:hasNearestStation
@@ -56,7 +59,7 @@ mappings:
   MonitoringStation:
     sources:
       - [csv/212629-0-estaciones-control-aire-csv-updated.csv~csv]
-    s: res:station/$(CODIGO)
+    s: res:station/$(ESTACION_SLUG)
     po:
       - [a, bpm:MonitoringStation]
       - [a, sosa:Platform]
@@ -75,7 +78,7 @@ mappings:
   AccessibilityLevel:
     sources:
       - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
-    s: res:accessibility-level/$(ACCESIBILIDAD)
+    s: res:accessibility-level/$(ACCESIBILIDAD_SLUG)
     po:
       - [a, bpm:AccessibilityLevel]
       - [rdfs:label, $(ACCESIBILIDAD_NOMBRE), es~lang]
@@ -84,7 +87,7 @@ mappings:
   District:
     sources:
       - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
-    s: res:district/$(COD-DISTRITO)
+    s: res:district/$(DISTRITO_SLUG)
     po:
       - [a, bpm:District]
       - [bpm:districtCode, $(COD-DISTRITO), xsd:string]
@@ -94,9 +97,9 @@ mappings:
   Neighbourhood:
     sources:
       - [csv/200215-0-instalaciones-deportivas-csv-csv-updated.csv~csv]
-    s: res:neighbourhood/$(BARRIO_ID)
+    s: res:neighbourhood/$(BARRIO_SLUG)
     po:
       - [a, bpm:Neighbourhood]
       - [bpm:neighbourhoodCode, $(BARRIO_ID), xsd:string]
       - [rdfs:label, $(BARRIO), es~lang]
-      - [bpm:isPartOfDistrict, res:district/$(COD-DISTRITO)~iri]
+      - [bpm:isPartOfDistrict, res:district/$(DISTRITO_SLUG)~iri]

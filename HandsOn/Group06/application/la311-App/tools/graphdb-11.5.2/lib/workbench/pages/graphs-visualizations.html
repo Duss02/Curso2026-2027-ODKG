@@ -1,0 +1,574 @@
+<link href="css/graphs-vizualizations.css?v=3.5.2" rel="stylesheet"/>
+<link href="css/rdf-details-side-panel.css?v=3.5.2" rel="stylesheet"/>
+<link href="css/lib/ng-tags-input/ng-tags-input.min.css?v=3.5.2" rel="stylesheet"/>
+<link href="js/lib/d3-tip/d3-tip.css?v=3.5.2" rel="stylesheet"/>
+
+<div class="visual-graph-view">
+
+    <h1>
+        {{title}}
+        <page-info-tooltip></page-info-tooltip>
+    </h1>
+    <div core-errors license></div>
+    <div system-repo-warning></div>
+    <div class="alert alert-danger" ng-show="repositoryError">
+        <p>{{'not.usable.active.repo.error' | translate}}</p>
+
+        <p>{{repositoryError}}</p>
+    </div>
+
+    <div class="toolbar-holder" ng-show="configLoaded && isLicenseValid() && getActiveRepository() && 'SYSTEM' !== getActiveRepository()">
+        <label for="links-limit-input" gdb-tooltip="{{'visual.links.limit.label.tooltip' | translate}}">{{'visual.links.maximum' |
+            translate}}</label>
+        <div class="link-limit-wrapper">
+            <div class="link-limit-input-wrapper">
+                <button type="button" class="btn btn-link px-0" ng-disabled="linksLimit.decreaseDisabled"
+                        ng-click="changeLimit(-1)">
+                    <i class="ri-indeterminate-circle-line"></i>
+                </button>
+                <input type="number" class="form-control input-number" size="100"
+                       id="links-limit-input"
+                       guide-selector="graph-settings-links-limit"
+                       ng-model="linksLimit.value"
+                       title="{{'visual.limit.links.tooltip' | translate: {min: linksLimit.min, max: linksLimit.max} }}"
+                       min="{{linksLimit.min}}" max="{{linksLimit.max}}" class="ng-pristine ng-valid ng-valid-number"
+                       ng-change="updateLinksLimit()">
+                <button type="button" class="btn btn-link px-0" ng-disabled="linksLimit.increaseDisabled"
+                        ng-click="changeLimit(1)">
+                    <i class="ri-add-circle-line"></i>
+                </button>
+            </div>
+            <span ng-if="invalidLimit"
+                  class="idError alert alert-danger mt-1 link-limit-message"
+                  data-test="invalid-links-limit">{{'visual.links.invalid.limit.msg' | translate: {MAX_LINKS_LIMIT: linksLimit.max} }}</span>
+            <span ng-if="linksLimit.showingLimit && !invalidLimit"
+                  class="alert alert-warning mt-1 link-limit-message limit-shown"
+                  data-test="shown-links-limit">{{'visual.links.limit.shown' | translate }}
+                <button type="button" class="close ml-1" ng-click="linksLimit.showingLimit = false"></button>
+            </span>
+        </div>
+        <button ng-show="!queryResultsMode && !noGoHome" class="btn btn-link p-0 return-home-btn"
+                gdb-tooltip="{{'visual.graph.home.label' | translate}}"
+                tooltip-placement="bottom"
+                ng-click="goToHome()">
+            <em class="ri-arrow-up-circle-line ri-2x"></em>
+        </button>
+        <button ng-show="!queryResultsMode && configLoaded.startMode == 'search'" class="btn btn-link p-0"
+                gdb-tooltip="{{'search.another.resource.label' | translate}}"
+                tooltip-placement="bottom"
+                ng-disabled="!nodeSelected"
+                ng-click="searchVisible = !searchVisible">
+            <em class="ri-search-line ri-2x"></em>
+        </button>
+        <button class="btn btn-link p-0"
+                gdb-tooltip="{{'visual.graph.rotate.graph.left' | translate}}"
+                tooltip-placement="bottom"
+                ng-disabled="!nodeSelected"
+                ng-click="rotate(true)">
+            <em class="ri-anticlockwise-line ri-2x"></em>
+        </button>
+        <button class="btn btn-link p-0"
+                gdb-tooltip="{{'visual.graph.rotate.graph.right' | translate}}"
+                tooltip-placement="bottom"
+                ng-disabled="!nodeSelected"
+                ng-click="rotate(false)">
+            <em class="ri-clockwise-line ri-2x"></em>
+        </button>
+        <button class="btn btn-link p-0"
+                gdb-tooltip="{{numberOfPinnedNodes > 0 ? 'visual.graph.unpin.nodes' : 'visual.graph.pin.down.nodes' | translate}}"
+                ng-class="numberOfPinnedNodes > 0 ? 'active' : ''"
+                tooltip-placement="bottom"
+                ng-disabled="!nodeSelected"
+                ng-click="togglePinAllNodes()">
+            <em class="ri-pushpin-line ri-2x"></em>
+        </button>
+        <button class="btn btn-link p-0"
+                gdb-tooltip="{{'visual.save.graph.snapshot' | translate}}"
+                tooltip-placement="bottom"
+                ng-if="isUser() && !embedded"
+                ng-disabled="!nodeSelected"
+                ng-click="saveOrUpdateGraph()" data-cy="save-or-update-graph">
+            <em class="ri-save-line ri-2x" ></em>
+        </button>
+        <button class="btn btn-link p-0"
+                guide-selector="graph-settings-button"
+                gdb-tooltip="{{'visual.graph.click.configure.view' | translate}}"
+                tooltip-placement="bottom"
+                ng-if="isUser()"
+                ng-click="showSettings()">
+            <em class="ri-settings-3-line icon-2x visual-graph-settings-btn"></em>
+        </button>
+    </div>
+
+    <div class="search-bar" ng-show="getActiveRepository() && isLicenseValid() && !isLoadingLocation() && hasActiveLocation() && 'SYSTEM' !== getActiveRepository()">
+
+        <div class="row slider mb-2"
+             ng-show="configLoaded.startMode == 'search' && (searchVisible || !nodeSelected)" ng-cloak>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-block">
+                        <h3 class="graph-config-name">{{configLoaded.name}}</h3>
+                        <p>{{'visual.search.iri' | translate}}
+                            <span ng-if="configLoaded.name != defaultGraphConfig.name">{{'visual.graph.advanced.option' | translate}}</span>
+                            <p ng-if="configLoaded.hint">{{'hint' | translate}} {{configLoaded.hint}}
+                        </p>
+                        <search-resource-input class="incontext-search-rdf-resource"
+                                repository-namespaces="repositoryNamespaces"
+                                is-autocomplete-enabled="isAutocompleteEnabled"
+                                text-button=""
+                                visual-button="{{'rdfs.comment.show' | translate}}"
+                                visual-callback="openUri(uri)"
+                                empty="empty">
+                        </search-resource-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="!configLoaded">
+            <div ng-if="getActiveRepository() && !isLoadingLocation() && hasActiveLocation()"
+                 ng-cloak>
+
+                <div class="card mb-2">
+                    <div class="card-block">
+                        <h3>{{'visual.easy.graph' | translate}}</h3>
+                        <p>{{'visual.easy.graph.info' | translate}}</p>
+                        <search-resource-input class="search-rdf-resources"
+                                repository-namespaces="repositoryNamespaces"
+                                is-autocomplete-enabled="isAutocompleteEnabled"
+                                text-button=""
+                                visual-button="{{'rdfs.comment.show' | translate}}"
+                                visual-callback="easyGraphSearch(uri)"
+                                guide-selector="graphVisualisationSearchInputNotConfigured"
+                                empty="empty">
+                        </search-resource-input>
+                    </div>
+                </div>
+                <div ng-show="isFreeAccessEnabled() || isUser()" class="card mb-2">
+                    <div class="card-block graph-configurations" ng-init="getGraphConfigs()">
+                        <div class="clearfix">
+                            <a  ng-if="isUser()"
+                                ng-href="graphs-visualizations/config/save"
+                                guide-selector="create-graph-config-btn"
+                                class="btn btn-link pull-right create-graph-config"><span class="ri-add-circle-line"></span> {{'visual.create.graph.config' | translate}}</a>
+                            <h3>{{'visual.advanced.graph.config' | translate}}</h3>
+                            <p>{{'visual.advanced.graph.config.info' | translate}}</p>
+                        </div>
+                        <div ng-show="graphConfigs.length == 0">{{'visual.no.configs' | translate}}</div>
+                        <table guide-selector="graph-config-table" class="table table-hover mb-0 graph-configurations-list" aria-describedby="Graph configurations table">
+                            <tbody>
+                            <tr ng-repeat="config in graphConfigs">
+                                <td width="20">
+                                    <a href ng-click="goToGraphConfig(config)">
+                                        <img ng-if="config.startMode == 'search'" src="css/images/search.png?v=3.5.2" alt="" width="64" uib-popover="{{'visual.config.search.box.starting.point' | translate}}" popover-trigger="mouseenter">
+                                        <img ng-if="config.startMode == 'node'" src="css/images/node.png?v=3.5.2" alt="" width="64" uib-popover="{{'visual.config.fixed.resource.starting.point' | translate}}" popover-trigger="mouseenter">
+                                        <img ng-if="config.startMode == 'query'" src="css/images/query.png?v=3.5.2" alt="" data-cy="graph-config-starting-point-query-results" width="64" uib-popover="{{'visual.config.query.results.starting.point' | translate}}" popover-trigger="mouseenter">
+                                    </a>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <a href ng-click="goToGraphConfig(config)" data-test="graph-config-{{config.name}}">{{config.name}}</a>
+                                    </h5>
+                                    <samp class="text-muted small text-overflow d-block" ng-if="config.hint">{{config.hint}}</samp>
+                                </td>
+                                <td class="text-xs-right" ng-if="isUser() && config.owner === principal.username">
+                                    <a ng-href="graphs-visualizations/config/save/{{config.id}}" class="btn btn-link btn-edit-config" gdb-tooltip="{{'visual.edit.config' | translate}}"><span class="ri-edit-line"></span></a>
+                                    <button type="button" ng-click="deleteConfig(config)" class="btn btn-link delete-config" gdb-tooltip="{{'visual.delete.config' | translate}}" data-cy="delete-graph-config"><span class="ri-delete-bin-6-line"></span></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div ng-show="isFreeAccessEnabled() || isUser()" data-test="saved-graphs-area" class="card mb-2">
+                    <div class="card-block">
+                        <h3 class="mb-2">{{'visual.saved.graphs' | translate}}</h3>
+                        <div ng-show="savedGraphs.length == 0">{{'visual.no.saved.graphs' | translate}}</div>
+                        <table class="table table-hover mb-0" ng-init="refreshSavedGraphs()" aria-describedby="Saved graphs table" data-cy="saved-graphs-table">
+                            <tbody>
+                            <tr ng-repeat="graph in savedGraphs">
+                                <td>
+                                    <h5><a href ng-click="loadSavedGraph(graph)">{{graph.name}}</a></h5>
+                                </td>
+                                <td>
+                                    <span ng-show="graph.config != 'default'">{{'visual.advanced' | translate}} <strong>{{findConfigById(graph.config).name}}</strong></span>
+                                    <span ng-show="graph.config == 'default'">{{'visual.easy.graph' | translate}}</span>
+                                </td>
+                                <td class="text-xs-right">
+                                    <button class="btn btn-link"
+                                            gdb-tooltip="{{'visual.get.graph.url' | translate}}"
+                                            ng-click="copyToClipboardSavedGraph(graph)" data-cy="copy-to-clipboard-saved-graph">
+                                        <span class="ri-links-line"></span>
+                                    </button>
+                                    <button class="btn btn-link"
+                                            ng-if="isUser() && graph.owner === principal.username"
+                                            gdb-tooltip="{{'visual.rename.graph' | translate}}"
+                                            ng-click="renameSavedGraph(graph)" data-cy="rename-saved-graph">
+                                        <span class="ri-edit-line"></span>
+                                    </button>
+                                    <button class="btn btn-link"
+                                            ng-if="isUser() && graph.owner === principal.username"
+                                            gdb-tooltip="{{'visual.delete.graph' | translate}}"
+                                            ng-click="deleteSavedGraph(graph)" data-cy="delete-saved-graph">
+                                        <span class="ri-delete-bin-6-line"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<keyboard-shortcuts template-url="res/graphexplore/keyboard-shortcuts.html" ng-if="nodeSelected && !loading"></keyboard-shortcuts>
+
+<div class="graph-visualization" guide-selector="graph-visualization" ng-hide="loading || !nodeSelected"></div>
+<div onto-loader
+     ng-show="loading"
+     size="100"
+     style="height: 75vh; display: flex;">
+</div>
+<pageslide
+        ps-class="rdf-info-side-panel node-info predicate-info visual-graph"
+        ps-open="showInfoPanel"
+        onopen="onopen"
+        onclose="onclose"
+        ps-side="right"
+        ps-click-outside="false"
+        ps-custom-height="calc(100vh - 55px)"
+        ps-size="80vw"
+        ng-class="{'rdf-info-side-panel-expanded': pageslideExpanded, embedded: embedded}">
+    <div class="rdf-side-panel-content break-word-alt p-1 pt-2">
+        <span class="toggle-sidepanel" title="{{'visual.collapse.sidepanel' | translate}}" ng-click="toggleSidePanel()">
+            <em ng-class="pageslideExpanded ? 'ri-arrow-right-s-line' : 'ri-arrow-left-s-line'"></em>
+        </span>
+        <button class="close mb-1 ml-1" ng-click="closeInfoPanel()" guide-selector="close-info-panel"></button>
+
+        <div ng-if="showPredicates" class="predicates-panel">
+            <h4 class="predicates-context">
+                <span gdb-tooltip="{{predicatesSource.iri}}" tooltip-placement="top"
+                        class="predicate-context-node text-truncate">
+                    {{predicatesSource.label}}
+                </span>
+                <em class="ri-arrow-right-long-line"></em>
+                <span gdb-tooltip="{{predicatesTarget.iri}}" tooltip-placement="top"
+                        class="predicate-context-node text-truncate">
+                    {{predicatesTarget.label}}
+                </span>
+            </h4>
+
+            <div class="predicates-filter mt-1">
+                <input type="text"
+                       class="form-control"
+                       placeholder="{{'visual.predicates_list.filter_placeholder' | translate}}"
+                       ng-model="predicateFilter.text"
+                       ng-change="filterPredicates()">
+            </div>
+
+            <div class="predicates">
+                <h5 class="predicates-count mt-1">{{predicates.length}} {{'predicates.label' | translate}}</h5>
+
+                <ul class="predicates-list forward">
+                    <li ng-repeat='predicate in predicates track by $index' class="item clearfix break-word-alt">
+                        <div class="predicate-side-panel-row"
+                             role="{{predicate.partOfTriple ? 'button' : ''}}"
+                             ng-click="clickLink(predicate)">
+                            <span class="ri-arrow-right-long-line"></span>
+                            <em class="{{predicate.partOfTriple ? 'ri-arrow-right-long-line triple-pred' : ''}}"></em>
+                            <span class="predicate-side-panel-label"
+                                  id="{{predicate.linkId + predicate.nodeIndex}}"
+                                  gdb-tooltip="{{predicate.rawIri}}"
+                                  tooltip-placement="top">{{splitPredicate(predicate.value)}}</span>
+                            <button class="btn btn-link btn-sm px-0 mr-1 copy-btn"
+                                    ng-click="copyPredicateIri($event, predicate.rawIri)"
+                                    gdb-tooltip="{{'common.copy_to_clipboard.btn' | translate}}"
+                                    tooltip-placement="top"
+                                    aria-label="{{'common.copy_to_clipboard.btn' | translate}}">
+                                <em class="ri-file-copy-line"></em>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Reverse direction predicates -->
+
+                <div ng-if="reversePredicates.length > 0" class="mb-1 mt-2">
+                    <h5 class="predicates-count mt-1">{{reversePredicates.length}} {{'inverse.predicates.label' | translate}}</h5>
+
+                    <ul class="predicates-list reverse" ng-if="reversePredicates.length > 0">
+                        <li ng-repeat='predicate in reversePredicates track by $index' class="item clearfix break-word-alt">
+                            <div class="predicate-side-panel-row"
+                                 role="{{predicate.partOfTriple ? 'button' : ''}}"
+                                 ng-click="clickLink(predicate)">
+                                <span class="ri-arrow-left-long-line"></span>
+                                <em class="{{predicate.partOfTriple ? 'ri-arrow-right-long-line triple-pred' : ''}}"></em>
+                                <span class="predicate-side-panel-label"
+                                      id="{{predicate.linkId + predicate.nodeIndex}}"
+                                      gdb-tooltip="{{predicate.rawIri}}"
+                                      tooltip-placement="top">{{splitPredicate(predicate.value)}}</span>
+                                <button class="btn btn-link btn-sm px-0 mr-1 copy-btn"
+                                        ng-click="copyPredicateIri($event, predicate.rawIri)"
+                                        gdb-tooltip="{{'common.copy_to_clipboard.btn' | translate}}"
+                                        tooltip-placement="top"
+                                        aria-label="{{'common.copy_to_clipboard.btn' | translate}}">
+                                    <em class="ri-file-copy-line"></em>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="showFilter" class="filter-sidepanel tab-content">
+            <h4>{{'sidepanel.graph.settings' | translate}}</h4>
+
+            <div>
+                <div class="form-group mb-2" ng-show="shouldShowSettings()">
+                    <label gdb-tooltip="{{'sidepanel.preferred.languages.for.node' | translate}}">{{'sidepanel.preferred.languages' | translate}}</label>
+                    <div class="input-group preferred-languages">
+                        <tags-input class="wb-tags-input" ng-model="settings['languagesMap']" min-length="2" add-on-space="true"
+                                    add-on-comma="true" placeholder="{{'sidepanel.add.language.tag' | translate}}"></tags-input>
+                    </div>
+                </div>
+                <div class="form-group mb-2">
+                    <div class="checkbox">
+                        <label gdb-tooltip="{{'sidepanel.include.schema.statements.tooltip' | translate}}">
+                            <input type="checkbox" ng-model="settings['includeSchema']" class="include-schema-statements">
+                            {{'sidepanel.include.schema.statements' | translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group mb-2">
+                    <div class="checkbox">
+                        <label gdb-tooltip="{{'sidepanel.include.inferred.statements.tooltip' | translate}}">
+                            <input type="checkbox" ng-model="settings['includeInferred']" class="include-inferred-statements">
+                            {{'sidepanel.include.inferred.statements' | translate}}
+                        </label>
+                    </div>
+                </div>
+                <!-- Enable-Disable owl:sameAs checkbox -->
+
+
+                <div class="form-group mb-2">
+                    <div class="checkbox" gdb-tooltip="{{shouldDisableSameAs() ? 'core.require.inferred' : '' | translate}}">
+                        <label style="{{'opacity: ' + (!settings['includeInferred'] ? '0.5' : '1')}}" >
+                            <input id="sameAsCheck" type="checkbox" ng-model="settings['sameAsState']"
+                                   ng-disabled="shouldDisableSameAs()">
+                            {{'sidepanel.expand.results.sameas' | translate}}
+                        </label>
+                    </div>
+                </div>
+
+
+                <!-- Enable-Disable owl:sameAs checkbox -->
+                <div class="form-group mb-2">
+                    <div class="checkbox">
+                        <label gdb-tooltip="{{'sidepanel.show.pred.labels.as.links.titles.tooltip' | translate}}">
+                            <input type="checkbox" class="show-predicate-labels" ng-model="settings['showLinksText']">
+                            {{'sidepanel.show.pred.labels.as.links.titles' | translate}}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group mb-2">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" data-test="truncate-node-labels-checkbox" ng-model="settings['truncateNodeLabels']">
+                            {{'sidepanel.truncate.node.labels' | translate}}
+                        </label>
+                    </div>
+                </div>
+
+                <uib-tabset active="active" ng-show="shouldShowSettings()">
+                    <uib-tab>
+                        <uib-tab-heading class="nav-item"
+                                     tooltip-placement="bottom"><span class="nav-link">{{'types.label' | translate}}</span></uib-tab-heading>
+                        <div class="form-group mb-2 mt-1">
+                            <label gdb-tooltip="{{'sidepanel.preferred.types.tooltip' | translate}}">{{'sidepanel.preferred.types' | translate}}</label>
+                            <div>
+                                <tags-input class="preferred-types wb-tags-input" ng-model="settings['preferredTypesMap']" min-length="3" add-on-space="true"
+                                            add-on-comma="true" placeholder="{{'sidepanel.add.preferred.type.placeholder' | translate}}"
+                                            on-tag-adding="validateTag($tag, 'Preferred types', false)"
+                                            on-tag-added="addedTag($tag)"></tags-input>
+                            </div>
+                        </div>
+                        <div class="form-group mb-2">
+                            <div class="checkbox">
+                                <label gdb-tooltip="{{'sidepanel.show.preferred.types.nodes.only.tooltip' | translate}}">
+                                    <input type="checkbox" class="show-preferred-types-only" ng-model="settings['preferredTypesOnly']">
+                                    {{'sidepanel.show.preferred.types.nodes.only' | translate}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label gdb-tooltip="{{'sidepanel.ignored.types.tooltip' | translate}}">{{'sidepanel.ignored.types' | translate}}</label>
+                            <div>
+                                <tags-input class="ignored-types wb-tags-input" ng-model="settings['rejectedTypesMap']" min-length="3" add-on-space="true"
+                                            add-on-comma="true" placeholder="{{'sidepanel.add.ignored.type.placeholder' | translate}}"
+                                            on-tag-adding="validateTag($tag, 'Ignored types', false)"
+                                            on-tag-added="addedTag($tag)"></tags-input>
+                            </div>
+                        </div>
+                    </uib-tab>
+                    <uib-tab>
+                        <uib-tab-heading class="nav-item"
+                                     tooltip-placement="bottom"><span class="nav-link predicates-tab">{{'predicates.label' | translate}}</span></uib-tab-heading>
+                        <div class="form-group mb-2 mt-1">
+                            <div>
+                                <label gdb-tooltip="{{'sidepanel.preferred.predicates.tooltip' | translate}}">{{'sidepanel.preferred.predicates' | translate}}</label>
+
+                                <tags-input class="preferred-predicates wb-tags-input" ng-model="settings['preferredPredicatesMap']" min-length="3"
+                                            add-on-space="true"
+                                            add-on-comma="true" placeholder="{{'sidepanel.add.preferred.predicate' | translate}}"
+                                            on-tag-adding="validateTag($tag, 'Preferred predicates', false)"
+                                            on-tag-added="addedTag($tag)"></tags-input>
+                            </div>
+                        </div>
+                        <div class="form-group mb-2">
+                            <div class="checkbox">
+                                <label gdb-tooltip="{{'sidepanel.show.preferred.predicates.links.only.tooltip' | translate}}">
+                                    <input type="checkbox" class="show-preferred-predicates-only" ng-model="settings['preferredPredicatesOnly']">
+                                    {{'sidepanel.show.preferred.predicates.only' | translate}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label gdb-tooltip="{{'sidepanel.ignored.predicates.tooltip' | translate}}">{{'sidepanel.ignored.predicates' | translate}}</label>
+                            <div>
+                                <tags-input class="ignored-predicates wb-tags-input" ng-model="settings['rejectedPredicatesMap']" min-length="3"
+                                            add-on-space="true"
+                                            add-on-comma="true" placeholder="{{'sidepanel.add.ignored.predicate.placeholder' | translate}}"
+                                            on-tag-adding="validateTag($tag, 'Ignored predicates', true)"
+                                            on-tag-added="addedTag($tag)"
+                                            template="ignored-predicates-template"
+                                            tag-class="getTagClass($tag.text)"></tags-input>
+                            </div>
+                        </div>
+                    </uib-tab>
+                </uib-tabset>
+
+                <div class="mt-1 text-right">
+                    <button type="button" class="btn btn-secondary reset-settings" ng-click="resetSettings()">{{'common.reset' | translate}}</button>
+                    <button type="submit"
+                            guide-selector="graph-settings-save-button"
+                            class="btn btn-primary save-settings-btn" ng-click="updateSettings()">{{'common.save.btn' | translate}}</button>
+                </div>
+
+                <script type="text/ng-template" id="ignored-predicates-template">
+                    <div class="tag-template">
+                        <div gdb-tooltip="{{$getDisplayText().endsWith('*') ? 'sidepanel.wildcard.iris' : '' | translate}}">
+                            <span>{{$getDisplayText()}}</span>
+                            <a class="remove-button" ng-click="$removeTag()">&#xD7;</a>
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+
+        <div ng-if="showNodeInfo" class="tab-content">
+            <h3 class="hovered-parent">
+                <a class="uri" rel="noopener" target="_blank" href="resource?{{resourceType}}={{encodedIri}}" style="text-decoration: underline;">{{rdfsLabel | htmlAsText}}</a>
+                <button class="btn btn-link btn-sm px-0 hovered-item"
+                        style="opacity: 1"
+                        ng-click="copyToClipboard(nodeIri)"
+                        title="{{'copy.to.clipboard.modal.ok.btn' | translate}}">
+                    <span class="ri-links-line"></span>
+                </button>
+            </h3>
+
+
+            <rdfs-comment-label
+                    rdfs-comment="rdfsComment"
+                    expanded="expanded"
+                    always-expanded="pageslideExpanded">
+            </rdfs-comment-label>
+
+            <div class="media mb-1">
+                <div class="media-left"
+                     gdb-tooltip="{{'labels.label' | translate}}"
+                     tooltip-placement="top">
+                    <em class="ri-price-tag-3-line icon-lg" aria-hidden="true"></em>
+                </div>
+                <div class="media-body">
+					<span ng-repeat="l in nodeLabels">
+                        {{l.label | htmlAsText}}
+                        <span class="language-tag" ng-if="l.lang">{{l.lang}}</span>
+                        <span ng-if="!$last"> &middot; </span>
+					</span>
+                </div>
+            </div>
+
+            <div class="break-word-alt" guide-selector="graph-visualization-node-info-types">
+                <strong>{{'types.label' | translate}}: </strong><em class="text-muted" ng-if="!nodeTypes.length">No types</em><br>
+                <ul class="list-inline">
+                    <li class="list-inline-item" ng-repeat="nodeType in nodeTypes"
+                        ng-class="{'lead d-block': $index == 0}">
+                        <span class="tag tag-default tag-inverse"
+                              ng-attr-style="{{'background-color: ' + getColor(nodeType)}}">{{replaceIRIWithPrefix(nodeType)}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="mb-1" ng-show="rdfRank >= 0">
+                <strong>{{'view.rdf.rank.title' | translate}}: </strong>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{rdfRank}}"
+                         aria-valuemin="0" aria-valuemax="1" style="word-break: normal; width: {{rdfRank*100}}%">
+                        {{rdfRank}}
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="nodeImage" class="rdf-image mb-1"
+                 ng-attr-style="{{'background-image: url(' + nodeImage + ')'}}">
+            </div>
+
+            <list-items-search-filter
+                    filter-query-obj="propertiesQueryObj"
+                    filter-function="propertiesFilterFunc"
+                    list-items-obj="propertiesObj"
+                    list-items-not-filtered="propertiesNotFiltered"
+                    search-placeholder={{propertiesSearchPlaceholder}}>
+            </list-items-search-filter>
+
+            <div ng-switch on="propertiesObj.items.length">
+                <p ng-switch-when="0" class="alert alert-warning">{{'sidepanel.no.properties.found' | translate}}</p>
+
+                <div ng-switch-default ui-scroll-viewport class="rdf-list">
+                    <div ui-scroll='item in datasource' adapter="adapterContainer.adapter"
+                         class="datasource mb-1" guide-selector="graph-visualization-node-info-{{item.key}}">
+                        <div class="item clearfix break-word-alt small">{{item.key}}</div>
+                        <div class="data-value">
+                            <a ng-if="item.value[0].t === 'i'" href="#" ng-click="openIRI(item.value[0].v, $event)" ng-bind="item.value[0].v"></a>
+                            <span ng-if="item.value[0].t !== 'i' && !isMarkdownLiteral(item.value[0].t)" ng-bind="item.value[0].v"></span>
+                            <markdown-content ng-if="::isMarkdownLiteral(item.value[0].t)" content="{{::item.value[0].v}}"></markdown-content>
+                            <span class="language-tag" ng-if="item.value[0].t !== 'lt:http://www.w3.org/2001/XMLSchema#string'" ng-bind="replaceIRIWithPrefix(getLiteralFromPropValue(item.value[0].t))"></span>
+                            <button class="btn btn-link btn-sm" type="button"
+                                    ng-if="item.value.length > 1"
+                                    ng-click="toggleMoreInfo($event, this)">
+                                {{'rdfs.comment.show' | translate}} {{item.value.length - 1}} {{'more' | translate}} <span
+                                    class="ri-arrow-down-s-line"></span>
+                            </button>
+                        </div>
+                        <ul class="hidden-data-value text-secondary">
+							<li class="small"
+                                  ng-repeat="value in item.value track by $index"
+                                  ng-hide="$index == 0">
+                                <a ng-if="value.t === 'i'" href="#" ng-click="openIRI(value.v, $event)" ng-bind="value.v"></a>
+                                <span ng-if="value.t !== 'i' && !isMarkdownLiteral(value.t)" ng-bind="value.v"></span>
+                                <markdown-content ng-if="::isMarkdownLiteral(value.t)" content="{{::value.v}}"></markdown-content>
+                                <span class="language-tag" ng-if="value.t !== 'lt:http://www.w3.org/2001/XMLSchema#string'" ng-bind="replaceIRIWithPrefix(getLiteralFromPropValue(value.t))"></span>
+							</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</pageslide>

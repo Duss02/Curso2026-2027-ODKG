@@ -1,0 +1,1 @@
+{"version":3,"file":"85337.d56ae884cd77401271d4.bundle.js","mappings":"mJAAO,MAAMA,UAA4BC,O","sources":["webpack://root-config/./packages/legacy-workbench/src/js/angular/models/sparql/cancel-aborting-query.js"],"sourcesContent":["export class CancelAbortingQuery extends Error {}\n"],"names":["CancelAbortingQuery","Error"],"sourceRoot":""}

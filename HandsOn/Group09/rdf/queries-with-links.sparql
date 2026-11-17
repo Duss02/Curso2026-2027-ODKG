@@ -1,0 +1,56 @@
+# QUERY: district_external_links
+# List districts and their linked external entities (e.g. Wikidata).
+PREFIX pm:  <https://parking-madrid.example.org/ontology#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?district ?districtName ?districtCode ?externalEntity
+WHERE {
+    ?district a pm:District ;
+              pm:hasDistrictName ?districtName ;
+              pm:hasDistrictCode ?districtCode .
+
+    OPTIONAL {
+        ?district owl:sameAs ?externalEntity .
+    }
+}
+ORDER BY ?districtCode
+
+# QUERY: neighbourhood_external_links
+# List neighbourhoods and their linked external entities (e.g. Wikidata).
+PREFIX pm:   <https://parking-madrid.example.org/ontology#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?neighbourhood ?neighbourhoodName ?externalEntity
+WHERE {
+    ?neighbourhood a pm:Neighbourhood ;
+                   rdfs:label ?neighbourhoodName .
+
+    OPTIONAL {
+        ?neighbourhood owl:sameAs ?externalEntity .
+    }
+}
+ORDER BY ?neighbourhoodName
+
+# QUERY: parking_with_occupancy_details
+
+PREFIX pm: <https://parking-madrid.example.org/ontology#>
+
+SELECT DISTINCT ?parking ?parkingName ?parkingCode ?parkingCount
+WHERE {
+    {
+        SELECT (COUNT(DISTINCT ?p) AS ?parkingCount)
+        WHERE {
+            ?observation a pm:MonthlyOccupancy ;
+                         pm:isOccupancyOf ?p .
+        }
+    }
+
+    ?observation a pm:MonthlyOccupancy ;
+                 pm:isOccupancyOf ?parking .
+
+    ?parking a pm:ParkingFacility ;
+             pm:hasParkingName ?parkingName ;
+             pm:hasParCode ?parkingCode .
+}
+ORDER BY ?parkingCode

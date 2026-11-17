@@ -1,0 +1,1 @@
+"use strict";exports.OntoTooltipPlacement=void 0,function(t){t.LEFT="left",t.RIGHT="right",t.TOP="top",t.BOTTOM="bottom",t.AUTO="auto"}(exports.OntoTooltipPlacement||(exports.OntoTooltipPlacement={}));

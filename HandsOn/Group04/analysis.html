@@ -312,42 +312,43 @@
 <p>Each individual is also typed explicitly with the standard superclass, e.g. <code>a bpm:DailyObservation, sosa:Observation</code>, so that it can be found with SOSA or schema.org terms without a reasoner.</p>
 
 <h3>4.3 Data URIs: slash</h3>
-<p>Instances use <strong>slash URIs</strong> under <code>/resource/</code>, because there are tens of thousands of them and each one must be retrievable on its own. Patterns follow <code>/resource/{type}/{id}</code>, where <code>{id}</code> reuses the identifier from the source whenever one exists, so the URIs are stable and can be regenerated from the CSV.</p>
+<p>Instances use <strong>slash URIs</strong> under <code>/resource/</code>, because there are tens of thousands of them and each one must be retrievable on its own. Patterns follow <code>/resource/{type}/{name}</code>, where <code>{name}</code> is a <strong>human-readable name</strong> of the resource: its name in the source written in lower case, without accents and with the words joined by <code>-</code>, so the URIs are meaningful and can be regenerated from the CSV. The names are unique in our data (checked for the 24 stations, the 607 facilities, the 21 districts, the neighbourhoods and the 131 sampling points). The source codes are not lost: they are kept as literals (e.g. <code>bpm:stationCode</code>, <code>bpm:facilityId</code>).</p>
+<p class="note">Updated after the evaluation of Hands-on 1–4 ("URIs for individuals should be human-readable and meaningful"). The first version used the source codes (<code>/resource/station/28079004</code>). The readable names are new <code>*_SLUG</code> columns of the CSV files, added in OpenRefine (<code>openrefine/*-updated.json</code>), and every mapping uses them.</p>
 <div class="scroll">
 <table>
-  <tr><th>Resource</th><th>Pattern</th><th>Source of <code>{id}</code></th><th>Example</th></tr>
-  <tr><td>Monitoring station</td><td><code>/resource/station/{id}</code></td><td>D2 <code>CODIGO</code> (8 digits)</td><td><code>/resource/station/28079004</code></td></tr>
-  <tr><td>Station type</td><td><code>/resource/station-type/{id}</code></td><td>D2 <code>COD_TIPO</code>, lowercase</td><td><code>/resource/station-type/ut</code></td></tr>
-  <tr><td>Pollutant</td><td><code>/resource/pollutant/{id}</code></td><td>D1 <code>MAGNITUD</code></td><td><code>/resource/pollutant/8</code> (NO₂)</td></tr>
-  <tr><td>Sampling point</td><td><code>/resource/sampling-point/{id}</code></td><td>D1 <code>PUNTO_MUESTREO</code></td><td><code>/resource/sampling-point/28079004_8_8</code></td></tr>
-  <tr><td>Measurement technique</td><td><code>/resource/technique/{id}</code></td><td>Third part of <code>PUNTO_MUESTREO</code>, 2 digits</td><td><code>/resource/technique/08</code> (chemiluminescence)</td></tr>
-  <tr><td>Daily observation</td><td><code>/resource/observation/{sampling-point}/{yyyy-mm-dd}</code></td><td><code>PUNTO_MUESTREO</code> + <code>ANO</code>-<code>MES</code>-day</td><td><code>/resource/observation/28079004_8_8/2024-01-15</code></td></tr>
-  <tr><td>Sports facility</td><td><code>/resource/sports-facility/{id}</code></td><td>D3 <code>PK</code></td><td><code>/resource/sports-facility/12009978</code></td></tr>
-  <tr><td>Facility type</td><td><code>/resource/facility-type/{id}</code></td><td>Last segment of D3 <code>TIPO</code>, kebab-case</td><td><code>/resource/facility-type/pista-futbol-sala</code></td></tr>
-  <tr><td>Accessibility level</td><td><code>/resource/accessibility-level/{id}</code></td><td>D3 <code>ACCESIBILIDAD</code></td><td><code>/resource/accessibility-level/2</code> (partially accessible)</td></tr>
-  <tr><td>District</td><td><code>/resource/district/{id}</code></td><td>D3 <code>COD-DISTRITO</code>, 2 digits</td><td><code>/resource/district/21</code> (Barajas)</td></tr>
-  <tr><td>Neighbourhood</td><td><code>/resource/neighbourhood/{id}</code></td><td><code>COD-DISTRITO</code> (2 digits) + <code>COD-BARRIO</code></td><td><code>/resource/neighbourhood/213</code></td></tr>
+  <tr><th>Resource</th><th>Pattern</th><th>Source of <code>{name}</code></th><th>Example</th></tr>
+  <tr><td>Monitoring station</td><td><code>/resource/station/{name}</code></td><td>D2 <code>ESTACION</code> (station name)</td><td><code>/resource/station/plaza-de-espana</code></td></tr>
+  <tr><td>Station type</td><td><code>/resource/station-type/{name}</code></td><td>D2 <code>COD_TIPO</code>, in English</td><td><code>/resource/station-type/urban-traffic</code></td></tr>
+  <tr><td>Pollutant</td><td><code>/resource/pollutant/{name}</code></td><td>D1 <code>MAGNITUD</code> → chemical formula or English name</td><td><code>/resource/pollutant/no2</code></td></tr>
+  <tr><td>Sampling point</td><td><code>/resource/sampling-point/{station}-{pollutant}</code></td><td>D1 station + <code>MAGNITUD</code> (one sampling point per station and pollutant)</td><td><code>/resource/sampling-point/plaza-de-espana-no2</code></td></tr>
+  <tr><td>Measurement technique</td><td><code>/resource/technique/{name}</code></td><td>Third part of <code>PUNTO_MUESTREO</code> → English name</td><td><code>/resource/technique/chemiluminescence</code></td></tr>
+  <tr><td>Daily observation</td><td><code>/resource/observation/{station}-{pollutant}-{yyyy-mm-dd}</code></td><td>Sampling point + <code>ANO</code>-<code>MES</code>-day</td><td><code>/resource/observation/plaza-de-espana-no2-2024-01-15</code></td></tr>
+  <tr><td>Sports facility</td><td><code>/resource/sports-facility/{name}</code></td><td>D3 <code>NOMBRE</code> without the common prefix "Instalación Deportiva Municipal Básica"</td><td><code>/resource/sports-facility/acuario</code></td></tr>
+  <tr><td>Facility type</td><td><code>/resource/facility-type/{name}</code></td><td>Last segment of D3 <code>TIPO</code>, kebab-case</td><td><code>/resource/facility-type/pista-futbol-sala</code></td></tr>
+  <tr><td>Accessibility level</td><td><code>/resource/accessibility-level/{name}</code></td><td>D3 <code>ACCESIBILIDAD</code> → English name</td><td><code>/resource/accessibility-level/partially-accessible</code></td></tr>
+  <tr><td>District</td><td><code>/resource/district/{name}</code></td><td>D3 <code>DISTRITO</code></td><td><code>/resource/district/barajas</code></td></tr>
+  <tr><td>Neighbourhood</td><td><code>/resource/neighbourhood/{name}</code></td><td>D3 <code>BARRIO</code> (neighbourhoods with a code)</td><td><code>/resource/neighbourhood/casco-h-barajas</code></td></tr>
 </table>
 </div>
-<p>All paths above are relative to <code>https://w3id.org/breatheplay-madrid</code>. Example of a complete URI: <code>https://w3id.org/breatheplay-madrid/resource/station/28079004</code>.</p>
+<p>All paths above are relative to <code>https://w3id.org/breatheplay-madrid</code>. Example of a complete URI: <code>https://w3id.org/breatheplay-madrid/resource/station/plaza-de-espana</code>.</p>
 
 <h3>4.4 Naming conventions</h3>
 <ul>
   <li><strong>Language:</strong> English for all ontology terms; original Spanish names are kept as <code>rdfs:label "…"@es</code>, with English labels <code>@en</code> where useful.</li>
   <li><strong>Ontology terms:</strong> classes in <code>UpperCamelCase</code> and singular; properties in <code>lowerCamelCase</code>, starting with a verb (<code>has…</code>, <code>is…</code>, <code>measures…</code>).</li>
   <li><strong>Instance paths:</strong> type segments in lowercase <code>kebab-case</code> and singular; identifiers only with characters <code>[a-z0-9_-]</code>, no accents or spaces.</li>
-  <li><strong>Opaque, stable identifiers:</strong> source codes are used instead of names (station names or facility names can change; codes do not), so URIs never have to be renamed. For stations we use the current 8-digit national code; the codes that changed in 2010 can be kept as an extra literal property if older years are added. For facilities, <code>PK</code> is the only identifier available (see the note in 2.3).</li>
+  <li><strong>Readable, meaningful identifiers:</strong> the URI of an individual contains its name (<code>station/plaza-de-espana</code>, <code>pollutant/no2</code>), so a person can understand it without looking it up. Proper names (stations, facilities, districts, neighbourhoods) keep their Spanish name; names we create (station types, techniques, pollutants, accessibility levels) are in English. The source codes (8-digit station code, facility <code>PK</code>, district and neighbourhood codes) are kept as literals, so nothing is lost if a name changes.</li>
   <li><strong>Reuse of external URIs:</strong> pollutants and districts are linked to existing Wikidata entities with <code>owl:sameAs</code>, and standard vocabularies (SOSA, WGS84 Geo Positioning, schema.org and <code>dcterms</code>) are reused where they fit, instead of redefining their terms (see <a href="#reuse">Reused vocabularies</a>).</li>
 </ul>
 
 <h3>4.5 Content negotiation</h3>
 <p>We follow the <strong>303 See Other</strong> pattern for slash URIs: the resource URI identifies the real-world thing (a station, a court) and redirects to a document that describes it, in the format requested by the client in the <code>Accept</code> header.</p>
 <table>
-  <tr><th><code>Accept</code> header</th><th>Redirect target (example for <code>/resource/station/28079004</code>)</th></tr>
-  <tr><td><code>text/html</code> (browsers, default)</td><td><code>/page/station/28079004</code></td></tr>
-  <tr><td><code>text/turtle</code></td><td><code>/data/station/28079004.ttl</code></td></tr>
-  <tr><td><code>application/ld+json</code></td><td><code>/data/station/28079004.jsonld</code></td></tr>
-  <tr><td><code>application/rdf+xml</code></td><td><code>/data/station/28079004.rdf</code></td></tr>
+  <tr><th><code>Accept</code> header</th><th>Redirect target (example for <code>/resource/station/plaza-de-espana</code>)</th></tr>
+  <tr><td><code>text/html</code> (browsers, default)</td><td><code>/page/station/plaza-de-espana</code></td></tr>
+  <tr><td><code>text/turtle</code></td><td><code>/data/station/plaza-de-espana.ttl</code></td></tr>
+  <tr><td><code>application/ld+json</code></td><td><code>/data/station/plaza-de-espana.jsonld</code></td></tr>
+  <tr><td><code>application/rdf+xml</code></td><td><code>/data/station/plaza-de-espana.rdf</code></td></tr>
 </table>
 <p>For the ontology, <code>https://w3id.org/breatheplay-madrid/ontology</code> redirects to the HTML documentation (e.g. generated with WIDOCO) for browsers and to the <code>.ttl</code> file for RDF clients. Since the terms use hash URIs, the fragment is resolved on the client after retrieving the document. The rules are implemented in the <code>.htaccess</code> file of the w3id repository:</p>
 <pre>RewriteEngine on
@@ -371,22 +372,22 @@ RewriteRule ^resource/(.+)$ https://&lt;group-pages&gt;/page/$1 [R=303,L]</pre>
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 
-res:station/28079004 a bpm:MonitoringStation, sosa:Platform ;
+res:station/plaza-de-espana a bpm:MonitoringStation, sosa:Platform ;
     rdfs:label "Plaza de España"@es ;
-    bpm:hasStationType res:station-type/ut .
+    bpm:hasStationType res:station-type/urban-traffic .
 
-res:observation/28079004_8_8/2024-01-15 a bpm:DailyObservation, sosa:Observation ;
-    sosa:madeBySensor res:sampling-point/28079004_8_8 ;
-    sosa:observedProperty res:pollutant/8 ;
+res:observation/plaza-de-espana-no2-2024-01-15 a bpm:DailyObservation, sosa:Observation ;
+    sosa:madeBySensor res:sampling-point/plaza-de-espana-no2 ;
+    sosa:observedProperty res:pollutant/no2 ;
     bpm:date "2024-01-15"^^xsd:date ;
     sosa:hasSimpleResult 22.0 ;
     bpm:isValid true .
 
-res:sports-facility/12009978 a bpm:SportsFacility, schema:SportsActivityLocation ;
-    bpm:hasNearestStation res:station/28079027 ;   # Barajas Pueblo
-    bpm:locatedInDistrict res:district/21 .</pre>
+res:sports-facility/acuario a bpm:SportsFacility, schema:SportsActivityLocation ;
+    bpm:hasNearestStation res:station/barajas-pueblo ;
+    bpm:locatedInDistrict res:district/barajas .</pre>
 
-<p class="note">Note: in Turtle, local names containing <code>/</code> must be escaped (<code>res:station\/28079004</code>) or written as full IRIs; the compact form above is for readability.</p>
+<p class="note">Note: in Turtle, local names containing <code>/</code> must be escaped (<code>res:station\/plaza-de-espana</code>) or written as full IRIs; the compact form above is for readability.</p>
 
 <footer>
   Data sources: Ayuntamiento de Madrid – datos.madrid.es (CC BY 4.0). Analysis computed directly over the CSV files stored in <code>csv/</code>.

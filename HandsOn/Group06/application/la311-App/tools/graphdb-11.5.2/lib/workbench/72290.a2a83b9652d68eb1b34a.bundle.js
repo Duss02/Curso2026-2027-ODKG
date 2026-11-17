@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=72290;export const __webpack_esm_ids__=[72290];export const __webpack_esm_modules__={72290(_,e,s){s.d(e,{x:()=>o});const o={OBDA:"obdaFile",OWL:"owlFile",CONSTRAINT:"constraintFile",LENSES:"lensesFile",DB_METADATA:"dbMetadataFile"}}};
+//# sourceMappingURL=72290.a2a83b9652d68eb1b34a.bundle.js.map

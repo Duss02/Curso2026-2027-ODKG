@@ -1,0 +1,175 @@
+@prefix bpm:      <https://w3id.org/breatheplay-madrid/ontology#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix edintinf: <https://edint.es/def/infraestructura#> .
+@prefix edintmed: <https://edint.es/def/medio-ambiente#> .
+@prefix esadm:    <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#> .
+@prefix esdir:    <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/direccion-postal#> .
+@prefix geo:      <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix gsp:      <http://www.opengis.net/ont/geosparql#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix qudt:     <http://qudt.org/schema/qudt/> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:   <http://schema.org/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa:     <http://www.w3.org/ns/sosa/> .
+@prefix time:     <http://www.w3.org/2006/time#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+# Group04 - Breathe & Play Madrid - Hands-on 6 (ontology reuse)
+#
+# Version 2.0.0 of the ontology. Version 1.1.0 (ontology/breatheplay.ttl) defined
+# 12 classes and 25 properties of its own, aligned with SOSA, WGS84 and schema.org.
+# This version reuses the EDINT ontologies (Espacio de Datos para las
+# Infraestructuras Urbanas Inteligentes, FEMP), which are themselves built on SOSA,
+# GeoSPARQL, QUDT and OWL-Time, plus the Spanish "territorio" and
+# "direccion-postal" vocabularies. Only the terms that have no equivalent in them
+# are kept as bpm: terms (2 classes and 7 properties).
+
+<https://w3id.org/breatheplay-madrid/ontology> a owl:Ontology ;
+    dcterms:title "Breathe and Play Madrid ontology"@en ;
+    dcterms:description "Lightweight ontology for the daily air quality observations of the Madrid City Council monitoring network, the monitoring stations and the basic municipal sports facilities of Madrid. Version 2.0.0 reuses the EDINT environmental sensors (air quality) and infrastructure ontologies and only defines the terms that are not covered by them."@en ;
+    dcterms:creator "Group04" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-10-24"^^xsd:date ;
+    dcterms:references <https://edint.es/def/medio-ambiente>,
+        <https://edint.es/def/calidad-aire>,
+        <https://edint.es/def/infraestructura> ;
+    vann:preferredNamespacePrefix "bpm" ;
+    vann:preferredNamespaceUri "https://w3id.org/breatheplay-madrid/ontology#" ;
+    owl:versionIRI <https://w3id.org/breatheplay-madrid/ontology/2.0.0> ;
+    owl:priorVersion <https://w3id.org/breatheplay-madrid/ontology/1.1.0> ;
+    owl:versionInfo "2.0.0" .
+
+#################################################################
+#    Reused terms
+#    Only the terms used in the data are declared; their definitions
+#    are those of the source ontologies (no owl:imports, as in 1.1.0).
+#################################################################
+
+# EDINT environmental sensors (https://edint.es/def/medio-ambiente#),
+# applied to air quality as in https://edint.es/def/calidad-aire
+edintmed:SensorPlatform a owl:Class ;
+    rdfs:isDefinedBy <https://edint.es/def/medio-ambiente> .
+edintmed:EnvironmentalSensor a owl:Class ;
+    rdfs:isDefinedBy <https://edint.es/def/medio-ambiente> .
+edintmed:EnvironmentalObservation a owl:Class ;
+    rdfs:isDefinedBy <https://edint.es/def/medio-ambiente> .
+edintmed:EnvironmentalProperty a owl:Class ;
+    rdfs:isDefinedBy <https://edint.es/def/medio-ambiente> .
+edintmed:hasSensorType a owl:ObjectProperty ;
+    rdfs:isDefinedBy <https://edint.es/def/medio-ambiente> .
+
+# EDINT infrastructure (https://edint.es/def/infraestructura#)
+edintinf:Facility a owl:Class ;
+    rdfs:isDefinedBy <https://edint.es/def/infraestructura> .
+edintinf:hasInfrastructureType a owl:ObjectProperty ;
+    rdfs:isDefinedBy <https://edint.es/def/infraestructura> .
+edintinf:belongsTo a owl:ObjectProperty ;
+    rdfs:isDefinedBy <https://edint.es/def/infraestructura> .
+edintinf:accessibility a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <https://edint.es/def/infraestructura> .
+
+# Spanish public sector vocabularies (territory and postal address)
+esadm:Distrito a owl:Class ;
+    rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio> .
+esadm:Barrio a owl:Class ;
+    rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio> .
+esdir:DireccionPostal a owl:Class ;
+    rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/direccion-postal> .
+schema:address a owl:ObjectProperty .
+schema:streetAddress a owl:DatatypeProperty .
+schema:postalCode a owl:DatatypeProperty .
+schema:addressLocality a owl:DatatypeProperty .
+schema:url a owl:DatatypeProperty .
+
+# SOSA (http://www.w3.org/ns/sosa/)
+sosa:Procedure a owl:Class .
+sosa:madeBySensor a owl:ObjectProperty .
+sosa:observedProperty a owl:ObjectProperty .
+sosa:hasFeatureOfInterest a owl:ObjectProperty .
+sosa:phenomenonTime a owl:ObjectProperty .
+sosa:isHostedBy a owl:ObjectProperty .
+sosa:hosts a owl:ObjectProperty .
+sosa:observes a owl:ObjectProperty .
+sosa:implements a owl:ObjectProperty .
+sosa:hasSimpleResult a owl:DatatypeProperty .
+
+# QUDT, OWL-Time, GeoSPARQL, WGS84, SKOS and Dublin Core
+qudt:unit a owl:ObjectProperty .
+time:Interval a owl:Class .
+time:Instant a owl:Class .
+time:hasBeginning a owl:ObjectProperty .
+time:hasXSDDuration a owl:DatatypeProperty .
+time:inXSDDate a owl:DatatypeProperty .
+gsp:Geometry a owl:Class .
+gsp:hasGeometry a owl:ObjectProperty .
+gsp:sfWithin a owl:ObjectProperty .
+gsp:asWKT a owl:DatatypeProperty .
+geo:lat a owl:DatatypeProperty .
+geo:long a owl:DatatypeProperty .
+geo:alt a owl:DatatypeProperty .
+skos:Concept a owl:Class .
+skos:ConceptScheme a owl:Class .
+skos:inScheme a owl:ObjectProperty .
+skos:broader a owl:ObjectProperty .
+skos:exactMatch a owl:ObjectProperty .
+skos:closeMatch a owl:ObjectProperty .
+skos:broadMatch a owl:ObjectProperty .
+skos:relatedMatch a owl:ObjectProperty .
+skos:prefLabel a owl:AnnotationProperty .
+skos:notation a owl:DatatypeProperty .
+qudt:Unit a owl:Class .
+dcterms:identifier a owl:DatatypeProperty .
+
+#################################################################
+#    Breathe and Play Madrid terms (no equivalent in EDINT)
+#################################################################
+
+bpm:DailyObservation a owl:Class ;
+    rdfs:label "Daily Observation"@en ;
+    rdfs:comment "Daily mean value of an air quality property at a sampling point. EDINT environmental observations do not distinguish aggregated (daily) values from single measurements."@en ;
+    rdfs:subClassOf edintmed:EnvironmentalObservation .
+
+bpm:StationType a owl:Class ;
+    rdfs:label "Station Type"@en ;
+    rdfs:comment "Type of air quality monitoring station according to its environment (urban traffic, urban background, suburban)."@en .
+
+bpm:hasStationType a owl:ObjectProperty ;
+    rdfs:label "has station type"@en ;
+    rdfs:domain edintmed:SensorPlatform ;
+    rdfs:range bpm:StationType .
+
+bpm:hasNearestStation a owl:ObjectProperty ;
+    rdfs:label "has nearest station"@en ;
+    rdfs:comment "Air quality monitoring station that is closest to a facility. It links the sports facilities with the air quality data."@en ;
+    rdfs:domain edintinf:Facility ;
+    rdfs:range edintmed:SensorPlatform .
+
+bpm:isValid a owl:DatatypeProperty ;
+    rdfs:label "is valid"@en ;
+    rdfs:comment "Validation flag of the daily value published by the Madrid City Council."@en ;
+    rdfs:domain bpm:DailyObservation ;
+    rdfs:range xsd:boolean .
+
+bpm:startDate a owl:DatatypeProperty ;
+    rdfs:label "start date"@en ;
+    rdfs:comment "Date on which a monitoring station started operating."@en ;
+    rdfs:domain edintmed:SensorPlatform ;
+    rdfs:range xsd:date .
+
+bpm:equipment a owl:DatatypeProperty ;
+    rdfs:label "equipment"@en ;
+    rdfs:domain edintinf:Facility ;
+    rdfs:range xsd:string .
+
+bpm:transportInfo a owl:DatatypeProperty ;
+    rdfs:label "transport info"@en ;
+    rdfs:domain edintinf:Facility ;
+    rdfs:range xsd:string .
+
+bpm:distanceToNearestStation a owl:DatatypeProperty ;
+    rdfs:label "distance to nearest station"@en ;
+    rdfs:comment "Distance in km between a facility and its nearest monitoring station."@en ;
+    rdfs:domain edintinf:Facility ;
+    rdfs:range xsd:decimal .

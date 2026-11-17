@@ -1,0 +1,1 @@
+{"version":3,"file":"82344.14c3ac6a15df84f33a12.bundle.js","mappings":"mJAAO,MAAMA,UAA6BC,O","sources":["webpack://root-config/./packages/legacy-workbench/src/js/angular/models/ontop/ontop-repository-error.js"],"sourcesContent":["export class OntopRepositoryError extends Error {\n}\n"],"names":["OntopRepositoryError","Error"],"sourceRoot":""}

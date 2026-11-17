@@ -1,0 +1,1 @@
+var t;!function(t){t.LEFT="left",t.RIGHT="right",t.TOP="top",t.BOTTOM="bottom",t.AUTO="auto"}(t||(t={}));export{t as O};

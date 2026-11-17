@@ -1,0 +1,33 @@
+<span class="btn btn-link p-0 search-icon"
+      gdb-tooltip="Search"
+      tooltip-placement="bottom">
+            <i class="ri-search-line ri-2x" aria-hidden="true"
+               ng-click="showInput()"></i>
+        </span>
+<span class="btn btn-link close-icon"
+      gdb-tooltip="Close"
+      tooltip-placement="bottom">
+            <i class="ri-close-line" aria-hidden="true"
+               ng-click="hideInput()"></i>
+        </span>
+
+<angucomplete-alt
+        id="search_input"
+        placeholder="{{searchPlaceholder}}"
+        text-searching="false"
+        text-no-results="false"
+        pause="250"
+        minlength="2"
+        initial-value="initialValue"
+        selected-object="searchedObjCallback"
+        field-required="true"
+        input-name="search-form"
+        auto-match="true"
+        local-data="searchData"
+        title-field="{{titleField}}"
+        search-fields="{{searchFields}}"
+        input-class="form-control"
+        match-class="highlight"
+        focus-first="true"
+        ng-keydown="$event.which === 13 && performSearchActionOnEnter()">
+</angucomplete-alt>

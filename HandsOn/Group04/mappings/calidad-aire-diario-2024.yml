@@ -2,6 +2,9 @@
 # YARRRML version of calidad-aire-diario-2024.rml (same rules, same RDF).
 # Dataset: Calidad del aire. Datos diarios 2024 (Ayuntamiento de Madrid)
 # Source:  csv/calidad-aire-diario-2024-csv-updated.csv
+# IRIs: readable names of the resources (columns *_SLUG, added in OpenRefine: name
+# in lower case without accents, words joined by "-"), e.g. resource/station/plaza-de-espana;
+# the codes of the source are kept as literals.
 # Run from the HandsOn/Group04 directory (python mappings/generate_rdf.py yml),
 # so that the csv/ paths resolve.
 
@@ -18,7 +21,7 @@ mappings:
   DailyObservation:
     sources:
       - [csv/calidad-aire-diario-2024-csv-updated.csv~csv]
-    s: res:observation/$(PUNTO_MUESTREO)/$(FECHA)
+    s: res:observation/$(ESTACION_SLUG)-$(CONTAMINANTE_SLUG)-$(FECHA)
     po:
       - [a, bpm:DailyObservation]
       - [a, sosa:Observation]
@@ -27,14 +30,14 @@ mappings:
       - [sosa:hasSimpleResult, $(VALOR), xsd:decimal]
       - [bpm:isValid, $(VALIDO), xsd:boolean]
       # SOSA pattern: the observed property of each observation is its pollutant
-      - [sosa:observedProperty, res:pollutant/$(MAGNITUD)~iri]
-      - [sosa:madeBySensor, res:sampling-point/$(PUNTO_MUESTREO)~iri]
+      - [sosa:observedProperty, res:pollutant/$(CONTAMINANTE_SLUG)~iri]
+      - [sosa:madeBySensor, res:sampling-point/$(ESTACION_SLUG)-$(CONTAMINANTE_SLUG)~iri]
 
   # Sampling points (station + pollutant + technique)
   SamplingPoint:
     sources:
       - [csv/calidad-aire-diario-2024-csv-updated.csv~csv]
-    s: res:sampling-point/$(PUNTO_MUESTREO)
+    s: res:sampling-point/$(ESTACION_SLUG)-$(CONTAMINANTE_SLUG)
     po:
       - [a, bpm:SamplingPoint]
       - [a, sosa:Sensor]
@@ -50,15 +53,15 @@ mappings:
             parameters:
               - [str1, $(ESTACION_CODIGO), s]
               - [str2, $(CODIGO), o]
-      - [sosa:observes, res:pollutant/$(MAGNITUD)~iri]
-      - [bpm:usesTechnique, res:technique/$(TECNICA)~iri]
+      - [sosa:observes, res:pollutant/$(CONTAMINANTE_SLUG)~iri]
+      - [bpm:usesTechnique, res:technique/$(TECNICA_SLUG)~iri]
 
   # Monitoring stations (parent of the join above). Same IRI pattern and label
   # as in estaciones-control-aire.yml, so the resources merge across datasets.
   MonitoringStation:
     sources:
       - [csv/212629-0-estaciones-control-aire-csv-updated.csv~csv]
-    s: res:station/$(CODIGO)
+    s: res:station/$(ESTACION_SLUG)
     po:
       - [a, bpm:MonitoringStation]
       - [a, sosa:Platform]
@@ -68,7 +71,7 @@ mappings:
   Pollutant:
     sources:
       - [csv/calidad-aire-diario-2024-csv-updated.csv~csv]
-    s: res:pollutant/$(MAGNITUD)
+    s: res:pollutant/$(CONTAMINANTE_SLUG)
     po:
       - [a, bpm:Pollutant]
       - [a, sosa:ObservableProperty]
@@ -80,7 +83,7 @@ mappings:
   MeasurementTechnique:
     sources:
       - [csv/calidad-aire-diario-2024-csv-updated.csv~csv]
-    s: res:technique/$(TECNICA)
+    s: res:technique/$(TECNICA_SLUG)
     po:
       - [a, bpm:MeasurementTechnique]
       - [a, sosa:Procedure]

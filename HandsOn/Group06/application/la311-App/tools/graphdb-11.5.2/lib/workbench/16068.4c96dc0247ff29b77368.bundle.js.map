@@ -1,0 +1,1 @@
+{"version":3,"file":"16068.4c96dc0247ff29b77368.bundle.js","mappings":"mJAAO,MAAMA,UAA6BC,O","sources":["webpack://root-config/./packages/legacy-workbench/src/js/angular/models/similarity/similarity-index-error.js"],"sourcesContent":["export class SimilarityIndexError extends Error {\n\n}\n"],"names":["SimilarityIndexError","Error"],"sourceRoot":""}

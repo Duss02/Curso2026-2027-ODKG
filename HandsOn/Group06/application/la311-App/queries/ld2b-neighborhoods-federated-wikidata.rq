@@ -1,0 +1,38 @@
+PREFIX la311:  <http://linkeddata.la311.com/ontology#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:    <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+PREFIX geo:    <http://www.opengis.net/ont/geosparql#>
+PREFIX schema: <http://schema.org/>
+PREFIX wd:     <http://www.wikidata.org/entity/>
+PREFIX wdt:    <http://www.wikidata.org/prop/direct/>
+
+# Step 2: coordinates (P625), image, population and Wikipedia article from Wikidata,
+# joined with request counts per neighborhood from our graph. SERVICE first = one request.
+SELECT ?nc ?n (SAMPLE(?lbl) AS ?label) (SAMPLE(?ds) AS ?description) (SAMPLE(?c) AS ?coord)
+       (SAMPLE(?img) AS ?image) (MAX(?pop) AS ?population) (SAMPLE(?art) AS ?article)
+WHERE {
+  SERVICE <https://query.wikidata.org/sparql> {
+    VALUES ?nc { wd:Q7985390 wd:Q7315195 wd:Q7912296 wd:Q1015874 wd:Q8022724 wd:Q739011 wd:Q773853 wd:Q4299604 wd:Q16256906 wd:Q12072699 wd:Q7568344 wd:Q6840673 wd:Q7190998 wd:Q1199774 wd:Q6840677 wd:Q1825736 wd:Q5328620 wd:Q16995694 wd:Q4842231 wd:Q758277 wd:Q4120016 wd:Q3143067 wd:Q1190590 wd:Q2708222 wd:Q3566344 wd:Q1319697 wd:Q769446 wd:Q6474890 wd:Q8025633 wd:Q2457268 wd:Q7131498 wd:Q2841135 wd:Q1020942 wd:Q3503914 wd:Q4994419 wd:Q384807 wd:Q7231645 wd:Q3506894 }
+    OPTIONAL { ?nc rdfs:label ?lbl . FILTER (LANG(?lbl) IN ("en", "mul")) }
+    OPTIONAL { ?nc schema:description ?ds . FILTER (LANG(?ds) = "en") }
+    OPTIONAL { ?nc wdt:P625 ?c }
+    OPTIONAL { ?nc wdt:P18 ?img }
+    OPTIONAL { ?nc wdt:P1082 ?pop }
+    OPTIONAL { ?art schema:about ?nc ; schema:isPartOf <https://en.wikipedia.org/> }
+  }
+  {
+    SELECT ?nc (COUNT(?sr) AS ?n)
+    WHERE {
+      ?sr la311:requestType ?requestType ;
+          la311:status ?status ;
+          la311:createdDate ?created ;
+          la311:hasLocation ?loc .
+      ?loc la311:isWithin/la311:ncName ?nc .
+      FILTER (?created >= "2025-01-01T00:00:00Z"^^xsd:dateTime && ?created < "2026-01-01T00:00:00Z"^^xsd:dateTime)
+    }
+    GROUP BY ?nc
+  }
+}
+GROUP BY ?nc ?n
