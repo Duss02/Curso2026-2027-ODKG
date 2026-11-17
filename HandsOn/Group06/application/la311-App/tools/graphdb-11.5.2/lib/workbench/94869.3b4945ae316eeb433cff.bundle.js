@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=94869;export const __webpack_esm_ids__=[94869];export const __webpack_esm_modules__={94869(){angular.module("graphdb.framework.namespaces.directives",["ngRoute"]).directive("loaderPostRepeatDirective",["$timeout",function(e){return function(t){t.$last&&e(function(){t.$parent.loader=!1},0)}}])}};
+//# sourceMappingURL=94869.3b4945ae316eeb433cff.bundle.js.map

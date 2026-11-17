@@ -1,0 +1,289 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix la311: <http://linkeddata.la311.com/ontology#> .
+
+#################################################################
+#    ServiceRequest Shape
+#################################################################
+
+la311:ServiceRequestShape a sh:NodeShape ;
+    sh:targetClass la311:ServiceRequest ;
+    sh:property [
+        sh:path la311:srNumber ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "SR Number" ;
+        sh:description "Unique identifier of the service request ticket." ;
+    ] ;
+    sh:property [
+        sh:path la311:createdDate ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Created Date" ;
+    ] ;
+    sh:property [
+        sh:path la311:updatedDate ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:name "Updated Date" ;
+    ] ;
+    sh:property [
+        sh:path la311:serviceDate ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:name "Service Date" ;
+    ] ;
+    sh:property [
+        sh:path la311:closedDate ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:name "Closed Date" ;
+    ] ;
+    sh:property [
+        sh:path la311:actionTaken ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Action Taken" ;
+    ] ;
+    sh:property [
+        sh:path la311:requestType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Request Type" ;
+    ] ;
+    sh:property [
+        sh:path la311:requestSource ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Request Source" ;
+    ] ;
+    sh:property [
+        sh:path la311:status ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Status" ;
+    ] ;
+    sh:property [
+        sh:path la311:responsible ;
+        sh:class la311:Organization ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Responsible Organization" ;
+    ] ;
+    sh:property [
+        sh:path la311:assignedTo ;
+        sh:class la311:Service ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+        sh:name "Assigned Service" ;
+    ] ;
+    sh:property [
+        sh:path la311:reportedBy ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:class la311:AnonymousPerson ]
+            [ sh:class la311:Organization ]
+            [ sh:class la311:Agent ]
+        ) ;
+        sh:name "Reported By Agent" ;
+    ] ;
+    sh:property [
+        sh:path la311:hasLocation ;
+        sh:class la311:Location ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+        sh:name "Location" ;
+    ] .
+
+#################################################################
+#    Location Shape
+#################################################################
+
+la311:LocationShape a sh:NodeShape ;
+    sh:targetClass la311:Location ;
+    sh:property [
+        sh:path la311:address ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:name "Address" ;
+        sh:description "Street address of the location (locations at intersections may have multiple address labels)." ;
+    ] ;
+    sh:property [
+        sh:path la311:approximateAddress ;
+        sh:datatype xsd:string ;
+        sh:name "Approximate Address Flag" ;
+    ] ;
+    sh:property [
+        sh:path la311:houseNumber ;
+        sh:datatype xsd:string ;
+        sh:name "House Number" ;
+    ] ;
+    sh:property [
+        sh:path la311:streetDirection ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:name "Street Direction" ;
+    ] ;
+    sh:property [
+        sh:path la311:streetName ;
+        sh:datatype xsd:string ;
+        sh:name "Street Name" ;
+        sh:description "Street name (locations at intersections may have multiple street names)." ;
+    ] ;
+    sh:property [
+        sh:path la311:streetSuffix ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:name "Street Suffix" ;
+    ] ;
+    sh:property [
+        sh:path la311:zipCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Zip Code" ;
+    ] ;
+    sh:property [
+        sh:path la311:latitude ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Latitude" ;
+    ] ;
+    sh:property [
+        sh:path la311:longitude ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Longitude" ;
+    ] ;
+    sh:property [
+        sh:path geo:asWKT ;
+        sh:datatype geo:wktLiteral ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "WKT Geometry" ;
+    ] ;
+    sh:property [
+        sh:path la311:isWithin ;
+        sh:class la311:AdministrativeRegion ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Administrative Region" ;
+    ] .
+
+#################################################################
+#    AdministrativeRegion Shape
+#################################################################
+
+la311:AdministrativeRegionShape a sh:NodeShape ;
+    sh:targetClass la311:AdministrativeRegion ;
+    sh:property [
+        sh:path la311:nc ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Neighborhood Council ID" ;
+    ] ;
+    sh:property [
+        sh:path la311:cd ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Council District Number" ;
+    ] ;
+    sh:property [
+        sh:path la311:apc ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:name "Area Planning Commission" ;
+        sh:description "Area Planning Commission (an administrative region may intersect multiple APCs)." ;
+    ] ;
+    sh:property [
+        sh:path la311:policePrecinct ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:name "Police Precinct" ;
+        sh:description "Police Precinct jurisdiction (an administrative region may intersect multiple police precincts)." ;
+    ] ;
+    sh:property [
+        sh:path la311:cdMember ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+        sh:name "Council Member Entity" ;
+    ] ;
+    sh:property [
+        sh:path la311:ncName ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:string ]
+        ) ;
+        sh:name "Neighborhood Council Name/Entity" ;
+    ] ;
+    sh:property [
+        sh:path schema:containedInPlace ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+        sh:name "Contained In Place (City)" ;
+    ] ;
+    sh:property [
+        sh:path owl:sameAs ;
+        sh:nodeKind sh:IRI ;
+        sh:name "Same As External Entity" ;
+    ] .
+
+#################################################################
+#    Organization Shape
+#################################################################
+
+la311:OrganizationShape a sh:NodeShape ;
+    sh:targetClass la311:Organization ;
+    sh:property [
+        sh:path la311:organizationName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Organization Name" ;
+    ] .
+
+#################################################################
+#    Service Shape
+#################################################################
+
+la311:ServiceShape a sh:NodeShape ;
+    sh:targetClass la311:Service ;
+    sh:property [
+        sh:path la311:serviceName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Service Name" ;
+    ] .
+
+#################################################################
+#    AnonymousPerson Shape
+#################################################################
+
+la311:AnonymousPersonShape a sh:NodeShape ;
+    sh:targetClass la311:AnonymousPerson ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Reporter Label" ;
+    ] .

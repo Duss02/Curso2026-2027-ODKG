@@ -1,0 +1,36 @@
+<link href="css/repository.create.css?v=3.5.2" rel="stylesheet">
+
+<div>
+    <h1 class="mb-3">{{pageTitle}}</h1>
+    <div class="create-buttons">
+        <div class="mr-1 mb-1">
+            <button id="repository-type-gdb-btn" class="btn btn-secondary btn-lg d-block create-repo-btn" ng-click="chooseRepositoryType(repositoryTypes.graphdbRepo)" guide-selector="createGraphDBRepository">
+                <span class="repository-heading">
+                    <i class="icon-repo-graphdb icon-3x" aria-hidden="true"></i>
+                    <span class="repo-type">{{'graphdb.repo' | translate}}</span>
+                </span>
+                <small class="text-muted repo-description">{{'graphdb.repo.info' | translate}}</small>
+            </button>
+        </div>
+        <div class="mr-1 mb-1">
+            <button id="repository-type-ontop-btn" class="btn btn-secondary btn-lg d-block create-repo-btn" ng-click="chooseRepositoryType(repositoryTypes.ontop)">
+                <span class="repository-heading">
+                    <i class="icon-repo-ontop icon-3x" aria-hidden="true"></i>
+                    <span class="repo-type">{{'ontop.virtual.sparql' | translate}}</span>
+                </span>
+                <small class="text-muted repo-description">{{'ontop.repos.translate.data' | translate}}</small>
+            </button>
+        </div>
+
+        <div class="mr-1 mb-1">
+            <button id="repository-type-fedx-btn" class="btn btn-secondary btn-lg d-block create-repo-btn" ng-click="chooseRepositoryType(repositoryTypes.fedx)">
+                <span class="repository-heading">
+                    <i class="icon-repo-fedx icon-3x" aria-hidden="true"></i>
+                    <span class="repo-type">{{'fedex.virtual.sparql' | translate}}</span>
+                </span>
+                <small class="text-muted repo-description">{{'fedex.multi.sparql.endpoints' | translate}}</small>
+            </button>
+        </div>
+
+    </div>
+</div>

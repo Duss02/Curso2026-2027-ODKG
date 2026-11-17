@@ -1,0 +1,33 @@
+name: db-delays
+
+services:
+  graphdb:
+    image: ontotext/graphdb:10.8.14
+    container_name: db-delays-graphdb
+    ports:
+      - "7200:7200"
+    environment:
+      # Allow the browser frontend (served from another port) to query the SPARQL endpoint
+      GDB_JAVA_OPTS: "-Dgraphdb.workbench.cors.enable=true"
+    volumes:
+      - graphdb-data:/opt/graphdb/home
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7200/rest/repositories"]
+      interval: 5s
+      retries: 30
+
+  graphdb-init:
+    image: python:3.14-slim
+    container_name: graphdb-init
+    depends_on:
+      graphdb:
+        condition: service_healthy
+    volumes:
+      - ./init/init-graphdb.py:/init/init-graphdb.py:ro
+      - ../ontology/db-delays.ttl:/init/ontology.ttl:ro
+      - ../rdf/knowledge-graph-with-links.ttl:/init/knowledge-graph.ttl:ro
+    command: python /init/init-graphdb.py
+    restart: "no"
+    
+volumes:
+  graphdb-data:

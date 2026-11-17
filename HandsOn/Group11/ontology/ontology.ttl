@@ -21,24 +21,24 @@
 # Main classes
 #################################################################
 
-ns:TrafficAccident a rdf:Class ;
+ns:TrafficAccident a owl:Class ;
     rdfs:label "Traffic accident" .
 
-ns:Person a rdf:Class ;
+ns:Person a owl:Class ;
     rdfs:label "Person" .
 
-ns:Vehicle a rdf:Class ;
+ns:Vehicle a owl:Class ;
     rdfs:label "Vehicle" .
 
-ns:Location a rdf:Class ;
+ns:Location a owl:Class ;
     rdfs:subClassOf geo:Feature ;
     rdfs:label "Location" .
 
-ns:District a rdf:Class ;
+ns:District a owl:Class ;
     rdfs:subClassOf ns:Location ;
     rdfs:label "District" .
 
-ns:Point a rdf:Class ;
+ns:Point a owl:Class ;
     rdfs:subClassOf geo:Geometry ;
     rdfs:label "Point" .
 
@@ -46,31 +46,31 @@ ns:Point a rdf:Class ;
 # Controlled-vocabulary classes
 #################################################################
 
-ns:AccidentType a rdf:Class ;
+ns:AccidentType a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Accident type" .
 
-ns:WeatherCondition a rdf:Class ;
+ns:WeatherCondition a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Weather condition" .
 
-ns:VehicleType a rdf:Class ;
+ns:VehicleType a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Vehicle type" .
 
-ns:PersonType a rdf:Class ;
+ns:PersonType a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Person type" .
 
-ns:AgeRange a rdf:Class ;
+ns:AgeRange a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Age range" .
 
-ns:Sex a rdf:Class ;
+ns:Sex a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Sex" .
 
-ns:InjurySeverity a rdf:Class ;
+ns:InjurySeverity a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Injury severity" .
 
@@ -78,59 +78,59 @@ ns:InjurySeverity a rdf:Class ;
 # Object properties
 #################################################################
 
-ns:occursAt a rdf:Property ;
+ns:occursAt a owl:ObjectProperty ;
     rdfs:label "occurs at" ;
     rdfs:domain ns:TrafficAccident ;
     rdfs:range ns:Location .
 
-ns:locatedIn a rdf:Property ;
+ns:locatedIn a owl:ObjectProperty ;
     rdfs:label "located in" ;
     rdfs:domain ns:Location ;
     rdfs:range ns:District .
 
-ns:involvesPerson a rdf:Property ;
+ns:involvesPerson a owl:ObjectProperty ;
     rdfs:label "involves person" ;
     rdfs:domain ns:Vehicle ;
     rdfs:range ns:Person .
 
-ns:involvesVehicle a rdf:Property ;
+ns:involvesVehicle a owl:ObjectProperty ;
     rdfs:label "involves vehicle" ;
     rdfs:domain ns:TrafficAccident ;
     rdfs:range ns:Vehicle .
 
 
 
-ns:hasAccidentType a rdf:Property ;
+ns:hasAccidentType a owl:ObjectProperty ;
     rdfs:label "has accident type" ;
     rdfs:domain ns:TrafficAccident ;
     rdfs:range ns:AccidentType .
 
-ns:hasWeatherCondition a rdf:Property ;
+ns:hasWeatherCondition a owl:ObjectProperty ;
     rdfs:label "has weather condition" ;
     rdfs:domain ns:TrafficAccident ;
     rdfs:range ns:WeatherCondition .
 
-ns:hasVehicleType a rdf:Property ;
+ns:hasVehicleType a owl:ObjectProperty ;
     rdfs:label "has vehicle type" ;
     rdfs:domain ns:Vehicle ;
     rdfs:range ns:VehicleType .
 
-ns:hasPersonType a rdf:Property ;
+ns:hasPersonType a owl:ObjectProperty ;
     rdfs:label "has person type" ;
     rdfs:domain ns:Person ;
     rdfs:range ns:PersonType .
 
-ns:hasAgeRange a rdf:Property ;
+ns:hasAgeRange a owl:ObjectProperty ;
     rdfs:label "has age range" ;
     rdfs:domain ns:Person ;
     rdfs:range ns:AgeRange .
 
-ns:hasSex a rdf:Property ;
+ns:hasSex a owl:ObjectProperty ;
     rdfs:label "has sex" ;
     rdfs:domain ns:Person ;
     rdfs:range ns:Sex .
 
-ns:hasInjurySeverity a rdf:Property ;
+ns:hasInjurySeverity a owl:ObjectProperty ;
     rdfs:label "has injury severity" ;
     rdfs:domain ns:Person ;
     rdfs:range ns:InjurySeverity .

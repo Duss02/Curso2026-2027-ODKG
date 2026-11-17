@@ -1,0 +1,109 @@
+import { ContextService } from '../context';
+import { ValueChangeCallback } from '../../models/context/value-change-callback';
+import { DeriveContextServiceContract } from '../../models/context/update-context-method';
+import { LanguageConfig, TranslationBundle } from '../../models/language';
+import { BeforeChangeValidationPromise } from '../../models/context/before-change-validation-promise';
+import { LifecycleHooks } from '../../providers/service/lifecycle-hooks';
+type LanguageContextFields = {
+    readonly SELECTED_LANGUAGE: string;
+};
+/**
+ * The LanguageService class manages the application's language context.
+ */
+export declare class LanguageContextService extends ContextService<LanguageContextFields> implements DeriveContextServiceContract<LanguageContextFields>, LifecycleHooks {
+    private readonly LANGUAGE_CONFIG;
+    readonly SELECTED_LANGUAGE = "selectedLanguage";
+    readonly LANGUAGE_BUNDLE = "languageBundle";
+    readonly DEFAULT_BUNDLE = "defaultBundle";
+    /**
+     * Changes the selected language of the application. This method updates the selected language and notifies
+     * all subscribers about the language change.
+     *
+     * @param {string} locale - The new language code to set (e.g., 'en', 'fr', 'de').
+     */
+    updateSelectedLanguage(locale?: string): void;
+    /**
+     * Registers a <code>callbackFunction</code> to be called whenever the selected language changes.
+     *
+     * This method allows components to react to language changes in the application.
+     * The callback will be triggered with the new language value whenever it changes.
+     *
+     * @param callbackFunction - The function to call when the selected language changes.
+     * @param beforeChangeValidationPromise - Optional. A promise that will be resolved before
+     *        the language change is applied. This can be used to validate or prepare for the
+     *        language change. If the promise is resolved with false or rejects, the language change will be canceled.
+     * @param skipFirstNotification - Optional. If true, the callback will not be called immediately with the current
+     *        value upon subscription. By default, this is false, meaning the callback will be called immediately with the
+     *        current value.
+     * @returns A function to unsubscribe from updates.
+     */
+    onSelectedLanguageChanged(callbackFunction: ValueChangeCallback<string | undefined>, beforeChangeValidationPromise?: BeforeChangeValidationPromise<string | undefined>, skipFirstNotification?: boolean): () => void;
+    /**
+     * Updates the language bundle in the context.
+     *
+     * This method is responsible for updating the translation bundle used for
+     * internationalization in the application. It updates the context property
+     * associated with the language bundle.
+     *
+     * @param {TranslationBundle} bundle - The new translation bundle to be set.
+     */
+    updateLanguageBundle(bundle: TranslationBundle): void;
+    /**
+     * Registers a callback function to be called whenever the language bundle changes.
+     *
+     * @param {ValueChangeCallback<TranslationBundle | undefined>} callbackFunction - The function to call when the language bundle changes.
+     *        This function will receive the new TranslationBundle as its parameter, or undefined if the bundle is cleared.
+     */
+    onLanguageBundleChanged(callbackFunction: ValueChangeCallback<TranslationBundle | undefined>): () => void;
+    /**
+     * Retrieves the current language bundle from the context.
+     *
+     * @returns {TranslationBundle | undefined} The current language bundle, or undefined if no bundle is set.
+     */
+    getLanguageBundle(): TranslationBundle | undefined;
+    /**
+     * Updates the default language bundle in the context.
+     *
+     * This method sets a new default translation bundle for the application.
+     * It's typically used to store a fallback bundle that can be used when
+     * the primary language bundle is not available or incomplete.
+     *
+     * @param {TranslationBundle} bundle - The new default translation bundle to be set.
+     */
+    updateDefaultBundle(bundle: TranslationBundle): void;
+    /**
+     * Retrieves the current default language bundle from the context.
+     *
+     * This method returns the default translation bundle that was previously
+     * set using the updateDefaultBundle method. If no default bundle has been
+     * set, it returns undefined.
+     *
+     * @returns {TranslationBundle | undefined} The current default translation bundle,
+     *          or undefined if no default bundle has been set.
+     */
+    getDefaultBundle(): TranslationBundle | undefined;
+    /**
+     * Retrieves the current language configuration from the context. Language config
+     * should always be present as it is part of the essential data, which is loaded on application
+     * bootstrap
+     *
+     * @returns {LanguageConfig} The current language configuration.
+     */
+    getLanguageConfig(): LanguageConfig;
+    /**
+     * Sets a new language configuration in the context.
+     *
+     * @param {LanguageConfig} languageConfig - The new language configuration to be set.
+     */
+    setLanguageConfig(languageConfig?: LanguageConfig): void;
+    /**
+     * Retrieves the currently selected language from the context.
+     *
+     * @returns {string | undefined} The code of the currently selected language.
+     *          Returns undefined if no language has been selected or set in the context.
+     *
+     */
+    getSelectedLanguage(): string | undefined;
+    getDefaultLanguage(): string;
+}
+export {};

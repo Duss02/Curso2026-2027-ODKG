@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        GraphDB Server
+    </title>
+    <base href="/" target="_blank"/>
+    <link rel="icon" href="img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/icon.png">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/lib/jquery/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $.ajax({url: 'rest/info/version'})
+            .done(function(info) {
+                $('#version').text(info.productVersion);
+                var marray = info.productVersion.match(/^(\d+\.\d+)/);
+                if (marray.length) {
+                    info.productShortVersion = marray[1];
+                } else {
+                    info.productShortVersion = info.productVersion;
+                }
+                $('#doc-link').attr('href', 'http://graphdb.ontotext.com/documentation/' + info.productShortVersion + '/');
+                $('#support-link').attr('href', 'http://graphdb.ontotext.com/documentation/' + info.productShortVersion + '/support.html');
+            });
+    </script>
+</head>
+
+<body>
+
+<div class="container h-100" style="width: 600px">
+    <div class="row h-100 justify-content-center align-items-center">
+        <object data="img/graphdb-splash.svg" class="d-block"></object>
+        <div style="font-size: 1.5em">This is GraphDB <span id="version"></span> running in Server mode.</div>
+        <div style="font-size: 1.5em">The UI is available only in Workbench mode.</div>
+        <p style="font-size: 1em">
+            Useful links:
+        </p>
+        <ul style="font-size: 1em">
+            <li><a id="doc-link" href="http://graphdb.ontotext.com/documentation/">Documentation</a></li>
+            <li><a id="support-link" href="http://graphdb.ontotext.com/documentation/free/support.html">Support</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+
+</html>

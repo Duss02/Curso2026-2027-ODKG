@@ -1,0 +1,213 @@
+<link href="css/dependencies.css?v=3.5.2" rel="stylesheet">
+
+
+<title>Explore Class Dependencies</title>
+
+<h1>
+	{{title}}
+    <page-info-tooltip></page-info-tooltip>
+</h1>
+
+<div class="top-offset" core-errors fedx license></div>
+<div class="top-offset" system-repo-warning></div>
+<div class="top-offset alert alert-danger" ng-show="repositoryError">
+    <p>{{'not.usable.active.repo.error' | translate}}</p>
+
+    <p>{{repositoryError}}</p>
+</div>
+<div class="content" ng-show="!isActiveRepoFedXType() && !repositoryError && isLicenseValid() && !isSystemRepository()" guide-selector="relationships-page">
+    <div class="pull-right relations-toolbar" ng-show="status != 'NO_REPO' && status != 'N/A' && !isLoading()">
+        <div id="selectGraphDropdown" class="btn-group" role="group" ng-show="graphsInRepo.length > 2"
+             uib-dropdown
+             on-toggle="graphsDropdownToggled(open)">
+            <button id="graphsBtnGroup" type="button" class="btn btn-lg btn-secondary" guide-selector="graph-select-dropdown"
+                    uib-dropdown-toggle>
+
+        <span tooltip-placement="bottom" gdb-tooltip="{{'select.graph.label' | translate}}">
+            {{getSelectedGraphValue() | translate}}
+        </span>
+
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right pre-scrollable" aria-labelledby="dropdownMenuButton">
+                <li ng-repeat="graph in graphsInRepo" ng-if="graph.contextID.value !== getSelectedGraphValue()">
+                    <a class="dropdown-item" ng-click="selectGraph(graph)">
+                        <span class="multiline-text">
+						    {{graph.contextID.value | translate}} <br/>
+					    </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <button class="btn btn-link p-0 remove-all-classes-btn" type="button"
+                ng-show="allNotFilteredClasses.length > 0"
+                ng-click="removeAllClasses()"
+                gdb-tooltip="{{'remove.classes.label' | translate}}"
+                tooltip-placement="bottom">
+             <em class="ri-close-line ri-2x"></em>
+         </button>
+        <button class="btn btn-link p-0 reload-diagram-btn" type="button"
+                gdb-tooltip="{{'reload.diagram.tooltip' | translate}}"
+                tooltip-placement="bottom"
+                ng-click="confirmCalculateDependencies()">
+            <em class="ri-reset-right-line ri-2x refresh-button" ></em>
+        </button>
+        <a href id="download-svg" class="btn btn-link p-0 export-diagram-btn"
+           ng-show="allNotFilteredClasses.length > 0"
+           gdb-tooltip="{{'export.diagram.tooltip' | translate}}"
+           tooltip-placement="bottom">
+            <em class="icon-export icon-1-5x"></em>
+        </a>
+    </div>
+    <div>
+        <div ng-show="selectedClasses.length >= 2" class="available-dependencies-label">
+            <span ng-show="dependenciesData.hasLinks"
+                translate="show.dependencies.between.classes.label"
+                  translate-value-number="{{selectedClasses.length}}"></span>
+            <span ng-show="!dependenciesData.hasLinks">{{'no.dependencies.found.label' | translate}}</span>
+        </div>
+
+        <div ng-show="allNotFilteredClasses.length > 0 && selectedClasses.length < 2">
+            {{'class.count.constraint' | translate}}
+        </div>
+    </div>
+    <div class="top-offset alert alert-warning"
+         ng-show="!isLoading() && allNotFilteredClasses.length == 0 && status != 'NO_REPO' && isAllGraphsSelected()">
+        {{'no.dependencies.for.repo.warning' | translate}}
+    </div>
+    <div class="top-offset alert alert-warning"
+         ng-show="!isLoading() && allNotFilteredClasses.length == 0 && status != 'NO_REPO' && !isAllGraphsSelected()">
+        {{'no.dependencies.for.graph.warning' | translate}}
+    </div>
+    <div class="dep-status" ng-show="status == 'N/A'">
+        {{'not.available.dependencies.plugin.warning' | translate}}
+    </div>
+    <div class="dep-status" ng-show="status == 'IN_PROGRESS'">
+        {{'dependencies.calculation.in.progress.warning' | translate}}
+    </div>
+    <div onto-loader size="100" ng-show="isLoading() && status != 'NO_REPO'"></div>
+    <div class="row deps-sidebar" ng-show="!isLoading() && allNotFilteredClasses.length > 0">
+        <div class="col-sm-5 col-lg-4" guide-selector="class-list-wrapper">
+            <div ng-show="!classToShow">
+                <div>
+                    <list-items-search-filter
+                            filter-query-obj="classQuery"
+                            filter-function="classFilterFunc"
+                            list-items-obj="allClasses"
+                            list-items-not-filtered="allNotFilteredClasses"
+                            search-placeholder="{{'filter.classes.placeholder' | translate}}">
+                    </list-items-search-filter>
+                </div>
+                <div class="row direction-filter">
+                    <div class="col-sm-4 col-xs-4 col-md-4">
+                        <label>
+                            <input type="radio" ng-model="direction" value="all">
+                            {{'all.label' | translate}}
+                        </label>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 col-md-4">
+                        <label>
+                            <input type="radio" ng-model="direction" value="in">
+                            {{'incoming.label' | translate}}
+                        </label>
+                    </div>
+                    <div class="col-sm-4 col-xs-4 col-md-4">
+                        <label>
+                            <input type="radio" ng-model="direction" value="out">
+                            {{'outgoing.label' | translate}}
+                        </label>
+                    </div>
+                </div>
+                <div class="row direction-filter-header">
+                    <div class="col-sm-6">{{'class.label' | translate}}</div>
+                    <div class="col-sm-6">{{'links.label' | translate}}</div>
+                </div>
+                <ul ui-scroll-viewport id="wb-dependencies-classInClasses" class="rdf-list row" guide-selector="class-list">
+                    <li ui-scroll="class in datasource" buffer-size="70" padding="1" adapter="adapterContainer.adapter" class="item class-row col-sm-12 row"
+                        padding="li">
+                            <div class="col-sm-11 row deps-data" ng-class="{
+                            'active': isClassByNameShown(class.name),
+                            'even-row': $index % 2 === 0,
+                            'odd-row': $index % 2 !== 0
+                            }">
+                            <div class="col-sm-8 col-md-8 deps-class-name">
+                                {{class.name}}
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                {{(mode == "all") ? class.inConnectionsSum + class.outConnectionsSum -
+                                class.selfConnections : class.inConnectionsSum + class.outConnectionsSum | humanize}}
+                            </div>
+                            <div class="related-arrow col-sm-1 col-md-1" gdb-tooltip="{{'related.classes.label' | translate}}"
+                                 ng-click="showClass(class)">
+                                <em class="ri-arrow-left-right-line pointer related-classes"
+                                    ng-show="class.inConnectionsSum > 0 && class.outConnectionsSum > 0"></em>
+                                <em class="ri-arrow-left-long-line related-classes"
+                                    ng-show="class.inConnectionsSum > 0 && class.outConnectionsSum == 0"></em>
+                                <em class="ri-arrow-right-long-line related-classes"
+                                    ng-show="class.inConnectionsSum == 0 && class.outConnectionsSum > 0 "></em>
+                            </div>
+                        </div>
+                        <div class="plusminus col-sm-1 col-md-1">
+                            <div ng-show="!isClassByNameShown(class.name)" ng-click="addClass(class)" gdb-tooltip="{{'add.class.label' | translate}}">
+                                <em class="ri-add-line" role="button"></em>
+                            </div>
+                            <div ng-show="isClassByNameShown(class.name)" ng-click="removeClass(class)" gdb-tooltip="{{'remove.class.label' | translate}}">
+                                <em class="ri-indeterminate-circle-line" role="button"></em>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="classToShow">
+                <div class="direction-filter-header">
+                    {{classToShow.name}}
+                </div>
+                <div class="back-to-dependencies-list">
+                    <a href="#" ng-click="classToShow = undefined"><em class="ri-arrow-left-line"></em> {{'back.to.main.class.table' | translate}}</a>
+                </div>
+                <div class="row direction-filter-header">
+                    <div class="col-sm-6">{{'class.label' | translate}}</div>
+                    <div class="col-sm-6">{{'links.label' | translate}}</div>
+                </div>
+                <ul id="wb-dependencies-classToShow" class="rdf-list rdf-list-static row">
+                    <li ng-repeat="connection in classToShow.connections.slice(0, 100)" class="col-sm-12 row">
+                        <div class="col-sm-11 row deps-data"
+                             ng-class="{'active': (isClassByNameShown(connection.dependencyClass))}">
+                            <div class="col-sm-8 col-md-8 deps-class-name">
+                                {{connection.dependencyClass}}
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                {{(connection.dependencyClass == classToShow.name) ? connection.inWeight :
+                                connection.inWeight + connection.outWeight | humanize}}
+                            </div>
+                            <div class="related-arrow col-sm-1 col-md-1">
+                                <em class="ri-arrow-left-right-line"
+                                   ng-show="connection.inWeight > 0 && connection.outWeight > 0"></em>
+                                <em class="ri-arrow-left-long-line"
+                                   ng-show="connection.inWeight > 0 && connection.outWeight == 0"></em>
+                                <em class="ri-arrow-right-long-line"
+                                   ng-show="connection.inWeight == 0 && connection.outWeight > 0 "></em>
+                            </div>
+                        </div>
+                        <div class="plusminus col-sm-1 col-md-1">
+                            <div ng-show="!isClassByNameShown(connection.dependencyClass)" ng-click="addClassByName(connection.dependencyClass)" gdb-tooltip="{{'add.class.label' | translate}}">
+                                <em class="ri-add-line" role="button"></em>
+                            </div>
+                            <div ng-show="isClassByNameShown(connection.dependencyClass)" ng-click="removeClassByName(connection.dependencyClass)" gdb-tooltip="{{'remove.class.label' | translate}}">
+                                <em class="ri-indeterminate-circle-line" role="button"></em>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div ng-show="classToShow.connections.length > 100">
+                    {{'and.label' | translate}} {{classToShow.connections.length - 100}} {{'more.label' | translate}}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-7 col-lg-8 text-center">
+            <div dependencies-chord class="dependencies-chord" guide-selector="relationships-diagram"
+                 dependencies-data="dependenciesData"
+                 ng-show="status == 'READY' && selectedClasses.length > 1 && dependenciesData.hasLinks"></div>
+        </div>
+    </div>
+</div>
