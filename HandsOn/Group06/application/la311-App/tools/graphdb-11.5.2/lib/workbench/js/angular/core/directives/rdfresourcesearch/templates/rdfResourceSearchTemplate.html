@@ -1,0 +1,32 @@
+<link href="css/rdf-resource-search.css?v=3.5.2" rel="stylesheet"/>
+
+<div ng-cloak>
+    <div id="search-box"
+         class="card search-rdf-input"
+         ng-class="{'show-rdf-search-box-visible': showRdfSearchInput, 'show-rdf-search-box-invisible': !showRdfSearchInput}"
+         ng-keydown="onKeyDown($event)">
+        <div class="card-block">
+            <search-resource-input
+                                   repository-namespaces="repositoryNamespaces"
+                                   is-autocomplete-enabled="isAutocompleteEnabled"
+                                   empty="empty"
+                                   open-in-new-tab="true"
+                                   preserve-search="true"
+                                   radio-buttons="true"
+                                   clear-input-icon="true">
+            </search-resource-input>
+            <button class="btn btn-link close-rdf-search-btn"
+                    gdb-tooltip="{{'search.resource.close.msg' | translate}}" tooltip-placement="bottom"
+                    ng-click="hideInput()">
+                <i class="ri-close-line ri-2x" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <button class="btn btn-link search-rdf-btn"
+            ng-if="!showRdfSearchInput"
+            gdb-tooltip="{{'search.resources.msg' | translate}}"
+            tooltip-placement="bottom"
+            ng-click="showInput()">
+        <i class="ri-search-line" aria-hidden="true"></i>
+    </button>
+</div>

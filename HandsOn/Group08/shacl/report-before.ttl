@@ -1,0 +1,183 @@
+@prefix hr: <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/melia-azedarach-0344784ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 222" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/ClimateShelter/jardins-interior-d-illa-de-safo> ;
+            sh:resultMessage "The telephone must contain at least 9 digits." ;
+            sh:resultPath hr:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b20 ;
+            sh:value "010" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/ClimateShelter/jardins-interiors-d-illa-del-carlit> ;
+            sh:resultMessage "The telephone must contain at least 9 digits." ;
+            sh:resultPath hr:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b20 ;
+            sh:value "010" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/lagerstroemia-indica-0344482ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 607" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/brachychiton-acerifolius-0345745ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 11" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/celtis-australis-0345741ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 11" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/grevillea-robusta-0346628ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 2" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/ClimateShelter/jardins-de-carme-biada> ;
+            sh:resultMessage "The telephone must contain at least 9 digits." ;
+            sh:resultPath hr:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b20 ;
+            sh:value "010" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/ClimateShelter/jardins-constanca-d-arago> ;
+            sh:resultMessage "The telephone must contain at least 9 digits." ;
+            sh:resultPath hr:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b20 ;
+            sh:value "010" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/pyrus-calleryana-chanticleer-0345176ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 139" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/brachychiton-acerifolius-0345745ar> ;
+            sh:resultMessage "An urban element must be located in exactly one neighbourhood." ;
+            sh:resultPath hr:isLocatedInNeighbourhood ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape [ sh:class hr:Neighbourhood ;
+                    sh:maxCount 1 ;
+                    sh:message "An urban element must be located in exactly one neighbourhood." ;
+                    sh:minCount 1 ;
+                    sh:nodeKind sh:IRI ;
+                    sh:path hr:isLocatedInNeighbourhood ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/ClimateShelter/jardins-interior-d-illa-de-clotilde-cerda> ;
+            sh:resultMessage "The telephone must contain at least 9 digits." ;
+            sh:resultPath hr:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b20 ;
+            sh:value "010" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/ClimateShelter/jardins-interior-d-illa-d-emma-de-barcelona> ;
+            sh:resultMessage "The telephone must contain at least 9 digits." ;
+            sh:resultPath hr:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b20 ;
+            sh:value "010" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/platanus-acerifolia-0346556ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 597" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/ClimateShelter/jardins-interior-d-illa-de-paula-montal> ;
+            sh:resultMessage "The telephone must contain at least 9 digits." ;
+            sh:resultPath hr:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b20 ;
+            sh:value "010" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/ligustrum-lucidum-0344472ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 36" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/ligustrum-lucidum-0344473ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 7" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/ClimateShelter/jardins-interior-d-illa-de-montserrat-roig> ;
+            sh:resultMessage "The telephone must contain at least 9 digits." ;
+            sh:resultPath hr:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b20 ;
+            sh:value "010" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/celtis-australis-0345740ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 11" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://w3id.org/barcelona-heat-relief/resource/StreetTree/melia-azedarach-0346663ar> ;
+            sh:resultMessage "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+            sh:resultPath hr:streetAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:PatternConstraintComponent ;
+            sh:sourceShape _:nc8f42d650c1444489fdf7353e0f98a64b7 ;
+            sh:value ", 52" ] .
+
+_:nc8f42d650c1444489fdf7353e0f98a64b20 sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:message "The telephone must contain at least 9 digits." ;
+    sh:path hr:telephone ;
+    sh:pattern "^[0-9+][0-9 ]{8,}$" .
+
+_:nc8f42d650c1444489fdf7353e0f98a64b7 sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:message "The street address is optional, but it must not start with a comma or a space (empty street name)." ;
+    sh:path hr:streetAddress ;
+    sh:pattern "^[^,\\s]" .
+

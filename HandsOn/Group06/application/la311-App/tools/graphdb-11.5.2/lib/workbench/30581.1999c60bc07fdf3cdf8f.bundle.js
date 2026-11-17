@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=30581;export const __webpack_esm_ids__=[30581];export const __webpack_esm_modules__={30581(_,e,s){s.d(e,{s:()=>o});const o={GENERIC:"generic",MY_SQL:"mySQL",POSTGRESS:"postgreSQL",ORACLE:"oracle",MS_SQL:"msSQL",DB2:"DB2",DREMIO:"dremio",DATABRICKS:"databricks",SNOWFLAKE:"snowflake"}}};
+//# sourceMappingURL=30581.1999c60bc07fdf3cdf8f.bundle.js.map

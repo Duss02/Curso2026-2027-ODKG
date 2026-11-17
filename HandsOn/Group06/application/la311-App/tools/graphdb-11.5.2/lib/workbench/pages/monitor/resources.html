@@ -1,0 +1,214 @@
+<link href="css/jmx.css?v=3.5.2" rel="stylesheet"/>
+
+
+<div class="hiddenVariables" style="display: none;">
+    <div class="localUse">${localUse}</div>
+    <div class="jmxServer">${jmxServer}</div>
+</div>
+
+<h1>
+    {{title}}
+    <page-info-tooltip></page-info-tooltip>
+</h1>
+
+<div id="wb-monitoringResources" data-test="system-monitoring-page" class="ot-owlim-resources">
+    <div class="main-loader" onto-loader size="50" ng-if="loader"></div>
+
+    <div ng-if="!loader" class="graphics row">
+                <div class="monitor-tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="resource-tab nav-item">
+                            <span class="nav-link" ng-click="switchTab(AVAILABLE_TABS.RESOURCE_MONITOR)" ng-class="activeTab == AVAILABLE_TABS.RESOURCE_MONITOR ? 'active':''">{{'monitor.resource' | translate}}</span>
+                        </li>
+                        <li class="performance-tab nav-item">
+                            <span class="nav-link" ng-click="switchTab(AVAILABLE_TABS.PERFORMANCE_MONITOR)" ng-class="activeTab == AVAILABLE_TABS.PERFORMANCE_MONITOR ? 'active':''">{{'monitor.performance.label' | translate}}</span>
+                        </li>
+                        <li class="cluster-tab nav-item">
+                            <span class="nav-link" ng-click="switchTab(AVAILABLE_TABS.CLUSTER_HEALTH)" ng-class="activeTab == AVAILABLE_TABS.CLUSTER_HEALTH ? 'active':''">{{'monitor.cluster' | translate}}</span>
+                        </li>
+                    </ul>
+                    <div class="tabs ml-2 mr-2">
+                        <div class="tab-pane fade in" ng-if="activeTab === AVAILABLE_TABS.RESOURCE_MONITOR" id="resourceTab">
+                            <div class="row mt-2">
+                                <div id="CPUUsageGraphic" data-test="cpu-usage-chart" class="col-lg-12 col-xl-6">
+                                    <div class="title h4" style="text-align: center;">
+                                        {{'resource.system.cpu_load.label' | translate}}
+                                        <span class="btn btn-link" uib-popover="{{'resource.system.cpu_load.tooltip' | translate}}" popover-trigger="mouseenter"
+                                              popover-placement="bottom">
+                                            <span class="ri-information-2-line text-tertiary"></span>
+                                        </span>
+                                    </div>
+                                    <div ng-if="resourceMonitorData.error.hasError" class="alert alert-danger errors">
+                                        {{'common.error' | translate}}: {{resourceMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: resourceMonitorData.error.retries} }}
+                                    </div>
+                                    <div ng-if="!resourceMonitorData.error.hasError"
+                                         chart="resourceMonitorData.charts.cpuLoad"
+                                         style="width: 100%; height: 500px"></div>
+                                </div>
+                                <div id="openFileDescriptors" data-test="file-descriptor-chart" class="col-lg-12 col-xl-6">
+                                    <div class="title h4" style="text-align: center;">
+                                        {{'resource.system.file_descriptors.label' | translate}}
+                                        <span class="btn btn-link" uib-popover="{{'resource.system.file_descriptors.tooltip' | translate}}" popover-trigger="mouseenter"
+                                              popover-placement="bottom">
+                                            <span class="ri-information-2-line text-tertiary"></span>
+                                        </span>
+                                    </div>
+                                    <div ng-if="resourceMonitorData.error.hasError" class="alert alert-danger errors">
+                                        {{'common.error' | translate}}: {{resourceMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: resourceMonitorData.error.retries} }}
+                                    </div>
+                                    <div ng-if="!resourceMonitorData.error.hasError"
+                                         chart="resourceMonitorData.charts.fileDescriptors"
+                                         style="width: 100%; height: 500px"></div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div id="heapMemoryGraphic" data-test="heap-memory-chart" class="col-lg-12 col-xl-6">
+                                    <div class="title h4" style="text-align: center;">
+                                        {{'resource.memory.heap.label' | translate}}
+                                        <span class="btn btn-link" uib-popover="{{'resource.memory.heap.tooltip' | translate}}" popover-trigger="mouseenter"
+                                              popover-placement="bottom">
+                                            <span class="ri-information-2-line text-tertiary"></span>
+                                        </span>
+                                    </div>
+                                    <div ng-if="resourceMonitorData.error.hasError" class="alert alert-danger errors">
+                                        {{'common.error' | translate}}: {{resourceMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: resourceMonitorData.error.retries} }}
+                                    </div>
+                                    <div ng-if="!resourceMonitorData.error.hasError"
+                                         chart="resourceMonitorData.charts.heapMemory"
+                                         style="width: 100%; height: 500px"></div>
+                                </div>
+                                <div id="offHeapMemoryGraphic" data-test="off-heap-memory-chart" class="col-lg-12 col-xl-6">
+                                    <div class="title h4" style="text-align: center;">
+                                        {{'resource.memory.non_heap.label' | translate}}
+                                        <span class="btn btn-link" uib-popover="{{'resource.memory.non_heap.tooltip' | translate}}" popover-trigger="mouseenter"
+                                              popover-placement="bottom">
+                                            <span class="ri-information-2-line text-tertiary"></span>
+                                        </span>
+                                    </div>
+                                    <div ng-if="resourceMonitorData.error.hasError" class="alert alert-danger errors">
+                                        {{'common.error' | translate}}: {{resourceMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: resourceMonitorData.error.retries} }}
+                                    </div>
+                                    <div ng-if="!resourceMonitorData.error.hasError"
+                                         chart="resourceMonitorData.charts.offHeapMemory"
+                                         style="width: 100%; height: 500px"></div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div id="diskStorage" data-test="disk-storage-chart" class="col-lg-12 col-xl-6">
+                                    <div class="title h4" style="text-align: center;">
+                                        {{'resource.storage.label' | translate}}
+                                        <span class="btn btn-link" uib-popover="{{'resource.storage.tooltip' | translate}}" popover-trigger="mouseenter"
+                                              popover-placement="bottom">
+                                            <span class="ri-information-2-line text-tertiary"></span>
+                                        </span>
+                                    </div>
+                                    <div ng-if="resourceMonitorData.error.hasError" class="alert alert-danger errors">
+                                        {{'common.error' | translate}}: {{resourceMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: resourceMonitorData.error.retries} }}
+                                    </div>
+                                    <div ng-if="!resourceMonitorData.error.hasError"
+                                         chart="resourceMonitorData.charts.diskStorage"
+                                         style="width: 100%; height: 500px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade in" ng-if="activeTab === AVAILABLE_TABS.PERFORMANCE_MONITOR" id="performanceMonitorTab">
+                            <div class="row mt-2">
+                                <div class="alert lead alert-info" ng-show="!getActiveRepository()">
+                                    {{'monitor.performance.no_repository' | translate}}
+                                </div>
+                            </div>
+                            <div ng-if="getActiveRepository()">
+                                <div class="row mt-2">
+                                    <div id="activeQueries" class="col-lg-12 col-xl-6">
+                                        <div class="title h4" style="text-align: center;">
+                                            {{'resource.queries.label' | translate}}
+                                            <span class="btn btn-link" uib-popover="{{'resource.queries.tooltip' | translate}}" popover-trigger="mouseenter"
+                                                  popover-placement="bottom">
+                                                <span class="ri-information-2-line text-tertiary"></span>
+                                            </span>
+                                        </div>
+                                        <div ng-if="performanceMonitorData.error.hasError" class="alert alert-danger errors">
+                                            {{'common.error' | translate}}: {{resourceMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: performanceMonitorData.error.retries} }}
+                                        </div>
+                                        <div ng-if="!resourceMonitorData.error.hasError"
+                                             chart="performanceMonitorData.charts.queriesChart"
+                                             style="width: 100%; height: 500px"></div>
+                                    </div>
+                                    <div id="connections" class="col-lg-12 col-xl-6">
+                                        <div class="title h4" style="text-align: center;">
+                                            {{'resource.connections.label' | translate}}
+                                            <span class="btn btn-link" uib-popover="{{'resource.connections.tooltip' | translate}}" popover-trigger="mouseenter"
+                                                  popover-placement="bottom">
+                                                <span class="ri-information-2-line text-tertiary"></span>
+                                            </span>
+                                        </div>
+                                        <div ng-if="performanceMonitorData.error.hasError" class="alert alert-danger errors">
+                                            {{'common.error' | translate}}: {{performanceMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: performanceMonitorData.error.retries} }}
+                                        </div>
+                                        <div ng-if="!resourceMonitorData.error.hasError"
+                                             chart="performanceMonitorData.charts.connectionsChart"
+                                             style="width: 100%; height: 500px"></div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div id="epool" class="col-lg-12 col-xl-6">
+                                        <div class="title h4" style="text-align: center;">
+                                            {{'resource.epool.label' | translate}}
+                                            <span class="btn btn-link" uib-popover="{{'resource.epool.tooltip' | translate}}" popover-trigger="mouseenter"
+                                                  popover-placement="bottom">
+                                                <span class="ri-information-2-line text-tertiary"></span>
+                                            </span>
+                                        </div>
+                                        <div ng-if="performanceMonitorData.error.hasError" class="alert alert-danger errors">
+                                            {{'common.error' | translate}}: {{performanceMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: performanceMonitorData.error.retries} }}
+                                        </div>
+                                        <div ng-if="!resourceMonitorData.error.hasError"
+                                             chart="performanceMonitorData.charts.epoolChart"
+                                             style="width: 100%; height: 500px"></div>
+                                    </div>
+                                    <div id="globalCache" class="col-lg-12 col-xl-6">
+                                        <div class="title h4" style="text-align: center;">
+                                            {{'resources.global_cache.label' | translate}}
+                                            <span class="btn btn-link" uib-popover="{{'resources.global_cache.tooltip' | translate}}" popover-trigger="mouseenter"
+                                                  popover-placement="bottom">
+                                                <span class="ri-information-2-line text-tertiary"></span>
+                                            </span>
+                                        </div>
+                                        <div ng-if="structuresMonitorData.error.hasError" class="alert alert-danger errors">
+                                            {{'common.error' | translate}}: {{structuresMonitorData.error.message}} {{'monitor.retrying' | translate: {retry: structuresMonitorData.error.retries} }}
+                                        </div>
+                                        <div ng-if="!resourceMonitorData.error.hasError"
+                                             chart="structuresMonitorData.charts.globalCacheChart"
+                                             style="width: 100%; height: 500px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade in" ng-if="activeTab === AVAILABLE_TABS.CLUSTER_HEALTH" id="clusterHealthMonitorTab">
+                            <div class="row mt-2">
+                                <div class="alert lead alert-info" ng-show="!hasCluster">
+                                    {{'monitor.cluster.no_cluster' | translate}}
+                                </div>
+                            </div>
+                            <div ng-if="hasCluster" class="row mt-2">
+                                <div id="clusterHealth" class="col-lg-12">
+                                    <div class="title h4" style="text-align: center;">
+                                        {{'resources.cluster_health.label' | translate}}
+                                        <span class="btn btn-link" uib-popover="{{'resources.cluster_health.tooltip' | translate}}" popover-trigger="mouseenter"
+                                              popover-placement="bottom">
+                                                <span class="ri-information-2-line text-tertiary"></span>
+                                            </span>
+                                    </div>
+                                    <div ng-if="clusterHealthData.error.hasError" class="alert alert-danger errors">
+                                        {{'common.error' | translate}}: {{clusterHealthData.error.message}} {{'monitor.retrying' | translate: {retry: clusterHealthData.error.retries} }}
+                                    </div>
+                                    <div ng-if="!resourceMonitorData.error.hasError"
+                                         chart="clusterHealthData.charts.clusterHealthChart"
+                                         style="width: 100%; height: 500px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>

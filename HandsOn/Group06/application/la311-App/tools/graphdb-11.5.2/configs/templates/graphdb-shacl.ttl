@@ -1,0 +1,76 @@
+#
+# RDF4J configuration template for a GraphDB repository with SHACL
+#
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rep: <http://www.openrdf.org/config/repository#>.
+@prefix sr: <http://www.openrdf.org/config/repository/sail#>.
+@prefix sail: <http://www.openrdf.org/config/sail#>.
+@prefix graphdb: <http://www.ontotext.com/config/graphdb#>.
+@prefix shacl: <http://rdf4j.org/config/sail/shacl#>.
+
+
+[] a rep:Repository ;
+    rep:repositoryID "{%Repository ID|repo-test%}" ;
+    rdfs:label "{%Repository description%}" ;
+    rep:repositoryImpl [
+        rep:repositoryType "graphdb:SailRepository" ;
+        sr:sailImpl [
+            sail:sailType "rdf4j:ShaclSail";
+
+            sail:delegate [
+                sail:sailType "graphdb:Sail" ;
+
+                graphdb:read-only "{%Read-only|false%}" ;
+
+                graphdb:encrypt-storage "{%Encrypt storage|false%}" ;
+
+                # Inference and Validation
+                graphdb:ruleset "{%Ruleset|rdfsplus-optimized%}" ;
+                graphdb:disable-sameAs "{%Disable owl:sameAs|true%}" ;
+                graphdb:check-for-inconsistencies "{%Enable consistency checks|false%}" ;
+
+                # Indexing
+                graphdb:entity-id-size "{%Entity ID size|32%}" ;
+                graphdb:enable-context-index "{%Enable context index|false%}" ;
+                graphdb:enablePredicateList "{%Enable predicate list index|true%}" ;
+                graphdb:enable-fts-index "{%Enable full-text search (FTS) index|false%}" ;
+                graphdb:fts-indexes {%FTS indexes to build (comma delimited)|default, iri%} ;
+                graphdb:fts-string-literals-index "{%FTS index for xsd:string literals|default%}" ;
+                graphdb:fts-iris-index "{%FTS index for full-text indexing of IRIs|none%}" ;
+
+                # Queries and Updates
+                graphdb:query-timeout "{%Query timeout (seconds)|0%}" ;
+                graphdb:throw-QueryEvaluationException-on-timeout "{%Throw exception on query timeout|false%}" ;
+                graphdb:query-limit-results "{%Limit query results|0%}" ;
+
+                # Settable in the file but otherwise hidden in the UI and in the RDF4J console
+                graphdb:base-URL "{%Base URL|http://example.org/owlim#%}" ;
+                graphdb:defaultNS "{%Default namespaces for imports(';' delimited)%}" ;
+                graphdb:imports "{%Imported RDF files(';' delimited)%}" ;
+                graphdb:repository-type "{%Repository type|file-repository%}" ;
+                graphdb:storage-folder "{%Storage folder|storage%}" ;
+                graphdb:entity-index-size "{%Entity index size|10000000%}" ;
+                graphdb:in-memory-literal-properties "{%Cache literal language tags|true%}" ;
+                graphdb:enable-literal-index "{%Enable literal index|true%}" ;
+            ] ;
+
+
+            # Settable in the UI and in the RDF4J console
+            shacl:cacheSelectNodes "{%Cache select nodes|true%}" ;
+            shacl:dashDataShapes "{%DASH data shapes extensions|true%}" ;
+            shacl:logValidationPlans "{%Log the executed validation plans|false%}" ;
+            shacl:logValidationViolations "{%Log validation violations|false%}" ;
+            shacl:parallelValidation "{%Run parallel validation|true%}" ;
+            shacl:globalLogValidationExecution "{%Log every execution step of the SHACL validation|false%}" ;
+            shacl:performanceLogging "{%Log the execution time per shape|false%}" ;
+            shacl:eclipseRdf4jShaclExtensions "{%RDF4J SHACL extensions|true%}" ;
+            shacl:validationResultsLimitTotal "{%Validation results limit total|1000000%}" ;
+            shacl:validationResultsLimitPerConstraint "{%Validation results limit per constraint|1000%}" ;
+            shacl:shapesGraph {%Named graphs for SHACL shapes|http://rdf4j.org/schema/rdf4j#SHACLShapeGraph%} ;
+
+            # Settable in the file but otherwise hidden in the UI and in the RDF4J console
+            shacl:validationEnabled "{%Enable the SHACL validation|true%}" ;
+            shacl:rdfsSubClassReasoning "{%RDFS subClass reasoning|true%}" ;
+            shacl:transactionalValidationLimit "{%Transactional validation limit|500000%}" ;
+        ]
+    ].

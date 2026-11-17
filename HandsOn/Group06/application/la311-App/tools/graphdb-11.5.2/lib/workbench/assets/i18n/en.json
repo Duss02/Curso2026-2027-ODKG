@@ -1,0 +1,415 @@
+{
+  "guide.back.to.guides.btn": "Back to the guides",
+  "guide.common.close": "Close",
+  "guide.previous.btn": "Previous",
+  "guide.next.btn": "Next",
+  "guide.pause.btn": "Pause",
+  "guide.start.unexpected.error.message": "The guide cannot be started due to an unexpected error. Please try running the guide again and if the problem persists contact the support.",
+  "guide.unexpected.error.message": "The guide was cancelled due to an unexpected error. Please run the guide again and if the problem persists contact the support.",
+  "guide.total.progress": "Guide step {{n}} of {{nn}}",
+  "guide.total.progress.tooltip": "This indicates the current step relative to the entire guide and the total number of steps in the guide.",
+  "guide.block.progress": "{{n}}/{{nn}}",
+  "guide.block.progress.tooltip": "This indicates the current step and the total number of steps in the {{action}} action.",
+  "guide.step-type.info": "This step provides some information. No action required other than clicking the Next button.",
+  "guide.step-type.mouse": "This step expects user action with the mouse, typically clicking on something.",
+  "guide.step-type.input": "This step expects user input, typically typing or pasting a piece of text.",
+  "guides.error.guide-not-found": "The requested guide could not be found.",
+  "menu.logo.link.title": "GraphDB logo",
+  "menu.buttons.expand": "Expand menu",
+  "menu.buttons.collapse": "Collapse menu",
+  "common": {
+    "import": "Import",
+    "button": {
+      "ok": "OK",
+      "close": "Close",
+      "cancel": "Cancel"
+    },
+    "loading": "Loading...",
+    "errors": {
+      "error": "Error",
+      "server_error": "Server error"
+    },
+    "warnings": {
+      "warning": "Warning"
+    }
+  },
+  "menu.rdf.label": "RDF",
+  "menu.explore.label": "Explore",
+  "menu.graphs.overview.label": "Graphs overview",
+  "menu.class.relationships.label": "Class relationships",
+  "menu.class.hierarchy.label": "Class hierarchy",
+  "menu.similarity.label": "Similarity",
+  "menu.sparql.label": "SPARQL",
+  "menu.monitor.label": "Monitor",
+  "menu.queries.and.updates.label": "Queries and Updates",
+  "menu.backup_and_restore.label": "Backup and Restore",
+  "menu.enableFtsIndex.label": "Enable full-text search (FTS) index",
+  "menu.ftsIndexes.label": "FTS indexes to build (comma delimited)",
+  "menu.ftsStringLiteralsIndex.label": "FTS index for xsd:string literals",
+  "menu.ftsIrisIndex.label": "FTS index for full-text indexing of IRIs",
+  "menu.ftsDefaultAnalyzer.label": "Analyzer for the default index",
+  "menu.resources.label": "System",
+  "menu.setup.label": "Setup",
+  "menu.lab.label": "Lab",
+  "menu.ttyg.label": "Talk to Your Graph",
+  "menu.repositories.label": "Repositories",
+  "menu.aclmanagement.label": "ACL Management",
+  "menu.users.and.access.label": "Users and Access",
+  "menu.my.settings.label": "My Settings",
+  "menu.cluster.label": "Cluster",
+  "menu.connectors.label": "Connectors",
+  "menu.namespaces.label": "Namespaces",
+  "menu.autocomplete.label": "Autocomplete",
+  "menu.jdbc.label": "JDBC",
+  "menu.sparql.template.label": "SPARQL Templates",
+  "menu.license.label": "License",
+  "menu.help.label": "Help",
+  "menu.system.information.label": "System information",
+  "menu.rest.api.label": "REST API",
+  "menu.documentation.label": "Documentation",
+  "menu.tutorials.label": "Tutorials",
+  "menu.support.label": "Support",
+  "menu.guides.label": "Interactive guides",
+  "menu.plugins.label": "Plugins",
+  "menu.graphql.label": "GraphQL",
+  "menu.graphql-endpoint-management.label": "Endpoint Management",
+  "menu.graphql-playground.label": "GraphQL Playground",
+  "visual.graph.label": "Visual graph",
+  "view.rdf.rank.title": "RDF Rank",
+  "language_selector": {
+    "toggle_menu": {
+      "label": "Select language",
+      "tooltip": "Current language: English"
+    },
+    "language": {
+      "en": {
+        "label": "en &middot; English",
+        "tooltip": {
+          "selected": "Current language",
+          "not_selected": "Change language to English"
+        }
+      },
+      "fr": {
+        "label": "fr &middot; Français",
+        "tooltip": {
+          "selected": "Current language",
+          "not_selected": "Changer la langue en Français"
+        }
+      }
+    }
+  },
+  "repository-selector": {
+    "btn": {
+      "toggle": "Choose repository",
+      "no_repositories": "No accessible repositories"
+    },
+    "tooltip": {
+      "repository": "Repository",
+      "location": "Location",
+      "local": "Local",
+      "type": "Type",
+      "types": {
+        "graphdb": "Graphdb",
+        "system": "System",
+        "ontop": "Ontop",
+        "fedx": "FedX",
+        "unknown": "Unknown"
+      },
+      "permissions_label": "Permissions",
+      "permissions": {
+        "none": "None",
+        "read": "Read",
+        "write": "Read/Write",
+        "maintain": "Read/Write/Maintain",
+        "graphql_read": "Read (GraphQL only)",
+        "graphql_write": "Read/Write (GraphQL only)"
+      },
+      "repository-size": {
+        "total": "Total statements",
+        "explicit": "Explicit",
+        "inferred": "Inferred",
+        "expansion_ratio": "Expansion ratio (total/explicit)"
+      }
+    }
+  },
+  "license_alert": {
+    "label": "No valid license",
+    "no_license_set": "No license was set."
+  },
+  "footer": {
+    "label": {
+      "all_rights_reserved": "All rights reserved."
+    }
+  },
+  "permission_banner": {
+    "no_access_error": "You have no permission to access this functionality with your current credentials.",
+    "change_menu_or_user_warning": "Please choose another menu item or login as a different user."
+  },
+  "cookie": {
+    "cookie_consent": "We may use cookies to help us improve GraphDB and develop better features. No personal or sensitive information is collected. By clicking “OK” you consent to our ",
+    "cookie_policy_url_label": "Cookie Policy",
+    "policy": {
+      "title": "Cookies Policy",
+      "purpose_heading": "Purpose",
+      "purpose_text": "This Cookies Policy explains the data Ontotext collects and uses when you use our GraphDB product, specifically the Free Edition.",
+      "purpose_enterprise_text": "Note that if you upgrade to the commercial GraphDB Enterprise Edition, no cookies will be stored on your device, regardless of settings.",
+      "privacy_commitment_heading": "Ontotext privacy commitment",
+      "privacy_commitment_text": "We are committed to not collecting any personal data or information when you use GraphDB Free. Additionally:",
+      "privacy_commitment_1": "We will not sell or rent the technical information we collect to others.",
+      "privacy_commitment_2": "We strive to maximize the protection of all technical data collected.",
+      "cookies_heading": "Cookies",
+      "cookies_text": "When you use GraphDB Free Edition, Ontotext will store cookies on your device to collect anonymous information about how you interact with the product. This technical data helps us improve and refine our software. Importantly, we cannot link this information to you personally or to any identifiable data. These cookies are solely intended to help us understand user interactions and identify potential issues within GraphDB.",
+      "manage_cookies_heading": "Manage cookies",
+      "statistic_cookies": "GraphDB analytics cookies",
+      "statistic_tooltip": "Toggle GraphDB analytics cookies",
+      "statistic_text": "These cookies help us understand how users interact with different aspects of GraphDB by collecting and reporting information anonymously. This data allows us to improve the overall product experience and develop features based on how GraphDB is used, without collecting any personal information.",
+      "third_party_cookies": "Third-party cookies",
+      "third_party_tooltip": "Toggle Third-party cookies",
+      "third_party_cookies_text": "We use Google Analytics 4 (GA4) cookies to help us recognize unique users and sessions, track interactions, and collect data such as page views, session duration, and engagement. These cookies are managed by Google, meaning we do not control their operation. IP anonymization is enabled by default in GA4, so it cannot store IP addresses or track users personally. No data is shared between GA4 and other Google products, and processing occurs globally, primarily in the USA, without breaching GDPR, as no personal data is collected.",
+      "change_cookies": "You can change your cookie preferences at any time in",
+      "change_cookies_location4": "Cookie policy"
+    }
+  },
+  "security": {
+    "user": {
+      "settings": "User settings"
+    }
+  },
+  "operations_notification": {
+    "links": {
+      "queries": "Running queries",
+      "updates": "Running updates",
+      "imports": "Running imports",
+      "CREATE_BACKUP_IN_PROGRESS": "Creating backup",
+      "RESTORE_BACKUP_IN_PROGRESS": "Restoring backup",
+      "CREATE_CLOUD_BACKUP_IN_PROGRESS": "Creating cloud backup",
+      "RESTORE_CLOUD_BACKUP_IN_PROGRESS": "Restoring cloud backup",
+      "IN_SYNC": "In sync",
+      "RECOVERING": "Recovering",
+      "OUT_OF_SYNC": "Out of sync",
+      "UNAVAILABLE_NODES": "Unavailable nodes"
+    }
+  },
+  "user_menu": {
+    "my_settings": "My settings",
+    "logout": "Logout",
+    "login": "Login"
+  },
+  "rdf_search": {
+    "labels": {
+      "search": "Search RDF resources",
+      "hint": "Hint: \"abC\" matches \"abC*\", \"ab c*\" and \"ab-c*\""
+    },
+    "buttons": {
+      "table": "Table",
+      "visual": "Visual"
+    },
+    "tooltips": {
+      "close_search_area": "Close search",
+      "clear": "Clear"
+    },
+    "toasts": {
+      "use_view_resource": "<b>Search RDF resources</b></br>Use <b>View resource</b> on this page",
+      "autocomplete_is_off": "Autocomplete is OFF<br>Go to Setup -> Autocomplete",
+      "empty_input": "Please fill the input field!",
+      "invalid_uri": "Invalid IRI"
+    }
+  },
+  "guides": {
+    "confirm-cancel-modal": {
+      "title": "Exit the guide?",
+      "subtitle": "Are you sure you want to exit the guide?<br><br>You can start it anytime from <b>Help > Interactive Guides</b>",
+      "exit-button": "Exit",
+      "dont-show-again": "Don't start automatically"
+    }
+  },
+  "openid": {
+    "errors": {
+      "title": "OpenID Authentication Failed",
+      "unknown_flow": "Unknown auth flow: {{authFlow}}",
+      "invalid_pkce_state": "Invalid PKCE state",
+      "cannot_retrieve_token": "Cannot retrieve token after login: {{error}}",
+      "cannot_refresh_token": "Could not refresh OpenID token: {{error}}",
+      "user_no_access": "User has no access to GraphDB"
+    }
+  },
+  "graph_explore_split_button": {
+    "buttons": {
+      "explore_visual_graph": {
+        "tooltip": "Use default config"
+      },
+      "explore_visual_graph_dropdown": {
+        "tooltip": "Select config"
+      }
+    },
+    "messages": {
+      "missing_graph_configuration": "No advanced graph configuration.",
+      "create_graph_configuration": "Create one",
+      "create_graph_configuration_link": "here"
+    }
+  },
+  "deprecation-banner": {
+    "solr": {
+      "content": "The Solr connector is deprecated and will be removed in GraphDB 12. If you use it, <b>contact us</b> through the available support channels."
+    }
+  },
+  "components": {
+    "dialog": {
+      "confirmation": {
+        "title": "Confirm",
+        "confirm_btn": "Yes",
+        "cancel_btn": "Cancel",
+        "ok_btn": "OK"
+      },
+      "unsaved_changes": {
+        "confirmation": {
+          "message": "You have unsaved changes. Are you sure you want to continue?"
+        }
+      },
+      "download_settings": {
+        "title": {
+          "json-ld": "Export settings: JSON-LD",
+          "ndjson-ld": "Export settings: NDJSON-LD"
+        },
+        "form": {
+          "label": "JSON-LD form",
+          "info": "Specifies the JSON-LD document form"
+        },
+        "context": {
+          "link": "JSON-LD Context",
+          "info": "Specifies external JSON-LD context as a URL. Only whitelisted URLs can be used.",
+          "uri_placeholder": "http://example.com/context.jsonld"
+        },
+        "frame": {
+          "link": "JSON-LD Frame",
+          "info": "Specifies JSON-LD frame document as a URL. Only whitelisted URLs can be used.",
+          "uri_placeholder": "http://example.com/frame.jsonld"
+        },
+        "actions": {
+          "export": "Export",
+          "cancel": "Cancel",
+          "restore_defaults": "Restore defaults"
+        }
+      }
+    },
+    "page_info_tooltip": {
+      "documentation_link": "Learn more in the GraphDB documentation"
+    },
+    "repository_banners": {
+      "no_active_repository": "Some functionalities are not available because you are not connected to any repository."
+    }
+  },
+  "login": {
+    "title": "Login",
+    "logo_alt": "GraphDB Logo",
+    "sign_in": "Login",
+    "username_mismatch": "Password or username did not match!",
+    "username": "Username",
+    "username_placeholder": "Your name",
+    "password": "Password",
+    "password_placeholder": "Your password",
+    "sign_in_openid": "Login with OpenID",
+    "error": "Login error",
+    "errors": {
+      "no_rights": "User has no access rights or configuration error.",
+      "auth_token_expired": "Your authentication token has expired. Please login again.",
+      "wrong_credentials": "Wrong credentials!"
+    }
+  },
+  "not_found_page": {
+    "warning": "404 That’s an error!",
+    "url_not_found_msg": "The requested URL was not found on this server. That’s all I know.",
+    "back_to_home": "Back Home"
+  },
+  "sparql_editor": {
+    "title": "SPARQL Query & Update",
+    "helpInfo": "The SPARQL Query & Update view is a unified editor for queries and updates. Enter any SPARQL query or update and click Run to execute it. The view also allows you to save queries for future retrieval and execution in the SPARQL editor.",
+    "errors": {
+      "saved_query_load_failed": "Could not get data for saved query: {{savedQueryName}}; {{error}}",
+      "shared_query_load_failed": "Could not get data for shared query: {{sharedQueryName}}; {{error}}",
+      "saved_queries_load_failed": "Error! Could not get saved queries",
+      "query_save_failed": "Error! Cannot create saved query",
+      "query_delete_failed": "Error! Cannot delete saved query",
+      "get_repo_size_error": "Could not get repository size for: {{repo}}; {{error}}",
+      "add_known_prefixes_failed": "Error! Could not add known prefixes"
+    },
+    "warnings": {},
+    "success": {
+      "query_was_saved": "Query {{name}} was saved.",
+      "query_was_updated": "Query {{name}} was updated.",
+      "query_was_deleted": "Query {{savedQueryName}} was deleted.",
+      "url_was_copied": "URL copied successfully to clipboard."
+    },
+    "confirmation": {
+      "on_auto_execute_query": {
+        "title": "Confirm execution",
+        "message": "This is an update and it may change the data in the repository.<br>Are you sure you want to execute it automatically?"
+      },
+      "running_queries_warning": {
+        "queries_non_updates": "<div class=\"run_query_confirmation alert alert-warning\">You have running {queriesCount, plural, =0 {0 queries} one {1 query} other {# queries}}. The {queriesCount, plural, =0 {} one {query} other {queries}} will be aborted.</div>",
+        "none_queries_updates": "<div class=\"run_query_confirmation alert alert-warning\">You have running {updatesCount, plural, =0 {0 updates} one {1 update} other {# updates}}. You have running {updatesCount, plural, one {1 update} other {# updates}}.</div>",
+        "queries_updates": "<div class=\"run_query_confirmation alert alert-warning\">You have running {queriesCount, plural, =0 {0 queries} one {1 query} other {# queries}} and {updatesCount, plural, =0 {0 updates} one {1 update} other {# updates}}. The {queriesCount, plural, one {query} other {queries}} will be aborted.</div>"
+      },
+      "on_language_change": {
+        "title": "Change language",
+        "none_queries_non_updates": "Changing the language will reload the page. Are you sure you want to continue?",
+        "queries_non_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_non_updates}}<div>Changing the language will reload the page. Are you sure you want to continue?</div>",
+        "none_queries_updates": "{{sparql_editor.confirmation.running_queries_warning.none_queries_updates}}<div>Changing the language will reload the page. Are you sure you want to continue?</div>",
+        "queries_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_updates}}<div>Changing the language will reload the page. Are you sure you want to continue?</div>"
+      },
+      "on_page_leave": {
+        "title": "Confirm exit",
+        "none_queries_non_updates": "Are you sure that you want to exit?",
+        "queries_non_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_non_updates}}<div>Are you sure that you want to exit?</div>",
+        "none_queries_updates": "{{sparql_editor.confirmation.running_queries_warning.none_queries_updates}}<div>Are you sure that you want to exit?</div>",
+        "queries_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_updates}}<div>Are you sure that you want to exit?</div>"
+      },
+      "on_repository_change": {
+        "title": "Confirm selected repository change",
+        "none_queries_non_updates": "Are you sure that you want to change the selected repository?",
+        "queries_non_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_non_updates}}<div>Are you sure that you want to change the selected repository?</div>",
+        "none_queries_updates": "{{sparql_editor.confirmation.running_queries_warning.none_queries_updates}}<div>Are you sure that you want to change the selected repository?</div>",
+        "queries_updates": "{{sparql_editor.confirmation.running_queries_warning.queries_updates}}<div>Are you sure that you want to change the selected repository?</div>"
+      }
+    },
+    "connector_progress": {
+      "action": {
+        "creating": "Creating",
+        "repairing": "Repairing"
+      },
+      "title": "{{actionName}} connector {{connectorName}}...",
+      "connector_label": "connector",
+      "eta": "ETA",
+      "processed_entities": "Processed entities",
+      "processed_entities_value": "{{processed}} of {{estimated}} (estimated)",
+      "indexed_entities": "Indexed entities",
+      "speed": "Speed",
+      "speed_value": "{{speed}} entities/second"
+    },
+    "yasgui": {
+      "tabs": {
+        "unnamed_tab_title": "Unnamed"
+      },
+      "yasr": {
+        "yasr_header": {
+          "toolbar": {
+            "btn": {
+              "visual_graph_btn": {
+                "label": "Visualize"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "repository": {
+    "url_param": {
+      "invalid_repo": "The repository \"{{repositoryId}}\" specified in the URL does not exist. Please select an existing repository.",
+      "invalid_repo_continue": "The repository \"{{repositoryId}}\" specified in the URL does not exist. You can continue with the current repository \"{{currentRepositoryId}}\" or select another repository.",
+      "remote_location_repo_continue": "The repository \"{{repositoryId}}\" specified in the URL does not exist in current location. You can continue with the current repository \"{{currentRepositoryId}}\" or select it from the menu.",
+      "change_active_repo": "Active repository will be changed to \"{{repositoryId}}\". Do you want to proceed?"
+    }
+  },
+  "language": "en"
+}

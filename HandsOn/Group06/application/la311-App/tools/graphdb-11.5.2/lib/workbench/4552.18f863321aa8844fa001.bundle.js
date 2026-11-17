@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=4552;export const __webpack_esm_ids__=[4552];export const __webpack_esm_modules__={4552(){angular.module("graphdb.framework.core.directives.ascii-validator",[]).directive("asciiValidator",function(){return{restrict:"A",require:"ngModel",link:function(e,r,t,i){function s(e){const r=/^[\x21-\x7E]*$/.test(e);return i.$setValidity("asciiValidator",r),e}i.$parsers.push(s),i.$formatters.push(s)}}})}};
+//# sourceMappingURL=4552.18f863321aa8844fa001.bundle.js.map

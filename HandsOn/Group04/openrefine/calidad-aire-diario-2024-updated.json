@@ -216,5 +216,44 @@
       "TECNICA_NOMBRE"
     ],
     "description": "Reorder columns"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ESTACION_CODIGO",
+    "expression": "jython:# station code -> readable name of the station\nd = {\"28079004\": \"plaza-de-espana\", \"28079008\": \"escuelas-aguirre\", \"28079011\": \"ramon-y-cajal\", \"28079016\": \"arturo-soria\", \"28079017\": \"villaverde\", \"28079018\": \"farolillo\", \"28079024\": \"casa-de-campo\", \"28079027\": \"barajas-pueblo\", \"28079035\": \"plaza-del-carmen\", \"28079036\": \"moratalaz\", \"28079038\": \"cuatro-caminos\", \"28079039\": \"barrio-del-pilar\", \"28079040\": \"vallecas\", \"28079047\": \"mendez-alvaro\", \"28079048\": \"castellana\", \"28079049\": \"parque-del-retiro\", \"28079050\": \"plaza-castilla\", \"28079054\": \"ensanche-de-vallecas\", \"28079055\": \"urb-embajada\", \"28079056\": \"plaza-eliptica\", \"28079057\": \"sanchinarro\", \"28079058\": \"el-pardo\", \"28079059\": \"juan-carlos-i\", \"28079060\": \"tres-olivos\"}\nreturn d.get(unicode(value))",
+    "onError": "set-to-blank",
+    "newColumnName": "ESTACION_SLUG",
+    "columnInsertIndex": 11,
+    "description": "Create column ESTACION_SLUG at index 11 based on column ESTACION_CODIGO using expression jython:# station code -> readable name of the station\nd = {\"28079004\": \"plaza-de-espana\", \"28079008\": \"escuelas-aguirre\", \"28079011\": \"ramon-y-cajal\", \"28079016\": \"arturo-soria\", \"28079017\": \"villaverde\", \"28079018\": \"farolillo\", \"28079024\": \"casa-de-campo\", \"28079027\": \"barajas-pueblo\", \"28079035\": \"plaza-del-carmen\", \"28079036\": \"moratalaz\", \"28079038\": \"cuatro-caminos\", \"28079039\": \"barrio-del-pilar\", \"28079040\": \"vallecas\", \"28079047\": \"mendez-alvaro\", \"28079048\": \"castellana\", \"28079049\": \"parque-del-retiro\", \"28079050\": \"plaza-castilla\", \"28079054\": \"ensanche-de-vallecas\", \"28079055\": \"urb-embajada\", \"28079056\": \"plaza-eliptica\", \"28079057\": \"sanchinarro\", \"28079058\": \"el-pardo\", \"28079059\": \"juan-carlos-i\", \"28079060\": \"tres-olivos\"}\nreturn d.get(unicode(value))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "MAGNITUD",
+    "expression": "jython:# pollutant code -> readable name\nd = {\"1\": \"so2\", \"6\": \"co\", \"7\": \"no\", \"8\": \"no2\", \"9\": \"pm2-5\", \"10\": \"pm10\", \"12\": \"nox\", \"14\": \"o3\", \"20\": \"toluene\", \"30\": \"benzene\", \"35\": \"ethylbenzene\"}\nreturn d.get(unicode(value))",
+    "onError": "set-to-blank",
+    "newColumnName": "CONTAMINANTE_SLUG",
+    "columnInsertIndex": 12,
+    "description": "Create column CONTAMINANTE_SLUG at index 12 based on column MAGNITUD using expression jython:# pollutant code -> readable name\nd = {\"1\": \"so2\", \"6\": \"co\", \"7\": \"no\", \"8\": \"no2\", \"9\": \"pm2-5\", \"10\": \"pm10\", \"12\": \"nox\", \"14\": \"o3\", \"20\": \"toluene\", \"30\": \"benzene\", \"35\": \"ethylbenzene\"}\nreturn d.get(unicode(value))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "TECNICA",
+    "expression": "jython:# measurement technique code -> readable name\nd = {\"06\": \"uv-absorption\", \"08\": \"chemiluminescence\", \"38\": \"uv-fluorescence\", \"47\": \"microbalance-spectrometry\", \"48\": \"infrared-absorption\", \"59\": \"gas-chromatography\"}\nreturn d.get(unicode(value))",
+    "onError": "set-to-blank",
+    "newColumnName": "TECNICA_SLUG",
+    "columnInsertIndex": 13,
+    "description": "Create column TECNICA_SLUG at index 13 based on column TECNICA using expression jython:# measurement technique code -> readable name\nd = {\"06\": \"uv-absorption\", \"08\": \"chemiluminescence\", \"38\": \"uv-fluorescence\", \"47\": \"microbalance-spectrometry\", \"48\": \"infrared-absorption\", \"59\": \"gas-chromatography\"}\nreturn d.get(unicode(value))"
   }
 ]

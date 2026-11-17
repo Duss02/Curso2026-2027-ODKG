@@ -1,0 +1,14 @@
+PREFIX la311: <http://linkeddata.la311.com/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Q3: Top regions by service request volume with reconciled Wikidata IRIs for Neighborhood Councils and Council District members
+SELECT ?regionLabel ?ncWikidataIRI ?cdMemberWikidataIRI (COUNT(?sr) AS ?requests)
+WHERE {
+  ?sr la311:hasLocation/la311:isWithin ?region .
+  ?region rdfs:label ?regionLabel ;
+          la311:ncName ?ncWikidataIRI .
+  OPTIONAL { ?region la311:cdMember ?cdMemberWikidataIRI }
+}
+GROUP BY ?regionLabel ?ncWikidataIRI ?cdMemberWikidataIRI
+ORDER BY DESC(?requests)
+LIMIT 10

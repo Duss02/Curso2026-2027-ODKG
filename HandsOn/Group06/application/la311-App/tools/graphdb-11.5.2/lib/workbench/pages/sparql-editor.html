@@ -1,0 +1,15 @@
+<link href="css/sparql-editor.css?v=3.5.2" rel="stylesheet"/>
+
+<div class="sparql-editor-view">
+    <h1 id="title-container" ng-if="!embedded">
+        <span id="sparql-query-update-title-label">{{title}}</span>
+        <page-info-tooltip></page-info-tooltip>
+    </h1>
+
+    <div ng-if="!embedded" core-errors></div>
+
+    <yasgui-component id="query-editor"
+                      yasgui-config="yasguiConfig"
+                      ng-if="yasguiConfig && getActiveRepositoryNoError()">
+    </yasgui-component>
+</div>

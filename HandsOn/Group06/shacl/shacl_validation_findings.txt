@@ -1,0 +1,106 @@
+================================================================================
+  ODKG 2026-2027 | GROUP 06 | FINAL PRESENTATION NOTES
+  SHACL Validation of the MyLA311 Knowledge Graph: Findings & Fixes
+================================================================================
+
+1. OBJECTIVE & SETUP
+--------------------------------------------------------------------------------
+- Purpose: Validate the structural, semantic, and datatype integrity of the
+  generated MyLA311 Knowledge Graph using W3C SHACL (Shapes Constraint Language).
+- Target Graph: rdf/MyLA311_2025-with-links.ttl (547,870 triples, 20,000 tickets).
+- Validation Engine: pyshacl (Python W3C-compliant SHACL validator).
+- Shapes File: shacl/shapes.ttl
+- Report File: shacl/report.ttl
+
+
+2. INITIAL VALIDATION RESULTS ("BEFORE")
+--------------------------------------------------------------------------------
+- Initial Status: sh:conforms false
+- Total Violations Detected: 190
+- Constraint Component Violated: 100% sh:MaxCountConstraintComponent
+  (Properties containing more values than the allowed maximum count of 1).
+
+Detailed Breakdown of Initial Violations:
+  * la311:address            -> 59 violations
+  * la311:streetName         -> 49 violations
+  * la311:policePrecinct     -> 44 violations
+  * la311:apc                -> 27 violations
+  * la311:approximateAddress -> 10 violations
+  * la311:houseNumber        ->  1 violation
+
+Crucial Success Highlight:
+  - 0 Datatype violations (all dateTime, decimal, string, and wktLiteral types conformed).
+  - 0 ServiceRequest structure violations (all tickets had valid mandatory links).
+  - 0 Class hierarchy violations.
+
+
+3. KEY FINDINGS & CIVIC DOMAIN INSIGHTS
+--------------------------------------------------------------------------------
+The 190 violations revealed key real-world civic domain realities where our
+theoretical ontology assumptions conflicted with municipal geography:
+
+Finding A: Intersection Coordinates & Multi-Label Addresses
+- In our Knowledge Graph, location URIs are minted based on unique coordinates:
+  res:Location/{Latitude},{Longitude}
+- At street intersections (e.g., 34.0785565615, -118.261545738), multiple civic
+  tickets occurred at the exact same physical coordinates.
+- Ticket 1 recorded the intersection as: "LIBERTY ST AT RESERVOIR ST"
+- Ticket 2 recorded the intersection as: "RESERVOIR ST AT LIBERTY ST"
+- Insight: A physical intersection legitimately has multiple address descriptions
+  and multiple intersecting street names. Restricting locations to sh:maxCount 1
+  for address and streetName was an ontological over-constraint.
+
+Finding B: Multi-Jurisdictional Administrative Regions
+- Administrative regions in LA 311 are composite zones identified by {NC}_{CD}
+  (Neighborhood Council and Council District).
+- Example: res:AdministrativeRegion/64_4 ("Bel Air-Beverly Crest CD 4").
+- This region spans TWO distinct Area Planning Commissions:
+  * "Central APC"
+  * "West Los Angeles APC"
+- Similarly, administrative regions frequently cross multiple LAPD Police
+  Precinct boundaries (e.g., Hollywood vs. West LA).
+- Insight: Imposing sh:maxCount 1 on apc and policePrecinct contradicted the
+  geographical reality of Los Angeles city administrative boundaries.
+
+
+4. FIXES APPLIED TO SHACL SHAPES ("AFTER")
+--------------------------------------------------------------------------------
+In accordance with the assignment guidelines ("fix any problem found during validation"),
+we refined shacl/shapes.ttl:
+
+1. Relaxed Over-Constrained Cardinalities:
+   - Removed sh:maxCount 1 from la311:address and la311:streetName.
+   - Removed sh:maxCount 1 from la311:apc and la311:policePrecinct.
+   - Removed sh:maxCount 1 from la311:approximateAddress and la311:houseNumber.
+
+2. Preserved Strict Quality Safeguards:
+   - Kept mandatory checks intact: sh:minCount 1 on la311:address (a location
+     must always have at least one address label).
+   - Kept mandatory checks on la311:apc and la311:policePrecinct (sh:minCount 1).
+   - Maintained strict datatype enforcement (xsd:string, xsd:decimal, geo:wktLiteral).
+   - Maintained IRI object constraints on external links (owl:sameAs, cdMember).
+
+
+5. FINAL VALIDATION OUTCOME
+--------------------------------------------------------------------------------
+- Re-validation Command: python3 validate_shacl.py
+- Execution Time: ~14.8 seconds across 547,870 triples.
+- Final Result: CONFORMS
+- Final Report Status: sh:conforms true
+- Remaining Violations: 0
+
+
+6. PRESENTATION SLIDE BULLET POINTS (READY TO COPY-PASTE)
+--------------------------------------------------------------------------------
+Slide Title: Knowledge Graph Quality Assurance: SHACL Validation
+
+* Goal: Structural & semantic graph validation against our LA 311 ontology.
+* Scale: Validated all 547,870 triples using W3C PySHACL.
+* Initial Run: Found 190 violations, all linked to "maxCount 1" over-constraints.
+* Real-World Insights:
+  - Street intersections legitimately possess multiple address labels and street names.
+  - Civic administrative regions span multiple planning commissions (APCs) & police precincts.
+* Fixes Implemented:
+  - Adapted shapes to allow multi-valued civic attributes without sacrificing datatype rigor.
+* Final Result: 100% Conformance (sh:conforms true, 0 violations).
+================================================================================
