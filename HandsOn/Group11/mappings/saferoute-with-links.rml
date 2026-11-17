@@ -23,14 +23,14 @@
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/TrafficAccident/{num_expediente}";
+    rr: "https://w3id.org/saferoutemadrid/resource/TrafficAccident_{num_expediente}";
     rr:class ns:TrafficAccident
   ];
 
   rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
-      rr:template "Traffic accident {num_expediente}";
+      rr: "Traffic accident {num_expediente}";
       rr:language "en"
     ]
   ];
@@ -93,14 +93,14 @@
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/Location/{num_expediente}";
+    rr: "https://w3id.org/saferoutemadrid/resource/Location_{num_expediente}";
     rr:class ns:Location
   ];
 
   rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
-      rr:template "Location of traffic accident {num_expediente}";
+      rr: "Location of traffic accident {num_expediente}";
       rr:language "en"
     ]
   ];
@@ -147,7 +147,7 @@ rr:predicateObjectMap [
   rr:predicateObjectMap [
     rr:predicate ns:hasMapLink ;
     rr:objectMap [
-        rr:template "https://www.google.com/maps?q={latitud},{longitud}" ;
+        rr: "https://www.google.com/maps?q={latitud},{longitud}" ;
         rr:termType rr:IRI
     ]
   ];
@@ -165,14 +165,14 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/Point/{num_expediente}";
+    rr: "https://w3id.org/saferoutemadrid/resource/Point_{num_expediente}";
     rr:class ns:Point
   ];
 
   rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
-      rr:template "Point of traffic accident {num_expediente}";
+      rr: "Point of traffic accident {num_expediente}";
       rr:language "en"
     ]
   ];
@@ -199,7 +199,7 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/District/{cod_distrito}";
+    rr: "https://w3id.org/saferoutemadrid/resource/District_{cod_distrito}";
     rr:class ns:District
   ];
 
@@ -241,14 +241,14 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/Vehicle/{ID_vehiculo}";
+    rr: "https://w3id.org/saferoutemadrid/resource/Vehicle_{ID_vehiculo}";
     rr:class ns:Vehicle
   ];
 
   rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
-      rr:template "Vehicle {ID_vehiculo}";
+      rr: "Vehicle {ID_vehiculo}";
       rr:language "en"
     ]
   ];
@@ -273,14 +273,14 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/Person/{ID_persona}";
+    rr: "https://w3id.org/saferoutemadrid/resource/Person_{ID_persona}";
     rr:class ns:Person
   ];
 
   rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
-      rr:template "Person {ID_persona}";
+      rr: "Person {ID_persona}";
       rr:language "en"
     ]
   ];
@@ -337,7 +337,7 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/AccidentType/{tipo_accidente}";
+    rr: "https://w3id.org/saferoutemadrid/resource/AccidentType_{ID_tipo_accidente}";
     rr:class ns:AccidentType, skos:Concept
   ];
 
@@ -363,7 +363,7 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/WeatherCondition/{estado_meteorológico}";
+    rr: "https://w3id.org/saferoutemadrid/resource/WeatherCondition_{ID_estado_meteorologico}";
     rr:class ns:WeatherCondition, skos:Concept
   ];
 
@@ -381,7 +381,7 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/VehicleType/{tipo_vehiculo}";
+    rr: "https://w3id.org/saferoutemadrid/resource/VehicleType_{ID_tipo_vehiculo}";
     rr:class ns:VehicleType, skos:Concept
   ];
 
@@ -407,7 +407,7 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/PersonType/{tipo_persona}";
+    rr: "https://w3id.org/saferoutemadrid/resource/PersonType_{tipo_persona}";
     rr:class ns:PersonType, skos:Concept
   ];
 
@@ -433,7 +433,7 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/AgeRange/{rango_edad}";
+    rr: "https://w3id.org/saferoutemadrid/resource/AgeRange_{ID_rango_edad}";
     rr:class ns:AgeRange, skos:Concept
   ];
 
@@ -451,7 +451,7 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/Sex/{sexo}";
+    rr: "https://w3id.org/saferoutemadrid/resource/Sex_{sexo}";
     rr:class ns:Sex, skos:Concept
   ];
 
@@ -469,7 +469,7 @@ rr:predicateObjectMap [
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://w3id.org/saferoutemadrid/resource/InjurySeverity/{lesividad}";
+    rr: "https://w3id.org/saferoutemadrid/resource/InjurySeverity_{ID_lesividad}";
     rr:class ns:InjurySeverity, skos:Concept
   ];
 

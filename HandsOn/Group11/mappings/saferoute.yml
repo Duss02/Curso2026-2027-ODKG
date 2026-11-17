@@ -17,7 +17,7 @@ sources:
 mappings:
   TrafficAccident:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/TrafficAccident/$(num_expediente)
+    s: https://w3id.org/saferoutemadrid/resource/TrafficAccident_$(num_expediente)
     po:
       - [a, ns:TrafficAccident]
       - [rdfs:label, "Traffic accident $(num_expediente)", en~lang]
@@ -31,7 +31,7 @@ mappings:
 
   Point:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/Point/$(num_expediente)
+    s: https://w3id.org/saferoutemadrid/resource/Point_$(num_expediente)
     po:
       - [a, ns:Point]
       - [rdfs:label, "Point of traffic accident $(num_expediente)", en~lang]
@@ -40,7 +40,7 @@ mappings:
 
   Location:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/Location/$(num_expediente)
+    s: https://w3id.org/saferoutemadrid/resource/Location_$(num_expediente)
     po:
       - [a, ns:Location]
       - [rdfs:label, "Location of traffic accident $(num_expediente)", en~lang]
@@ -54,7 +54,7 @@ mappings:
 
   District:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/District/$(cod_distrito)
+    s: https://w3id.org/saferoutemadrid/resource/District_$(cod_distrito)
     po:
       - [a, ns:District]
       - [rdfs:label, $(distrito), es~lang]
@@ -63,7 +63,7 @@ mappings:
 
   Vehicle:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/Vehicle/$(ID_vehiculo)
+    s: https://w3id.org/saferoutemadrid/resource/Vehicle_$(ID_vehiculo)
     po:
       - [a, ns:Vehicle]
       - [rdfs:label, "Vehicle $(ID_vehiculo)", en~lang]
@@ -72,7 +72,7 @@ mappings:
 
   Person:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/Person/$(ID_persona)
+    s: https://w3id.org/saferoutemadrid/resource/Person_$(ID_persona)
     po:
       - [a, ns:Person]
       - [rdfs:label, "Person $(ID_persona)", en~lang]
@@ -85,7 +85,7 @@ mappings:
 
   AccidentType:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/AccidentType/$(tipo_accidente)
+    s: https://w3id.org/saferoutemadrid/resource/AccidentType_$(tipo_accidente)
     po:
       - [a, ns:AccidentType]
       - [a, skos:Concept]
@@ -94,7 +94,7 @@ mappings:
 
   WeatherCondition:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/WeatherCondition/$(estado_meteorológico)
+    s: https://w3id.org/saferoutemadrid/resource/WeatherCondition_$(estado_meteorológico)
     po:
       - [a, ns:WeatherCondition]
       - [a, skos:Concept]
@@ -103,7 +103,7 @@ mappings:
 
   VehicleType:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/VehicleType/$(tipo_vehiculo)
+    s: https://w3id.org/saferoutemadrid/resource/VehicleType_$(tipo_vehiculo)
     po:
       - [a, ns:VehicleType]
       - [a, skos:Concept]
@@ -112,7 +112,7 @@ mappings:
 
   PersonType:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/PersonType/$(tipo_persona)
+    s: https://w3id.org/saferoutemadrid/resource/PersonType_$(tipo_persona)
     po:
       - [a, ns:PersonType]
       - [a, skos:Concept]
@@ -121,7 +121,7 @@ mappings:
 
   AgeRange:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/AgeRange/$(rango_edad)
+    s: https://w3id.org/saferoutemadrid/resource/AgeRange_$(rango_edad)
     po:
       - [a, ns:AgeRange]
       - [a, skos:Concept]
@@ -130,7 +130,7 @@ mappings:
 
   Sex:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/Sex/$(sexo)
+    s: https://w3id.org/saferoutemadrid/resource/Sex_$(sexo)
     po:
       - [a, ns:Sex]
       - [a, skos:Concept]
@@ -139,7 +139,7 @@ mappings:
 
   InjurySeverity:
     sources: accidents
-    s: https://w3id.org/saferoutemadrid/resource/InjurySeverity/$(lesividad)
+    s: https://w3id.org/saferoutemadrid/resource/InjurySeverity_$(lesividad)
     po:
       - [a, ns:InjurySeverity]
       - [a, skos:Concept]
