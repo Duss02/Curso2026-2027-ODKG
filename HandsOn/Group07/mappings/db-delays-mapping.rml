@@ -1,6 +1,6 @@
 @prefix rml: <http://semweb.mmlab.be/ns/rml#>.
 @prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix dbd: <https://example.org/db-delays/ontology/#> .
+@prefix dbd: <https://example.org/db-delays/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -12,10 +12,10 @@
 # state class
 
 <#StateMap> a rr:TriplesMap ;
-    rml:logicalSource [ rml:source "../csv/DBtrainrides.csv";
+    rml:logicalSource [ rml:source "../csv/DBtrainrides-cleaned.csv";
                        rml:referenceFormulation ql:CSV ] ;
     rr:subjectMap [
-        rr:template "https://example.org/db-delays/resource/State/{state}" ;
+        rr:template "https://example.org/db-delays/resource/State/{state_slug}" ;
         rr:class dbd:State ;
         rr:termType rr:IRI;
     ];
@@ -33,12 +33,12 @@
 
 <#CityMap> a rr:TriplesMap ;
 rml:logicalSource [
-    rml:source "../csv/DBtrainrides.csv";
+    rml:source "../csv/DBtrainrides-cleaned.csv";
     rml:referenceFormulation ql:CSV;
   ];
 
 rr:subjectMap [
-    rr:template "https://example.org/db-delays/resource/City/{state}/{city}";
+    rr:template "https://example.org/db-delays/resource/City/{state_slug}/{city_slug}";
     rr:class dbd:City;
 ];
 
@@ -62,7 +62,7 @@ rr:predicateObjectMap [
 # trainstop class
 <#TrainStopMap> a rr:TriplesMap ;
 rml:logicalSource [
-    rml:source "../csv/DBtrainrides.csv";
+    rml:source "../csv/DBtrainrides-cleaned.csv";
     rml:referenceFormulation ql:CSV;
   ];
 
@@ -81,7 +81,7 @@ rr:predicateObjectMap [
     ]
 ];
 
-# ontology: atStation, csv: eva_nr
+# ontology: atStation, linked through StationMap
 rr:predicateObjectMap [
         rr:predicate dbd:atStation ;
         rr:objectMap [
@@ -204,11 +204,11 @@ rr:predicateObjectMap [
 # station class
 <#StationMap> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "../csv/DBtrainrides.csv";
+        rml:source "../csv/DBtrainrides-cleaned.csv";
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://example.org/db-delays/resource/Station/{eva_nr}";
+        rr:template "https://example.org/db-delays/resource/Station/{station_slug}";
         rr:class dbd:Station
     ];
 
@@ -232,11 +232,13 @@ rr:predicateObjectMap [
 
 # ontology: rdfs:label, csv: station
     rr:predicateObjectMap [
-        rr:predicateMap [rr:constant rdfs:label;
-            rr:termType rr:IRI];
-        rr:objectMap [rml:reference "station";
-            rr:termType rr:Literal;
-            rr:datatype xsd:string
+        rr:predicateMap [
+            rr:constant rdfs:label ;
+            rr:termType rr:IRI
+        ] ;
+        rr:objectMap [
+            rml:reference "station" ;
+            rr:termType rr:Literal
         ]
     ];
 
