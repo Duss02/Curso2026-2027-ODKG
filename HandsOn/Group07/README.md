@@ -71,6 +71,8 @@ sbx run shell .
 cd app
 docker compose down -v
 docker compose up -d
+cd web
+python -m http.server 8000
 ```
 4. **In a separate PowerShell**
 get the name of the shell with
@@ -91,3 +93,9 @@ sbx ports shell-Group07 --publish 8000:8000
 5. **Congratulation**
 Database at : http://localhost:7200
 Front at : http://localhost:8000
+
+You may clean your redirections using :
+```bash
+sbx ports shell-Group07 --unpublish 7200:7200
+sbx ports shell-Group07 --unpublish 8000:8000
+```
