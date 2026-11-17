@@ -1,0 +1,13 @@
+# Run on https://query.wikidata.org/sparql
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+SELECT ?prop ?propLabel ?value ?valueLabel
+WHERE {
+  VALUES ?item { <http://www.wikidata.org/entity/Q115471735> }
+  ?item ?p ?value .
+  ?prop wikibase:directClaim ?p ; wikibase:propertyType ?type .
+  FILTER (?type IN (wikibase:WikibaseItem, wikibase:Time, wikibase:Quantity, wikibase:String,
+                    wikibase:Url, wikibase:GlobeCoordinate, wikibase:Monolingualtext))
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en,mul". }
+}
+LIMIT 80

@@ -1,0 +1,3 @@
+SELECT (COUNT(*) AS ?triples) FROM <http://www.ontotext.com/explicit> WHERE { ?s ?p ?o }
+
+SELECT (COUNT(*) AS ?triples) FROM <http://www.ontotext.com/implicit> WHERE { ?s ?p ?o }

@@ -1,0 +1,224 @@
+<link href="css/home.css?v=3.5.2" rel="stylesheet">
+<div class="ot-loader ot-loader-home" onto-loader size="100" auto-font-size="false" message-text="{{'common.loading' | translate}}" ng-show="isLoadingLocation()"></div>
+<div id="wb-home" class="content-wrapper" ng-hide="isLoadingLocation()" ng-cloak>
+    <div class="alert alert-danger" role="alert" ng-hide="isLicenseValid()">
+        <strong>{{getLicenseErrorMsg()}}</strong>
+        <div ng-bind-html="'supply.license.or.contact.us.warning' | translate | trustAsHtml"></div>
+        <div class="mt-1">{{'no.license.restrictions' | translate}}</div>
+        <div class="mt-1">
+            <a href="license" ng-hide="!hasRole('ROLE_ADMIN')" class="btn btn-primary">
+                {{'license.settings.label' | translate}}
+            </a>
+        </div>
+    </div>
+    <div class="row" ng-if="!tutorialState">
+        <a href="#" class="btn btn-link float-xs-right show-tutorial" ng-click="showTutorial()">{{'show.welcome.panel' | translate}}</a>
+    </div>
+    <div class="row mb-3 tutorial-container" guide-selector="tutorial-container" ng-init="initTutorial()" ng-if="tutorialState">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-block">
+                    <button type="button" gdb-tooltip="{{'common.close' | translate}}" class="close" aria-label="Close"
+                            ng-click="declineTutorial()"></button>
+                    <div class="pages-wrapper">
+                        <div class="page-slide" ng-repeat="page in tutorialInfo track by $index">
+                            <h1 class="card-title">{{page.title}}</h1>
+                            <p class="card-text lead" ng-bind-html="getTutorialPageHtml(page)"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <a href="#" class="btn btn-secondary decline-tutorial" ng-click="declineTutorial()">{{'hide.panel' | translate}}</a>
+                    <a href="guides" class="btn btn-primary">{{'take.me.to.guides' | translate}}</a>
+                    <div class="btn-toolbar pull-right" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-secondary" ng-click="slideToPage($index)"
+                                    ng-repeat="page in tutorialInfo track by $index">{{$index + 1}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3" ng-if="getActiveRepository() && !isLoadingLocation() && hasActiveLocation()" ng-cloak>
+        <div class="col-lg-12 home-rdf-resource-search">
+            <h3 id="view-resource-label-home"><span  gdb-tooltip="{{'view.rdf.data.text.visual.graph.header' | translate}}" tooltip-placement="right">{{'view.resource.label' | translate}}</span></h3>
+            <div class="card">
+                <div class="card-block" ng-keydown="onKeyDown($event)">
+                    <search-resource-input
+                            repository-namespaces="repositoryNamespaces"
+                            is-autocomplete-enabled="isAutocompleteEnabled"
+                            open-in-new-tab="true"
+                            preserve-search="true"
+                            clear="doClear"
+                            empty="empty"
+                            radio-buttons="true"
+                            clear-input-icon="true"
+                            data-test="search-rdf-resource-component"
+                            id="search-resource-input-home">
+                    </search-resource-input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div core-errors></div>
+
+    <div class="mb-2 row" ng-show="!isLoadingLocation() && hasActiveLocation() && getActiveRepository()">
+        <div class="active-repo-widget col-lg-6">
+            <h3 id="active-repo-label-home"><span gdb-tooltip="{{'view.active.repo.info.label' | translate}}" tooltip-placement="top">{{'active.repo.label' | translate}}</span></h3>
+            <div class="card active-repo-card"
+                 ng-show="canReadRepo(getActiveRepositoryObject()) || hasGraphqlRightsOverCurrentRepo()">
+                <div class="card-block">
+                    <h6>{{getActiveRepositoryObject().location ? getActiveRepositoryObject().location : 'Local'}}</h6>
+                    <div class="actions-bar pull-right">
+                        <button type="button" gdb-tooltip="{{'copy.repo.url' | translate}}" class="btn btn-link"
+                                ng-click="copyToClipboard(getActiveRepositoryObject().externalUrl)"><span class="ri-links-line"></span>
+                        </button>
+                        <button type="button" ng-click="goToEditRepo(getActiveRepositoryObject())" class="btn btn-link" gdb-tooltip="{{'repoTooltips.editRepository' | translate}}"
+                                ng-if="canMaintainSelectedRepository() && getActiveRepositoryObject().type !== 'system'">
+                            <span class="ri-edit-line"></span>
+                        </button>
+                        <span ng-show="getDegradedReason()">
+                            <em class="ri-alert-line icon-lg text-warning"
+                                gdb-tooltip="{{getDegradedReason()}} {{'not.supported.repo.edit.label' | translate}}"
+                                tooltip-placement="top"></em>
+                        </span>
+                        <button type="button" gdb-tooltip="{{'refresh.repo.info' | translate}}" class="btn btn-link"
+                                ng-if="activeRepositorySize && !activeRepositorySizeError"
+                                ng-click="getActiveRepositorySize()"><span class="ri-reset-right-line"></span>
+                        </button>
+                    </div>
+                    <h3 class="card-title ellipsis-block repo-info-home">
+                        <em class="icon-2x" ng-class="'icon-repo-' + getActiveRepositoryObject().type"
+                            gdb-tooltip="{{toHumanReadableType(getActiveRepositoryObject().type)}} {{'repository.with.label' | translate}} {{canWriteActiveRepo() ? 'read.write' : 'read.only' | translate}} {{'access' | translate}}"></em>
+                        <div>
+                            {{getActiveRepository()}}<small ng-show="getActiveRepositoryObject().title"><span class="small"> &middot; {{getActiveRepositoryObject().title}}</span></small>
+                        </div>
+                    </h3>
+                    <div ng-if="activeRepositorySize && !activeRepositorySizeError">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xs-6 mb-1 total-statements">
+                                    <span>{{'total.statements' | translate}}</span>
+                                    <span class="data-value big" ng-if="activeRepositorySize.total !== -1">{{activeRepositorySize.total | currency:'':0}}</span>
+                                    <span class="data-value big" ng-if="activeRepositorySize.total === -1">&ndash;</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="explicit-statements">
+                                        <span class="data-value" ng-if="activeRepositorySize.explicit !== -1">{{activeRepositorySize.explicit | currency:'':0}}</span>
+                                        <span class="data-value" ng-if="activeRepositorySize.explicit === -1">&ndash;</span>
+                                        <span>{{'explicit' | translate}}</span>
+                                    </div>
+                                    <div class="inferred-statements">
+                                        <span class="data-value" ng-if="activeRepositorySize.inferred !== -1">{{activeRepositorySize.inferred | currency:'':0}}</span>
+                                        <span class="data-value" ng-if="activeRepositorySize.inferred === -1">&ndash;</span>
+                                        <span class="">{{'inferred' | translate}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="data-value" ng-if="activeRepositorySize.explicit !== 0 && activeRepositorySize.total !== -1">{{activeRepositorySize.total / activeRepositorySize.explicit | number: 2}}</span>
+                                        <span class="data-value" ng-if="activeRepositorySize.explicit === 0 || activeRepositorySize.total === -1">&ndash;</span>
+                                        <span class="">{{'expansion.ratio' | translate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="activeRepositorySizeError">
+                        <div class="d-inline-block mr-1 mb-1">
+                            {{'error' | translate}}
+                            <span class="data-value big">{{activeRepositorySizeError}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div>
+                                <a ng-show="canWriteActiveRepo()" class="btn btn-link" href="import">{{'import.rdf.data.label' | translate}}</a>
+                                <button ng-hide="canWriteActiveRepo()" disabled class="btn btn-link" href="import">{{'import.rdf.data.label' | translate}}</button>
+                            </div>
+                            <div>
+                                <a ng-show="canReadRepo(getActiveRepositoryObject())" class="btn btn-link" href="graphs">{{'export.rdf.data' | translate}}</a>
+                                <button ng-show="hasGraphqlRightsOverCurrentRepo()" disabled class="btn btn-link" href="export">{{'export.rdf.data' | translate}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="saved-sparql-queries-widget col-lg-6">
+            <h3 id="saved-queries-label-home"><span gdb-tooltip="{{'saved.sparql.queries.tooltip' | translate}}" tooltip-placement="top">{{'saved.sparql.queries.label' | translate}}</span></h3>
+            <div class="card"
+                 ng-cloak>
+                <div>
+                    <ul class="list-group limit-height clearfix {{sampleQueries.length <= 4 ? 'one-column' : 'two-columns'}} saved-queries" ng-show="sampleQueries">
+                        <li ng-repeat="query in sampleQueries" ng-hide="isIgnoreSharedQueries && query.owner != null && query.shared" class="list-group-item list-group-item-action">
+                            <span class="help-label execute-saved-query" ng-click="goToSparqlEditor(query)">{{'common.execute' | translate}} <span class="ri-arrow-right-s-line"></span></span>
+                            <samp class="query-name">{{query.name}}</samp>
+                            <samp class="text-muted small">{{query.body}}</samp>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <div class="license-widget col-lg-12">
+            <h3 id="license-label-home"><span gdb-tooltip="{{'menu.license.tooltip' | translate}}" tooltip-placement="right">{{'menu.license.label' | translate}}</span></h3>
+            <div class="card">
+                <h4 ng-if="isLicensePresent()" class="card-header">GraphDB {{getProductType() | titlecase}} {{'edition' | translate}}</h4>
+                <h4 ng-if="!isLicensePresent()" class="card-header">{{'no.license' | translate}}</h4>
+                <!-- appears only when there is a problem with the license -->
+                <div class="alert alert-danger" role="alert" ng-hide="isLicenseValid()">
+                    <strong>{{getLicenseErrorMsg()}}</strong>
+                </div>
+                <div class="card-block">
+                    <div class="row" ng-if="isLicensePresent()">
+                        <div class="float-xs-left d-inline-block ml-1 mr-2 mb-1">
+                            {{'licensed.to' | translate}}
+                            <span class="data-value d-block">{{getLicense().licensee}}</span>
+                        </div>
+                        <div class="float-xs-left d-inline-block ml-1 mr-2 mb-1">
+                            {{'valid.until' | translate}}
+                            <span class="data-value d-block">{{getLicense().expiryDate ? (getLicense().expiryDate | date: 'yyyy-MM-dd') : 'perpetual' | translate}}</span>
+                        </div>
+                        <div class="float-xs-left d-inline-block ml-1 mr-2 mb-1">
+                            {{'cores.number' | translate}}
+                            <span class="data-value d-block">{{getLicense().maxCpuCores ? getLicense().maxCpuCores : 'unlimited' | translate}}</span>
+                        </div>
+                        <div class="float-xs-left d-inline-block ml-1 mr-2 mb-1">
+                            {{'maintenance.date' | translate}}
+                            <span class="data-value d-block">{{getLicense().latestPublicationDate ? (getLicense().latestPublicationDate | date: 'yyyy-MM-dd') : 'perpetual' | translate}}</span>
+                        </div>
+                        <div class="float-xs-left d-inline-block ml-1 mb-1">
+                            {{'capabilities' | translate}}
+                            <div class="data-value d-block">
+                                <div ng-if="getLicense().licenseCapabilities.getItems().length !== 0">
+                                    <div ng-repeat="capability in getLicense().licenseCapabilities.getItems()">
+                                        <div>{{capability}}</div>
+                                    </div>
+                                </div>
+                                <div ng-if="getLicense().licenseCapabilities.getItems().length === 0">
+                                    <div>{{'none' | translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p ng-if="isLicensePresent()" class="text-muted">
+                        {{getLicense().typeOfUse}}
+                    </p>
+
+                    <div>
+                        <a href="license" ng-hide="!hasRole('ROLE_ADMIN')" class="btn btn-primary">
+                            {{'license.settings.label' | translate}}
+                        </a>
+                    </div><!-- GET namespaces list -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

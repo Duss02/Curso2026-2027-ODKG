@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=57384;export const __webpack_esm_ids__=[57384];export const __webpack_esm_modules__={57384(s,e,_){_.d(e,{R:()=>a});class a{constructor(s){this.TYPE=s.TYPE,this.message=s.payload.message,this.code=s.payload.code,this.messageType=s.payload.messageType}}}};
+//# sourceMappingURL=57384.fc89c84eca8eaa777389.bundle.js.map

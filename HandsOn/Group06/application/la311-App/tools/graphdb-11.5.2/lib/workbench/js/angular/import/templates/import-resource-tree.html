@@ -1,0 +1,235 @@
+<div onto-loader message="getLoaderMessage" size="50" ng-if="showLoader"></div>
+
+<div class="import-resource-tree mt-2" ng-if="!showLoader && resources && !resources.isEmpty()">
+    <div class="import-resource-tree-header">
+        <div class="import-resources-actions">
+            <div class="import-resource-status-dropdown btn-group" uib-dropdown>
+                <button type="button" uib-dropdown-toggle class="btn btn-secondary dropdown-toggle"
+                        ng-class="{'selected': selectedByStatus}">
+                    <input type="checkbox" prop-indeterminate="areAllDisplayedImportResourcesPartialSelected"
+                           ng-model="areAllDisplayedImportResourcesSelected">
+                    {{selectedByStatus ? (('import.import_resource_tree.status.' + selectedByStatus) | translate) : ''}}
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <button type="button" class="dropdown-item"
+                                ng-click="selectResourceWithStatus(STATUS_OPTIONS.ALL)">
+                            {{'import.import_resource_tree.status.ALL' | translate}}
+                        </button>
+                        <button type="button" class="dropdown-item"
+                                ng-click="selectResourceWithStatus(STATUS_OPTIONS.NONE)">
+                            {{'import.import_resource_tree.status.NONE' | translate}}
+                        </button>
+                        <button type="button" class="dropdown-item"
+                                ng-click="selectResourceWithStatus(STATUS_OPTIONS.IMPORTED)">
+                            {{'import.import_resource_tree.status.IMPORTED' | translate}}
+                        </button>
+                        <button type="button" class="dropdown-item"
+                                ng-click="selectResourceWithStatus(STATUS_OPTIONS.NOT_IMPORTED)">
+                            {{'import.import_resource_tree.status.NOT_IMPORTED' | translate}}
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="import-resource-selected-actions btn-group"
+                 ng-if="hasSelection">
+                <div class="btn-group batch-import-dropdown" uib-dropdown
+                     uib-popover="{{'import.selected.items' | translate}}"
+                     popover-trigger="mouseenter"
+                     popover-placement="top">
+                    <button type="button" class="btn btn-primary batch-import-btn" ng-click="importAll(false)">
+                        <span class="icon-import"></span>
+                        {{'common.import' | translate}}
+                    </button>
+                    <button type="button" class="btn btn-primary dropdown-toggle-split dropdown-toggle"
+                            uib-dropdown-toggle>
+                        <span class="sr-only"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <button type="button"
+                                    class="dropdown-item import-without-change-btn batch-import-without-change-btn"
+                                    ng-click="importAll(true)">
+                                {{'import.without.changing.settings' | translate}}
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn btn-secondary reset-status-btn batch-reset-btn" type="button"
+                        ng-click="onResetStatus()"
+                        ng-if="canResetSelectedResources"
+                        uib-popover="{{'import.reset.last.imported' | translate}}"
+                        popover-trigger="mouseenter"
+                        popover-placement="top">
+                    {{'import.reset.status' | translate}}
+                </button>
+                <button ng-if="canRemoveResource" class="btn btn-secondary remove-resources-btn" type="button"
+                        ng-click="onRemoveResources()"
+                        uib-popover="{{'import.remove.selected' | translate}}"
+                        popover-trigger="mouseenter"
+                        popover-placement="top">
+                    {{'import.remove.btn' | translate}}
+                </button>
+            </div>
+        </div>
+        <div class="import-resource-tree-filter btn-group">
+            <div ng-if="showTypeFilter" class="import-resource-type-filter mr-1">
+                <button class="btn btn-secondary show-all-resources-btn"
+                        ng-click="filterByTypeChanged(TYPE_FILTER_OPTIONS.ALL)"
+                        ng-class="{'active': TYPE_FILTER_OPTIONS.ALL === filterByType}">
+                    <em class="ri-file-line"></em>
+                    <em class="ri-folder-3-line"></em>
+                </button>
+                <button class="btn btn-secondary show-only-folders-btn"
+                        ng-click="filterByTypeChanged(TYPE_FILTER_OPTIONS.DIRECTORY)"
+                        ng-class="{'active': TYPE_FILTER_OPTIONS.DIRECTORY === filterByType}">
+                    <em class="ri-folder-3-line"></em>
+                </button>
+                <button class="btn btn-secondary show-only-files-btn"
+                        ng-click="filterByTypeChanged(TYPE_FILTER_OPTIONS.FILE)"
+                        ng-class="{'active': TYPE_FILTER_OPTIONS.FILE === filterByType}">
+                    <em class="ri-file-line"></em>
+                </button>
+            </div>
+
+            <div class="import-resource-filter btn-group">
+                <div class="input-group">
+                    <input id="fileQuery" class="form-control" type="text" ng-model="filterByFileName"
+                           autocomplete="off"
+                           ng-change="filterByFileNameChanged(filterByFileName)"
+                           placeholder="{{'import.type.to.filter' | translate}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="import-resource-table mt-2">
+        <thead>
+        <tr>
+            <th class="header-cell cell-select"></th>
+            <th class="header-cell cell-name" ng-click="sort(SORTING_TYPES.NAME)">
+                <span ng-class="{
+                'sorting_desc': SORTING_TYPES.NAME === sortedBy &&  !sortAsc,
+                'sorting_asc': SORTING_TYPES.NAME === sortedBy && sortAsc,
+                'sorting': SORTING_TYPES.NAME !== sortedBy
+                }">{{columnKeys.name | translate}}</span>
+            </th>
+            <th class="header-cell cell-size" ng-click="sort(SORTING_TYPES.SIZE)">
+                <span ng-class="{
+                'sorting_desc': SORTING_TYPES.SIZE === sortedBy &&  !sortAsc,
+                'sorting_asc': SORTING_TYPES.SIZE === sortedBy && sortAsc,
+                'sorting': SORTING_TYPES.SIZE !== sortedBy
+                }">{{columnKeys.size | translate}}</span>
+            </th>
+            <th class="header-cell cell-modified" ng-click="sort(SORTING_TYPES.MODIFIED)">
+                <span ng-class="{
+                'sorting_desc': SORTING_TYPES.MODIFIED === sortedBy &&  !sortAsc,
+                'sorting_asc': SORTING_TYPES.MODIFIED === sortedBy && sortAsc,
+                'sorting': SORTING_TYPES.MODIFIED !== sortedBy
+                }">{{columnKeys.modified | translate}}</span>
+            </th>
+            <th class="header-cell cell-imported" ng-click="sort(SORTING_TYPES.IMPORTED)">
+                <span ng-class="{
+                'sorting_desc': SORTING_TYPES.IMPORTED === sortedBy &&  !sortAsc,
+                'sorting_asc': SORTING_TYPES.IMPORTED === sortedBy && sortAsc,
+                'sorting': SORTING_TYPES.IMPORTED !== sortedBy
+                }">{{columnKeys.imported | translate}}</span>
+            </th>
+            <th class="header-cell cell-context" ng-click="sort(SORTING_TYPES.CONTEXT)">
+                <span ng-class="{
+                'sorting_desc': SORTING_TYPES.CONTEXT === sortedBy &&  !sortAsc,
+                'sorting_asc': SORTING_TYPES.CONTEXT === sortedBy && sortAsc,
+                'sorting': SORTING_TYPES.CONTEXT !== sortedBy
+                }">{{columnKeys.context | translate}}</span>
+            </th>
+            <th class="header-cell import-resource-action"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat-start="resource in displayResources track by resource.importResource.hash"
+            class="row title-row"
+            ng-class="{ 'even-row-start': $even, 'odd-row-start': $odd}">
+            <td class="cell cell-select">
+                <input type="checkbox" ng-model="resource.selected" ng-click="selectionChanged(resource)"
+                       prop-indeterminate="resource.partialSelected" class="select-checkbox">
+            </td>
+            <td ng-style="{'padding-left': (filterByType !== TYPE_FILTER_OPTIONS.FILE ? resource.indent : '8px')}"
+                class="cell">
+                <span class="cell-title">
+                    <em ng-class="resource.iconClass"></em>
+                    <div ng-if="onEditResource && resource.isEditable">
+                        <a href="#" ng-click="editResource(resource)" title="{{resource.name}}">
+                            <strong>{{resource.shortenedName ? resource.shortenedName : resource.name}}</strong>
+                        </a>
+                    </div>
+                    <div ng-if="!resource.isEditable" title="{{resource.name}}">
+                        <strong>{{resource.shortenedName ? resource.shortenedName : resource.name}}</strong>
+                    </div>
+                </span>
+            </td>
+            <td class="cell cell-size">
+                {{ resource.importResource.size | humanReadableSize}}
+            </td>
+            <td class="cell cell-modified"
+                ng-class="{'font-weight-bold': resource.isModifiedBiggerThanImported}">
+                {{ resource.importResource.modifiedOn ? (resource.importResource.modifiedOn | date:'yyyy-MM-dd, HH:mm') : '' }}
+            </td>
+            <td class="cell cell-imported"
+                ng-class="{'font-weight-bold': resource.isImportedBiggerThanModified}">
+                {{ resource.importResource.importedOn ? (resource.importResource.importedOn | date:'yyyy-MM-dd, HH:mm') : '' }}
+            </td>
+            <td class="cell">
+                <a if="resource.importResource.context"
+                   title="{{resource.importResource.context}}"
+                   class="uri-link"
+                   href="{{'resource?uri=' + resource.importResource.context + '&role=context'}}">
+                    {{resource.shortenedContext ? resource.shortenedContext : resource.importResource.context}}
+                </a>
+            </td>
+            <td class="cell">
+                <div class="cell-actions">
+                    <import-resource-status-info class="btn btn-sm import"
+                                                 ng-if="resource.hasStatusInfo"
+                                                 resource="resource"></import-resource-status-info>
+                    <button role="button" class="btn btn-link btn-sm secondary import-resource-action-reset-btn"
+                            ng-click="resetStatus(resource)"
+                            ng-if="resource.canResetStatus"
+                            ng-disabled="hasSelection"
+                            gdb-tooltip="{{'import.reset.status' | translate}}">
+                        <span class="ri-close-line"></span>
+                    </button>
+                    <button ng-if="canRemoveResource && resource.importResource.status !== ImportResourceStatus.UPLOADING && resource.importResource.status !== ImportResourceStatus.UPLOADED && resource.importResource.status !== ImportResourceStatus.UPLOAD_ERROR"
+                            class="btn btn-link btn-sm secondary import-resource-action-remove-btn"
+                            ng-disabled="hasSelection"
+                            ng-click="removeResource(resource)"
+                            gdb-tooltip="{{'import.remove.btn' | translate}}">
+                        <em class="ri-delete-bin-6-line"></em>
+                    </button>
+                    <button class="btn btn-secondary btn-sm import-resource-action-import-btn"
+                            ng-if="resource.isImportable"
+                            ng-click="onImport({resource: resource})"
+                            ng-disabled="hasSelection"
+                            guide-selector="import-file-{{resource.name}}"
+                            gdb-tooltip="{{'import.import.btn' | translate}}">
+                        <span class="icon-import"></span>
+                    </button>
+                    <button class="btn btn-sm"
+                            ng-click="stopImport(resource)"
+                            ng-disabled="resource.importResource.status === ImportResourceStatus.INTERRUPTING"
+                            ng-if="resource.hasOngoingImport"
+                            gdb-tooltip="{{'import.import_resource_tree.action.interrupt_import' | translate}}">
+                        <span class="ri-close-line"></span>
+                        {{'import.import_resource_tree.action.abort' | translate}}
+                    </button>
+                </div>
+            </td>
+        </tr>
+        <tr ng-repeat-end class="row info-row" ng-class="{ 'even-row-end': $even, 'odd-row-end': $odd}">
+            <td class="cell cell-select"></td>
+            <td colspan="6" ng-style="{'padding-left': (filterByType !== TYPE_FILTER_OPTIONS.FILE ? resource.indent : '8px')}"
+                class="cell">
+                <import-resource-message resource="resource"></import-resource-message>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

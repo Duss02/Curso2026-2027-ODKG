@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=38501;export const __webpack_esm_ids__=[38501];export const __webpack_esm_modules__={38501(e,_,r){r.d(_,{L:()=>s});const s={savedQueryName:"savedQueryName",savedQueryOwner:"owner",query:"query",name:"name",owner:"owner"}}};
+//# sourceMappingURL=38501.c63eb6b69e84bc48ab09.bundle.js.map

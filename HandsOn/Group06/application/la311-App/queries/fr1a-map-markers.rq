@@ -1,0 +1,29 @@
+PREFIX la311: <http://linkeddata.la311.com/ontology#>
+PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# Le Location sono identificate dalle coordinate: alcune hanno più la311:address,
+# quindi GROUP BY + SAMPLE per avere una sola riga (un marker) per richiesta.
+SELECT ?srNumber ?requestType ?status ?created ?wkt (SAMPLE(?addr) AS ?address)
+WHERE {
+  VALUES ?requestType { "Bulky Items" "Graffiti Removal" "Illegal Dumping Pickup" }
+  ?sr a la311:ServiceRequest ;
+      la311:srNumber    ?srNumber ;
+      la311:requestType ?requestType ;
+      la311:status      ?status ;
+      la311:createdDate ?created ;
+      la311:hasLocation ?loc .
+  ?loc geo:asWKT       ?wkt ;
+       la311:latitude  ?lat ;
+       la311:longitude ?lon .
+  OPTIONAL { ?loc la311:address ?addr }
+  # Area (facoltativa): distretto consiliare
+  ?loc la311:isWithin/la311:cd 13 .
+  FILTER (?created >= "2025-01-01T00:00:00Z"^^xsd:dateTime
+       && ?created <  "2026-01-01T00:00:00Z"^^xsd:dateTime)
+  # Viewport corrente (sud, nord, ovest, est): latitude/longitude sono xsd:decimal
+  FILTER (?lat >= 33.70 && ?lat <= 34.35 && ?lon >= -118.70 && ?lon <= -118.15)
+}
+GROUP BY ?srNumber ?requestType ?status ?created ?wkt
+LIMIT 5000

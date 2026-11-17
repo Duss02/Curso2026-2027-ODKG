@@ -1,0 +1,140 @@
+<link href="css/ttyg/ttyg.css?v=3.5.2" rel="stylesheet"/>
+
+<div class="ttyg-view" ng-class="{'help-visible': isHelpVisible}">
+    <h1 id="ttyg-view-title">
+        {{ title }}
+        <page-info-tooltip></page-info-tooltip>
+    </h1>
+
+    <div core-errors></div>
+
+    <div uib-collapse="!isHelpVisible" class="alert alert-info">
+        <button type="button" ng-click="isHelpVisible = false" gdb-tooltip="{{'common.close' | translate}}" class="close"
+                aria-label="Close"></button>
+        <div ng-include="helpTemplateUrl"></div>
+    </div>
+
+    <div onto-loader
+         ng-show="loadingAgents"
+         class="ttyg-page-loader"
+         size="100">
+    </div>
+
+    <no-agents-view
+        ng-cloak ng-if="initialized && getActiveRepository() && !loadingAgents && !reloadingAgents && (!agents || agents.isEmpty())"
+        can-create-agent="canMaintainRepo">
+    </no-agents-view>
+
+    <div id="ttyg-container" class="ttyg-container" ng-show="getActiveRepository() && !loadingAgents && agents && !agents.isEmpty()">
+
+        <div id="left-sidebar" class="left-sidebar sidebar" ng-class="showChats ? 'expanded' : 'collapsed'">
+            <div class="toolbar">
+                <button class="btn btn-link btn-sm toggle-chats-sidebar-btn"
+                        ng-if="true"
+                        ng-click="toggleChatsListSidebar()"
+                        ng-disabled="false"
+                        gdb-tooltip="{{'ttyg.chat.btn.' + (showChats ? 'close_sidebar' : 'open_sidebar') + '.tooltip' | translate}}">
+                    <i class="ri-layout-left-line"></i>
+                </button>
+                <button class="btn btn-link btn-sm create-chat-btn" guide-selector="create-chat-btn"
+                        ng-if="chats && !chats.isEmpty()"
+                        ng-click="startNewChat()"
+                        ng-disabled="false"
+                        gdb-tooltip="{{'ttyg.chat.btn.create_chat.tooltip' | translate}}">
+                    <i class="ri-edit-line"></i>
+                </button>
+            </div>
+            <pageslide
+                ps-class="chat-list-panel slide-panel"
+                ps-container="left-sidebar"
+                ps-open="showChats"
+                onopen="onopen"
+                onclose="onclose"
+                ps-side="left"
+                ps-click-outside="false"
+                ps-size="80vw">
+                <div class="sidebar-content">
+                    <chat-list ng-if="chats"></chat-list>
+                    <div class="chat-list-panel-loader" ng-if="!chats && loadingChats">
+                        <div onto-loader auto-font-size="false" message-text="{{'ttyg.chat.loading_chats' | translate}}" size="25"></div>
+                    </div>
+                </div>
+            </pageslide>
+        </div>
+
+        <div class="chat-content">
+            <div class="chat">
+                <div class="toolbar mb-2">
+                    <agent-select-menu class="mr-1"></agent-select-menu>
+                    <button class="btn btn-link btn-sm edit-current-agent-btn mr-1" guide-selector="edit-current-agent"
+                            ng-if="selectedAgent"
+                            ng-click="onOpenAgentSettings()"
+                            ng-disabled="!selectedAgent.canEditAgent"
+                            gdb-tooltip="{{ (selectedAgent.canEditAgent ? 'ttyg.agent.btn.edit_agent.tooltip' : 'ttyg.agent.btn.edit_agent.tooltip_disabled') | translate}}">
+                        <i class="ri-settings-3-line"></i>
+                    </button>
+                </div>
+
+                <div uib-collapse="!isCollapsed" id="ot-help-text" class="alert alert-info">
+                    <button type="button" ng-click="isCollapsed = false" gdb-tooltip="{{'common.close' | translate}}"
+                            class="close"
+                            aria-label="Close"></button>
+                    <div ng-include="helpTemplateUrl"></div>
+                </div>
+
+                <chat-panel class="selected-chat-panel"></chat-panel>
+            </div>
+        </div>
+
+        <div id="right-sidebar" class="right-sidebar sidebar" ng-class="showAgents ? 'expanded' : 'collapsed'">
+            <div class="toolbar">
+                <button class="btn btn-link btn-sm help-btn"
+                        ng-if="true"
+                        ng-click="onToggleHelp()"
+                        ng-disabled="false"
+                        gdb-tooltip="{{'ttyg.help.btn.show_help.tooltip' | translate}}">
+                    <i class="ri-question-line"></i>
+                </button>
+                <button class="btn btn-link btn-sm create-agent-btn"
+                        ng-disabled="!canMaintainRepo"
+                        ng-click="onOpenNewAgentSettings()"
+                        gdb-tooltip="{{ (canMaintainRepo ? 'ttyg.agent.btn.create_agent.tooltip' : 'ttyg.agent.btn.create_agent.tooltip_disabled') | translate}}"
+                        guide-selector="create-agent-btn">
+                    <i class="ri-add-circle-line"></i>
+                </button>
+                <button class="btn btn-link btn-sm toggle-agents-sidebar-btn"
+                        ng-if="!showAgents"
+                        ng-click="toggleAgentsListSidebar()"
+                        ng-disabled="!canMaintainRepo"
+                        gdb-tooltip="{{'ttyg.agent.btn.open_sidebar.' + (canMaintainRepo ? 'tooltip' : 'tooltip_disabled') | translate}}">
+                    <i class="ri-robot-2-line"></i>
+                </button>
+                <button class="btn btn-link btn-sm toggle-agents-sidebar-btn"
+                        ng-if="showAgents"
+                        ng-click="toggleAgentsListSidebar()"
+                        ng-disabled="false"
+                        gdb-tooltip="{{'ttyg.agent.btn.close_sidebar' + '.tooltip' | translate}}">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+
+            <pageslide
+                ps-class="agent-list-panel slide-panel"
+                ps-container="right-sidebar"
+                ps-open="showAgents"
+                onopen="onopen"
+                onclose="onclose"
+                ps-side="right"
+                ps-click-outside="false"
+                ps-size="80vw">
+                <div class="sidebar-content">
+                    <agent-list ng-if="agents && agentListFilterModel.length && !reloadingAgents" agent-list="agents"
+                                agent-list-filter-model="agentListFilterModel"></agent-list>
+                    <div ng-if="reloadingAgents" onto-loader auto-font-size="false" message-text="{{'ttyg.agent.loading_agents' | translate}}"
+                         class="agent-list-loader"
+                         size="25" style="display: flex;"></div>
+                </div>
+            </pageslide>
+        </div>
+    </div>
+</div>

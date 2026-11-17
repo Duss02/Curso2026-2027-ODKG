@@ -1,0 +1,1 @@
+.grid-container,.text{display:flex}.text{flex-direction:column;flex-wrap:wrap}.rdf-info-side-panel{max-width:max(300px,25vw);top:45px!important}.rdf-info-side-panel-expanded{max-width:min(800px,100% - var(--menu-width))}#ux-test-slider{width:50%}

@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=73385;export const __webpack_esm_ids__=[73385];export const __webpack_esm_modules__={73385(_,e,p){p.d(e,{gJ:()=>l,y$:()=>m});const l=(_=[],e)=>_.map(_=>({column_name:_,column_type:e[_].column_type,nullable:!0,sparql_type:e[_].sparql_type})),m=(_,e)=>{_.column_type=e[_.column_name].column_type,_.sparql_type=e[_.column_name].sparql_type}}};
+//# sourceMappingURL=73385.49ca6731e646ab6cdd97.bundle.js.map

@@ -1,0 +1,20 @@
+# Data cleaning and enrichment
+pandas>=2.2
+pyproj>=3.6
+# RDF: RML mapping engine and local triplestore (SPARQL)
+morph-kgc>=2.8
+pyoxigraph>=0.3,<0.4   # morph-kgc requires 0.3.x
+# Streets and routing
+osmnx>=2.0
+osmium>=3.7          # reads the OSM extract (BBBike), instead of the overloaded Overpass API
+networkx>=3.3
+# Typed street search: fuzzy matching (offline) + local LLM through Ollama (HTTP)
+rapidfuzz>=3.9
+requests>=2.32
+# App
+streamlit>=1.38
+folium>=0.17
+streamlit-folium>=0.22
+pillow>=10.1         # route map picture in emails (ui/static_map.py)
+# Tests
+pytest>=8.3

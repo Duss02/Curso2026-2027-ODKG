@@ -1,0 +1,60 @@
+<title>GraphDB License Information</title>
+
+<h1>
+	{{title}}
+	<span class="btn btn-link"
+		uib-popover-template="'js/angular/templates/titlePopoverTemplate.html'"
+		popover-trigger="mouseenter"
+		popover-placement="bottom-right"
+		popover-append-to-body="true"><span class="ri-information-2-line text-tertiary"></span></span>
+</h1>
+
+<div onto-loader size="100" ng-show="loader"></div>
+
+<div class="alert alert-warning lead" ng-show="isLicenseHardcoded()">
+	{{'license.cannot.be.changed.from.wb.warning' | translate}}
+</div>
+
+<div class="alert alert-warning lead" ng-show="!isLicenseHardcoded() && !isAdmin()">
+	{{'license.admin.authority.constraint' | translate}}
+</div>
+
+<div class="register-license-container" ng-show="!isLicenseHardcoded() && isAdmin()">
+
+
+	<button ngf-select
+		ng-model="currentFile"
+		class="btn btn-secondary btn-lg text-xs-left mb-2 d-flex align-items-center"
+		accept="license">
+		<em class="ri-upload-2-line icon-lg"
+			gdb-tooltip="{{'select.license.tooltip' | translate}}"
+			tooltip-placement="top-right">
+		</em>
+
+		<div class="pull-left upload-license-btn-info">
+			{{'upload.license.btn' | translate}}
+			<br/>
+			<small class="text-muted">{{'supported.file.format.constraint' | translate}}</small>
+		</div>
+	</button>
+
+	<div class="form-group">
+		<label><em>or</em>{{'alternative.label' | translate}}</label>
+		<textarea class="form-control" rows="15" ng-model="licenseCode" placeholder="{{sample}}"
+			uib-popover="{{'alternative.set.license.option.popover' | translate}}"
+			popover-placement="bottom"
+popover-trigger="focus"></textarea>
+	</div>
+
+	<div class="text-right">
+        <button class="btn btn-secondary license-button"
+                ng-click="getBackToPreviousPage()">
+            {{'common.cancel.btn' | translate}}
+        </button>
+		<button class="btn btn-primary license-button"
+				ng-click="validateLicenseCode(licenseCode)">
+			{{'register.btn' | translate}}
+		</button>
+	</div>
+</div>
+
