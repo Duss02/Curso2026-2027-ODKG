@@ -1,0 +1,197 @@
+<mxfile host="Electron">
+  <diagram name="Ontology v2.0.0 (EDINT reuse)" id="bpm-v2">
+    <mxGraphModel dx="3001" dy="690" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bpm2-1" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;align=left;spacingLeft=8;" value="&lt;div&gt;&lt;b&gt;base:&lt;/b&gt; https://w3id.org/breatheplay-madrid/ontology#&lt;/div&gt;&lt;div&gt;&lt;b&gt;bpm:&lt;/b&gt; https://w3id.org/breatheplay-madrid/ontology#&lt;/div&gt;&lt;div&gt;&lt;b&gt;edintmed:&lt;/b&gt; https://edint.es/def/medio-ambiente#&lt;/div&gt;&lt;div&gt;&lt;b&gt;edintinf:&lt;/b&gt; https://edint.es/def/infraestructura#&lt;/div&gt;&lt;div&gt;&lt;b&gt;esadm:&lt;/b&gt; http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#&lt;/div&gt;&lt;div&gt;&lt;b&gt;esdir:&lt;/b&gt; http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/direccion-postal#&lt;/div&gt;&lt;div&gt;&lt;b&gt;sosa:&lt;/b&gt; http://www.w3.org/ns/sosa/&lt;/div&gt;&lt;div&gt;&lt;b&gt;qudt:&lt;/b&gt; http://qudt.org/schema/qudt/&lt;/div&gt;&lt;div&gt;&lt;b&gt;time:&lt;/b&gt; http://www.w3.org/2006/time#&lt;/div&gt;&lt;div&gt;&lt;b&gt;gsp:&lt;/b&gt; http://www.opengis.net/ont/geosparql#&lt;/div&gt;&lt;div&gt;&lt;b&gt;geo:&lt;/b&gt; http://www.w3.org/2003/01/geo/wgs84_pos#&lt;/div&gt;&lt;div&gt;&lt;b&gt;schema:&lt;/b&gt; http://schema.org/&lt;/div&gt;&lt;div&gt;&lt;b&gt;skos:&lt;/b&gt; http://www.w3.org/2004/02/skos/core#&lt;/div&gt;&lt;div&gt;&lt;b&gt;dcterms:&lt;/b&gt; http://purl.org/dc/terms/&lt;/div&gt;&lt;div&gt;&lt;b&gt;xsd:&lt;/b&gt; http://www.w3.org/2001/XMLSchema#&lt;/div&gt;&lt;div&gt;&lt;b&gt;rdfs:&lt;/b&gt; http://www.w3.org/2000/01/rdf-schema#&lt;/div&gt;&lt;div&gt;&lt;b&gt;owl:&lt;/b&gt; http://www.w3.org/2002/07/owl#&lt;/div&gt;&lt;div&gt;&lt;b&gt;vann:&lt;/b&gt;&amp;nbsp;http://purl.org/vocab/vann/&lt;/div&gt;" vertex="1">
+          <mxGeometry height="290" width="560" x="1360" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-2" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;labelBackgroundColor=#ffffff;strokeColor=#000000;fontSize=12;fontColor=#000000;size=0.1875;" value="&lt;div&gt;&lt;b&gt;dcterms:title:&lt;/b&gt; Breathe and Play Madrid ontology&lt;/div&gt;&lt;div&gt;&lt;b&gt;dcterms:creator:&lt;/b&gt; Group04&lt;/div&gt;&lt;div&gt;&lt;b&gt;owl:versionInfo:&lt;/b&gt; 2.0.0&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="460" x="60" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#fff2cc;strokeColor=#d6b656;" value="bpm:DailyObservation" vertex="1">
+          <mxGeometry height="30" width="220" x="30" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#fff2cc;strokeColor=#d6b656;" value="bpm:isValid: xsd:boolean" vertex="1">
+          <mxGeometry height="30" width="220" x="30" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="edintmed:EnvironmentalObservation" vertex="1">
+          <mxGeometry height="30" width="290" x="340" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="dcterms:identifier: xsd:string&lt;br&gt;sosa:hasSimpleResult: xsd:decimal" vertex="1">
+          <mxGeometry height="50" width="290" x="340" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="qudt:Unit" vertex="1">
+          <mxGeometry height="30" width="180" x="760" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="edintmed:EnvironmentalFeatureOfInterest" vertex="1">
+          <mxGeometry height="30" width="300" x="879" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="time:Interval" vertex="1">
+          <mxGeometry height="30" width="200" x="760" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="time:hasXSDDuration: xsd:duration" vertex="1">
+          <mxGeometry height="30" width="200" x="760" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="time:Instant" vertex="1">
+          <mxGeometry height="30" width="200" x="1113" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="time:inXSDDate: xsd:date" vertex="1">
+          <mxGeometry height="30" width="200" x="1113" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="edintmed:EnvironmentalProperty" vertex="1">
+          <mxGeometry height="30" width="240" x="-105" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="edintmed:EnvironmentalSensor" vertex="1">
+          <mxGeometry height="30" width="290" x="340" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="dcterms:identifier: xsd:string" vertex="1">
+          <mxGeometry height="30" width="290" x="340" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="sosa:Procedure" vertex="1">
+          <mxGeometry height="30" width="240" x="-105" y="521" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="dcterms:identifier: xsd:string" vertex="1">
+          <mxGeometry height="30" width="240" x="-105" y="551" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="skos:Concept" vertex="1">
+          <mxGeometry height="30" width="200" x="827" y="521" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="skos:notation: xsd:string" vertex="1">
+          <mxGeometry height="30" width="200" x="827" y="551" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="edintmed:SensorPlatform" vertex="1">
+          <mxGeometry height="30" width="290" x="340" y="778" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="dcterms:identifier: xsd:string&lt;br&gt;bpm:startDate: xsd:date" vertex="1">
+          <mxGeometry height="50" width="290" x="340" y="808" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#fff2cc;strokeColor=#d6b656;" value="bpm:StationType" vertex="1">
+          <mxGeometry height="30" width="240" x="-66" y="778" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#fff2cc;strokeColor=#d6b656;" value="dcterms:identifier: xsd:string" vertex="1">
+          <mxGeometry height="30" width="240" x="-66" y="808" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="edintinf:Facility" vertex="1">
+          <mxGeometry height="30" width="300" x="1228" y="778" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="dcterms:identifier: xsd:string&lt;br&gt;edintinf:accessibility: xsd:string&lt;br&gt;bpm:equipment: xsd:string&lt;br&gt;bpm:transportInfo: xsd:string&lt;br&gt;bpm:distanceToNearestStation: xsd:decimal&lt;br&gt;schema:url: xsd:anyURI" vertex="1">
+          <mxGeometry height="130" width="300" x="1228" y="808" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-26" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="gsp:Feature" vertex="1">
+          <mxGeometry height="30" width="240" x="700" y="978" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="geo:lat: xsd:decimal&lt;br&gt;geo:long: xsd:decimal&lt;br&gt;geo:alt: xsd:decimal" vertex="1">
+          <mxGeometry height="70" width="240" x="700" y="1008" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-28" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="gsp:Geometry" vertex="1">
+          <mxGeometry height="30" width="260" x="120" y="1028" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-29" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="gsp:asWKT: gsp:wktLiteral" vertex="1">
+          <mxGeometry height="30" width="260" x="120" y="1058" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="esdir:DireccionPostal" vertex="1">
+          <mxGeometry height="30" width="260" x="430" y="1168" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="schema:streetAddress: xsd:string&lt;br&gt;schema:postalCode: xsd:string&lt;br&gt;schema:addressLocality: xsd:string" vertex="1">
+          <mxGeometry height="70" width="260" x="430" y="1198" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="esadm:Distrito" vertex="1">
+          <mxGeometry height="30" width="220" x="1252" y="978" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-33" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="dcterms:identifier: xsd:string" vertex="1">
+          <mxGeometry height="30" width="220" x="1252" y="1008" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="esadm:Barrio" vertex="1">
+          <mxGeometry height="30" width="220" x="1228" y="1178" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" value="dcterms:identifier: xsd:string" vertex="1">
+          <mxGeometry height="30" width="220" x="1228" y="1208" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-36" edge="1" parent="1" source="bpm2-3" style="endArrow=block;html=1;endFill=0;endSize=8;rounded=0;edgeStyle=orthogonalEdgeStyle;" target="bpm2-5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-37" edge="1" parent="1" source="bpm2-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.8;exitY=0;entryX=0;entryY=0.5;" target="bpm2-7" value="qudt:unit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-38" edge="1" parent="1" source="bpm2-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="bpm2-8" value="sosa:hasFeatureOfInterest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-39" edge="1" parent="1" source="bpm2-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.9;entryX=0;entryY=0.5;" target="bpm2-9" value="sosa:phenomenonTime">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-40" edge="1" parent="1" source="bpm2-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="bpm2-11" value="time:hasBeginning">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-41" edge="1" parent="1" source="bpm2-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.7;entryX=0.5;entryY=0;exitDx=0;exitDy=0;" target="bpm2-14" value="sosa:madeBySensor">
+          <mxGeometry relative="1" x="0.6135" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpm2-42" edge="1" parent="1" source="bpm2-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;exitDx=0;exitDy=0;" target="bpm2-13" value="sosa:observedProperty">
+          <mxGeometry relative="1" x="0.6018" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpm2-43" edge="1" parent="1" source="bpm2-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.276;exitY=0;entryX=1;entryY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="bpm2-13" value="sosa:observes">
+          <mxGeometry relative="1" x="-0.0166" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-44" edge="1" parent="1" source="bpm2-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.2;exitY=0;entryX=1;entryY=0.5;exitDx=0;exitDy=0;" target="bpm2-16" value="sosa:implements">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-45" edge="1" parent="1" source="bpm2-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.8;exitY=0;entryX=0;entryY=0.5;exitDx=0;exitDy=0;" target="bpm2-18" value="edintmed:hasSensorType">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-46" edge="1" parent="1" source="bpm2-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=0.3;entryY=0;exitDx=0;exitDy=0;" target="bpm2-20" value="sosa:isHostedBy">
+          <mxGeometry relative="1" x="0.6491" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpm2-47" edge="1" parent="1" source="bpm2-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.7;exitY=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="bpm2-14" value="sosa:hosts">
+          <mxGeometry relative="1" x="-0.6491" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpm2-48" edge="1" parent="1" source="bpm2-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;strokeColor=#d79b00;fontColor=#d79b00;" target="bpm2-22" value="bpm:hasStationType">
+          <mxGeometry relative="1" x="-0.0361" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpm2-49" edge="1" parent="1" source="bpm2-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3;entryX=1;entryY=0.3;strokeColor=#d6b656;fontColor=#d79b00;entryDx=0;entryDy=0;exitDx=0;exitDy=0;fillColor=#fff2cc;" target="bpm2-20" value="bpm:hasNearestStation">
+          <mxGeometry relative="1" x="0.3311" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpm2-50" edge="1" parent="1" source="bpm2-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.3;exitY=0;entryX=1;entryY=0.5;" target="bpm2-18" value="edintinf:hasInfrastructureType">
+          <mxGeometry relative="1" x="-0.3321" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpm2-51" edge="1" parent="1" source="bpm2-20" style="endArrow=block;html=1;endFill=0;endSize=8;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.3;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.7;exitDx=0;exitDy=0;" target="bpm2-26" value="">
+          <mxGeometry relative="1" x="-0.0203" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-52" edge="1" parent="1" source="bpm2-24" style="endArrow=block;html=1;endFill=0;endSize=8;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.7;entryX=0.677;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="bpm2-26" value="">
+          <mxGeometry relative="1" x="-0.0518" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-53" edge="1" parent="1" source="bpm2-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3;entryX=0.5;entryY=0;exitDx=0;exitDy=0;" target="bpm2-28" value="gsp:hasGeometry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-54" edge="1" parent="1" source="bpm2-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.7;entryX=0.5;entryY=0;exitDx=0;exitDy=0;" target="bpm2-30" value="schema:address">
+          <mxGeometry relative="1" x="0.288" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bpm2-55" edge="1" parent="1" source="bpm2-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;entryX=0;entryY=0.3;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="bpm2-32" value="edintinf:belongsTo">
+          <mxGeometry relative="1" x="0.0184" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-56" edge="1" parent="1" source="bpm2-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.7;entryX=0;entryY=0.5;exitDx=0;exitDy=0;" target="bpm2-34" value="edintinf:belongsTo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bpm2-57" edge="1" parent="1" source="bpm2-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" target="bpm2-32" value="gsp:sfWithin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

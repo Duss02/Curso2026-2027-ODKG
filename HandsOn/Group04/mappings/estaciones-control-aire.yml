@@ -2,6 +2,9 @@
 # YARRRML version of estaciones-control-aire.rml (same rules, same RDF).
 # Dataset: Estaciones de control de la calidad del aire (Ayuntamiento de Madrid, 212629)
 # Source:  csv/212629-0-estaciones-control-aire-csv-updated.csv
+# IRIs: readable names of the resources (columns *_SLUG, added in OpenRefine: name
+# in lower case without accents, words joined by "-"), e.g. resource/station/plaza-de-espana;
+# the codes of the source are kept as literals.
 # Run from the HandsOn/Group04 directory (python mappings/generate_rdf.py yml),
 # so that the csv/ paths resolve.
 
@@ -19,7 +22,7 @@ mappings:
   MonitoringStation:
     sources:
       - [csv/212629-0-estaciones-control-aire-csv-updated.csv~csv]
-    s: res:station/$(CODIGO)
+    s: res:station/$(ESTACION_SLUG)
     po:
       - [a, bpm:MonitoringStation]
       - [a, sosa:Platform]
@@ -30,13 +33,13 @@ mappings:
       - [bpm:startDate, $(FECHA_ALTA), xsd:date]
       - [geo:lat, $(LATITUD), xsd:decimal]
       - [geo:long, $(LONGITUD), xsd:decimal]
-      - [bpm:hasStationType, res:station-type/$(COD_TIPO)~iri]
+      - [bpm:hasStationType, res:station-type/$(TIPO_SLUG)~iri]
 
   # Station types (ut Urbana tráfico, uf Urbana fondo, s Suburbana)
   StationType:
     sources:
       - [csv/212629-0-estaciones-control-aire-csv-updated.csv~csv]
-    s: res:station-type/$(COD_TIPO)
+    s: res:station-type/$(TIPO_SLUG)
     po:
       - [a, bpm:StationType]
       - [rdfs:label, $(NOM_TIPO), es~lang]

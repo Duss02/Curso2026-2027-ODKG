@@ -148,5 +148,31 @@
     "oldColumnName": "COD_DISTRITO",
     "newColumnName": "COD-DISTRITO",
     "description": "Rename column COD_DISTRITO to COD-DISTRITO"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "DISTRITO",
+    "expression": "jython:import unicodedata, re\nif value is None:\n    return None\ns = unicodedata.normalize('NFKD', unicode(value)).encode('ascii', 'ignore').lower()\ns = re.sub(r'[^a-z0-9]+', '-', s).strip('-')\nreturn s or None",
+    "onError": "set-to-blank",
+    "newColumnName": "DISTRITO_SLUG",
+    "columnInsertIndex": 17,
+    "description": "Create column DISTRITO_SLUG at index 17 based on column DISTRITO using expression jython:import unicodedata, re\nif value is None:\n    return None\ns = unicodedata.normalize('NFKD', unicode(value)).encode('ascii', 'ignore').lower()\ns = re.sub(r'[^a-z0-9]+', '-', s).strip('-')\nreturn s or None"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "BARRIO_ID",
+    "expression": "jython:import unicodedata, re\n# readable name of the neighbourhood, only for the official neighbourhoods (with a code)\nif value is None or cells['BARRIO']['value'] is None:\n    return None\ns = unicodedata.normalize('NFKD', unicode(cells['BARRIO']['value'])).encode('ascii', 'ignore').lower()\ns = re.sub(r'[^a-z0-9]+', '-', s).strip('-')\nreturn s or None",
+    "onError": "set-to-blank",
+    "newColumnName": "BARRIO_SLUG",
+    "columnInsertIndex": 18,
+    "description": "Create column BARRIO_SLUG at index 18 based on column BARRIO_ID using expression jython:import unicodedata, re\n# readable name of the neighbourhood, only for the official neighbourhoods (with a code)\nif value is None or cells['BARRIO']['value'] is None:\n    return None\ns = unicodedata.normalize('NFKD', unicode(cells['BARRIO']['value'])).encode('ascii', 'ignore').lower()\ns = re.sub(r'[^a-z0-9]+', '-', s).strip('-')\nreturn s or None"
   }
 ]
