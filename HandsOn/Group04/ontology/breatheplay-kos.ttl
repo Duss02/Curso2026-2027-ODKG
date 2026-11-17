@@ -1,0 +1,67 @@
+@prefix bpmkos:   <https://w3id.org/breatheplay-madrid/kos/> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix edintmed: <https://edint.es/def/medio-ambiente#> .
+@prefix qudt:     <http://qudt.org/schema/qudt/> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix unit:     <http://qudt.org/vocab/unit/> .
+
+# Group04 - Breathe & Play Madrid - Hands-on 6 (ontology reuse)
+#
+# Concepts used in our data that do not exist in the EDINT controlled
+# vocabularies. They follow the same pattern as the EDINT concepts and are
+# attached to the EDINT hierarchies with skos:broader, so that they can be
+# proposed to EDINT as new concepts.
+
+#################################################################
+# Environmental properties (extends https://edint.es/kos/EnvironmentalProperty)
+#################################################################
+
+bpmkos:EnvironmentalProperty a skos:ConceptScheme ;
+    skos:prefLabel "Breathe and Play Madrid environmental properties"@en ,
+        "Propiedades medioambientales de Breathe and Play Madrid"@es ;
+    dcterms:source <https://edint.es/kos/EnvironmentalProperty> .
+
+<https://w3id.org/breatheplay-madrid/kos/EnvironmentalProperty/EthylbenzeneConcentration> a skos:Concept , edintmed:EnvironmentalProperty ;
+    skos:inScheme bpmkos:EnvironmentalProperty ;
+    skos:prefLabel "Ethylbenzene concentration"@en , "Concentración de etilbenceno"@es ;
+    skos:altLabel "C8H10" ;
+    skos:broader <https://edint.es/kos/EnvironmentalProperty/VolatileOrganicCompounds> ;
+    qudt:applicableUnit unit:MicroGM-PER-M3 .
+
+#################################################################
+# Infrastructure types (extends https://edint.es/kos/InfrastructureType)
+#################################################################
+
+bpmkos:InfrastructureType a skos:ConceptScheme ;
+    skos:prefLabel "Breathe and Play Madrid infrastructure types"@en ,
+        "Tipos de infraestructura de Breathe and Play Madrid"@es ;
+    dcterms:source <https://edint.es/kos/InfrastructureType> .
+
+<https://w3id.org/breatheplay-madrid/kos/InfrastructureType/tenis-mesa> a skos:Concept ;
+    skos:inScheme bpmkos:InfrastructureType ;
+    skos:prefLabel "Mesa de tenis de mesa"@es , "Table tennis table"@en ;
+    skos:broader <https://edint.es/kos/InfrastructureType/espacios-deportivos-convencionales> .
+
+<https://w3id.org/breatheplay-madrid/kos/InfrastructureType/pista-pickleball> a skos:Concept ;
+    skos:inScheme bpmkos:InfrastructureType ;
+    skos:prefLabel "Pista de Pickleball"@es , "Pickleball court"@en ;
+    skos:broader <https://edint.es/kos/InfrastructureType/espacios-deportivos-convencionales> .
+
+#################################################################
+# Madrid code lists, mapped to EDINT
+# The concepts (resource/pollutant/{CONTAMINANTE_SLUG}, e.g. pollutant/no2, and
+# resource/facility-type/{TIPO_ID})
+# are generated from csv/edint-environmental-properties.csv and
+# csv/edint-infrastructure-types.csv by the mappings.
+#################################################################
+
+bpmkos:MadridPollutants a skos:ConceptScheme ;
+    skos:prefLabel "Madrid air quality pollutant codes (MAGNITUD)"@en ,
+        "Códigos de magnitud de calidad del aire del Ayuntamiento de Madrid"@es ;
+    dcterms:source <https://datos.madrid.es/> .
+
+bpmkos:MadridFacilityTypes a skos:ConceptScheme ;
+    skos:prefLabel "Madrid basic municipal sports facility types"@en ,
+        "Tipos de instalaciones deportivas municipales básicas del Ayuntamiento de Madrid"@es ;
+    dcterms:source <https://datos.madrid.es/> .

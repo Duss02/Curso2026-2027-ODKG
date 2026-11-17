@@ -1,0 +1,24 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="app.id">graphdb-workbench</entry>
+
+	<entry key="app.baseUri">http://graphdb-workbench.com</entry>
+
+	<entry key="app.version">graphdb-workbench-6.6.0</entry>
+
+    <entry key="security.enabled">false</entry>
+
+	<entry key="sparql.equivalence">true</entry>
+
+	<entry key="hibernate.hbm2ddl">update</entry>
+
+	<entry key="jdbc.url">jdbc:h2:/${user.home}/.graphdb-workbench/app</entry>
+
+	<entry key="graphdb.workbench.maxInMemorySize">536870912</entry>
+
+	<entry key="graphdb.workbench.maxUploadSize">1073741824</entry>
+
+	<entry key="app.global.repository">false</entry>
+
+</properties>

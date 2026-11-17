@@ -1,0 +1,227 @@
+<link href="css/rdf-class-hierarchy.css?v=3.5.2" rel="stylesheet"/>
+<link href="css/rdf-class-hierarchy-labels.css?v=3.5.2" rel="stylesheet"/>
+<link href="css/rdf-details-side-panel.css?v=3.5.2" rel="stylesheet"/>
+<link href="js/lib/rzslider/rzslider.min.css?v=3.5.2" rel="stylesheet"/>
+<link href="js/lib/angucomplete-alt/angucomplete-alt.css?v=3.5.2" rel="stylesheet"/>
+<link href="js/lib/d3-tip/d3-tip.css?v=3.5.2" rel="stylesheet"/>
+<link href="css/lib/animate/3.2.0/animate.min.css?v=3.5.2" rel="stylesheet"/>
+
+<title>Explore Data Graph</title>
+
+<div class="toolbar-holder pull-right mt-1" id="toolbar"
+	ng-class="{ 'pushed-toolbar': showClassInfoPanel }"
+	ng-show="hasClassHierarchy() && !loader || !isAllGraphsSelected()">
+    <div id="selectGraphDropdown" class="btn-group" role="group" ng-show="graphsInRepo.length > 2">
+        <button id="graphsBtnGroup" type="button" class="btn btn-lg btn-secondary dropdown-toggle"
+                data-toggle="dropdown"
+				uib-dropdown
+				on-toggle="graphsDropdownToggled(open)"
+                aria-expanded="false">
+				<span tooltip-placement="bottom" gdb-tooltip="{{'select.graph.label' | translate}}">
+					{{getSelGraphValue() | translate}}
+				</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right pre-scrollable" aria-labelledby="dropdownMenuButton">
+            <li ng-repeat="graph in graphsInRepo" ng-if="graph.contextID.value !== getSelGraphValue()">
+                <a class="dropdown-item" ng-click="chosenGraph(graph)">
+					<span class="multiline-text">
+						{{graph.contextID.value | translate}} <br/>
+					</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+	<search-icon-input
+			search-data="flattenedClassNames"
+			initial-value="searchedClass"
+			search-fields="name"
+			title-field="name"
+			search-placeholder="{{'search.classes.placeholder' | translate}}"
+			searched-obj-callback="searchedClassCallback">
+	</search-icon-input>
+
+	<button class="btn btn-link p-0 prefix-toggle-btn" type="button"
+		ng-click="toggleHidePrefixes()"
+		gdb-tooltip="{{hidePrefixes ? 'show.prefixes.btn' : 'hide.prefixes.btn' | translate}}"
+		tooltip-placement="bottom">
+		<em class="ri-2x" ng-class="{'ri-toggle-line': hidePrefixes, 'ri-toggle-fill': !hidePrefixes}"></em>
+	</button>
+
+	<button class="btn btn-link p-0 focus-diagram-btn"
+		gdb-tooltip="{{'focus.diagram.tooltip' | translate}}"
+		tooltip-placement="bottom"
+		ng-click="focusOnRoot()">
+		<em class="ri-zoom-out-line ri-2x"></em>
+	</button>
+
+	<button class="btn btn-link p-0 reload-diagram-btn"
+		gdb-tooltip="{{'reload.diagram.tooltip' | translate}}"
+		tooltip-placement="bottom"
+		ng-click="confirmReloadClassHierarchy()">
+		<em class="ri-reset-right-line ri-2x"></em>
+	</button>
+
+	<a href class="btn btn-link p-0" id="download-svg"
+		gdb-tooltip="{{'export.diagram.tooltip' | translate}}"
+		tooltip-placement="bottom">
+		<em class="icon-export icon-1-5x"></em>
+	</a>
+
+</div>
+
+<h1>
+	{{title}}
+    <page-info-tooltip></page-info-tooltip>
+</h1>
+
+<div onto-loader size="100" ng-show="loader"></div>
+
+<div class="top-offset" core-errors license></div>
+<div class="top-offset" system-repo-warning></div>
+<div class="top-offset alert alert-danger" ng-show="repositoryError">
+    <p>{{'not.usable.active.repo.error' | translate}}</p>
+
+    <p>{{repositoryError}}</p>
+</div>
+
+<div class="explore" ng-hide="loader || repositoryError || !isLicenseValid()">
+
+    <div class="row class-cnt-slider animate-show" ng-show="showExternalElements && hasClassHierarchy()" style="margin-left: 20px;">
+		<p class="slider-help-button">
+			{{'class.count.label' | translate}}
+			<span class="btn btn-link help-button"
+				  uib-popover-template="'js/angular/graphexplore/templates/rdfClassHierarchyClassCountSliderHelpTemplate.html'"
+				  popover-trigger="mouseenter"
+				  popover-placement="bottom-right"
+				  popover-append-to-body="true">
+				<span class="ri-information-2-line text-tertiary"></span>
+			</span>
+		</p>
+        <rzslider id="rzslider"
+                  rz-slider-model="classCountSlider.value"
+                  rz-slider-options="classCountSlider.options"
+                  ng-hide="isSystemRepository()"></rzslider>
+    </div>
+    <div class='explore_results'>
+		<div class="top-offset alert alert-danger hierarchy-error" ng-show="hierarchyError">
+			<p>{{'cannot.load.classhierarchy.for.repo.warning' | translate}}
+				<button class="btn btn-link p-0 pull-right"
+						gdb-tooltip="{{'reload.diagram.tooltip' | translate}}"
+						tooltip-placement="bottom"
+						ng-click="confirmReloadClassHierarchy()">
+					<em class="ri-reset-right-line ri-2x"></em>
+				</button>
+			</p>
+			<p>{{hierarchyError}}</p>
+
+		</div>
+        <div class="top-offset row no-hierarchy-error" ng-show="getActiveRepositoryNoError() && !hierarchyError && !hasClassHierarchy() && !isSystemRepository() && isAllGraphsSelected()">
+            <p class="alert alert-warning">{{'no.classhierarchy.for.repo.warning' | translate}}</p>
+        </div>
+        <div class="top-offset row" ng-show="getActiveRepositoryNoError() && !hierarchyError && !hasClassHierarchy() && !isSystemRepository() && !isAllGraphsSelected()">
+            <p class="alert alert-warning">{{'no.classhierarchy.for.selected.graph.warning' | translate}}</p>
+        </div>
+
+        <rdf-class-hierarchy
+				class="rdf-class-hierarchy"
+                class-hierarchy-data="classHierarchyData"
+                flattened-class-names="flattenedClassNames"
+                selected-class="selectedClass"
+                current-slider-value="currentSliderValue"
+                show-class-info-panel="showClassInfoPanel"
+                show-external-elements="showExternalElements"
+                hide-prefixes="hidePrefixes"
+                current-browser-limit="currentBrowserLimit"
+                ng-show="isLicenseValid() && hasClassHierarchy()">
+        </rdf-class-hierarchy>
+
+        <pageslide
+                ps-class="rdf-info-side-panel"
+                ps-open="showClassInfoPanel"
+                onopen="onopen"
+                onclose="onclose"
+                ps-side="right"
+                ps-click-outside="false"
+				ps-custom-height="calc(100vh - 55px)"
+				ps-size="25vw">
+            <div class="break-word-alt p-1">
+                <button class="close mb-1 ml-1"
+                   ng-click="toggleClassInfoSidePanel(); $event.stopPropagation();" guide-selector="close-info-panel"></button>
+
+				<h3 class="hovered-parent">
+					<a class="uri" href="resource?uri={{encodedUri}}">{{selectedClass.data.name}}</a>
+					<button class="btn btn-link btn-sm px-0 hovered-item"
+						ng-click="copyToClipboard(selectedClass.data.fullName)"
+						title="{{'copy.to.clipboard.modal.ok.btn' | translate}}">
+						<span class="ri-links-line"></span>
+					</button>
+				</h3>
+				<p>
+					<button class="btn btn-sm btn-primary domain-range-graph-btn"
+						ng-click="goToDomainRangeGraphView(selectedClass)">{{'view.domain.range.graph.title' | translate}}
+					</button>
+                </p>
+
+                <rdfs-comment-label
+                        rdfs-label="rdfsLabel"
+                        rdfs-comment="rdfsComment"
+                        expanded="expanded">
+                </rdfs-comment-label>
+
+                <div ng-switch on="selectedClass.data.instancesCount">
+                    <p class="alert alert-warning" ng-switch-when="0">
+                    	{{'no.instances.for.selected.class.type' | translate}}
+                    </p>
+					<p ng-switch-when="1">
+						<button class="btn btn-link px-0"
+                           data-test="instances-count-link"
+						   ng-click="goToResourceView()"
+						   guide-selector="instances-count">{{'view.instance.in.sparql.label' | translate}}
+						</button>
+					</p>
+                    <p ng-switch-default>
+						<button class="btn btn-link px-0"
+                           data-test="instances-count-link"
+						   ng-click="goToResourceView()"
+						   guide-selector="instances-count">{{'view.all.label' | translate}} {{selectedClass.data.instancesCount | number}} {{'instances.in.sparql' | translate}}
+						</button>
+					</p>
+                </div>
+
+                <div onto-loader size="100" ng-show="instancesLoader"></div>
+
+                <div ng-hide="selectedClass.data.instancesCount == 0 || instancesLoader">
+                    <list-items-search-filter
+                        filter-query-obj="instancesQueryObj"
+                        filter-function="instancesFilterFunc"
+                        list-items-obj="instancesObj"
+                        list-items-not-filtered="instancesNotFiltered"
+                        search-placeholder={{instancesSearchPlaceholder}}>
+                    </list-items-search-filter>
+
+                    <div ng-switch on="instances.items.length">
+						<p ng-switch-when="0" class="alert alert-warning">{{'no.instances.found.label' | translate}}</p>
+
+                        <div ng-switch-default ui-scroll-viewport class="rdf-list" ng-class="rdfsComment ? 'rdf-list-comment' : ''">
+							<table class="table table-sm table-striped" aria-describedby="Class instances table">
+								<tbody>
+									<tr ui-scroll='item in datasource' adapter="adapterContainer.adapter" padding='li' class="hovered-parent">
+										<td class="break-word-alt" guide-selector="instance-{{ item.resolvedUri }}">
+											<button class="btn btn-link btn-sm p-0 hovered-item pull-right"
+												title="{{'copy.to.clipboard.modal.ok.btn' | translate}}"
+												ng-click="copyToClipboard(item.absUriNonEncoded)">
+												<span class="ri-links-line"></span>
+											</button>
+											<a class="uri" href="resource?{{item.type}}={{item.absUri}}">{{item.resolvedUri}}</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </pageslide>
+    </div>
+</div>
+

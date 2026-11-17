@@ -1,0 +1,22 @@
+PREFIX la311:  <http://linkeddata.la311.com/ontology#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:    <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+PREFIX geo:    <http://www.opengis.net/ont/geosparql#>
+PREFIX schema: <http://schema.org/>
+PREFIX wd:     <http://www.wikidata.org/entity/>
+PREFIX wdt:    <http://www.wikidata.org/prop/direct/>
+
+SELECT ?cd (COUNT(?sr) AS ?n) (SUM(IF(?status IN ("Open", "Pending"), 1, 0)) AS ?openOrPending)
+WHERE {
+  ?sr la311:requestType ?requestType ;
+      la311:status ?status ;
+      la311:createdDate ?created ;
+      la311:hasLocation ?loc .
+  ?loc la311:isWithin/la311:cd ?cd .
+  FILTER (?cd != 0)
+  FILTER (?created >= "2025-01-01T00:00:00Z"^^xsd:dateTime && ?created < "2026-01-01T00:00:00Z"^^xsd:dateTime)
+}
+GROUP BY ?cd
+ORDER BY DESC(?n)

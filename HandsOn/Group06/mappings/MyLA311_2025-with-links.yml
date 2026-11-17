@@ -49,7 +49,7 @@ mappings:
     po:
       - [a, la311:Organization]
       - [rdfs:label, $(Owner), xsd:string]
-      - [la311:name, $(Owner), xsd:string]
+      - [la311:organizationName, $(Owner), xsd:string]
 
   OrganizationReporter:
     sources:
@@ -58,7 +58,7 @@ mappings:
     po:
       - [a, la311:Organization]
       - [rdfs:label, $(OrganizationReporter), xsd:string]
-      - [la311:name, $(OrganizationReporter), xsd:string]
+      - [la311:organizationName, $(OrganizationReporter), xsd:string]
 
   Service:
     sources:
@@ -67,7 +67,7 @@ mappings:
     po:
       - [a, la311:Service]
       - [rdfs:label, $(AssignTo), xsd:string]
-      - [la311:name, $(AssignTo), xsd:string]
+      - [la311:serviceName, $(AssignTo), xsd:string]
 
   Location:
     sources:

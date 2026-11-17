@@ -28,27 +28,31 @@ Group 04
 
 | Dataset | Operations (`openrefine/`) | Updated CSV (`csv/`) | Rows × columns |
 |---|---|---|---|
-| D1 Daily air quality 2024 | `calidad-aire-diario-2024-updated.json` (17) | `calidad-aire-diario-2024-csv-updated.csv` | 42,973 × 11 |
-| D2 Air quality monitoring stations | `212629-0-estaciones-control-aire-csv-updated.json` (14) | `212629-0-estaciones-control-aire-csv-updated.csv` | 24 × 9 |
-| D3 Basic municipal sports facilities | `200215-0-instalaciones-deportivas-csv-csv-updated.json` (48) | `200215-0-instalaciones-deportivas-csv-csv-updated.csv` | 607 × 19 |
+| D1 Daily air quality 2024 | `calidad-aire-diario-2024-updated.json` (20) | `calidad-aire-diario-2024-csv-updated.csv` | 42,973 × 14 |
+| D2 Air quality monitoring stations | `212629-0-estaciones-control-aire-csv-updated.json` (16) | `212629-0-estaciones-control-aire-csv-updated.csv` | 24 × 11 |
+| D3 Basic municipal sports facilities | `200215-0-instalaciones-deportivas-csv-csv-updated.json` (52) | `200215-0-instalaciones-deportivas-csv-csv-updated.csv` | 607 × 23 |
 
 **Classes and identifier columns** (`bpm:Place` is the superclass of `bpm:MonitoringStation` and `bpm:SportsFacility`):
 
-| Class | Identifier column |
-|---|---|
-| `bpm:DailyObservation` | `OBSERVACION_ID` (sampling point + date) — D1 |
-| `bpm:SamplingPoint` | `PUNTO_MUESTREO` (station + pollutant + technique) — D1 |
-| `bpm:Pollutant` | `MAGNITUD` — D1 |
-| `bpm:MeasurementTechnique` | `TECNICA` — D1 |
-| `bpm:MonitoringStation` | `CODIGO` — D2 (referenced from `ESTACION_CODIGO` in D1 and `ESTACION_CERCANA` in D3) |
-| `bpm:StationType` | `COD_TIPO` — D2 |
-| `bpm:SportsFacility` | `PK` — D3 (the City Council catalogue identifier, not an auto-increased integer) |
-| `bpm:FacilityType` | `TIPO_ID` — D3 |
-| `bpm:AccessibilityLevel` | `ACCESIBILIDAD` — D3 |
-| `bpm:District` | `COD-DISTRITO` — D3 |
-| `bpm:Neighbourhood` | `BARRIO_ID` — D3 |
+*Updated after the evaluation of Hands-on 1–4 ("URIs for individuals should be human-readable and meaningful"):* the identifier of each resource is now a readable name (`*_SLUG` columns: the name in lower case, without accents and with the words joined by `-`), added by the last operations of each history. The source codes are kept in their columns and in the RDF as literals.
 
-**Columns and properties.** All 33 properties of the ontology come from a column (25 `bpm:` properties and 8 reused properties from SOSA and WGS84 Geo Positioning), and every column is used either for a property, for an identifier or for a label (`rdfs:label`):
+| Class | Identifier column (readable name) | Source code (kept) |
+|---|---|---|
+| `bpm:DailyObservation` | `ESTACION_SLUG` + `CONTAMINANTE_SLUG` + `FECHA` (e.g. `plaza-de-espana-no2-2024-01-15`) — D1 | `OBSERVACION_ID` |
+| `bpm:SamplingPoint` | `ESTACION_SLUG` + `CONTAMINANTE_SLUG` (one sampling point per station and pollutant) — D1 | `PUNTO_MUESTREO` |
+| `bpm:Pollutant` | `CONTAMINANTE_SLUG` (e.g. `no2`) — D1 | `MAGNITUD` |
+| `bpm:MeasurementTechnique` | `TECNICA_SLUG` (e.g. `chemiluminescence`) — D1 | `TECNICA` |
+| `bpm:MonitoringStation` | `ESTACION_SLUG` (e.g. `plaza-de-espana`) — D2, and D1 from the station code | `CODIGO` (referenced from `ESTACION_CODIGO` in D1 and `ESTACION_CERCANA` in D3) |
+| `bpm:StationType` | `TIPO_SLUG` (e.g. `urban-traffic`) — D2 | `COD_TIPO` |
+| `bpm:SportsFacility` | `INSTALACION_SLUG` (name without "Instalación Deportiva Municipal Básica", e.g. `acuario`) — D3 | `PK` |
+| `bpm:FacilityType` | `TIPO_ID` (already a readable name, e.g. `calistenia`) — D3 | — |
+| `bpm:AccessibilityLevel` | `ACCESIBILIDAD_SLUG` (e.g. `partially-accessible`) — D3 | `ACCESIBILIDAD` |
+| `bpm:District` | `DISTRITO_SLUG` (e.g. `barajas`) — D3 | `COD-DISTRITO` |
+| `bpm:Neighbourhood` | `BARRIO_SLUG` (only for the neighbourhoods with a code) — D3 | `BARRIO_ID` |
+
+The names were checked to be unique (24 stations, 607 facilities, 21 districts, the neighbourhoods and 131 sampling points).
+
+**Columns and properties.** All 33 properties of the ontology come from a column (25 `bpm:` properties and 8 reused properties from SOSA and WGS84 Geo Positioning), and every column is used either for a property, for an identifier (the `*_SLUG` columns build the URIs) or for a label (`rdfs:label`):
 
 - D1: `FECHA` → `bpm:date`, `VALOR` → `sosa:hasSimpleResult`, `VALIDO` → `bpm:isValid`, `PUNTO_MUESTREO` → `sosa:madeBySensor` / `bpm:samplingPointCode`, `ESTACION_CODIGO` → `sosa:isHostedBy`, `MAGNITUD` → `sosa:observedProperty` / `sosa:observes` / `bpm:pollutantCode`, `UNIDAD` → `bpm:unit`, `TECNICA` → `bpm:usesTechnique` / `bpm:techniqueCode`; `CONTAMINANTE` and `TECNICA_NOMBRE` are labels.
 - D2: `CODIGO` → `bpm:stationCode`, `DIRECCION` → `bpm:address`, `ALTITUD` → `geo:alt`, `FECHA_ALTA` → `bpm:startDate`, `COD_TIPO` → `bpm:hasStationType`, `LATITUD` / `LONGITUD` → `geo:lat` / `geo:long`; `ESTACION` and `NOM_TIPO` are labels.

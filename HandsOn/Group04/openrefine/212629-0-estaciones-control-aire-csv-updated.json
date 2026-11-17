@@ -175,5 +175,31 @@
       "LONGITUD"
     ],
     "description": "Reorder columns"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ESTACION",
+    "expression": "jython:import unicodedata, re\nif value is None:\n    return None\ns = unicodedata.normalize('NFKD', unicode(value)).encode('ascii', 'ignore').lower()\ns = re.sub(r'[^a-z0-9]+', '-', s).strip('-')\nreturn s or None",
+    "onError": "set-to-blank",
+    "newColumnName": "ESTACION_SLUG",
+    "columnInsertIndex": 9,
+    "description": "Create column ESTACION_SLUG at index 9 based on column ESTACION using expression jython:import unicodedata, re\nif value is None:\n    return None\ns = unicodedata.normalize('NFKD', unicode(value)).encode('ascii', 'ignore').lower()\ns = re.sub(r'[^a-z0-9]+', '-', s).strip('-')\nreturn s or None"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "COD_TIPO",
+    "expression": "jython:# station type code -> readable name\nd = {\"ut\": \"urban-traffic\", \"uf\": \"urban-background\", \"s\": \"suburban\"}\nreturn d.get(unicode(value))",
+    "onError": "set-to-blank",
+    "newColumnName": "TIPO_SLUG",
+    "columnInsertIndex": 10,
+    "description": "Create column TIPO_SLUG at index 10 based on column COD_TIPO using expression jython:# station type code -> readable name\nd = {\"ut\": \"urban-traffic\", \"uf\": \"urban-background\", \"s\": \"suburban\"}\nreturn d.get(unicode(value))"
   }
 ]

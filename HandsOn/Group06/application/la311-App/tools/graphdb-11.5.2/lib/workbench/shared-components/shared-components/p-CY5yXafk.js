@@ -1,0 +1,1 @@
+var e;!function(e){e.SUGGESTION_SELECTED_EVENT="suggestion-selected-event",e.TABLE_VIEW="table",e.VISUAL_VIEW="visual",e.RDF_SEARCH_ICON_CLICKED="rdfSearchIconClicked"}(e||(e={}));export{e as R};

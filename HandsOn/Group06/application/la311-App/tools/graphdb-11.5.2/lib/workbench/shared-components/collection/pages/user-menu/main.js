@@ -1,0 +1,1 @@
+const userMenu=document.querySelector("onto-user-menu");userMenu.user={username:"john.doe"},userMenu.securityConfig={hasExternalAuthUser:!1};const setExternalUser=()=>{setAuthUser({...userMenu.user}),setSecurityConfig({...userMenu.securityConfig})};

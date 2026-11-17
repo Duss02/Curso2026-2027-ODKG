@@ -12,6 +12,9 @@
 # (python mappings/generate_rdf-with-links.py), so that the csv/ paths resolve.
 # Dataset: Calidad del aire. Datos diarios 2024 (Ayuntamiento de Madrid)
 # Source:  csv/calidad-aire-diario-2024-csv-updated-with-links.csv
+# IRIs: readable names of the resources (columns *_SLUG, added in OpenRefine: name
+# in lower case without accents, words joined by "-"), e.g. resource/station/plaza-de-espana;
+# the codes of the source are kept as literals.
 
 # ---------------------------------------------------------------------------
 # Daily observations
@@ -23,7 +26,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/observation/{PUNTO_MUESTREO}/{FECHA}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/observation/{ESTACION_SLUG}-{CONTAMINANTE_SLUG}-{FECHA}" ;
         rr:termType rr:IRI ;
         rr:class bpm:DailyObservation, sosa:Observation
     ] ;
@@ -56,7 +59,7 @@
     rr:predicateObjectMap [
         rr:predicate sosa:observedProperty ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/pollutant/{MAGNITUD}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/pollutant/{CONTAMINANTE_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] ;
@@ -64,7 +67,7 @@
     rr:predicateObjectMap [
         rr:predicate sosa:madeBySensor ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/sampling-point/{PUNTO_MUESTREO}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/sampling-point/{ESTACION_SLUG}-{CONTAMINANTE_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] .
@@ -79,7 +82,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/sampling-point/{PUNTO_MUESTREO}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/sampling-point/{ESTACION_SLUG}-{CONTAMINANTE_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:SamplingPoint, sosa:Sensor
     ] ;
@@ -114,7 +117,7 @@
     rr:predicateObjectMap [
         rr:predicate sosa:observes ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/pollutant/{MAGNITUD}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/pollutant/{CONTAMINANTE_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] ;
@@ -122,7 +125,7 @@
     rr:predicateObjectMap [
         rr:predicate bpm:usesTechnique ;
         rr:objectMap [
-            rr:template "https://w3id.org/breatheplay-madrid/resource/technique/{TECNICA}" ;
+            rr:template "https://w3id.org/breatheplay-madrid/resource/technique/{TECNICA_SLUG}" ;
             rr:termType rr:IRI
         ]
     ] .
@@ -137,7 +140,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/station/{CODIGO}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/station/{ESTACION_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:MonitoringStation, sosa:Platform
     ] ;
@@ -157,7 +160,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/pollutant/{MAGNITUD}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/pollutant/{CONTAMINANTE_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:Pollutant, sosa:ObservableProperty
     ] ;
@@ -193,7 +196,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "https://w3id.org/breatheplay-madrid/resource/technique/{TECNICA}" ;
+        rr:template "https://w3id.org/breatheplay-madrid/resource/technique/{TECNICA_SLUG}" ;
         rr:termType rr:IRI ;
         rr:class bpm:MeasurementTechnique, sosa:Procedure
     ] ;

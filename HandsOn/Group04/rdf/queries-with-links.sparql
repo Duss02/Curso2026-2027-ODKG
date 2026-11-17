@@ -104,7 +104,7 @@ WHERE {
   ?obs sosa:madeBySensor ?sp ;
        bpm:isValid true ;
        sosa:hasSimpleResult ?value .
-  ?sp sosa:observes pol:8 ;
+  ?sp sosa:observes pol:no2 ;
       sosa:isHostedBy ?station .
   ?station rdfs:label ?name .
 }
@@ -138,7 +138,7 @@ WHERE {
       ?obs sosa:madeBySensor ?sp ;
            bpm:isValid true ;
            sosa:hasSimpleResult ?value .
-      ?sp sosa:observes pol:8 ;
+      ?sp sosa:observes pol:no2 ;
           sosa:isHostedBy ?st .
     }
     GROUP BY ?st
@@ -182,8 +182,8 @@ WHERE {
      bpm:hasNearestStation ?st .
   ?st rdfs:label ?station .
   ?sp sosa:isHostedBy ?st ;
-      sosa:observes pol:8 .
-  pol:8 bpm:unit ?unit .
+      sosa:observes pol:no2 .
+  pol:no2 bpm:unit ?unit .
   ?obs sosa:madeBySensor ?sp ;
        bpm:date ?date ;
        sosa:hasSimpleResult ?value ;
@@ -205,7 +205,7 @@ WHERE {
       ?obs sosa:madeBySensor ?sp ;
            bpm:isValid true ;
            sosa:hasSimpleResult ?value .
-      ?sp sosa:observes pol:10 ;
+      ?sp sosa:observes pol:pm10 ;
           sosa:isHostedBy ?st .
     }
     GROUP BY ?st
@@ -232,7 +232,7 @@ WHERE {
       ?obs sosa:madeBySensor ?sp ;
            bpm:isValid true ;
            sosa:hasSimpleResult ?value .
-      ?sp sosa:observes pol:8 ;
+      ?sp sosa:observes pol:no2 ;
           sosa:isHostedBy ?st .
       ?st bpm:locatedInDistrict ?d .
     }
@@ -329,7 +329,7 @@ WHERE {
       ?obs sosa:madeBySensor ?sp ;
            bpm:isValid true ;
            sosa:hasSimpleResult ?value .
-      ?sp sosa:observes pol:8 ;
+      ?sp sosa:observes pol:no2 ;
           sosa:isHostedBy ?st .
     }
     GROUP BY ?st

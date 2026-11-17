@@ -1,0 +1,13 @@
+{
+  "applicationLogoPaths": {
+    "light": "assets/graphdb-logo-light.svg",
+    "dark": "assets/graphdb-logo-dark.svg"
+  },
+  "applicationLogoPath": "assets/graphdb-logo-dark.svg",
+  "applicationFaviconPath": "assets/favicon.png",
+  "pluginsManifestPath": "plugins/plugins-manifest.json",
+  "loggerConfig": {
+    "loggers": ["console"],
+    "minLogLevel": "DEBUG"
+  }
+}

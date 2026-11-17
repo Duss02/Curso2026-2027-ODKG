@@ -1,0 +1,34 @@
+name: traffic-accident-explorer
+
+services:
+  backend:
+    build: ./backend
+    environment:
+      GRAPHDB_ENDPOINT: ${GRAPHDB_ENDPOINT:-http://host.docker.internal:7200/repositories/group01-accidents}
+      GRAPHDB_TIMEOUT_SECONDS: ${GRAPHDB_TIMEOUT_SECONDS:-15}
+    ports:
+      - "127.0.0.1:8000:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=20).read()"]
+      interval: 30s
+      timeout: 22s
+      retries: 3
+      start_period: 20s
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: /gateway
+    ports:
+      - "127.0.0.1:5173:8080"
+    depends_on:
+      backend:
+        condition: service_started
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

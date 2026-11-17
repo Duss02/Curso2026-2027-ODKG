@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source "`dirname "$0"`/setvars.in.sh"
+
+call_java com.ontotext.graphdb.convert.ConvertRepositoryConfig "$@"
