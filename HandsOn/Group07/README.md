@@ -59,3 +59,35 @@ The SPARQL endpoint used by the app is http://localhost:7200/repositories/db-del
    python -m http.server 8000
    ```
    Then open http://localhost:8000 (opening `index.html` directly as a file does not work).
+
+### For Windows with sbx
+1. Start a PowerShell in project root folder
+2. Start a virtual docker shell
+```bash
+sbx run shell .
+```
+3. In the docker shell
+```bash
+cd app
+docker compose down -v
+docker compose up -d
+```
+4. **In a separate PowerShell**
+get the name of the shell with
+```bash
+sbx ls
+```
+then, redirect ports
+```bash
+sbx ports <name> --publish 7200:7200
+sbx ports <name> --publish 8000:8000
+```
+it should be 
+```bash
+sbx ports shell-Group07 --publish 7200:7200
+sbx ports shell-Group07 --publish 8000:8000
+```
+
+5. **Congratulation**
+Database at : http://localhost:7200
+Front at : http://localhost:8000
