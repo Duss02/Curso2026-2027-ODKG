@@ -1,0 +1,193 @@
+{
+  "guideId": "movies-database",
+  "guideName": {
+    "en": "The Movies database guide",
+    "fr": "Le guide de la base de données des films"
+  },
+  "guideDescription": {
+    "en": "The Movies database guide is a beginner's guide showing repository creation, importing RDF data from a file, starting to explore data from the class hierarchy, some SPARQL queries and exploring RDF with the tabular view. It takes approximately 30 minutes to complete.",
+    "fr": "Le guide de la base de données des films est un guide pour débutant montrant la création d'un dépôt, l'importation de données RDF à partir d'un fichier, le début de l'exploration des données de la hiérarchie des classes, certaines requêtes SPARQL et l'exploration de RDF avec la vue tabulaire. Le guide prend environ 30 minutes à compléter."
+  },
+  "guideLevel": 0,
+  "guideOrder": 2,
+  "options": {
+    "repositoryIdBase": "movies"
+  },
+  "steps": [
+    {
+      "guideBlockName": "welcome"
+    },
+    {
+      "guideBlockName": "create-repository"
+    },
+    {
+      "guideBlockName": "select-repository-dropdown"
+    },
+    {
+      "guideBlockName": "enable-autocomplete"
+    },
+    {
+      "guideBlockName": "import-rdf-file",
+      "options": {
+        "resourcePath": "movies",
+        "resourceFile": "movies.ttl"
+      }
+    },
+    {
+      "guideBlockName": "class-hierarchy",
+      "options": {
+        "introExtraContent": {
+          "en": "In this dataset, there is a single top-level class, <b>schema:Movie</b>, and two subclasses (the smaller circles inside). This tells us that the dataset has to do with movies.",
+          "fr": "Dans cet ensemble de données, il y a une seule classe de niveau supérieur, <b>schema:Movie</b>, et deux sous-classes (les plus petits cercles à l'intérieur). Cela nous indique que l'ensemble de données concerne les films."
+        },
+        "zoomIris": [
+          {
+            "iri": "schema:Movie",
+            "postExtraContent": {
+              "en": "The two subclasses, <b>imdb:BlackandWhiteMovie</b> and <b>imdb:ColorMovie</b>, tell us that the movies are divided into black-and-white and color ones, and there are more color movies than black-and-white ones since the <b>imdb:ColorMovie</b> circle is larger.",
+              "fr": "Les deux sous-classes, <b>imdb:BlackandWhiteMovie</b> et <b>imdb:ColorMovie</b>, nous indiquent que les films sont divisés en films en noir et blanc et en films en couleur, et qu'il y a plus de films en couleur que de films en noir et blanc, puisque le cercle <b>imdb:ColorMovie</b> est plus grand."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "guideBlockName": "class-hierarchy-instances",
+      "options": {
+        "iri": "imdb:ColorMovie",
+        "focusInstances": [
+          "imdb:title/Superman",
+          "imdb:title/Mulan"
+        ],
+        "followCountLink": true
+      }
+    },
+    {
+      "guideBlockName": "execute-sparql-query",
+      "options": {
+        "queries": [
+          {
+            "query": "PREFIX imdb: <http://academy.ontotext.com/imdb/>\nSELECT * {\n    imdb:title\\/PiratesoftheCaribbeanAtWorldsEnd ?p ?o .\n}\n",
+            "queryExtraContent": {
+              "en": "The query selects RDF statements whose <i>subject</i> is the movie <b>Pirates of the Caribbean At World's End</b> (identified by the IRI <b>imdb:title/PiratesoftheCaribbeanAtWorldsEnd</b>). Note that we need to escape the / in the shortened IRI.",
+              "fr": "La requête sélectionne les déclarations RDF dont le <i>sujet</i> est le film <b>Pirates of the Caribbean At World's End</b> (identifié par l'IRI <b>imdb:title/PiratesoftheCaribbeanAtWorldsEnd</b>). Notez que nous devons échapper le / dans l'IRI raccourci."
+            },
+            "resultExtraContent": {
+              "en": "The variables <b>?p</b> and <b>?o</b> correspond to the <i>predicate</i> and <i>object</i> of the RDF statements. We can see that the director (via the predicate <b>schema:director</b>) is identified by the IRI <b>imdb:person/GoreVerbinski</b> (scroll down if necessary).",
+              "fr": "Les variables <b>?p</b> et <b>?o</b> correspondent au <i>prédicat</i> et <i>objet</i> des déclarations RDF. On peut voir que le directeur (via le prédicat <b>schema:director</b>) est identifié par l'IRI <b>imdb:person/GoreVerbinski</b> (faites défiler si nécessaire)."
+            }
+          },
+          {
+            "query": "PREFIX imdb: <http://academy.ontotext.com/imdb/>\nPREFIX schema: <http://schema.org/>\n\nSELECT * { \n    ?movie a imdb:ColorMovie ;\n           schema:name ?movieName ;\n           schema:commentCount ?commentCount .\n} ORDER BY DESC(?commentCount)\n",
+            "queryExtraContent": {
+              "en": "The query selects all color movies by class (<b>a</b> is a short-hand notation for <b>rdf:type</b>) and then performs two joins to fetch the movie's name (via the <b>schema:name</b> predicate), and the movie's number of comments (via the <b>schema:commentCount</b> predicate). Finally, the result must be ordered by the number of comments in descending order.",
+              "fr": "La requête sélectionne tous les films couleur par classe (<b>a</b> est une notation abrégée pour <b>rdf:type</b>) puis effectue deux jointures pour récupérer le nom du film (via le prédicat <b>schema:name</b>), et le nombre de commentaires du film (via le prédicat <b>schema:commentCount</b>). Enfin, le résultat doit être trié par le nombre de commentaires par ordre décroissant."
+            },
+            "resultExtraContent": {
+              "en": "The variables <b>?movie</b>, <b>?movieName</b> and <b>?commentCount</b> contain each movie's IRI, name and number of comments respectively. We can see that the movie with the most comments, <b>The Dark Knight Rises</b>, comes on top.",
+              "fr": "Les variables <b>?movie</b>, <b>?movieName</b> et <b>?commentCount</b> contiennent respectivement l'IRI, le nom et le nombre de commentaires de chaque film. Nous pouvons voir que le film avec le plus de commentaires, <b>The Dark Knight Rises</b>, arrive en tête."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "guideBlockName": "table-graph-explore",
+      "options": {
+        "iri": "http://academy.ontotext.com/imdb/title/DjangoUnchained",
+        "iriLabel": "imdb:title/DjangoUnchained",
+        "subSteps": [
+          {
+            "type": "link",
+            "iri": "http://academy.ontotext.com/imdb/person/QuentinTarantino",
+            "iriLabel": "imdb:person/QuentinTarantino"
+          },
+          {
+            "type": "table",
+            "content": {
+              "en":"The table now shows RDF statements where <b>Quentin Tarantino</b> is in the subject position only.",
+              "fr":"Le tableau affiche maintenant les déclarations RDF où <b>Quentin Tarantino</b> est uniquement en position de sujet."
+            }
+          },
+          {
+            "type": "role",
+            "role": "all",
+            "extraContent": {
+              "en": "In this way, we'll be able to see more statements related to <b>Quentin Tarantino</b>.",
+              "fr": "De cette façon, nous pourrons voir plus de déclarations liées à <b>Quentin Tarantino</b>."
+            }
+          },
+          {
+            "type": "table",
+            "extraContent": {
+              "en": "The table now shows RDF statements where <b>Quentin Tarantino</b> is any position, such as <i>subject</i> or <i>object</i>.",
+              "fr": "Le tableau affiche maintenant les déclarations RDF où <b>Quentin Tarantino</b> est n'importe quelle position, comme <i>sujet</i> ou <i>objet</i>."
+            }
+          },
+          {
+            "type": "visual",
+            "iri": "http://academy.ontotext.com/imdb/person/QuentinTarantino",
+            "iriLabel": "imdb:person/QuentinTarantino",
+            "extraContentVisualIntro": {
+              "en": "Let's go back to the table now &mdash; don't worry, the Visual graph view is covered in more detail in the <b>Star Wars guide</b>.",
+              "fr": "Revenons maintenant au tableau &mdash; ne vous inquiétez pas, la vue Graphique visuel est couverte plus en détail dans le <b>guide Star Wars</b>."
+            }
+          },
+          {
+            "type": "row",
+            "row": 11,
+            "extraContent": {
+              "en": "Most RDF statements describe <b>Quentin Tarantino</b> as the director but he was the lead actor in <b>Reservoir Dogs</b>.",
+              "fr": "La plupart des déclarations RDF décrivent <b>Quentin Tarantino</b> comme le réalisateur (schema:director), mais il était l'acteur principal (schema:leadActor) de <b>Reservoir Dogs</b>."
+            }
+          },
+          {
+            "type": "row",
+            "row": 12,
+            "content": {
+              "en": "If we look carefully, we'll notice that he was not only the lead actor but also the director of <b>Reservoir Dogs</b>.",
+              "fr": "Si nous regardons attentivement, nous remarquerons qu'il n'était pas seulement l'acteur principal mais aussi le réalisateur de <b>Reservoir Dogs</b>."
+            },
+            "extraContent": {
+              "en": "Let's try to find all movies where the lead actor and the director are the same person with SPARQL.",
+              "fr": "Essayons de trouver tous les films où l'acteur principal et le réalisateur sont la même personne avec SPARQL."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "guideBlockName": "execute-sparql-query",
+      "options": {
+        "showIntro": false,
+        "queries": [
+          {
+            "query": "PREFIX schema: <http://schema.org/>\nPREFIX imdb: <http://academy.ontotext.com/imdb/>\n\nSELECT * { \n\t?movie schema:director ?person ;\n           imdb:leadActor ?person .\n} ORDER BY ?person\n",
+            "queryExtraContent": {
+              "en": "The query selects RDF statements that have the same <i>subject</i> (<b>?movie</b>) and the same <i>object</i> (<b>?person</b>). For any given movie and person, there must be RDF statements that link the movie and the person with both the <b>schema:director</b> and the <b>imdb:leadActor</b> <i>predicate</i>.",
+              "fr": "La requête sélectionne les déclarations RDF qui ont le même <i>sujet</i> (<b>?movie</b>) et le même <i>objet</i> (<b>?person </b>). Pour un film et une personne donnés, il doit y avoir des déclarations RDF qui lient le film et la personne avec à la fois le <b>schema:director</b> et le <b>imdb:leadActor</b> <i>prédicat</i>."
+            },
+            "resultExtraContent": {
+              "en": "The results show the movies and persons where the same person is both a leading actor and a director. The results are ordered by the person since we specified <b>ORDER BY ?person</b>. We can easily see that <b>Clint Eastwood</b> has made a lot of movies like that (scroll down if needed).",
+              "fr": "Les résultats montrent les films et les personnes où la même personne est à la fois un acteur principal et un réalisateur. Les résultats sont triés par la personne puisque nous avons spécifié <b>ORDER BY ?person</b>. Nous pouvons facilement voir que <b>Clint Eastwood</b> a fait beaucoup de films comme ça (faites défiler vers le bas si nécessaire)."
+            }
+          },
+          {
+            "query": "PREFIX schema: <http://schema.org/>\nPREFIX imdb: <http://academy.ontotext.com/imdb/>\n\nSELECT ?person (COUNT(?movie) as ?numMovies) { \n\t?movie schema:director ?person ;\n           imdb:leadActor ?person .\n} GROUP BY ?person ORDER BY DESC(?numMovies)\n",
+            "queryExtraContent": {
+              "en": "Just like the previous query, we select movies and people that are both the leading actor and the director. In this query, we also use <b>GROUP BY ?person</b> to group the results by person and <b>COUNT(?movie)</b> to count how many movies per person satisfy the criteria. The count is returned in the <b>?numMovies</b> variable.",
+              "fr": "Tout comme la requête précédente, nous sélectionnons des films et des personnes qui sont à la fois l'acteur principal et le réalisateur. Dans cette requête, nous utilisons également <b>GROUP BY ?person</b> pour regrouper les résultats par personne et <b>COUNT(?movie)</b> pour compter le nombre de films par personne répondant aux critères. Le nombre est renvoyé dans la variable <b>?numMovies</b>."
+            },
+            "resultExtraContent": {
+              "en": "Since we also used <b>ORDER BY DESC(?numMovies)</b> to order the results by movie count in descending order, we can easily see that both <b>Clint Eastwood</b> and <b>Woody Allen</b> made 10 movies where they were the leading actor and the director.",
+              "fr": "Puisque nous avons également utilisé <b>ORDER BY DESC(?numMovies)</b> pour trier les résultats par nombre de films dans l'ordre décroissant, nous pouvons facilement voir que <b>Clint Eastwood</b> et <b>Woody Allen</b> ont fait 10 films où ils étaient l'acteur principal et le réalisateur."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "guideBlockName": "guide-end"
+    }
+  ]
+}

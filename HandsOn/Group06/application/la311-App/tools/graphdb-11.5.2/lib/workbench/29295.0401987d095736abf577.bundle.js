@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=29295;export const __webpack_esm_ids__=[29295,51676];export const __webpack_esm_modules__={29295(E,_,C){C.d(_,{b:()=>D});const D={SELECT:"SELECT",CONSTRUCT:"CONSTRUCT",ASK:"ASK",DESCRIBE:"DESCRIBE",INSERT:"INSERT",DELETE:"DELETE",LOAD:"LOAD",CLEAR:"CLEAR",CREATE:"CREATE",DROP:"DROP",COPY:"COPY",MOVE:"MOVE",ADD:"ADD"}}};
+//# sourceMappingURL=29295.0401987d095736abf577.bundle.js.map

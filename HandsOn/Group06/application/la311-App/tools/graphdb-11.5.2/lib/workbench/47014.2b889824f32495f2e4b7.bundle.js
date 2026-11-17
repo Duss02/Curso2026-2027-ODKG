@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=47014;export const __webpack_esm_ids__=[47014];export const __webpack_esm_modules__={47014(t,e,a){a.d(e,{E:()=>s});class s{static formatCurrentDateTime(){const t=new Date;return t.getFullYear()+"-"+_.padStart(t.getMonth()+1,2,"0")+"-"+_.padStart(t.getDate(),2,"0")+" "+_.padStart(t.getHours(),2,"0")+":"+_.padStart(t.getMinutes(),2,"0")+":"+_.padStart(t.getSeconds(),2,"0")+"."+_.padStart(t.getMilliseconds(),3,"0")}}}};
+//# sourceMappingURL=47014.2b889824f32495f2e4b7.bundle.js.map

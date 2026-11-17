@@ -1,0 +1,57 @@
+<link href="css/operations-statuses-monitor.css?v=3.5.2" rel="stylesheet"/>
+
+<div ng-if="activeOperations && activeOperations.operations && activeOperations.operations.length > 0"
+     class="operations-statuses btn-group">
+    <button type="button"
+            class="btn btn-secondary operations-statuses-dropdown-toggle dropdown-toggle" data-toggle="dropdown"
+            ng-if="operationsSummary && operationsSummary.length > 0"
+            ng-class="{
+            'btn-fade-danger': OPERATION_STATUS.CRITICAL === activeOperations.status,
+            'btn-fade-warning': OPERATION_STATUS.WARNING === activeOperations.status
+            }">
+        <div class="operation-status-header" ng-repeat="operationGroup in operationsSummary">
+            <div ng-class="{
+            'icon-import': OPERATION_GROUP_TYPE.IMPORT_OPERATION === operationGroup.type,
+            'ri-arrow-left-right-line': OPERATION_GROUP_TYPE.QUERIES_OPERATION === operationGroup.type,
+            'ri-archive-line': OPERATION_GROUP_TYPE.BACKUP_AND_RESTORE_OPERATION === operationGroup.type,
+            'ri-organization-chart': OPERATION_GROUP_TYPE.CLUSTER_OPERATION === operationGroup.type,
+            'status-critical': OPERATION_STATUS.CRITICAL === operationGroup.status,
+            'status-information': OPERATION_STATUS.INFORMATION === operationGroup.status,
+            'status-warning': OPERATION_STATUS.WARNING === operationGroup.status}">
+            </div>
+            <span ng-if="operationGroup.runningOperations" class="running-operation-count">
+                <sup class="tag-info">{{operationGroup.runningOperations}}</sup>
+            </span>
+        </div>
+        <span class="caret"></span>
+    </button>
+    <ul role="menu" class="dropdown-menu dropdown-menu-right">
+        <div class="operations-statuses-content">
+            <li ng-repeat="operationStatus in activeOperations.operations">
+                <a class="operation-status-content btn btn-secondary row" target="_blank" ng-attr-href="{{operationStatus.monitoringViewUrl}}"
+                   ng-class="{
+                   'status-critical': OPERATION_STATUS.CRITICAL === operationStatus.status,
+                   'status-information': OPERATION_STATUS.INFORMATION === operationStatus.status,
+                   'status-warning': OPERATION_STATUS.WARNING === operationStatus.status
+                   }">
+                    <div class="operation-icon col-sm-1" ng-style="noPadding">
+                        <div ng-class="{
+                       'icon-import': OPERATION_TYPE.IMPORTS === operationStatus.type,
+                       'ri-arrow-left-right-line': OPERATION_TYPE.QUERIES === operationStatus.type || OPERATION_TYPE.UPDATES === operationStatus.type,
+                       'ri-archive-line': OPERATION_TYPE.BACKUP_RESTORE === operationStatus.type,
+                       'ri-organization-chart': OPERATION_TYPE.CLUSTER_STATUS === operationStatus.type}">
+                        </div>
+                    </div>
+                    <div class="col-sm-8 operation-status-label">
+                        {{ 'global.operations_statuses.' + operationStatus.titleLabelKey + '.title' | translate }}
+                    </div>
+                    <div class="operation-number col-sm-3">
+                        <div ng-if="operationStatus.runningOperationCount" class="operation-status-running-operation-count tag-info">
+                            {{operationStatus.runningOperationCount}}
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </div>
+    </ul>
+</div>

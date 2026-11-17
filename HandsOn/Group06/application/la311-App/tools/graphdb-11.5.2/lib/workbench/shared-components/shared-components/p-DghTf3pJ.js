@@ -1,0 +1,1 @@
+var t;!function(t){t.RIGHT="right",t.LEFT="left"}(t||(t={}));export{t as D};

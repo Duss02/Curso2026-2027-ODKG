@@ -1,0 +1,63 @@
+<div id="{{extractionMethod.method + '_method_heading'}}" class="extraction-method-heading"
+     ng-class="{'selected': extractionMethod.selected}"
+     guide-selector="autocomplete-iri-discovery">
+    <div class="mr-0 extraction-method-toggle">
+        <input type="checkbox" id="{{extractionMethod.method + '_checkbox'}}"
+               name="{{extractionMethod}}" class="switch"
+               guide-selector="autocomplete-iri-discovery-input"
+               ng-click="toggleAdditionalExtractionMethod(extractionMethod, $event)"
+               ng-model="extractionMethod.selected"/>
+        <label for="{{extractionMethod.method + '_checkbox'}}"></label>
+        <a class="btn btn-link panel-toggle-link"
+           aria-expanded="false" aria-controls="{{extractionMethod.method + '_method_content'}}"
+           ng-click="onAdditionalExtractionMethodPanelToggle(extractionMethod)">
+                                <span class="mr-1"
+                                      uib-popover="{{'ttyg.agent.create_agent_modal.form.additional_query_methods.method.' + extractionMethod.method + '.tooltip' | translate}}"
+                                      popover-trigger="mouseenter">{{'ttyg.agent.create_agent_modal.form.additional_query_methods.method.' + extractionMethod.method + '.label' | translate}}</span>
+            <i class="ri-arrow-down-s-line toggle-icon"
+               ng-class="{'expanded': extractionMethod.expanded}">
+            </i>
+        </a>
+    </div>
+
+    <div id="{{extractionMethod.method + '_method_content'}}"
+         class="show extraction-method-content"
+         aria-labelledby="{{extractionMethod.method + '_method_heading'}}"
+         data-parent="#additionalExtractionMethods">
+           <div ng-if="extractionMethod.expanded" class="extraction-method-options"
+                ng-class="{'has-error': (extractionMethod.selected && agentSettingsForm.$error.autocompleteDisabled) || agentSettingsForm.repositoryId.$invalid}">
+               <button ng-if="agentFormModel.repositoryId" class="btn btn-link btn-sm pull-right"
+                       ng-click="checkAutocompleteIndexEnabled(extractionMethod)"
+                       ng-disabled="disabled"
+                       gdb-tooltip="{{'ttyg.agent.create_agent_modal.form.additional_query_methods.method.autocomplete_iri_discovery_search.btn.reload.tooltip' | translate}}">
+                   <i class="ri-refresh-line"></i>
+               </button>
+               <div class="alert alert-danger missing-repositoryid-error mb-0"
+                    ng-if="!agentFormModel.repositoryId">
+                   {{'ttyg.agent.create_agent_modal.form.missing_repository_id' | translate}}
+               </div>
+               <div ng-if="agentFormModel.repositoryId && !autocompleteEnabled" class="autocomplete-disabled-message">
+                   {{'ttyg.agent.create_agent_modal.form.additional_query_methods.autocomplete_disabled_message.message_1' | translate}}
+                   <a href="" ng-click="goToAutocompleteView($event)">
+                       {{'ttyg.agent.create_agent_modal.form.additional_query_methods.autocomplete_disabled_message.message_2' | translate}}
+                   </a>
+                   {{'ttyg.agent.create_agent_modal.form.additional_query_methods.autocomplete_disabled_message.message_3' | translate}}.
+               </div>
+               <div class="input-field-group" ng-if="autocompleteEnabled">
+                   <div class="form-group max-results" ng-show="agentFormModel.repositoryId">
+                       <label for="{{extractionMethod.method + '_maxNumberOfResultsPerCall'}}"
+                              uib-popover="{{'ttyg.agent.create_agent_modal.form.additional_query_methods.autocomplete_max_number_of_results_per_call.tooltip' | translate}}"
+                              popover-trigger="mouseenter">
+                           {{'ttyg.agent.create_agent_modal.form.additional_query_methods.autocomplete_max_number_of_results_per_call.label' | translate}}
+                       </label>
+                       <input type="number" class="form-control" ng-disabled="!extractionMethod.selected"
+                              id="{{extractionMethod.method + '_maxNumberOfResultsPerCall'}}"
+                              guide-selector="autocomplete-max-iris-input"
+                              name="maxNumberOfResultsPerCall" min="0"
+                              ng-model="extractionMethod.maxNumberOfResultsPerCall"
+                              placeholder="{{'ttyg.agent.create_agent_modal.form.additional_query_methods.autocomplete_max_number_of_results_per_call.placeholder' | translate}}">
+                   </div>
+               </div>
+        </div>
+    </div>
+</div>

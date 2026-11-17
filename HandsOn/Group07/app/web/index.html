@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB Delay Explorer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <h1>DB Delay Explorer</h1>
+
+        <form id="state-form">
+            <fieldset>
+                <legend>Select the states whose train stops you want to see</legend>
+                <p id="state-status" class="status">Loading states…</p>
+                <ul id="state-list" class="state-list"></ul>
+            </fieldset>
+            <button type="submit" id="show-map" disabled>Show on map</button>
+        </form>
+    </main>
+    <script type="module" src="js/state-selection.js"></script>
+</body>
+</html>

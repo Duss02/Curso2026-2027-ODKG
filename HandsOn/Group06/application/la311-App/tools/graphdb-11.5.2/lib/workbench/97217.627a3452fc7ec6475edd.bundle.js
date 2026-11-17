@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=97217;export const __webpack_esm_ids__=[97217];export const __webpack_esm_modules__={97217(e,t,s){s.d(t,{f:()=>a});class a{constructor(e){this.TYPE=e.TYPE,this.query=e.payload.query,this.queryMode=e.payload.queryMode,this.queryType=e.payload.queryType,this.pageSize=e.payload.pageSize,this.request=e.payload.request}setPageSize(e){this.request._data.pageSize=e}setPageNumber(e){this.request._data.pageNumber=e}setCount(e){this.request._data.count=e}}}};
+//# sourceMappingURL=97217.627a3452fc7ec6475edd.bundle.js.map

@@ -1,0 +1,97 @@
+<link href="css/sparql-templates.css?v=3.5.2" rel="stylesheet"/>
+
+<div class="container-fluid fit-content-on-mobile"  ng-if="!queryIsRunning">
+    <h1>
+        {{title}}
+        <span class="btn btn-link"
+              uib-popover-template="'js/angular/templates/titlePopoverTemplate.html'"
+              popover-trigger="mouseenter"
+              popover-placement="bottom-right"
+              popover-append-to-body="true">
+            <span class="ri-information-2-line text-tertiary"></span>
+        </span>
+    </h1>
+    <div core-errors></div>
+    <div system-repo-warning></div>
+    <div class="alert alert-danger" ng-show="repositoryError">
+        <p>{{'not.usable.active.repo.error' | translate}}</p>
+
+        <p>{{repositoryError}}</p>
+    </div>
+
+    <div class="card mb-2 sparql-template">
+        <div class="card-block pt-1">
+            <p class="lead">{{'template.iri.header' | translate}}</p>
+            <div>
+                <input required
+                       class="form-control sparql-template-id"
+                       type="text"
+                       ng-change="markDirty()"
+                       ng-mousedown="sparqlTemplateInfo.isValidTemplateId = true"
+                       placeholder="http://exampleuri.com/examplepath ({{'required' | translate}})"
+                       ng-model="sparqlTemplateInfo.templateID"
+                       ng-disabled="!sparqlTemplateInfo.isNewTemplate"/>
+                <div ng-if="saveOrUpdateExecuted">
+                    <div ng-if="sparqlTemplateInfo.templateID && !isTemplateIdValid(sparqlTemplateInfo.templateID)"
+                         class="idError alert alert-danger template-id-invalid"
+                         translate="not.valid.iri"
+                         translate-value-value="{{sparqlTemplateInfo.templateID}}">
+                    </div>
+                    <div ng-if="!sparqlTemplateInfo.templateID"
+                         class="idError alert alert-danger template-id-required"
+                         translate="sparql.template.iri.constraint">
+                    </div>
+                </div>
+
+                <yasgui-component id="query-editor"
+                                  ng-if="yasguiConfig"
+                                  class="pt-1"
+                                  yasgui-config="yasguiConfig">
+                </yasgui-component>
+
+                <div ng-if="!sparqlTemplateInfo.isValidQuery"
+                     class="idError alert alert-danger  invalid-query"
+                     translate="sparql.template.query.invalid">
+                </div>
+                <div ng-if="!sparqlTemplateInfo.isValidQueryMode"
+                     class="idError alert alert-danger invalid-query-mode"
+                     translate="sparql.template.query.constraint">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pull-right">
+        <button ng-click="goToSparqlTemplatesView()" class="btn btn-lg btn-secondary cancel-query-btn"
+           uib-popover="{{'cancel.sparql.template.creation.tooltip' | translate}}"
+           popover-placement="top"
+           popover-trigger="mouseenter"
+           ng-if="canEditActiveRepo">
+            {{'common.cancel.btn' | translate}}
+        </button>
+        <button class="btn btn-lg btn-primary save-query-btn" ng-click="saveTemplate()"
+                uib-popover="{{'save.sparql.template.tooltip' | translate}}"
+                popover-placement="top"
+                popover-trigger="mouseenter"
+                popover-class="no-wrap-popover"
+                ng-if="canEditActiveRepo" ng-disabled="!isDirty && !sparqlTemplateInfo.isNewTemplate">
+            {{'common.save.btn' | translate}}
+        </button>
+        <a ng-href="sparql-templates" class="btn btn-lg btn-secondary"
+           uib-popover="{{'cancel.sparql.template.creation.tooltip' | translate}}"
+           popover-placement="top"
+           popover-trigger="mouseenter"
+           ng-if="!canEditActiveRepo">
+            {{'common.close' | translate}}
+        </a>
+    </div>
+</div>
+
+<div onto-loader
+     ng-if="queryIsRunning"
+     ng-show="queryIsRunning"
+     class="sparql-loader"
+     size="75"
+     message="loaderMessage"
+     timeout="[1]">
+</div>

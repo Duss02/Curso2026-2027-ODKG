@@ -1,0 +1,64 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{'security.free.access.config.title' | translate}}</h3>
+    <div>{{'security.free.access.config.settings' | translate}}</div>
+</div>
+<div class="modal-body">
+    <div class="card" id="user-settings">
+        <div class="card-block">
+            <h3>{{'security.application.settings' | translate}}</h3>
+            <label class="mr-1"><input type="checkbox" ng-model="appSettings.DEFAULT_SAMEAS" id="defaultSameAs" checked="appSettings.DEFAULT_SAMEAS" > {{'security.default.same.as' | translate}}</label>
+            <label class="mr-1"><input type="checkbox" ng-model="appSettings.DEFAULT_INFERENCE" id="defaultInference" checked="appSettings.DEFAULT_INFERENCE" > {{'security.default.inference' | translate}}</label>
+            <label><input type="checkbox" ng-model="appSettings.EXECUTE_COUNT" id="defaultCount" checked="appSettings.EXECUTE_COUNT"> {{'security.count.all.results' | translate}}</label>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-block repo-fields">
+            <h3>{{'security.read.write.access' | translate}}</h3>
+            <div class="row">
+                <p ng-show="repositoryCheckError" class="authoritiesError alert alert-danger col-xs-12">
+                    {{'security.user.rights' | translate}}
+                </p>
+                <p ng-hide="hasActiveLocation()" class="authoritiesError alert alert-danger col-xs-12">{{'security.no.active.location' | translate}}
+                    <a href="repository" ng-if="isAdmin()">{{'activate.location' | translate}}</a>
+                </p>
+            </div>
+            <div class="row" style="margin-top: 0">
+                <h5 class="boldless col-xs-9">{{'security.repository.title' | translate}}</h5>
+                <span class="ri-eye-line col-xs-1" gdb-tooltip="{{'security.tooltip.read' | translate}}"
+                      tooltip-placement="top" style="margin-top: 10px"></span>
+                <span class="ri-pencil-line col-xs-1" gdb-tooltip="{{'security.tooltip.write' | translate}}"
+                      tooltip-placement="top" style="margin-top: 10px"></span>
+                <span class="icon-graphql col-xs-1" gdb-tooltip="{{'security.tooltip.graphql' | translate}}"
+                      tooltip-placement="top" style="margin-top: 10px"></span>
+            </div>
+            <div class="row"
+                 ng-repeat="repository in getRepositories() | orderBy: ['id', 'location']">
+                <p class="col-xs-9 break-word">{{repository.id}}<small> &middot; {{repository.location ? repository.location : 'Local'}}</small></p>
+                <label class="col-xs-1">
+                    <input class="animated read" type="checkbox"
+                           ng-model="grantedAuthorities.READ_REPO[createUniqueKey(repository)]"
+                           ng-checked="grantedAuthorities.READ_REPO[createUniqueKey(repository)] || grantedAuthorities.WRITE_REPO[createUniqueKey(repository)]"
+                           ng-disabled="grantedAuthorities.WRITE_REPO[createUniqueKey(repository)]"
+                           ng-class="grantedAuthorities.WRITE_REPO[createUniqueKey(repository)] ? 'bounceIn' : ''"
+                           ng-click="setGrantedAuthorities()">
+                </label>
+                <label class="col-xs-1">
+                    <input class="animated write" type="checkbox"
+                           ng-model="grantedAuthorities.WRITE_REPO[createUniqueKey(repository)]"
+                           ng-checked="grantedAuthorities.WRITE_REPO[createUniqueKey(repository)]"
+                           ng-click="setGrantedAuthorities()">
+                </label>
+                <label class="col-xs-1">
+                    <input class="animated graphql" type="checkbox"
+                           ng-model="grantedAuthorities.GRAPHQL[createUniqueKey(repository)]"
+                           ng-checked="grantedAuthorities.GRAPHQL[createUniqueKey(repository)]"
+                           ng-click="setGrantedAuthorities()">
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" ng-click="cancel()">{{'common.cancel.btn' | translate}}</button>
+    <button class="btn btn-primary" ng-click="ok()">{{'common.ok.btn' | translate}}</button>
+</div>

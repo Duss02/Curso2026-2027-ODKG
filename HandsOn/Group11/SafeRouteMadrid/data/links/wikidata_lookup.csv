@@ -1,0 +1,68 @@
+column,value,uri
+distrito,ARGANZUELA,https://www.wikidata.org/entity/Q2000929
+distrito,BARAJAS,https://www.wikidata.org/entity/Q807230
+distrito,CARABANCHEL,https://www.wikidata.org/entity/Q1001991
+distrito,CENTRO,https://www.wikidata.org/entity/Q1763376
+distrito,CHAMARTÍN,https://www.wikidata.org/entity/Q1766348
+distrito,CHAMBERÍ,https://www.wikidata.org/entity/Q1763370
+distrito,CIUDAD LINEAL,https://www.wikidata.org/entity/Q1763694
+distrito,FUENCARRAL-EL PARDO,https://www.wikidata.org/entity/Q656196
+distrito,HORTALEZA,https://www.wikidata.org/entity/Q1928529
+distrito,LATINA,https://www.wikidata.org/entity/Q794954
+distrito,MONCLOA-ARAVACA,https://www.wikidata.org/entity/Q2017682
+distrito,MORATALAZ,https://www.wikidata.org/entity/Q2076109
+distrito,PUENTE DE VALLECAS,https://www.wikidata.org/entity/Q2003054
+distrito,RETIRO,https://www.wikidata.org/entity/Q2002296
+distrito,SALAMANCA,https://www.wikidata.org/entity/Q1773521
+distrito,SAN BLAS-CANILLEJAS,https://www.wikidata.org/entity/Q2001937
+distrito,TETUÁN,https://www.wikidata.org/entity/Q1773540
+distrito,USERA,https://www.wikidata.org/entity/Q953368
+distrito,VICÁLVARO,https://www.wikidata.org/entity/Q589403
+distrito,VILLA DE VALLECAS,https://www.wikidata.org/entity/Q1947988
+distrito,VILLAVERDE,https://www.wikidata.org/entity/Q919536
+tipo_accidente,Alcance,https://www.wikidata.org/entity/Q375102
+tipo_accidente,Atropello a animal,https://www.wikidata.org/entity/Q9687
+tipo_accidente,Atropello a persona,https://www.wikidata.org/entity/Q9637047
+tipo_accidente,Caída,https://www.wikidata.org/entity/Q333495
+tipo_accidente,Choque contra obstáculo fijo,https://www.wikidata.org/entity/Q9687
+tipo_accidente,Colisión frontal,https://www.wikidata.org/entity/Q3305019
+tipo_accidente,Colisión fronto-lateral,https://www.wikidata.org/entity/Q3305019
+tipo_accidente,Colisión lateral,https://www.wikidata.org/entity/Q1427114
+tipo_accidente,Colisión múltiple,https://www.wikidata.org/entity/Q9687
+tipo_accidente,Despeñamiento,https://www.wikidata.org/entity/Q333495
+tipo_accidente,Solo salida de la vía,https://www.wikidata.org/entity/Q7379462
+tipo_accidente,Vuelco,https://www.wikidata.org/entity/Q3531620
+tipo_persona,Conductor,https://www.wikidata.org/entity/Q114080955
+tipo_persona,Pasajero,https://www.wikidata.org/entity/Q319604
+tipo_persona,Peatón,https://www.wikidata.org/entity/Q221488
+tipo_vehiculo,Ambulancia SAMUR,https://www.wikidata.org/entity/Q180481
+tipo_vehiculo,Autobus EMT,https://www.wikidata.org/entity/Q5638
+tipo_vehiculo,Autobús,https://www.wikidata.org/entity/Q5638
+tipo_vehiculo,Autobús articulado,https://www.wikidata.org/entity/Q5638
+tipo_vehiculo,Autocaravana,https://www.wikidata.org/entity/Q13553228
+tipo_vehiculo,Bicicleta,https://www.wikidata.org/entity/Q11442
+tipo_vehiculo,Bicicleta EPAC (pedaleo asistido),https://www.wikidata.org/entity/Q11442
+tipo_vehiculo,Camión rígido,https://www.wikidata.org/entity/Q43193
+tipo_vehiculo,Caravana,https://www.wikidata.org/entity/Q203494
+tipo_vehiculo,Ciclo,https://www.wikidata.org/entity/Q11442
+tipo_vehiculo,Ciclo de motor L1e-A,https://www.wikidata.org/entity/Q201783
+tipo_vehiculo,Ciclomotor,https://www.wikidata.org/entity/Q201783
+tipo_vehiculo,Ciclomotor de dos ruedas L1e-B,https://www.wikidata.org/entity/Q201783
+tipo_vehiculo,Cuadriciclo ligero,https://www.wikidata.org/entity/Q30901990
+tipo_vehiculo,Cuadriciclo no ligero,https://www.wikidata.org/entity/Q123692388
+tipo_vehiculo,Furgoneta,https://www.wikidata.org/entity/Q193468
+tipo_vehiculo,Maquinaria de obras,https://www.wikidata.org/entity/Q874311
+tipo_vehiculo,Microbús <= 17 plazas,https://www.wikidata.org/entity/Q13222551
+tipo_vehiculo,Moto de tres ruedas > 125cc,https://www.wikidata.org/entity/Q34493
+tipo_vehiculo,Motocicleta > 125cc,https://www.wikidata.org/entity/Q34493
+tipo_vehiculo,Motocicleta hasta 125cc,https://www.wikidata.org/entity/Q34493
+tipo_vehiculo,Otros vehículos con motor,https://www.wikidata.org/entity/Q752870
+tipo_vehiculo,Otros vehículos sin motor,https://www.wikidata.org/entity/Q1507442
+tipo_vehiculo,Patinete no eléctrico,https://www.wikidata.org/entity/Q502057
+tipo_vehiculo,Semiremolque,https://www.wikidata.org/entity/Q1936841
+tipo_vehiculo,Todo terreno,https://www.wikidata.org/entity/Q192152
+tipo_vehiculo,Tractocamión,https://www.wikidata.org/entity/Q1936841
+tipo_vehiculo,Tren/metro,https://www.wikidata.org/entity/Q4102249
+tipo_vehiculo,Turismo,https://www.wikidata.org/entity/Q1420
+tipo_vehiculo,VMU eléctrico,https://www.wikidata.org/entity/Q11329821
+tipo_vehiculo,Vehículo articulado,https://www.wikidata.org/entity/Q1411533

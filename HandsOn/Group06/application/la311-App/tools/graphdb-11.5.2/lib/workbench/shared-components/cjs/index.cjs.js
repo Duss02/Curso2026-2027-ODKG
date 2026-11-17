@@ -1,0 +1,1 @@
+"use strict";function format(t,r,o){return(t||"")+(r?` ${r}`:"")+(o?` ${o}`:"")}exports.format=format;

@@ -1,0 +1,17 @@
+PREFIX la311: <http://linkeddata.la311.com/ontology#>
+PREFIX geo:   <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?cd (COUNT(?sr) AS ?n)
+       (SUM(IF(?status IN ("Open", "Pending"), 1, 0)) AS ?openOrPending)
+WHERE {
+  ?sr la311:status ?status ;
+      la311:createdDate ?created ;
+      la311:hasLocation/la311:isWithin/la311:cd ?cd .
+  FILTER (?cd != 0)
+  FILTER (?created >= "2025-01-01T00:00:00Z"^^xsd:dateTime
+       && ?created <  "2026-01-01T00:00:00Z"^^xsd:dateTime)
+}
+GROUP BY ?cd
+ORDER BY DESC(?n)

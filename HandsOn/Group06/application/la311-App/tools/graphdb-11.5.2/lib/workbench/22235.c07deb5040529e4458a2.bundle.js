@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=22235;export const __webpack_esm_ids__=[22235];export const __webpack_esm_modules__={22235(){function e(e,a){const r=a.getSupportedLanguages();let t;return{getTranslations:()=>(t||(t={},r.forEach(a=>t[a]=e.getTranslationTable(a))),t)}}angular.module("graphdb.framework.core.services.translation-service",[]).service("TranslationService",e),e.$inject=["$translate","$languageService"]}};
+//# sourceMappingURL=22235.c07deb5040529e4458a2.bundle.js.map
