@@ -1,0 +1,220 @@
+@prefix hr:   <https://w3id.org/barcelona-heat-relief/ontology/HeatRelief#> .
+@prefix hrs:  <https://w3id.org/barcelona-heat-relief/shapes#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# SHACL shapes for the Barcelona Heat Relief knowledge graph (Group 08).
+#
+# Starting point: shapes-draft.ttl, generated from the ontology with the same
+# approach as Astrea (one node shape per class, sh:class / sh:datatype from
+# rdfs:range). On top of it we added cardinalities, the language of labels,
+# the links to Wikidata, value lists and the bounding box of Barcelona.
+
+#################################################################
+#    Urban elements (shelters, fountains, trees)
+#################################################################
+
+# Constraints shared by the three subclasses of hr:UrbanElement. The three
+# classes are listed as targets so that the shape also works when the data
+# graph does not contain the rdfs:subClassOf axioms of the ontology.
+hrs:UrbanElementShape a sh:NodeShape ;
+    sh:targetClass hr:UrbanElement, hr:ClimateShelter, hr:DrinkingFountain, hr:StreetTree ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "An urban element must have exactly one label." ] ;
+    sh:property [
+        sh:path hr:isLocatedInNeighbourhood ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ; sh:class hr:Neighbourhood ;
+        sh:message "An urban element must be located in exactly one neighbourhood." ] ;
+    sh:property [
+        sh:path geo:lat ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 41.30 ; sh:maxInclusive 41.50 ;
+        sh:message "Latitude must be one xsd:decimal inside the Barcelona bounding box (41.30-41.50)." ] ;
+    sh:property [
+        sh:path geo:long ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 2.05 ; sh:maxInclusive 2.25 ;
+        sh:message "Longitude must be one xsd:decimal inside the Barcelona bounding box (2.05-2.25)." ] ;
+    sh:property [
+        sh:path hr:etrs89X ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 420000 ; sh:maxInclusive 440000 ;
+        sh:message "ETRS89 X must be one xsd:decimal inside the Barcelona bounding box (420000-440000 m)." ] ;
+    sh:property [
+        sh:path hr:etrs89Y ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 4570000 ; sh:maxInclusive 4595000 ;
+        sh:message "ETRS89 Y must be one xsd:decimal inside the Barcelona bounding box (4570000-4595000 m)." ] ;
+    sh:property [
+        sh:path hr:streetAddress ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[^,\\s][^,]*(, *[^,\\s][^,]*)?$" ;
+        sh:message "The street address is optional; if present it is 'street' or 'street, number', with no empty part (e.g. ', 11' or 'Rodes, ' are wrong)." ] .
+
+# The three subclasses are disjoint in the ontology (owl:AllDisjointClasses).
+hrs:ClimateShelterShape a sh:NodeShape ;
+    sh:targetClass hr:ClimateShelter ;
+    sh:not [ sh:or ( [ sh:class hr:DrinkingFountain ] [ sh:class hr:StreetTree ] ) ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype rdf:langString ; sh:languageIn ( "ca" ) ;
+        sh:message "The name of a shelter is in Catalan (@ca)." ] ;
+    sh:property [
+        sh:path hr:hasShelterCategory ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ; sh:class hr:ShelterCategory ;
+        sh:message "A shelter must have exactly one category." ] ;
+    sh:property [
+        sh:path hr:isHostedBy ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ; sh:class hr:Facility ;
+        sh:message "A shelter is hosted by at most one facility." ] ;
+    sh:property [
+        sh:path hr:openingHours ;
+        sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [
+        sh:path hr:email ;
+        sh:maxCount 1 ; sh:datatype xsd:string ;
+        sh:pattern "^[^@\\s]+@[^@\\s]+\\.[A-Za-z]+$" ;
+        sh:message "The e-mail must look like name@domain.tld." ] ;
+    sh:property [
+        sh:path hr:website ;
+        sh:maxCount 1 ; sh:datatype xsd:anyURI ;
+        sh:pattern "^https?://" ;
+        sh:message "The website must be an http(s) xsd:anyURI." ] ;
+    sh:property [
+        sh:path hr:telephone ;
+        sh:maxCount 1 ; sh:datatype xsd:string ;
+        # At least 9 digits (single spaces allowed), or one of the public service
+        # numbers 010 (information line of the city council, used by 8 gardens), 012, 112.
+        sh:pattern "^(\\+?[0-9]( ?[0-9]){8,}|010|012|112)$" ;
+        sh:message "The telephone must have at least 9 digits or be a service number (010, 012, 112)." ] .
+
+hrs:DrinkingFountainShape a sh:NodeShape ;
+    sh:targetClass hr:DrinkingFountain ;
+    sh:not [ sh:or ( [ sh:class hr:ClimateShelter ] [ sh:class hr:StreetTree ] ) ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype rdf:langString ; sh:languageIn ( "ca" ) ;
+        sh:message "The name of a fountain is in Catalan (@ca)." ] .
+
+hrs:StreetTreeShape a sh:NodeShape ;
+    sh:targetClass hr:StreetTree ;
+    sh:not [ sh:or ( [ sh:class hr:ClimateShelter ] [ sh:class hr:DrinkingFountain ] ) ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:message "The label of a tree is a plain string (species + code)." ] ;
+    sh:property [
+        sh:path hr:hasSpecies ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ; sh:class hr:TreeSpecies ;
+        sh:message "A tree must have exactly one species." ] ;
+    sh:property [
+        sh:path hr:treeCategory ;
+        sh:maxCount 1 ;
+        sh:in ( "EXEMPLAR" "PRIMERA" "SEGONA" "TERCERA" ) ;
+        sh:message "The tree category must be EXEMPLAR, PRIMERA, SEGONA or TERCERA." ] ;
+    sh:property [
+        sh:path hr:plantingDate ;
+        sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:property [
+        sh:path hr:irrigationType ;
+        sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [
+        sh:path hr:irrigationWaterType ;
+        sh:datatype xsd:string ] ;
+    sh:property [
+        sh:path hr:greenSpace ;
+        sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+#################################################################
+#    Tree species
+#################################################################
+
+hrs:TreeSpeciesShape a sh:NodeShape ;
+    sh:targetClass hr:TreeSpecies ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [
+        sh:path hr:scientificName ;
+        sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ;
+        sh:message "A species must have exactly one scientific name." ] ;
+    sh:property [ sh:path hr:catalanName ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path hr:spanishName ; sh:datatype xsd:string ] ;
+    # HO5: a species is linked to Wikidata either as the same taxon
+    # (owl:sameAs) or, for cultivars, to the broader taxon (skos:broadMatch).
+    sh:xone (
+        [ sh:path owl:sameAs ; sh:minCount 1 ]
+        [ sh:path skos:broadMatch ; sh:minCount 1 ]
+    ) ;
+    sh:property [
+        sh:path owl:sameAs ;
+        sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ] ;
+    sh:property [
+        sh:path skos:broadMatch ;
+        sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ] .
+
+#################################################################
+#    Neighbourhoods, districts, facilities, categories
+#################################################################
+
+hrs:NeighbourhoodShape a sh:NodeShape ;
+    sh:targetClass hr:Neighbourhood ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype rdf:langString ; sh:languageIn ( "ca" ) ] ;
+    sh:property [
+        sh:path hr:isPartOfDistrict ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ; sh:class hr:District ;
+        sh:message "A neighbourhood must be part of exactly one district." ] ;
+    sh:property hrs:WikidataSameAs .
+
+hrs:DistrictShape a sh:NodeShape ;
+    sh:targetClass hr:District ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype rdf:langString ; sh:languageIn ( "ca" ) ] ;
+    sh:property hrs:WikidataSameAs .
+
+hrs:FacilityShape a sh:NodeShape ;
+    sh:targetClass hr:Facility ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype rdf:langString ; sh:languageIn ( "ca" ) ] ;
+    sh:property hrs:WikidataSameAs .
+
+hrs:ShelterCategoryShape a sh:NodeShape ;
+    sh:targetClass hr:ShelterCategory ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype rdf:langString ; sh:languageIn ( "en" ) ] .
+
+# Reused by neighbourhoods, districts and facilities (HO5 linking).
+hrs:WikidataSameAs a sh:PropertyShape ;
+    sh:path owl:sameAs ;
+    sh:minCount 1 ; sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://www\\.wikidata\\.org/entity/Q[0-9]+$" ;
+    sh:message "Must be linked with owl:sameAs to exactly one Wikidata item." .

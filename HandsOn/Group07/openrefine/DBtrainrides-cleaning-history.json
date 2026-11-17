@@ -1,0 +1,69 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "zip",
+    "expression": "grel:with(\n  [\n    \"8010003|4600\",\n    \"8010006|1477\",\n    \"8010009|6449\",\n    \"8010019|6628\",\n    \"8010022|1814\",\n    \"8010026|2625\",\n    \"8010043|6404\",\n    \"8010049|1877\",\n    \"8010059|4451\",\n    \"8011077|4651\",\n    \"8011222|4564\",\n    \"8011242|4552\"\n  ],\n  corrections,\n  if(\n    corrections.inArray(cells[\"eva_nr\"].value.toString() + \"|\" + value.toString()),\n    \"0\" + value.toString(),\n    value\n  )\n)",
+    "onError": "store-error",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne zip à laide de lexpression grel:with(\n  [\n    \"8010003|4600\",\n    \"8010006|1477\",\n    \"8010009|6449\",\n    \"8010019|6628\",\n    \"8010022|1814\",\n    \"8010026|2625\",\n    \"8010043|6404\",\n    \"8010049|1877\",\n    \"8010059|4451\",\n    \"8011077|4651\",\n    \"8011222|4564\",\n    \"8011242|4552\"\n  ],\n  corrections,\n  if(\n    corrections.inArray(cells[\"eva_nr\"].value.toString() + \"|\" + value.toString()),\n    \"0\" + value.toString(),\n    value\n  )\n)"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "state",
+    "expression": "grel:if(\n  isBlank(value),\n  null,\n  value\n    .replace(\"ü\", \"ue\")\n    .replace(\"ö\", \"oe\")\n    .replace(\"ä\", \"ae\")\n    .replace(\"ß\", \"ss\")\n    .replace(\"Ü\", \"Ue\")\n    .replace(\"Ö\", \"Oe\")\n    .replace(\"Ä\", \"Ae\")\n    .replace(\"ẞ\", \"SS\")\n    .replace(/[()]/, \"\")\n    .replace(/\\s+/, \"-\")\n    .replace(/-+/, \"-\")\n    .replace(/^-+|-+$/, \"\")\n)",
+    "onError": "set-to-blank",
+    "newColumnName": "state_slug",
+    "columnInsertIndex": 7,
+    "description": "Créer la colonne state_slug à l’index 7 sur la base de la colonne state à l’aide de l’expression grel:if(\n  isBlank(value),\n  null,\n  value\n    .replace(\"ü\", \"ue\")\n    .replace(\"ö\", \"oe\")\n    .replace(\"ä\", \"ae\")\n    .replace(\"ß\", \"ss\")\n    .replace(\"Ü\", \"Ue\")\n    .replace(\"Ö\", \"Oe\")\n    .replace(\"Ä\", \"Ae\")\n    .replace(\"ẞ\", \"SS\")\n    .replace(/[()]/, \"\")\n    .replace(/\\s+/, \"-\")\n    .replace(/-+/, \"-\")\n    .replace(/^-+|-+$/, \"\")\n)"
+  },
+  {
+    "op": "core/column-move-last",
+    "columnName": "state_slug",
+    "description": "Move column state_slug to the end"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "city",
+    "expression": "grel:if(\n  isBlank(value),\n  null,\n  value\n    .replace(\"ü\", \"ue\")\n    .replace(\"ö\", \"oe\")\n    .replace(\"ä\", \"ae\")\n    .replace(\"ß\", \"ss\")\n    .replace(\"Ü\", \"Ue\")\n    .replace(\"Ö\", \"Oe\")\n    .replace(\"Ä\", \"Ae\")\n    .replace(\"ẞ\", \"SS\")\n    .replace(/[()]/, \"\")\n    .replace(/\\s+/, \"-\")\n    .replace(/-+/, \"-\")\n    .replace(/^-+|-+$/, \"\")\n)",
+    "onError": "set-to-blank",
+    "newColumnName": "city_slug",
+    "columnInsertIndex": 8,
+    "description": "Créer la colonne city_slug à l’index 8 sur la base de la colonne city à l’aide de l’expression grel:if(\n  isBlank(value),\n  null,\n  value\n    .replace(\"ü\", \"ue\")\n    .replace(\"ö\", \"oe\")\n    .replace(\"ä\", \"ae\")\n    .replace(\"ß\", \"ss\")\n    .replace(\"Ü\", \"Ue\")\n    .replace(\"Ö\", \"Oe\")\n    .replace(\"Ä\", \"Ae\")\n    .replace(\"ẞ\", \"SS\")\n    .replace(/[()]/, \"\")\n    .replace(/\\s+/, \"-\")\n    .replace(/-+/, \"-\")\n    .replace(/^-+|-+$/, \"\")\n)"
+  },
+  {
+    "op": "core/column-move-last",
+    "columnName": "city_slug",
+    "description": "Move column city_slug to the end"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "station",
+    "expression": "grel:if(\n  isBlank(value),\n  null,\n  value.trim()\n    .replace(\"ü\", \"ue\")\n    .replace(\"ö\", \"oe\")\n    .replace(\"ä\", \"ae\")\n    .replace(\"ß\", \"ss\")\n    .replace(\"Ü\", \"Ue\")\n    .replace(\"Ö\", \"Oe\")\n    .replace(\"Ä\", \"Ae\")\n    .replace(\"ẞ\", \"SS\")\n    .replace(/[()]/, \"\")\n    .replace(/\\s+/, \"-\")\n    .replace(/-+/, \"-\")\n    .replace(/^-+|-+$/, \"\")\n)",
+    "onError": "set-to-blank",
+    "newColumnName": "station_slug",
+    "columnInsertIndex": 6,
+    "description": "Créer la colonne station_slug à l’index 6 sur la base de la colonne station à l’aide de l’expression grel:if(\n  isBlank(value),\n  null,\n  value.trim()\n    .replace(\"ü\", \"ue\")\n    .replace(\"ö\", \"oe\")\n    .replace(\"ä\", \"ae\")\n    .replace(\"ß\", \"ss\")\n    .replace(\"Ü\", \"Ue\")\n    .replace(\"Ö\", \"Oe\")\n    .replace(\"Ä\", \"Ae\")\n    .replace(\"ẞ\", \"SS\")\n    .replace(/[()]/, \"\")\n    .replace(/\\s+/, \"-\")\n    .replace(/-+/, \"-\")\n    .replace(/^-+|-+$/, \"\")\n)"
+  },
+  {
+    "op": "core/column-move-last",
+    "columnName": "station_slug",
+    "description": "Move column station_slug to the end"
+  }
+]
