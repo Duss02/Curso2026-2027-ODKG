@@ -1,0 +1,1 @@
+export function format(r,t,n){return(r||"")+(t?` ${t}`:"")+(n?` ${n}`:"")}

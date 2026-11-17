@@ -1,0 +1,1 @@
+import{Loggers}from"../../../../api/dist/ontotext-workbench-api";const MODULE_NAME="SharedComponents";export class LoggerProvider{static get logger(){return Loggers.getLoggerInstance(MODULE_NAME)}}

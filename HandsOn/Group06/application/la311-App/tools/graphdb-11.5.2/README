@@ -1,0 +1,47 @@
+Prerequisites
+-------------
+GraphDB is a Java application and requires Java 11. Make sure you have an up-to-date Java 11 installation.
+You can download Java from https://java.com/en/download/help/download_options.xml.
+
+Starting GraphDB
+----------------
+Run the graphdb script in the bin directory. To access the Workbench, open http://localhost:7200 in a browser.
+
+To run GraphDB on a different port, add the parameter "-Dgraphdb.connector.port=<your-port>".
+This option can also be set in the config file graphdb.properties in the conf directory.
+
+To run GraphDB in server-only mode without the embedded Workbench, add the parameter "-s".
+
+License
+-------
+GraphDB needs a software license. If you have not received a license, please contact Ontotext.
+The license can be set through the GraphDB Workbench:
+
+    1) Go to Setup -> Repositories.
+    2) Click the key icon next to the active location.
+    3) Click the Set up license button and either upload a license file or paste the ASCII version of the license.
+
+If a license is missing or invalid the Set up license button will be shown on the home screen as well.
+
+For alternative ways to set the license, please refer to
+http://graphdb.ontotext.com/documentation/enterprise/ee/setting-up-licenses.html.
+
+Creating Repositories
+---------------------
+By default, the GraphDB will initialise a location but not create any repositories.
+You can create a new repository or connect to an existing one from the menu Setup -> Repositories page
+in the GraphDB Workbench:
+
+    - To create a new repository in the location, click on "Create new repository" and fill in the form.
+    - To connect to a repository, use the dropdown in the menu or the slider next to the repo name on the same page.
+
+More information
+----------------
+The GraphDB Documentation:
+    http://graphdb.ontotext.com/documentation/enterprise/
+
+The GraphDB Quick start guide:
+    http://graphdb.ontotext.com/documentation/enterprise/quick-start-guide.html
+
+The GraphDB Developer Hub:
+    http://graphdb.ontotext.com/devhub/

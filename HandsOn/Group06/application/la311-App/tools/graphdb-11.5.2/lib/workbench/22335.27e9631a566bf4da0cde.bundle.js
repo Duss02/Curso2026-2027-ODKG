@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=22335;export const __webpack_esm_ids__=[22335];export const __webpack_esm_modules__={22335(r,e,o){o(47053),o(23517),angular.module("graphdb.framework.sparql-editor",["ui.bootstrap","graphdb.framework.sparql-editor.controllers","graphdb.framework.core.directives.yasgui-component"])}};
+//# sourceMappingURL=22335.27e9631a566bf4da0cde.bundle.js.map

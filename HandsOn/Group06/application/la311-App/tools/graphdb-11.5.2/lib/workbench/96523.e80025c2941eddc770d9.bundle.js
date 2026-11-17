@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=96523;export const __webpack_esm_ids__=[96523];export const __webpack_esm_modules__={96523(_,e,s){s.d(e,{o:()=>o});const o={EXTENDED_TABLE:"extended_table",RAW_RESPONSE:"response",TABLE:"table"}}};
+//# sourceMappingURL=96523.e80025c2941eddc770d9.bundle.js.map

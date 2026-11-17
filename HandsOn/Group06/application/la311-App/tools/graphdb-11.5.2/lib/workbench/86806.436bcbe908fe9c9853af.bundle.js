@@ -1,0 +1,2 @@
+export const __webpack_esm_id__=86806;export const __webpack_esm_ids__=[86806];export const __webpack_esm_modules__={86806(_,e,s){s.d(e,{z:()=>o});const o={QUERY:"QUERY",UPDATE:"UPDATE",GRAPHQL:"GRAPHQL",ANY:"ANY"}}};
+//# sourceMappingURL=86806.436bcbe908fe9c9853af.bundle.js.map

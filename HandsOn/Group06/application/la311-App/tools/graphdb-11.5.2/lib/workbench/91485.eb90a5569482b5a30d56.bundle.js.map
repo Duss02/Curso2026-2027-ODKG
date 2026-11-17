@@ -1,0 +1,1 @@
+{"version":3,"file":"91485.eb90a5569482b5a30d56.bundle.js","mappings":"mJAAO,MAAMA,UAA4BC,O","sources":["webpack://root-config/./packages/legacy-workbench/src/js/angular/models/sparql-template/sparql-template-error.js"],"sourcesContent":["export class SparqlTemplateError extends Error {\n\n}\n"],"names":["SparqlTemplateError","Error"],"sourceRoot":""}

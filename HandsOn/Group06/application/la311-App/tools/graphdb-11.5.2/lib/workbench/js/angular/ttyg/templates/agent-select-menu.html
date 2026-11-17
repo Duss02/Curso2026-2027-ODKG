@@ -1,0 +1,44 @@
+<link href="css/ttyg/agent-select-menu.css?v=3.5.2" rel="stylesheet"/>
+
+<div class="btn-group agent-select-menu" uib-dropdown guide-selector="select-agent-dropdown">
+    <button type="button" class="btn btn-secondary dropdown-toggle-btn" uib-dropdown-toggle guide-selector="select-agent-dropdown-toggle"
+            ng-attr-title="{{selectedAgent && !selectedAgent.isDeleted ? (selectedAgent.name + ' &middot; ' + selectedAgent.repositoryId) : null}}">
+        <span ng-if="!selectedAgent">{{'ttyg.agent.agent_select_menu.no_selection_label' | translate}}</span>
+        <div ng-if="selectedAgent && !selectedAgent.isDeleted" class="selected-agent-option">
+            <span class="agent-name" guide-selector="selected-agent">{{selectedAgent.name}}</span> &middot;
+            <i ng-if="!selectedAgent.isRepositoryDeleted" class="icon-repo-graphdb"></i>
+            <i ng-if="selectedAgent.isRepositoryDeleted"
+               class="ri-alert-line text-warning agent-with-deleted-repository"
+               gdb-tooltip="{{'ttyg.agent.deleted_repository' | translate}}">
+            </i>
+            <span class="repository-id">{{selectedAgent.repositoryId}}</span>
+            <span class="model-name">{{selectedAgent.model}}</span>
+        </div>
+        <span ng-if="selectedAgent && selectedAgent.isDeleted" class="text-warning">
+            <i class="ri-alert-line"></i>
+            {{'ttyg.agent.agent_select_menu.deleted_agent' | translate}}
+        </span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button" guide-selector="select-agent-panel">
+        <li ng-repeat="agentOption in agentOptionsList" role="menuitem" class="agent-menu-item"
+            ng-class="{'selected': agentOption.selected, 'incompatible-agent': !agentOption.data.agent.isCompatible}"
+            ng-attr-title="{{!agentOption.data.agent.isCompatible ? ('ttyg.agent.incompatible_agent' | translate) : agentOption.label + ' · ' + agentOption.data.agent.repositoryId}}">
+            <a href="#"
+               class="agent-option"
+               ng-click="onAgentSelected($event, agentOption.data.agent)">
+               <i ng-if="!agentOption.data.agent.isCompatible"
+                   class="ri-alert-line text-warning">
+                </i>
+                <span class="agent-name">{{agentOption.label}}</span> &middot;
+                <i ng-if="!agentOption.data.agent.isRepositoryDeleted" class="icon-repo-graphdb"></i>
+                <i ng-if="agentOption.data.agent.isRepositoryDeleted"
+                   class="ri-alert-line text-warning agent-with-deleted-repository"
+                   gdb-tooltip="{{'ttyg.agent.deleted_repository' | translate}}">
+                </i>
+                <span class="repository-id">{{agentOption.data.agent.repositoryId}}</span>
+            </a>
+            <span class="model-name">{{agentOption.data.agent.model}}</span>
+        </li>
+    </ul>
+</div>

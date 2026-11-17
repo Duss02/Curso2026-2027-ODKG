@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    {
+      "name": "plugins-bundle",
+      "entry": "plugins/plugins-bundle.js"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+/*!
+angular-xeditable - 0.10.2
+Edit-in-place for angular.js
+Build date: 2019-11-01 
+*/

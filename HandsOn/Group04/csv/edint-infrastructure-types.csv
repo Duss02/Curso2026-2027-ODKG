@@ -1,0 +1,26 @@
+TIPO_ID,TIPO_NOMBRE,EDINT_TYPE,MATCH,SKOS_MATCH
+instalaciones-deportivas-basicas,Instalaciones Deportivas Basicas,https://edint.es/kos/InfrastructureType/equipamiento-deportivo,broad,http://www.w3.org/2004/02/skos/core#broadMatch
+campos-estadios-futbol,Campos Estadios Futbol,https://edint.es/kos/InfrastructureType/campo-de-futbol,exact,http://www.w3.org/2004/02/skos/core#exactMatch
+pista-futbol-sala,Pista Futbol Sala,https://edint.es/kos/InfrastructureType/pistas-polideportivas,close,http://www.w3.org/2004/02/skos/core#closeMatch
+pistas-patinaje,Pistas Patinaje,https://edint.es/kos/InfrastructureType/pista-de-patinaje-sobre-ruedas,close,http://www.w3.org/2004/02/skos/core#closeMatch
+pista-bolos-petanca-calva-chito,Pista Bolos Petanca Calva Chito,https://edint.es/kos/InfrastructureType/pistas-de-petanca,close,http://www.w3.org/2004/02/skos/core#closeMatch
+calistenia,Calistenia,https://edint.es/kos/InfrastructureType/fitness-de-exterior-y-circuitos-biosaludables,close,http://www.w3.org/2004/02/skos/core#closeMatch
+pistas-tenis-badminton,Pistas Tenis Badminton,https://edint.es/kos/InfrastructureType/pista-de-tenis,close,http://www.w3.org/2004/02/skos/core#closeMatch
+pistas-tenis-badminton,Pistas Tenis Badminton,https://edint.es/kos/InfrastructureType/pista-de-badminton,close,http://www.w3.org/2004/02/skos/core#closeMatch
+circuito-vida,Circuito Vida,https://edint.es/kos/InfrastructureType/fitness-de-exterior-y-circuitos-biosaludables,close,http://www.w3.org/2004/02/skos/core#closeMatch
+circuito-bmx,Circuito BMX,https://edint.es/kos/InfrastructureType/circuito-cerrado-de-bicicleta,close,http://www.w3.org/2004/02/skos/core#closeMatch
+pista-voleibol,Pista Voleibol,https://edint.es/kos/InfrastructureType/pista-de-voleibol,exact,http://www.w3.org/2004/02/skos/core#exactMatch
+pistas-padel,Pistas Padel,https://edint.es/kos/InfrastructureType/pista-de-padel,exact,http://www.w3.org/2004/02/skos/core#exactMatch
+frontones,Frontones,https://edint.es/kos/InfrastructureType/pista-de-fronton,exact,http://www.w3.org/2004/02/skos/core#exactMatch
+pistas-atletismo,Pistas Atletismo,https://edint.es/kos/InfrastructureType/pistas-de-atletismo-200m-300m-o-400m,exact,http://www.w3.org/2004/02/skos/core#exactMatch
+circuitos-footing,Circuitos Footing,https://edint.es/kos/InfrastructureType/circuitos-de-carrera-a-pie,exact,http://www.w3.org/2004/02/skos/core#exactMatch
+campos-hockey,Campos Hockey,https://edint.es/kos/InfrastructureType/campo-de-hockey-hierba,close,http://www.w3.org/2004/02/skos/core#closeMatch
+centros-espacios-deporte,Centros Espacios Deporte,https://edint.es/kos/InfrastructureType/equipamiento-deportivo,broad,http://www.w3.org/2004/02/skos/core#broadMatch
+embarcaderos,Embarcaderos,https://edint.es/kos/InfrastructureType/embalses-lagos-o-bahias-para-actividades-como-remo-o-piraguismo,close,http://www.w3.org/2004/02/skos/core#closeMatch
+tenis-mesa,Tenis Mesa,https://w3id.org/breatheplay-madrid/kos/InfrastructureType/tenis-mesa,own concept (not in EDINT),http://www.w3.org/2004/02/skos/core#exactMatch
+circuitos-ciclismo,Circuitos Ciclismo,https://edint.es/kos/InfrastructureType/circuito-cerrado-de-bicicleta,close,http://www.w3.org/2004/02/skos/core#closeMatch
+pista-polideportiva,Pista Polideportiva,https://edint.es/kos/InfrastructureType/pistas-polideportivas,exact,http://www.w3.org/2004/02/skos/core#exactMatch
+pista-pickleball,Pista Pickleball,https://w3id.org/breatheplay-madrid/kos/InfrastructureType/pista-pickleball,own concept (not in EDINT),http://www.w3.org/2004/02/skos/core#exactMatch
+cubo-gym,Cubo Gym,https://edint.es/kos/InfrastructureType/fitness-de-exterior-y-circuitos-biosaludables,close,http://www.w3.org/2004/02/skos/core#closeMatch
+canchas-baloncesto,Canchas Baloncesto,https://edint.es/kos/InfrastructureType/pista-de-baloncesto,exact,http://www.w3.org/2004/02/skos/core#exactMatch
+campos-golf,Campos Golf,https://edint.es/kos/InfrastructureType/campos-de-golf-o-minigolf-9-hoyos-18-hoyos,exact,http://www.w3.org/2004/02/skos/core#exactMatch

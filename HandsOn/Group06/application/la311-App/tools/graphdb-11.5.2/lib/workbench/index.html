@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><base href="/"><meta charset="UTF-8"><script>(function() {
+        const { pathname, search, hash } = window.location;
+        const baseUrl = document.head.querySelector('base').getAttribute('href');
+        if (pathname !== baseUrl && pathname.endsWith('/')) {
+          const clean = pathname.slice(0, -1) + search + hash;
+          window.history.replaceState({}, '', clean);
+        }
+      })();</script><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="css/splash-screen.css?v=3.5.2"><title>GraphDB Workbench</title><script src="resources/runtime.js?v=3.5.2"></script><meta name="importmap-type" use-injector/><script>window.wbDevMode = false;</script><script type="injector-importmap">{
+                "imports": {
+                    "single-spa": "./resources/single-spa.min.js?v=3.5.2",
+                    "@ontotext/workbench-api": "./api/ontotext-workbench-api.js?v=3.5.2",
+                    "@ontotext/root-config": "./main.4c6d44c6c627653cc709.js",
+                    "@ontotext/legacy-workbench": "./legacyWorkbench.27e4c0f79e9fc9887bb4.js",
+                    "@ontotext/workbench": "./workbench/workbench/workbenchApp.js?v=3.5.2"
+                }
+            }</script><meta name="import-map-overrides-domains" content="denylist:prod.example.com"/><script src="resources/import-map-overrides.js?v=3.5.2"></script><script src="resources/import-map-injector.js?v=3.5.2"></script><style>/* Default light/dark background is hardcodded here because our variables are not present yet.  */
+       body {
+         background-color: hsla(220, 40%, 7%);
+       }
+       @media (prefers-color-scheme: light) {
+         body {
+           background-color: #ffffff;
+         }
+       }</style></head><body><noscript>You need to enable JavaScript to run this app.</noscript><script>window.importMapInjector.initPromise.then(() => {
+      import('@ontotext/root-config')
+      .then(() => {
+                const pluginScript = document.createElement('script');
+                  pluginScript.src = 'plugins.js?v=3.5.2';
+                  document.body.appendChild(pluginScript);
+      });
+    });</script><import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full><figure id="splash-screen"><img decoding="sync" src="assets/graphdb-splash.svg?v=3.5.2" alt="GraphDB Workbench is loading..."></figure><onto-toastr></onto-toastr><onto-tooltip></onto-tooltip><onto-confirm-cancel-dialog></onto-confirm-cancel-dialog></body></html>
