@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Madrid Smart Parking Explorer</title>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Madrid Smart Parking Explorer</h1>
+        <p>Explorador de aparcamientos municipales de Madrid</p>
+    </header>
+
+    <main class="layout">
+
+        <aside class="sidebar">
+            <h2>Buscar aparcamientos</h2>
+
+            <label for="search">
+                Nombre, código o distrito
+            </label>
+
+            <input
+                type="search"
+                id="search"
+                placeholder="Ej. AGUILÓN, 204, CENTRO..."
+                autocomplete="off"
+            >
+            
+            <section class="filtros">
+                <h3>Filtros</h3>
+
+                <label for="filtro-distrito">Distrito</label>
+                <select id="filtro-distrito">
+                    <option value="">Todos los distritos</option>
+                </select>
+
+                <label for="filtro-tipo">Tipo de aparcamiento</label>
+                <select id="filtro-tipo">
+                    <option value="">Todos los tipos</option>
+                </select>
+
+                <label>Número de plazas</label>
+                <div class="rango-plazas">
+                    <input
+                        type="number"
+                        id="filtro-min-plazas"
+                        placeholder="Mínimo"
+                        min="0"
+                    >
+                    <input
+                        type="number"
+                        id="filtro-max-plazas"
+                        placeholder="Máximo"
+                        min="0"
+                    >
+                </div>
+
+                <button id="limpiar-filtros" type="button">
+                    Limpiar búsqueda y filtros
+                </button>
+            </section>
+
+            <p id="counter">Cargando aparcamientos...</p>
+
+            <div id="results" class="results"></div>
+
+            <section id="detail" class="detail" aria-live="polite">
+                <h2>Información</h2>
+                <p>Selecciona un aparcamiento en el mapa o en la lista.</p>
+            </section>
+        </aside>
+
+        
+        <section class="map-container">
+
+            <div id="map"
+                aria-label="Mapa de aparcamientos de Madrid">
+            </div>
+
+            <section id="ocupacion-panel" class="ocupacion-panel" hidden>
+
+                <div class="ocupacion-cabecera">
+                    <div>
+                        <h2 id="titulo-ocupacion">Ocupación histórica</h2>
+                        <p id="estado-ocupacion" aria-live="polite"></p>
+                    </div>
+
+                    <div class="selector-periodo">
+                        <label for="anio-ocupacion">Periodo</label>
+                        <select id="anio-ocupacion" disabled></select>
+                    </div>
+                </div>
+
+                <div class="comparacion-controles">
+                    <label for="comparar-con">
+                        Comparar ocupación con otro aparcamiento
+                    </label>
+
+                    <select id="comparar-con" disabled>
+                        <option value="">Sin comparar</option>
+                    </select>
+
+                    <p id="info-comparacion" aria-live="polite"></p>
+                </div>
+
+                <div id="grafico-contenedor"
+                    class="grafico-contenedor"
+                    hidden>
+                    <canvas id="grafico-ocupacion"
+                            role="img"
+                            aria-label="Evolución mensual de la ocupación">
+                    </canvas>
+                </div>
+
+
+                <!-- Resumen estadístico -->
+                <div id="resumen-estadistico"
+                    class="resumen-estadistico"
+                    aria-live="polite"
+                    hidden>
+                </div>
+
+                <!-- Tabla de ocupación mensual -->
+                <div id="tabla-contenedor"
+                    class="tabla-contenedor"
+                    hidden>
+
+                    <table id="tabla-ocupacion">
+                        <caption>
+                            Datos mensuales de ocupación histórica
+                        </caption>
+
+                        <thead>
+                            <tr id="cabecera-tabla"></tr>
+                        </thead>
+
+                        <tbody id="cuerpo-tabla"></tbody>
+                    </table>
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+
+    </main>
+
+    <!-- Librería Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet MarkerCluster -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.6.1/chart.umd.min.js"></script>
+    <!-- JavaScript propio -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
