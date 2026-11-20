@@ -171,7 +171,7 @@ LIMIT 20
 
 # Query 11: Classes that start in the afternoon (from 15:00:00)
 
-SELECT DISTINCT?className ?startTime ?endTime
+SELECT DISTINCT ?className ?startTime ?endTime
 WHERE {
     ?sportsClass a am:SportsClass ;
                 schema:name ?className ;
